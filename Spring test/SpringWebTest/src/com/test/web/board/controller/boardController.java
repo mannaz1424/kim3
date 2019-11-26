@@ -140,7 +140,7 @@ public class boardController {
 		System.out.println("N_END : " + N_END);
 		System.out.println("N_START_PAGE   : " + N_START_PAGE  );
 		System.out.println("N_END_PAGE : " + N_END_PAGE);
-		
+		         
 		System.out.println("map.get(\"mStartPage\") : " + map.get("mStartPage"));
 		System.out.println("pageDto.getCurPage() : " + pageBean.getCurPage());
 		
