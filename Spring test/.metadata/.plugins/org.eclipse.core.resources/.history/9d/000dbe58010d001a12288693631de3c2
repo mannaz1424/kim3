@@ -1,0 +1,10 @@
+package com.test.web.board.dao;
+
+import java.util.List;
+
+import com.test.web.board.bean.ContentBean;
+
+public interface BoardDao {
+
+	public List<ContentBean> selectBoardList();
+}

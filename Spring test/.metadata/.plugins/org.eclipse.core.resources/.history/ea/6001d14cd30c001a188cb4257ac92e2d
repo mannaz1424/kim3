@@ -1,0 +1,58 @@
+package com.test.web.board.controller;
+
+import java.util.HashMap;
+import java.util.Map;
+
+import org.apache.ibatis.session.SqlSession;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.ResponseBody;
+
+import com.test.web.board.dao.boardDao;
+
+@Controller
+public class boardController {
+	
+	@Autowired
+	private SqlSession sqlSession;
+	
+	static String SCUR_PAGE = null;
+	static Integer LIST_COUNT = 5;
+	static Integer PAGE_COUNT = 10;
+	static Integer I_CUR_PAGE = 1;
+	static Integer I_TOTAL_COUNT = null;
+	static int TOTAL_PAGE = 0;
+	static int N_START = 0;
+	static int N_END = 0;
+	static int N_START_PAGE = 0;
+	static int N_END_PAGE = 0;
+	
+	
+	// view_List 
+	@RequestMapping("/")
+	public String view_List() {		
+		
+		return "board/view_List";
+	}
+	
+	@RequestMapping(value="tBoardList", method = RequestMethod.GET)
+	@ResponseBody
+	public Map<String, Object> boardList() throws Exception{
+	    Map<String, Object> map = new HashMap<String, Object>();
+	    
+	    try {
+	    	boardDao dao = sqlSession.getMapper(boardDao.class);
+	    	
+	    	map.put("mList", dao.listDao());
+//	    	map.put("mList", dao.listDao2(N_END, N_START));	    	
+	    }catch (Exception e) {
+	    	e.printStackTrace();
+	    	System.out.println("e : " + e);
+		}	
+	    
+	    return map;
+	}
+
+}

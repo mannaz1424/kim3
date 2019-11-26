@@ -1,0 +1,296 @@
+'use strict';
+
+joinApp.controller('joinController', joinController);
+
+joinController.$inject = ['$rootScope','$scope','JoinService', '$localStorage', '$compile', '$location'];
+
+function joinController($rootScope,$scope,JoinService, $localStorage, $compile, $location){
+    $scope.fName = "";
+    $scope.fEmail = "";
+    
+    $scope.userId = "";
+    $scope.userEmail = "";
+    $scope.userPw = "";
+    $scope.userPwCheck = "";
+    
+    /**
+     * 아이디 찾기 AJAX
+     */
+    $scope.findId = function(){
+        if($scope.fName === null || $scope.fName.length === 0){
+            alert("이름을 입력해주세요.")
+            $("#findId_Name").focus();
+            return;
+        } 
+        console.log($scope.fEmail);
+        if($scope.fEmail === null || $scope.fEmail.length === 0) {
+            alert("이메일을 입력해주세요.");
+            $("#findId_Email").focus();
+            return;
+        }
+        
+        var regex = /^([a-zA-Z0-9_.+-])+\@(([a-zA-Z0-9-])+\.)+([a-zA-Z0-9]{2,4})+$/;
+        if(!regex.test($scope.fEmail)){
+            alert("이메일 형식이 맞지 않습니다.");
+            $("#findId_Email").focus();
+            return;
+        }
+        
+        var param = {
+            userName : $scope.fName,
+            userEmail : $scope.fEmail
+        };
+        
+        JoinService.findId(param).then(function(res) {
+            if(res.result == "ok"){
+                $("#findedUserId").text("귀하의 아이디는 " + res.findId + " 입니다.");
+                $("#findedUserId").show();
+            }else{
+                alert(res.resultMsg);
+                $("#findedUserId").hide();
+            }
+        });
+    }
+    
+    
+    /**
+     * 비밀번호 찾기 AJAX
+     */
+     $scope.findPw = function(){
+        
+        if($scope.userEmail === null || $scope.userEmail.length === 0){
+            alert("이메일을 입력해주세요.")
+            $("#findPw_id").focus();
+            return;
+        } 
+        
+        var regex = /^([a-zA-Z0-9_.+-])+\@(([a-zA-Z0-9-])+\.)+([a-zA-Z0-9]{2,4})+$/;
+        if(!regex.test($scope.userEmail)){
+            alert("이메일 형식이 맞지 않습니다.");
+            $("#findPw_id").focus;
+            return false;
+        }
+        
+        var param = {
+            userId : $scope.userId,
+            userEmail : $scope.userEmail
+        };
+        
+        JoinService.findPw(param).then(function(res) {
+            alert(res.resultMsg);
+            if(res.result == "ok") {
+                location.href="/join/memberInfo.ans";
+            }
+        });
+        
+    };
+
+    var idChecked = false; //아이디 체크변수
+
+    $scope.userId = "";
+    $scope.userNm = "";
+    $scope.userPhone = "";
+    $scope.userHandPhone = "";
+    $scope.userEmail = "";
+    $scope.userFax = "";
+    $scope.userZipCode = "";
+    $scope.userAddr1 = "";
+    $scope.userAddr2 = "";
+    
+    $scope.goUrl = function(url) {
+        location.href = url;
+    }
+    
+    /**
+     * 회원가입 AJAX
+     */
+    $scope.insertMember = function (){
+        
+        if($scope.userNm == ''){
+            alert('이름을 입력하세요');
+            $("#infoName").focus();
+            return false;
+        }
+        if($scope.userId == ''){
+            alert('이메일을 입력하세요');
+            $("#infoId").focus();
+            return false;
+        }
+        doChkId();
+        if(!idChecked) {
+            alert($scope.chkMsg);
+            $("#infoId").focus();
+            return false;
+        }
+        
+        if($scope.userPw == ''){
+            alert('비밀번호를 입력해 주세요.');
+            $("#infoPw").focus();
+            return false;
+        }
+        if($scope.userPw != $scope.userPwCheck){
+            alert("비밀번호가 서로 일치하지 않습니다.");
+            $("#infoPw2").focus();
+            return false;
+        }
+
+        var regex = /^([a-zA-Z0-9_.+-])+\@(([a-zA-Z0-9-])+\.)+([a-zA-Z0-9]{2,4})+$/;
+        if (!regex.test($scope.userId)) {
+            alert("이메일 형식이 맞지 않습니다.");
+            $("#emailId").focus();
+            return false;
+        }
+        
+        /*if($scope.policy1 == undefined || $scope.policy1 == false){
+            alert("이용약관동의를 해 주세요");
+            return;
+        }*/
+        
+        if($scope.policy2 == undefined || $scope.policy2 == false){
+            alert("개인정보취급 동의에 체크해 주세요");
+            return;
+        }
+        
+        var param = {
+                userName : $scope.userNm,
+                userId : $scope.userId,
+                password : $scope.userPw
+                
+        };
+        
+        JoinService.insertMember(param)
+            .then(function(data){
+                if(data.result == "ok"){
+                    alert(data.resultMsg);
+                    location.href="/join/memberInfo.ans"
+                }else {
+                    alert(data.resultMsg);
+                }
+        });
+    };
+    
+    /**
+     * 네이버, 페이스북, 구글 로그인 버튼 클릭
+     */
+    $scope.insert3rdMember = function(url) {
+    	 if($scope.policy2 == undefined || $scope.policy2 == false){
+             alert("개인정보취급 동의에 체크해 주세요");
+             return;
+         }
+    	 location.href = url;
+    };
+    
+    $scope.updatePw = function(){
+        if($scope.userPw == ''){
+            alert('비밀번호를 입력해 주세요.');
+            $("#infoPw").focus();
+            return false;
+        }
+        if($scope.userPw != $scope.userPwCheck){
+            alert("비밀번호가 서로 일치하지 않습니다.");
+            $("#infoPw2").focus();
+            return false;
+        }
+        const param = {
+            password : $scope.userPw
+            ,userId : $("#userId").val()
+        }
+        JoinService.updatePw(param).then(function(res){
+            alert(res.resultMsg);
+            location.reload();
+        });
+    }
+    
+    $scope.enterKey = function(event) {
+        if(event.which === 13) {
+            $scope.memberLogin();
+        }
+    }
+
+    $scope.loginId = '';
+    $scope.loginPw = '';
+    $scope.chkMsg = '';
+    
+    /**
+     *로그인 처리 AJAX
+    */
+    $scope.memberLogin = function () {
+        doLogin();
+    }
+    
+    
+    $scope.findPwd = function(){
+        location.href="/join/memberFindPW.ans";
+    }
+    
+    $scope.joinMember = function(){
+        location.href="/join/memberJoin.ans";
+    }
+    
+    $scope.onKeyPress = function($event){
+        if($event.which === 13){
+            doLogin();
+        }
+    }
+    function doLogin(){
+        if($scope.loginId == null || $scope.loginId == ""){
+            alert("이메일을 입력해주세요");
+            $("#Mid").focus();
+            return false;
+        }
+        
+        if($scope.loginPw == null || $scope.loginPw == ""){
+            alert("비밀번호를 입력해주세요");
+            $("#Mpw").focus();
+            return false;
+        }
+        
+        var param = {
+                userId : $scope.loginId,
+                password : $scope.loginPw
+        }
+        
+        JoinService.memberLogin(param)
+            .then(function(data) {
+                    if (data.result == "ok") {
+                        $localStorage.userData = data.userInfo;
+                        var resultUrl =data.resultUrl;
+                        
+                        if(resultUrl != undefined || resultUrl != '') {
+                            location.replace(resultUrl);
+                        } else {
+                            location.replace('/');  
+                        }
+                    } else {
+                        alert(data.resultMsg);
+                        // ID Should Remain at View. if password or id wrong. [2018-11-19 By bono]
+                        // and then focus to password.
+                        /*$scope.loginId = '';*/                         
+                        $scope.loginPw = '';
+                        $("#Mpw").focus();
+                    }
+            });
+    }
+    
+    function doChkId(){
+      //var re_id = /^[a-z0-9_-]{5,20}$/;
+        var re_id = /^([a-zA-Z0-9_.+-])+\@(([a-zA-Z0-9-])+\.)+([a-zA-Z0-9]{2,4})+$/;
+        if(re_id.test($scope.userId) != true) {
+            $scope.chkMsg="올바른 이메일을 입력해 주세요";
+            idChecked = false;
+            return false;
+        }
+        
+        var param = { userId : $scope.userId };
+        
+        JoinService.idChk(param)
+            .then(function(data){
+            if(data.result == 'ok') {
+                idChecked = true;
+            } else {
+                idChecked = false;
+            }
+            $scope.chkMsg = data.resultMsg;
+        });
+    }
+};

@@ -1,0 +1,36 @@
+package com.spring.study;
+
+import java.util.List;
+
+import javax.servlet.http.HttpSession;
+
+import org.apache.ibatis.session.SqlSession;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.ResponseBody;
+
+import com.spring.study.dao.IDao;
+import com.spring.study.dto.ContentDto;
+
+
+@Controller
+public class HomeProcController {
+	
+	@Autowired
+	private SqlSession sqlSession;
+	// 에러 발생	
+	// IDao dao = sqlSession.getMapper(IDao.class);
+	
+	private HttpSession session;
+	
+	@RequestMapping("/selectContentList")
+	@ResponseBody
+	public List<ContentDto> selectContentList() {
+		IDao dao = sqlSession.getMapper(IDao.class);
+		List<ContentDto> list = dao.listDao();
+		 return list;
+	}
+	
+	
+}

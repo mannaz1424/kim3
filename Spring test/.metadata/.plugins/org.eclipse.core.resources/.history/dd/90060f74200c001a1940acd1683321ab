@@ -1,0 +1,23 @@
+package com.spring.study.dto;
+
+public class PageDto {
+	
+	private Integer curPage;
+	
+	public PageDto() {
+		
+	}
+	
+    public PageDto(Integer curPage) {
+		this.curPage = curPage;
+	}
+    
+
+	public Integer getCurPage() {
+		return curPage;
+	}
+
+	public void setCurPage(Integer curPage) {
+		this.curPage = curPage;
+	}
+}

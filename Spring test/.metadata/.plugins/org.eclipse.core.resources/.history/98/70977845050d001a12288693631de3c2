@@ -1,0 +1,15 @@
+package com.test.web.board.dao;
+
+import java.util.List;
+
+import com.test.web.board.bean.ContentBean;
+
+public interface BoardDao {
+
+	public List<ContentBean> selectBoardList();
+	
+	public List<ContentBean> selectBoardList2(int nEnd, int nStart);
+	
+	// 페이지 관련 Dao
+	public Integer totalCountDao();
+}

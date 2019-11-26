@@ -1,0 +1,5 @@
+package com.test.web.board.dao.mapper;
+
+public class BoardDao {
+
+}

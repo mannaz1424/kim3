@@ -1,0 +1,298 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"  %>
+
+<!DOCTYPE html>
+<html>
+<head>
+   <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.2.7/angular.js"></script>     
+	
+	<script type="text/javascript" src="/resources/js/tApp.js"></script>
+	<script type="text/javascript" src="/resources/js/tController.js"></script>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <title>view_List.jsp</title>
+</head>
+<body data-ng-app="tApp" data-ng-controller="tController" >
+    
+    <h1>view_List.jsp</h1>
+    
+    <div data-ng-init="tBoardList()">
+
+	    <table width="500" cellpadding="0" cellspacing="0" border="1" >
+	        <tr>
+	            <th colspan="6">List</th>
+	        </tr>
+	         
+	        <tr>
+	            <th>번호</th>
+	            <th>이름</th>
+	            <th>타이틀 (클릭)</th>             
+	            <th>확인 회수</th>
+	            <th>날짜</th>
+	            <th>삭제</th>
+	        </tr>	         
+	        
+	        <%-- list 는 tList 의 별칭과 같은 것 --%>
+            <tr data-ng-repeat="list in mList">
+	            <td>{{list.tnum }}</td>
+	            <td>{{list.userid }}</td>
+	            <td>
+	             
+	                <!--  에러 발생 
+	                <a href="view_content?num={{list.tnum}}"  data-ng-click="tContent()">{{list.ttitle}}</a>
+	                
+	                <a href="view_Content?num={{list.tnum}}"  >{{list.ttitle}}</a>
+	                -->
+	                
+	                <a href="#"  data-ng-click="contentPost(list.tnum)">{{list.ttitle}}</a>
+	            </td>
+	            <td>{{list.thit }}</td>
+	            <td>{{list.tdate }}</td>
+	            <td >
+	                <!-- 
+	                deletePost 에 직접 list.tnum 을 넣어준다.
+	                input 의 hidden 기능을 사용하게 되면 AngularJS 에서 
+	                data를 받아오지 못하는 경우가 있다. (주의필요) -->
+	                
+	                <a href="#" data-ng-click="deletePost(list.tnum)">X</a>
+	            </td>
+	        </tr>
+	        
+	        
+	        
+	        
+	        
+	        
+	        
+	        
+	        
+	        
+	        <tr data-ng-init="pagePost(1)">
+	            <td colspan="6" style="text-align: center;">
+	            
+	                <%-- 처음 --%>
+	                    
+	                </span >
+                    <c:choose>
+                        <c:when test="({{pDto.iCurPage}} -1) < 1">
+                            [ &lt;&lt; ] &nbsp;
+                        </c:when>
+                        <c:otherwise>
+                            <%-- <a href="view_Page?curPage=1" > --%>
+                            <a href="#" data-ng-click="pagePost(1)" >
+                            
+                            
+                                [ &lt;&lt; ]
+                            </a> &nbsp;
+                        </c:otherwise>
+                    </c:choose>   
+                    
+                    
+                    
+                    <%-- 이전 --%>
+                    <c:choose>
+                        <c:when test="({{pDto.iCurPage}} -1) < 1">
+                        
+                        
+                            [ &lt; ] &nbsp;
+                        </c:when>
+                        <c:otherwise>
+                        <%-- <a href="view_Page?curPage=${mCurPage -1 }" > --%>
+                            <a href="#" data-ng-click="pagePost(pDto.iCurPage - 1)">
+                            
+                            
+                                [ &lt; ]
+                            </a> &nbsp;
+                        </c:otherwise>
+                    </c:choose>
+                    
+                    
+                    
+                    
+                    
+                    <%-- 개별 페이지 --%>
+                
+                   <span data-ng-repeat="index in getNumberArr(mStartPage, mEndPage)" >
+                       <a href="#" data-ng-click="pagePost(index)" 
+                                   data-ng-style="getStyle(mCurPage, index)">{{index}}</a>
+                   </span>
+                 
+                   
+                   
+                   
+                   
+                   
+                    
+                    <%-- 다음 --%>
+                    <c:choose>
+                        <c:when test="{{(pDto.iCurPage+ 1) > mTotalPage}}">
+                        
+                        
+                        
+                        
+                            [ &gt; ] &nbsp;
+                        </c:when>
+                        <c:otherwise>
+                            <%-- <a href="view_Page?curPage=${mCurPage + 1 }"> --%>
+                            <a href="#" data-ng-click="pagePost(pDto.iCurPage + 1)">
+                            
+                            
+                            
+                            
+                                [ &gt; ]
+                            </a> &nbsp;
+                        </c:otherwise>
+                    </c:choose>
+                    
+                    <%-- 끝 --%>
+                    <c:choose>
+                        <%-- <c:when test="${mCurPage == mTotalPage }"> --%>
+                        <c:when test="{{pDto.iCurPage}} == {{pDto.totalPage}}">
+                        
+                        
+                        
+                            [ &gt;&gt; ] 
+                        </c:when>
+                        <c:otherwise>
+                            <%-- <a href="view_Page?curPage=${mTotalPage }"> --%>
+                            <a href="#" data-ng-click="pagePost(mTotalPage)">
+                            
+                            
+                            
+                            
+                                [ &gt;&gt; ]
+                            </a>
+                        </c:otherwise>
+                    </c:choose>
+	            </td>	         
+        </table> 
+	
+	
+	    <br><br><br><br>
+	    
+	    
+	    
+	    
+	    
+	    
+	    
+	    
+	    
+	    
+	    
+	    
+	    
+	
+		<table width="500" cellpadding="0" cellspacing="0" border="1">
+            <tr>
+                <th colspan="2">
+                    Add                    
+                </th>
+            </tr>
+            <tr>
+                <th> 작성자 </th>
+                <td> 
+                    <!-- <input type="text" name="user" placeholder="${mUser }" readonly> -->
+                    <input type="text" name="user" id="user" data-ng-model="userid" 
+                           placeholder="USER 명을 입력하세요">
+                </td>
+            </tr>
+            
+            <tr>
+                <th> 타이틀 </th>
+                <td> 
+                    <input type="text" name="title" id="title" data-ng-model="ttitle"
+                           placeholder="타이틀을 입력하세요">
+                </td>
+            </tr>
+            
+            <tr>
+                <th> 내용 </th>
+                <td> 
+                    <input type="text" name="content" id="content" data-ng-model="tcontent"
+                           placeholder="내용을 입력하세요">
+                </td>
+            </tr>
+            <tr>
+                <th> 버튼 </th>
+                <td> 
+                    <button data-ng-click="insertPost()" >저장</button>
+                </td>
+            </tr>
+	    </table> 
+	    
+	    
+	    <br><br><br><br>
+	    
+	   
+	   
+	   
+	   
+	   
+	   
+	   
+	   
+	    <!-- <div data-ng-init="tContent()"> -->
+	    <div >
+		     <table width="500" cellpadding="0" cellspacing="0" border="1" data-ng-repeat="list in mContent">
+		         <tr>
+		             <th colspan="2">Content</th>
+		         </tr>
+		         <tr>
+		             <th>번호</th>
+		             <td>{{list.tnum }}</td>
+		         </tr>
+		         <tr>
+		             <th>이름</th>
+		             <td>{{list.userid }}</td>
+		         </tr>
+		         <tr>
+		             <th>타이틀</th>
+		             <td>{{list.ttitle}}</td>
+		         </tr>
+		         <tr>
+		             <th>내용</th>
+		             <td>{{list.tcontent }}</td>
+		         </tr>
+		         <tr>
+		             <th>확인 회수</th>
+		             <td>{{list.thit }}</td>
+		         </tr>
+		         <tr>
+		             <th>날짜</th>
+		             <td>{{list.tdate }}</td>
+		         </tr>		         
+		     </table> 
+		</div>
+	</div>
+	
+	
+	<br><br><br><br>
+	<div style="text-align: left; margin-left:50px;" >
+	    LIST_COUNT : {{mListCount }}<br/>
+	    PAGE_COUNT : {{mPageCount }}<br/>
+	    I_TOTAL_COUNT : {{mTotalCount }}<br/>
+	    TOTAL_PAGE : {{mTotalPage }}<br/>
+	    I_CUR_PAGE : {{mCurPage }}<br/>
+	    nStart : {{mStart }}<br/>
+	    nEnd : {{mEnd }}<br/>
+	    nStartPage : {{mStartPage }}<br/>	
+	    nEndPage : {{mEndPage }}<br/>
+	</div>
+	
+	
+	<br><br><br><br>
+	<div style="text-align: left; margin-left:50px;" >
+	    LIST_COUNT : {{pDto.listCount }}<br/>
+	    PAGE_COUNT : {{pDto.pageCount }}<br/>
+	    I_TOTAL_COUNT : {{pDto.iTotalCount }}<br/>
+	    TOTAL_PAGE : {{pDto.totalPage }}<br/>
+	    I_CUR_PAGE : {{pDto.iCurPage }}<br/>
+	    nStart : {{pDto.nStart }}<br/>
+	    nEnd : {{pDto.nEnd }}<br/>
+	    nStartPage : {{pDto.nStartPage }}<br/>	
+	    nEndPage : {{pDto.nEndPage }}<br/>
+	</div>
+	
+</body>
+</html>

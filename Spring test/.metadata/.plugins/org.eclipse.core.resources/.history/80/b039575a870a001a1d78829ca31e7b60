@@ -1,0 +1,9 @@
+'use strict';
+
+joinApp.controller('joinController', joinController);
+
+joinController.$inject = ['$rootScope','$scope','JoinService', '$localStorage', '$compile', '$location'];
+
+function joinController($rootScope,$scope,JoinService, $localStorage, $compile, $location){
+   
+};

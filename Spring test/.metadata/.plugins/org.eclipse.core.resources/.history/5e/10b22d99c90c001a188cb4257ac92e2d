@@ -1,0 +1,76 @@
+package com.test.web.board.bean;
+
+public class ContentBean {
+
+	private Integer tnum;
+	private String userid;
+	private String ttitle;
+	private String tcontent;
+	private Integer thit;
+	private String tdate;
+	
+	public ContentBean() {
+		
+	}
+	
+	public ContentBean(Integer tnum, String userid, 
+			          String ttitle, String tcontent, 
+			          int thit, String tdate) {
+		this.tnum = tnum;
+		this.userid = userid;
+		this.ttitle = ttitle;
+		this.tcontent = tcontent;
+		this.thit = thit;
+		this.tdate = tdate;		
+	}
+
+	public Integer getTnum() {
+		return tnum;
+	}
+
+	public void setTnum(Integer tnum) {
+		this.tnum = tnum;
+	}
+
+	public String getUserid() {
+		return userid;
+	}
+
+	public void setUserid(String userid) {
+		this.userid = userid;
+	}
+
+	public String getTtitle() {
+		return ttitle;
+	}
+
+	public void setTtitle(String ttitle) {
+		this.ttitle = ttitle;
+	}
+
+	public String getTcontent() {
+		return tcontent;
+	}
+
+	public void setTcontent(String tcontent) {
+		this.tcontent = tcontent;
+	}
+
+	public Integer getThit() {
+		return thit;
+	}
+
+	public void setThit(Integer thit) {
+		this.thit = thit;
+	}
+
+	public String getTdate() {
+		return tdate;
+	}
+
+	public void setTdate(String tdate) {
+		this.tdate = tdate;
+	}
+
+	
+}

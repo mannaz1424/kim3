@@ -1,0 +1,9 @@
+'use strict';
+
+boardApp.controller('boardController', boardController);
+
+boardController.$inject = ['$rootScope','$scope','BoardService', '$localStorage', '$compile', '$location'];
+
+function boardController($rootScope,$scope,JoinService, $localStorage, $compile, $location){
+   
+};

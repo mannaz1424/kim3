@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.test.web.board.dao.BoardDao">
+    <!-- select list -->
+    <select id="selectBoardList"  resultType="ContentBean">
+        SELECT
+            NO,
+            TITLE,
+            USER,
+            DATE            
+        FROM
+            TB_BOARD_KYJ
+    </select>
+    
+    <select id="selectBoardList2" resultType="ContentBean">
+        SELECT 
+            * 
+        FROM 
+            (SELECT * FROM TB_BOARD_KYJ <![CDATA[ WHERE NO <= #{param1} ]]>
+        ORDER BY NO ASC) A 
+        WHERE A.NO >= #{param2}
+    </select>
+    
+    <!-- content total count -->
+    <select id="totalCountDao" resultType="_Integer" >
+       SELECT 
+           COUNT(*) 
+       FROM 
+           TB_BOARD_KYJ
+    </select>
+    
+    <!-- content 추가 -->
+    <insert id="writeDao">
+       INSERT INTO 
+           TB_BOARD_KYJ  (NO, USER, TITLE, DATE)
+       VALUES (1, #{param1}, #{param2}, #{param3})
+    </insert>
+    
+    <select id="contentDao" resultType="ContentBean">
+        SELECT 
+        	* 
+       	FROM 
+       		TB_BOARD_KYJ 
+     	WHERE NO = #{param1}
+    </select>
+    
+    <!-- content delete -->
+    <delete id="deleteDao">
+        DELETE FROM 
+        	TB_BOARD_KYJ 
+       	WHERE NO = #{param1}
+    </delete>
+    
+    <!-- content insert 전에 no modify  -->
+    <update id="upNoDao">
+        UPDATE 
+        	TB_BOARD_KYJ  
+       	SET NO = NO +1 
+       	WHERE NO > 0
+    </update>
+    
+    <!-- content delete 후 삭제 no modify  -->
+    <update id="downNoDao">
+        UPDATE 
+        	TB_BOARD_KYJ 
+       	SET NO = NO -1 
+       	WHERE NO > #{param1}
+    </update>
+    
+    <!-- content modify -->
+    <update id="updateDao">
+        UPDATE 
+        	TB_BOARD_KYJ 
+       	SET 
+       		USER=#{param2},
+       		TITLE=#{param3},
+       		DATE=#{param4}
+       	WHERE NO=#{param1}
+    </update>
+
+
+</mapper>

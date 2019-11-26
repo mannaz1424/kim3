@@ -1,0 +1,15 @@
+'use strict';
+
+boardApp.controller('boardController', boardController);
+
+boardController.$inject = ['$rootScope','$scope','BoardService'];
+
+function boardController($rootScope,$scope,BoardService){
+	$scope.post = [
+		{
+			bno: 0
+			,title : "제목"
+		    ,content : "내용"
+		}
+	]
+};

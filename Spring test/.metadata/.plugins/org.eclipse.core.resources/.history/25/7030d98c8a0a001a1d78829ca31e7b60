@@ -1,0 +1,9 @@
+'use strict';
+
+boardApp.controller('boardController', boardController);
+
+boardController.$inject = ['$rootScope','$scope','BoardService'];
+
+function boardController($rootScope,$scope,BoardService){
+	$scope.number=0;
+};

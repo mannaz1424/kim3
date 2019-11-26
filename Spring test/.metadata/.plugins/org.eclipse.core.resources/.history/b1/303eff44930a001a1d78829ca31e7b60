@@ -1,0 +1,45 @@
+'use strict';
+
+boardApp.controller('boardController', boardController);
+
+boardController.$inject = ['$rootScope','$scope','BoardService'];
+
+function boardController($rootScope,$scope,BoardService){
+	$scope.post = [
+		{
+			bno: 0
+			,title : "제목"
+		    ,content : "내용"
+		}
+		,{
+			bno: 1
+			,title : "제목1"
+		    ,content : "내용1"
+		}
+		,{
+			bno: 2
+			,title : "제목2"
+		    ,content : "내용2"
+		}
+		,{
+			bno: 3
+			,title : "제목3"
+		    ,content : "내용3"
+		}
+	]
+	
+	$scope.insertPost = function() {
+		$scope.post.push({
+				bno: 4
+				,title : $scope.title
+				,content : $scope.content
+		});
+	}
+	
+	$scope.selectContentList = function() {
+		BoardService.selectContentList().then(function(res) {
+			console.log(res)
+		})
+	}
+	
+};

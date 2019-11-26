@@ -1,0 +1,17 @@
+package com.test.web.board.controller;
+
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.stereotype.Controller;
+
+@Controller
+public class boardController {
+	
+	// view_List 
+	@RequestMapping("/")
+	public String view_List() {		
+		
+		return "board/view_List";
+	}
+	
+
+}
