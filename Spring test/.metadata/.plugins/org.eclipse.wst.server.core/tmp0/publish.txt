@@ -1,0 +1,4 @@
+#Tomcat publish data
+#Tue Nov 26 10:42:23 KST 2019
+org.eclipse.jst.jee.server\:SpringWebTest=C\:\\DEV\\Tomcat9\\wtpwebapps\\SpringWebTest
+org.eclipse.jst.jee.server\:/binary\:C\:\\Users\\USER\\.m2\\repository\\org\\springframework\\spring-web\\4.2.4.RELEASE\\spring-web-4.2.4.RELEASE.jar=C\:\\DEV\\Tomcat9\\wtpwebapps\\SpringWebTest\\WEB-INF\\lib\\spring-web-4.2.4.RELEASE.jar
