@@ -1,9 +1,0 @@
-'use strict';
-
-boardApp.controller('joinController', joinController);
-
-boardController.$inject = ['$rootScope','$scope','JoinService', '$localStorage', '$compile', '$location'];
-
-function joinController($rootScope,$scope,JoinService, $localStorage, $compile, $location){
-   
-};
