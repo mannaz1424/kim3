@@ -116,6 +116,11 @@
 		<item value="false" key="WizardProjectsImportPage.STORE_COPY_PROJECT_ID"/>
 		<item value="false" key="WizardProjectsImportPage.STORE_ARCHIVE_SELECTED"/>
 		<list key="WizardProjectsImportPage.STORE_DIRECTORIES">
+			<item value="D:\my_Java\kim3\Spring test\Test_Vue"/>
+			<item value="D:\my_Java\kim3\Spring test\Test_Board"/>
+			<item value="D:\my_Java\kim3\Spring test\SpringWebTest2"/>
+			<item value="D:\my_Java\kim3\Spring test\SpringWebTest"/>
+			<item value="D:\my_Java\kim3\Spring test\Servers"/>
 			<item value="D:\Spring test\SpringWebTest2"/>
 			<item value="D:\Spring test\SpringWebTest"/>
 			<item value="D:\Spring test\Test_Board"/>

@@ -1,3 +1,0 @@
-#Tomcat publish data
-#Wed Nov 27 18:30:53 KST 2019
-org.eclipse.jst.jee.server\:Test_Vue=C\:\\DEV\\Tomcat9\\wtpwebapps\\Test_Vue

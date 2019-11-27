@@ -1,11 +1,6 @@
-INDEX VERSION 1.4+D:\kim3\Spring test\.metadata\.plugins\org.eclipse.wst.jsdt.core\indexes
-47220332.index
+INDEX VERSION 1.4+D:\my_Java\kim3\Spring test\.metadata\.plugins\org.eclipse.wst.jsdt.core\indexes
+2379001331.index
 666712033.index
 1055707398.index
-1181246336.index
-636286724.index
-2889364628.index
-2379001331.index
 1873171520.index
-671513902.index
-1702123699.index
+2889364628.index
