@@ -11,17 +11,17 @@
         ORDER BY NO ASC
     </select>
     
-    <!--  
+     
     <select id="selectBoardList2" resultType="ContentBean">
         SELECT 
             * 
         FROM 
-            (SELECT * FROM TB_BOARD_KYJ <![CDATA[ WHERE NO <= #{param1} ]]>
+            (SELECT * FROM TB_BOARD_KYJ <![CDATA[ WHERE NO <= #{nEnd} ]]>
         ORDER BY NO ASC) A 
-        WHERE A.NO >= #{param2} ORDER BY NO ASC
+        WHERE A.NO >= #{nStart} ORDER BY NO ASC
     </select>
     
-    
+    <!-- 
     <select id="selectBoardList2" resultType="ContentBean">
         SELECT 
             * 
@@ -31,7 +31,7 @@
             ORDER BY NO ASC;
     </select>
     -->
-    <!--  -->
+    <!--  
     <select id="selectBoardList2" parameterType="pageBean" resultType="ContentBean">
         SELECT 
             * 
@@ -39,9 +39,8 @@
             (SELECT * FROM TB_BOARD_KYJ <![CDATA[ WHERE NO <= #{nEnd}]]>
         ORDER BY NO ASC) A 
         WHERE A.NO >= #{nStart} ORDER BY NO ASC
-    </select>
-    
-    
+    </select>    
+    -->
     
     
     <!-- content total count -->

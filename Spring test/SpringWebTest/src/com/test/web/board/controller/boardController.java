@@ -51,7 +51,9 @@ public class boardController {
 	    	PageBean pageBean = new PageBean();
 	    	pageBean.setnEnd(N_END);
 	    	pageBean.setnStart(N_START);
-	    	map.put("mList", boardDao.selectBoardList2(pageBean));
+	    	
+	    	map.put("mList", boardDao.selectBoardList2(N_END, N_START));
+//	    	map.put("mList", boardDao.selectBoardList2(pageBean));
 	    }catch (Exception e) {
 	    	e.printStackTrace();
 	    	System.out.println("e : " + e);

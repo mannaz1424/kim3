@@ -155,7 +155,7 @@ function tController($rootScope, $scope, TService){
 				no: no
 		}
 		TService.modifyPost(param).then(function(res){
-			console.log(res);
+			console.log("res 로그 테스트 : " + res);
 			alert(res.resultMsg);
 			
 			if(res.result == 'ok'){
@@ -163,7 +163,7 @@ function tController($rootScope, $scope, TService){
 //					$scope.pagePost();
 			}
 			
-			console.log(res.mModify);
+			console.log("res.mModify" + res.mModify);
 			$scope.mModify = res.mModify;
 		});
 	}

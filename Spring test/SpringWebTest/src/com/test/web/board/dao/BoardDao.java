@@ -2,15 +2,17 @@ package com.test.web.board.dao;
 
 import java.util.List;
 
+import org.apache.ibatis.annotations.Param;
+
 import com.test.web.board.bean.ContentBean;
-import com.test.web.board.bean.PageBean;
 
 public interface BoardDao {
 
 	public List<ContentBean> selectBoardList();
 	
-//	public List<ContentBean> selectBoardList2(int nEnd, int nStart);
-	public List<ContentBean> selectBoardList2(PageBean pageBean);
+	// HeidiSQL 에 변수를 보낼때는 @Param 을 Dao.java 파일에 사용해야 한다.
+	public List<ContentBean> selectBoardList2(@Param("nEnd")int nEnd, @Param("nStart")int nStart);
+//	public List<ContentBean> selectBoardList2(PageBean pageBean);
 	
 	
 	

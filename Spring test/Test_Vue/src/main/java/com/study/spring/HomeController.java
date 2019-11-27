@@ -39,10 +39,38 @@ public class HomeController {
 	}
 	*/
 	
+	
+//	@RequestMapping(value = "/", method = RequestMethod.GET)
+//	public String home(Locale locale, Model model) {
+//		
+//		return "test_vue";
+//	}
+	
 	@RequestMapping(value = "/", method = RequestMethod.GET)
-	public String home(Locale locale, Model model) {
+	public String home() {
 		
-		return "test_vue";
+		return "test_vue08";
 	}
 	
+	@RequestMapping(value = "/01", method = RequestMethod.GET)
+	public String test_vue01() {
+		
+		return "test_vue01";
+	}
+	@RequestMapping(value = "/02", method = RequestMethod.GET)
+	public String test_vue02() {
+		
+		return "test_vue02";
+	}
+	@RequestMapping(value = "/03", method = RequestMethod.GET)
+	public String test_vue03() {
+		
+		return "test_vue03";
+	}
+	@RequestMapping(value = "/04", method = RequestMethod.GET)
+	public String test_vue04() {
+		
+		return "test_vue04";
+	}
+		
 }
