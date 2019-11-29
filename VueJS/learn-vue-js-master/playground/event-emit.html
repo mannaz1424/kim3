@@ -12,7 +12,9 @@
         <!-- <app-header v-on:하위 컴포넌트에서 발생한 이벤트 이름="상위 컴포넌트의 메서드 이름"></app-header> -->
         <app-header v-bind:propsdata="message" v-on:pass="logText"></app-header><br><br>
         <app-content v-bind:propsdata="message2" v-on:increase="increaseNumber"></app-content>
-        <h1>{{num}}</h1>
+        <p>
+            <h1>{{num}}</h1>
+        </p>
     </div>
 
     <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
