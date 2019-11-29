@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    
+
+    <div id="app" >
+        <!-- 
+            일반적으로 웹 페이지에서 페이지 이동을 할 때는 사용자가 url 을
+            다 쳐서 이동하지 않습니다. 
+            이 때 화면에서 특정 링크를 클릭해서 페이지를 이동할 수있게
+            해줘야 하는데 그게 바로 <router-link> 입니다. 
+         -->
+        <router-link to="/login">Login</router-link>
+        <router-link to="/main">Main</router-link>
+        <!-- router url 변경될 경우 내용을 보여주는 기능 이다. -->
+        <!-- 
+            브라우저의 주소 창에서 URL 이 변경되면, 
+            앞에서 정의한 routes 속성에 따라 해당 컴포넌트가 화면에 뿌려집니다.
+            이 때 뿌려지는 지점이 템플릿의 <router-view> 입니다.
+        -->
+        <router-view></router-view> 
+        <app-header></app-header>
+    </div>
+
+    <!-- Vue 라이브러리  가장 먼저 넣어주어야 함 (순서가 매우 중요 함)-->
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    <!-- Vue 라우터 -->
+    <script src="https://unpkg.com/vue-router/dist/vue-router.js"></script>
+
+    <script>
+        var appHeader = {
+            template: '<div>appHeader</div>'
+        }
+        var LoginComponent = {
+            template: '<div>login</div>'
+        }
+        var MainComponent = {
+            template: '<div>main</div>'
+        }
+
+        // 라우터 인스턴스 생성
+        var router1 = new VueRouter ({
+            // // http://127.0.0.1:5500/playground/router.html#/login
+            // // html#/login 에서 # 를 없애는 명령어 이다.
+            // // http://127.0.0.1:5500/login 이렇게 변경 됨            
+            // mode: 'history',
+
+            // 라우터 옵션
+            // 페이지의 라우팅 정보
+            // routes (routers 아님) 주의 필요 ** 
+            routes: [
+                // 페이지의 정보를 객체로 넣는데 
+                // page 의 개수만큼 객체를 만들어야 한다.
+
+                // 로그인 페이지 정보
+                {
+                    // 페이지의 url 
+                    path: '/login',
+                    // 해당 url 에서 표시될 컴포넌트
+                    // 해당 페이지로 이동했을 때 뿌려질 
+                    // 컴포넌트를 연결하는 속성
+                    component: LoginComponent,
+                    // name: 'login'
+                },
+                // 메인 페이지 정보
+                {
+                    path: '/main',
+                    component: MainComponent,
+                    // name: 'main'
+                }
+            ]
+        })
+        new Vue({
+            el: '#app',            
+            components: {
+                'app-header': appHeader
+            },
+
+            // router 은 Vue 에서 갖고 있는 속성 (속성명은 정해져 있음), 
+            // router1 은 위의 var router1 이다.
+            // 인스턴스에 라우터 인스턴스를 등록
+            router: router1
+        });
+    </script>
+</body>
+</html>

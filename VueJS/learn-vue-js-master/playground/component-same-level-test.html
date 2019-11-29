@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+
+    <div id="app">
+        <app-header v-bind:pmessage="message" v-on:increase="addNumber">
+            <!-- 에러 발생 -->
+            <br><br><p v-bind:pnum="num"></p>
+            <!-- <br><br>{{num}}
+            <br><br>{{pnum}} -->
+
+        </app-header>
+        <br><br>{{ num }} 
+    </div>
+    <!-- new Vue 의 el: '#app' 범위 밖이라 Data 상호 전송이 되지 않는다. -->
+    <!-- <br><br>{{ num }} -->
+
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    
+    <script>
+        var appHeader = {
+            template: '<button v-on:click="addNum"> {{pmessage}} </button><br>{{pnum}}',
+            // props: ['pmessage', 'pnum'] 의 pmessage 에서 -, _, P(대문자) 등을
+            // 사용할 수 없다. 
+            props: ['pmessage', 'pnum'],
+            methods: {
+                addNum: function(){
+                    this.$emit('increase');
+                }
+            }
+        }
+        new Vue({
+            el:'#app',
+            components: {
+                'app-header': appHeader
+            },
+            data: {
+                message: 'add...',
+                num: 10
+            },
+            methods: {
+                addNumber: function(){
+                    this.num = this.num + 1;
+                    console.log('추가하셨네요...');
+                }
+            }
+        });
+    </script>
+</body>
+</html>

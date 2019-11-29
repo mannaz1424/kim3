@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+
+    <div id="app">
+        <app-header v-bind:pmessage="message" v-on:increase="addNumber"></app-header>
+        <br><br><br>
+        <app-content v-bind:ppnum="num" v-on:pass="deliverNum"></app-content>
+        {{num}}
+    </div>
+    <!-- new Vue 의 el: '#app' 범위 밖이라 Data 상호 전송이 되지 않는다. -->
+    <!-- <br><br>{{ num }} -->
+
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    
+    <script>
+        var appHeader = {
+            template: '<button v-on:click="addNum">1씩 추가... {{pmessage}}</button>',
+            // props: ['pmessage', 'pnum'] 의 pmessage 에서 -, _, P(대문자) 등을
+            // 사용할 수 없다. 
+
+            // 'pnum' 사용하는 방법 확인 할 것
+            props: ['pmessage', 'pnum'],
+            methods: {
+                addNum: function(){
+                    this.$emit('increase');
+                }
+            }
+        } 
+        var appContent = {
+            template: '<div>content <br> <button v-on:click="passNum">10씩 추가... {{ppnum}}</button> </div>',
+            methods: {
+                passNum: function () {
+                    this.$emit('pass', 10);
+                }
+            },
+            props: ['ppnum']
+        }
+        
+        new Vue({
+            el:'#app',
+            components: {
+                'app-header': appHeader,
+                'app-content': appContent
+            },
+            data: {
+                message: 'add...',
+                num: 0
+            },
+            methods: {
+                addNumber: function(){
+                    this.num = this.num + 1;
+                    console.log('추가하셨네요...');
+                },
+                deliverNum: function(value){
+                    this.num = this.num + value;
+
+                }
+            }
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Axios</title>
+</head>
+<body>
+  <div id="app">
+    <button v-on:click="getData">get user</button>
+    <div>
+      {{ users }}
+    </div>
+  </div>
+
+  <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+  <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+  <script>
+    new Vue({
+      el: '#app',
+      data: {
+        users: []
+      },
+      methods: {
+        getData: function() { 
+          // // 여기에 있는 this 는 Vue (인스턴스, 컴포넌트)를 가리킨다.
+          // console.log('getData: function() {} : '+ this);
+          
+          var vm = this;
+          // axios.get('') 에 들어있는 url 에서 data 를 받음
+          axios.get('https://jsonplaceholder.typicode.com/users/')
+          // callback 함수
+          // 성공하면 then 으로 진입
+            .then(function(response) {
+              // console.log(response);
+              console.log(response.data);
+
+              // // axios.get('') 함수를 실행하고 난 다음의 this 는 
+              // // 비동기 처리를 했을 때 실행 컨택스트가 바뀌면서 
+              // // 내용이 바뀌는 data 이다.              
+              // console.log('axios.get() this : ' + this);
+              
+              // this.users = response.data;
+              vm.users = response.data;
+            })
+            // 실패하면 catch 로 진입
+            .catch(function(error) {
+              console.log(error);
+            });
+        }
+      }
+    })
+  </script>
+</body>
+</html>
