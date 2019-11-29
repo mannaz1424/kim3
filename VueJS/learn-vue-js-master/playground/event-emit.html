@@ -8,8 +8,10 @@
 </head>
 <body>
     <div id="app">
-        <!-- <app-header v-bind:프롭스 속성 이름="상위 컴포넌트의 데이터 이름"></app-header> -->
-        <!-- <app-header v-on:하위 컴포넌트에서 발생한 이벤트 이름="상위 컴포넌트의 메서드 이름"></app-header> -->
+        <!-- <app-header v-bind:프롭스 속성 이름="상위 컴포넌트의 데이터 이름">            
+             </app-header> -->
+        <!-- <app-header v-on:하위 컴포넌트에서 발생한 이벤트 이름="상위 컴포넌트의 메서드 이름">
+             </app-header> -->
         <app-header v-bind:propsdata="message" v-on:pass="logText"></app-header><br><br>
         <app-content v-bind:propsdata="message2" v-on:increase="increaseNumber"></app-content>
         <p>
@@ -19,10 +21,12 @@
 
     <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
 
+    <!-- $emit('') 에 들어가는 속성 명령어 확인해 둘 것!!! -->
     <script>
         var appHeader = {
             template: '<button v-on:click="passEvent">{{propsdata}}</button>',
             props: ['propsdata'],
+            // components 안의 메소드는 $emit 의 속성을 정의하는 것이다.
             methods: {
                 passEvent: function(){
                     this.$emit('pass');
@@ -50,6 +54,7 @@
                 message2: 'add...',
                 num: 10
             },
+            // Vue 안의 메소드는 실행되는 함수의 동작을 정의한다.
             methods: {
                 logText: function(){
                     console.log('hi');
