@@ -24,6 +24,8 @@
             template: '<button v-on:click="addNum">1씩 추가... {{pmessage}}</button>',
             // props: ['pmessage', 'pnum'] 의 pmessage 에서 -, _, P(대문자) 등을
             // 사용할 수 없다. 
+            // $emit, props 에 사용되는 속성은 대문지나 기호를 쓰면 안됨
+            // html 에서는 대문자를 인식하지 못하기 때문임.
 
             // 'pnum' 사용하는 방법 확인 할 것
             props: ['pmessage', 'pnum'],
@@ -37,6 +39,8 @@
             template: '<div>content <br> <button v-on:click="passNum">10씩 추가... {{ppnum}}</button> </div>',
             methods: {
                 passNum: function () {
+                    // ('명령어, value); 
+                    // pass --> 변수(명령어) 
                     this.$emit('pass', 10);
                 }
             },
