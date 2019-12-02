@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Insert title here</title>
+    <script src="https://code.jquery.com/jquery-3.4.1.js" ></script>
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js" ></script>
+    <script type="text/javascript">
+    	$(document).ready(function(){
+	    	$("h1:eq(0)").text("시작");
+	    	var p1 = {name:"홍길동", age:25, loc:"서울 당산동"};
+	    	$("h2").eq(0).text(p1.name);
+	    	$("h2").eq(1).text(p1.age);
+	    	$("h2").eq(2).text(p1.loc);
+	    	
+	    	p1.show=function(){
+	    		var add="<h3>" + this.name + "</h3>";
+	    		add += "<h3>" + this.age + "</h3>";
+	    		add += "<h3>" + this.loc + "</h3>";
+	    		$("#container").append(add);
+	    	}
+	    	
+	    	p1.show();
+	    	
+	    	
+	    	
+	    	var pp1 = {ranking:1, team:"두산", victory:0.615};
+	    	var pp2 = {ranking:2, team:"키움", victory:0.601};
+	    	var pp3 = {ranking:3, team:"sk", victory:0.615};
+	    	
+	    	pp1.list = function(){
+	    		var add1 = "<tr><td>" + this.ranking + "<td>";
+	    		add += "<td>" + this.team + "</td>";
+	    		add += "<td>" + this.victory + "</td></tr>";
+	    		$("#add1").append(add1);
+	    	}
+	    	
+	    	
+	    	pp2.list = function(){
+	    		var add2 = "<tr><td>" + this.ranking + "<td>";
+	    		add += "<td>" + this.team + "</td>";
+	    		add += "<td>" + this.victory + "</td></tr>";
+	    		$("#add1").append(add2);
+	    	}
+	    	
+	    	pp3.list = function(){
+	    		var add3 = "<tr><td>" + this.ranking + "<td>";
+	    		add += "<td>" + this.team + "</td>";
+	    		add += "<td>" + this.victory + "</td></tr>";
+	    		$("#add1").append(add3);
+	    	}
+	    	
+	    	
+	    	pp1.list();
+	    	pp2.list();
+	    	pp3.list();
+	    	
+	    	
+	    	
+    	});
+    </script>
+</head>
+
+<body>
+	<div id="container">
+		<h1></h1> 
+		<h2></h2>
+		<h2></h2>
+		<h2></h2>
+	</div>
+	
+	<table border id="add1">
+	    <tr><th>순위</th><th>팀명</th><th>승률</th></tr>
+	</div>
+</body>
+</html>

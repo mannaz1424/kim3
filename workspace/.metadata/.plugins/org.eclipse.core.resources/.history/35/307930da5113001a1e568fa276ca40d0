@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Insert title here</title>
+    <script src="https://code.jquery.com/jquery-3.4.1.js" ></script>
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js" ></script>
+    <script type="text/javascript">
+    	$(document).ready(function(){
+	    	$("h1:eq(0)").text("시작");
+	    	var vm = new Vul({
+	    		el: "#container",
+	    		data: {num01:0, num02:0, sum:0},
+	    		methods:{
+	    			plus:function(){
+	    				this.sum = Number(this.num01) 
+	    				           + Number(this.num02);
+	    			}
+	    		}
+	    	});
+    	});
+    </script>
+</head>
+
+<body>
+	<div id="container">
+		<h1></h1> 
+		첫번재 숫자:<input v-model="num01"/> <br>
+		두번재 숫자:<input v-model="num02"/> <br>
+		<input type="button" value="합산" @click="plus" />
+		<h3>{{num01}} + {{num02}} = {{sum}}</h3>
+		
+	</div>
+</body>
+</html>
