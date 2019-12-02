@@ -72,5 +72,24 @@ public class HomeController {
 		
 		return "test_vue04";
 	}
+	@RequestMapping(value = "/05", method = RequestMethod.GET)
+	public String test_vue05() {
 		
+		return "test_vue05";
+	}
+	@RequestMapping(value = "/06", method = RequestMethod.GET)
+	public String test_vue06() {
+		
+		return "test_vue06";
+	}	
+	@RequestMapping(value = "/07", method = RequestMethod.GET)
+	public String test_vue07() {
+		
+		return "test_vue07";
+	}
+	@RequestMapping(value = "/08", method = RequestMethod.GET)
+	public String test_vue08() {
+		
+		return "test_vue08";
+	}
 }

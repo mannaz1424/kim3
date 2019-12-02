@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.test.web.member.dao.MemberDao">
+
+	<!-- 회원 가입 -->
+	<!-- Insert, Update, Delete : DCL 리턴타입이 반영된 row 의 갯수 -->
+	<insert id="insertMember" parameterType="memberBean">
+		INSERT INTO TB_MEMBER (
+			MB_ID,
+			MB_NAME,
+			MB_PW,
+			MB_ADDR
+		) VALUES (
+			#{mbId},
+			#{mbName},
+			#{mbPw},
+			#{mbAddr}
+		)
+	</insert>
+	
+	<!-- select 태그 : 죄회 -->
+	<select id="selectMemberList" resultType="memberBean">
+		SELECT 
+			MB_ID as mbId, 
+			MB_NAME as mbName, 
+			MB_PW as mbPw, 
+			MB_ADDR as mbAddr
+		FROM
+			TB_MEMBER
+	</select>
+	
+	<select id="selectMember" parameterType="memberBean" resultType="memberBean">
+		SELECT 
+			MB_ID as mbId, 
+			MB_NAME as mbName, 
+			MB_PW as mbPw, 
+			MB_ADDR as mbAddr
+		FROM
+			TB_MEMBER
+		WHERE
+			MB_ID = #{mbId}
+			<if test="mbPw != null and mbPw != ''">
+				AND MB_PW = #{mbPw}
+			</if>
+	</select>
+
+</mapper>
