@@ -38,9 +38,19 @@ public class boardController {
 	public String view_List(Model model) {	
 		Map<String, Object> map = new HashMap();
 //		map.put("mList", boardDao.selectBoardList());
-		model.addAttribute("mList", boardDao.selectBoardList() );
-		return "board/view_List";
+		model.addAttribute("mList", boardDao.selectBoardList());
+//		model.addAttribute("mList", "안녕하세요...");
+		
+		return "/board/view_List";
 	}
+	
+	
+//	@RequestMapping("/")
+//	public String view_List() {	
+//		
+//		return "/board/view_List";
+//	}
+	
 	
 	@RequestMapping(value="tBoardList", method = RequestMethod.GET)
 	@ResponseBody

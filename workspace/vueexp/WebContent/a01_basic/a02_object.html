@@ -44,6 +44,20 @@
 			// $("#show").innerHTML(show);
 		}
 	}
+	
+	function Good(menu, price, shop){
+		this.menu = menu;
+		this.price = price;
+		this.shop = shop;
+		
+		this.showTab = function(){
+			var tab = "<tr><td>" + this.menu + "</td>";
+			tab += "<td>" + this.price + "</td>";
+			tab += "<td>" + this.shop + "</td></tr>";
+			
+			$("#showTab").append(tab);
+		}
+	}
 </script>
 </head>
 
@@ -51,6 +65,13 @@
 	<div id="container">
 		<h1></h1> 
 		<div id="show"></div>
+		<table border id="showTab">
+		    <tr>
+		        <td>메뉴</td>
+		        <td>가격</td>
+		        <td>매장</td>
+		    </tr>		        
+		</table>
 	</div>
 </body>
 </html>
