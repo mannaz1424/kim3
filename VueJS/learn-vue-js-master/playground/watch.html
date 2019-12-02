@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <div id="app">
+        <button v-on:click="addNum">increase</button>
+        <br>
+        {{num}}
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+
+    <script>
+        new Vue({
+            el: '#app',
+            data: {
+                num: 10
+            },
+            // 데이터를 대상으로 넣을 수 있는 속성이며, 
+            // 데이터의 변화에 따라서 특정 로직을 실행할 수 있는 
+            // Vue 의 속성이다.
+            watch: {
+                num: function(){
+                    this.logText();
+                }
+
+            },
+            methods: {
+                addNum: function(){
+                    this.num = this.num + 1;
+                    console.log('changed');                    
+                },
+                logText:function(){
+                    console.log('changed2');                    
+                }
+            }
+
+        });
+    </script>
+</body>
+</html>

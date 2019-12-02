@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        .warning {
+            color: red;
+        }
+    </style>
+</head>
+<body>
+    
+    <div id="app">
+        <!-- <p v-bind:class="cname">Hello</p> -->
+
+        <!-- warning 이 클래스 이름이 되며 뒤에 : isError 라는
+            조건에 따라서 warning 이 추가되거나 추가되지 않게 
+            된다. -->
+        <!-- <p v-bind:class="{ warning: isError }">Hello</p> -->
+        <p v-bind:class="errorTextColor">Hello</p>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+
+    <script>
+        new Vue({
+            el: '#app',
+            data: {
+                // cname: 'blue-text',
+                isError: false
+            },
+            computed: {
+                errorTextColor: function() {
+                    // if(isError){
+                    //     return 'warning';
+                    // }else{
+                    //     return null;
+                    // }
+
+                    return this.isError ? 'warning' : null;
+                }
+            }
+        });
+    </script>
+</body>
+</html>
