@@ -1,0 +1,47 @@
+반갑습니다.
+이다원 입니다.
+프로그램 경험은 2년차 입니다.
+현재 안드로이드 개발자 입니다.
+
+자바스크립트 경험은 거의 없습니다.
+뷰 경험은 없습니다.
+과정 목적은 웹과 모바일로 토이 프로젝트를 하고 싶어서 신청 하였습니다.
+
+#11/30
+1. 수업 진도 속도 - 적당
+2. 이해도 - 적당
+3. 불편사항 - 없음
+4. 답변형 게시판
+
+
+
+
+1.
+
+2. for (var d in data) {
+	console.log(d)
+} 
+
+3. let - 지역변수 var - 지역 변수 아님 (for 문 밖에서도 사용가능)
+
+4. ?
+
+5. ajax - 화면 갱신 없이도 서버와 통신 할 수 잇는 것
+
+6. { items : 
+[{name : "a", price : "1000", number : "3"}, 
+{name : "a", price : "1000", number : "3"}, 
+{name : "a", price : "1000", number : "3"}, ]
+}
+
+var htmlStr = "";
+htmlStr += "<table>"; 
+for (var item in items) {
+	
+	htmlStr += "<tr>";
+	htmlStr += "<td>" + item.name + "</td>";
+	htmlStr += "<td>" + item.price + "</td>";
+	htmlStr += "<td>" + item.number + "</td>";
+}
+
+

@@ -1,0 +1,36 @@
+안녕하세요 이슬기입니다.
+웹개발자입니다.
+
+
+# 사전 평가 정답
+1. 
+2. 
+var arr = new Array
+arr.push('name1','name2','name3')
+for(name in arr){
+	console.log(name)
+}
+3. scope가 다름
+4. let a = 1;
+5. $.ajax({
+    url: "http://xxx.xxx",
+    type: "post",
+    dataType: "text",
+    data: "pram1=value",
+    success: function(data){
+		console.log('suc')
+    },
+    error: function (request, status, error){        
+		console.log('err')
+    }
+  });
+  6. var obj = {'name':'book', 'price':10000, 'quantity':3}
+	for(name in obj){
+	  	tr = `<tr><td>${name}</td></tr>`
+	  	$(body.table).append(tr)
+	}
+	for(name in obj){
+	  	tr = `<tr><td>${obj[name]}</td></tr>`
+	  	$(body.table).append(tr)
+	}
+	

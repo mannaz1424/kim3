@@ -1,0 +1,80 @@
+반갑습니다.
+이정아 입니다.(jeongah2651@gmail.com)
+프로그램 경험은 없습니다.
+현재 직장인 4개월차 입니다.
+javascript 경험은 아직 초보입니다.
+vue경험은 없습니다.
+
+이번 과정 목표는 Vue.js 능숙하게 다를 수 있는 것이 목표입니다.
+
+
+1. 
+#11/30
+1. 수업 진도 속도
+2. 이해도
+3. 불편사항..
+4. 미니프로젝트 여부
+FullCalendar
+
+
+
+
+
+
+
+
+# 사전 평가 정답
+1.~ 6. 모르겠습니다
+7.  ㅠㅠㅠ 잘모르겠습니다.
+
+var title = document.querySelectorAll("div h2");
+var color = [red, orange, yellow, green, blue, navy, purple];
+
+
+var title = function() {
+	for(i=0; i>title.length; i++) {
+		title[i].style.background = color[i];
+	}
+}
+
+8.  ㅠㅠㅠ 잘모르겠습니다.
+
+h1.Array = function(){
+	forEach["사과, 딸기, 바나나"] {
+		document.querySelertor("h1").innerHtml = 
+	}
+}
+
+
+9.  ㅠㅠㅠ 잘모르겠습니다.
+
+<h1  id="title" onclick="changeColor(this);" style="background:#000" >Button</h1>
+
+<script>
+
+function changeColor(){
+	var title = document.querySelor("#title")
+	
+	t.title.style.background = "red";
+}
+
+
+10.  ㅠㅠㅠ 잘 모르겠습니다.
+
+document.write("<table></table>")
+
+keydown... keyup....
+
+</script>
+
+
+
+
+
+
+
+
+
+
+
+

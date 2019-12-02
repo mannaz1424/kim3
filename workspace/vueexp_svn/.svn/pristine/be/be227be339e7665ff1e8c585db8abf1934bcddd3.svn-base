@@ -1,0 +1,30 @@
+안녕하세요
+배정민입니다.(jukman@naver.com)
+현재 직장에서는 1년차이고
+javacript는 경험이 없고 제이쿼리만 약간 다뤘습니다.
+vue 경험은 없습니다.
+
+이번과정 목표는 기초 습득과
+혼자 공부할수  있는 틀을 가지는 것입니다.
+ 
+1.
+# 사전 평가 정답
+1~6.x 
+7.
+var h = document.QuerySelector('div h2');
+var color=["red","orange","yellow","green","navy","purple"]
+
+rainbow function(){
+for(var i=0;h<h.length-1;h++){
+h.style.color='color';
+}
+}
+8.x
+9.var h=document.QuerySelector('h1');
+
+h.addEventListener('click',funciton(e){
+var thiscolor= e.target.style.color
+ h.style.color= thiscolor;
+})
+
+10.x
