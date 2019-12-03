@@ -1,8 +1,9 @@
 package com.test.web.board.controller;
 
-import java.util.HashMap;
-import java.util.Map;
+import java.util.ArrayList;
+import java.util.List;
 
+import org.json.simple.JSONObject;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -10,8 +11,12 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 
+import com.google.gson.Gson;
+import com.test.web.board.bean.ContentBean;
 import com.test.web.board.bean.PageBean;
 import com.test.web.board.dao.BoardDao;
+
+
 
 
 @Controller
@@ -36,10 +41,36 @@ public class boardController {
 	// view_List 
 	@RequestMapping("/")
 	public String view_List(Model model) {	
-		Map<String, Object> map = new HashMap();
-//		map.put("mList", boardDao.selectBoardList());
 		model.addAttribute("mList", boardDao.selectBoardList());
-//		model.addAttribute("mList", "안녕하세요...");
+		
+	
+//		List<ContentBean> cList = new ArrayList();
+//		cList = boardDao.selectBoardList();
+//				
+//		JSONObject obj = new JSONObject();
+//		try {
+//			JSONArray jArray = new JSONArray();
+//			for(int i = 0; i< cList.size(); i++) {
+//				JSONObject sObject = new JSONObject();
+//				sObject.put("no", cList.get(i).getNo());
+//				sObject.put("user", cList.get(i).getUser());
+//				sObject.put("title", cList.get(i).getTitle());
+//				sObject.put("data", cList.get(i).getDate());
+//				
+//				jArray.add(sObject);
+//			}
+//			model.addAttribute("jList", jArray);
+//		}catch(Exception e) {
+//			e.printStackTrace();
+//		}
+		
+		List<ContentBean> cList = new ArrayList();
+		cList = boardDao.selectBoardList();
+		
+		Gson gson = new Gson();
+		String jPlace = gson.toJson(cList);
+		model.addAttribute("jList", jPlace);
+		
 		
 		return "/board/view_List";
 	}
@@ -54,8 +85,9 @@ public class boardController {
 	
 	@RequestMapping(value="tBoardList", method = RequestMethod.GET)
 	@ResponseBody
-	public Map<String, Object> tBoardList() throws Exception{
-	    Map<String, Object> map = new HashMap<String, Object>();
+	public void tBoardList() throws Exception{
+	    JSONObject jObject = new JSONObject();
+	    jObject = JSON.stringify(boardDao.selectBoardList());
 	    
 	    try {
 	    	
