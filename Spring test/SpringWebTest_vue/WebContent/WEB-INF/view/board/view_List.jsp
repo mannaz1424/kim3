@@ -64,10 +64,10 @@
 	        	type:'post',
 	        	url: "/tBoardList",
 	        	// data: JSON.stringify('${jList}'),
-	        	data: list,
+	        	// data: list,
 	        	dataType:'json',
 	        	success: function(jList){
-	        		var list = jList;
+	        		var list = JSON.parse(jList);
 	        		var add="";
 	        		for(i=0; i<list.size(); i++){
 	        			add += "<tr><td>" + list.no + "</td>";
