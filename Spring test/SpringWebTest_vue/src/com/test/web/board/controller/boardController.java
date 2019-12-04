@@ -3,6 +3,7 @@ package com.test.web.board.controller;
 import java.util.ArrayList;
 import java.util.List;
 
+import org.json.simple.JSONArray;
 import org.json.simple.JSONObject;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -67,10 +68,13 @@ public class boardController {
 		List<ContentBean> cList = new ArrayList();
 		cList = boardDao.selectBoardList();
 		
+		// GSON - java 객체 (object) 를 
+		// json 표현식으로 변환하는 API
 		Gson gson = new Gson();
 		String jPlace = gson.toJson(cList);
 		model.addAttribute("jList", jPlace);
-		
+		gson.toJson(cList);
+		model.addAttribute("gList", gson);
 		
 		return "/board/view_List";
 	}
@@ -85,9 +89,29 @@ public class boardController {
 	
 	@RequestMapping(value="tBoardList", method = RequestMethod.GET)
 	@ResponseBody
-	public void tBoardList() throws Exception{
+	public void tBoardList(Model model) throws Exception{
+		// 최종 완성될 JSONObject 선언 (전체)
 	    JSONObject jObject = new JSONObject();
-	    jObject = JSON.stringify(boardDao.selectBoardList());
+	    
+	    // JSON 정보를 담을  Array 선언
+	    JSONArray jArray = new JSONArray();
+	    
+	    // 하나의 정보가 들어갈 JSONObject 선언
+//	    JSONObject jInfo = new JSONObject();
+	    
+	    
+//	    jObject = JSON.stringify(boardDao.selectBoardList());
+	    
+	    List<ContentBean> cList = new ArrayList();
+		cList = boardDao.selectBoardList(); 
+		
+		// GSON - java 객체 (object) 를 
+	    // json 표현식으로 변환하는 API
+		Gson gson = new Gson();
+		String jPlace = gson.toJson(cList);
+		model.addAttribute("jList", jPlace);
+		model.addAttribute("gList", gson);
+		
 	    
 	    try {
 	    	
@@ -95,7 +119,7 @@ public class boardController {
 	    	pageBean.setnEnd(N_END);
 	    	pageBean.setnStart(N_START);
 	    	
-	    	map.put("mList", boardDao.selectBoardList());
+//	    	map.put("mList", boardDao.selectBoardList());
 //	    	map.put("mList", boardDao.selectBoardList2(N_END, N_START));
 //	    	map.put("mList", boardDao.selectBoardList2(pageBean));
 	    }catch (Exception e) {
@@ -105,7 +129,7 @@ public class boardController {
 	    
 	    System.out.println("N_START : " + N_START);
 	    System.out.println("N_END : " + N_END);
-	    return map;
+//	    return map;
 	}
 	
 

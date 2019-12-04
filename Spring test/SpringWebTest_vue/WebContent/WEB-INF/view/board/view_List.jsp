@@ -40,13 +40,21 @@
     <script type="text/javascript">
         
 	    $(document).ready(function(){
-	    	
+	    	// json 형식으로 만들어진 String 을 json 파일로 변환
 	    	var list = JSON.parse('${jList}');
+	    	
+	    	// String 파일이 아니라 error 발생
+	    	//var gsList = JSON.parse('${gList}');
+	    	
+	    	// json 파일을 javascript 에서 String 으로 변환
+	    	var sList = JSON.stringify(list);
+	    	
 	    	
 	        new Vue({
 	 	        el:"#app",
 	 	        data: {
-	 	        	vList: list
+	 	        	vList: list,
+	 	        	gList: '${gList}'
 	 	        },	 	        
 	 	    });  
 	        
@@ -54,8 +62,9 @@
 	        /*	 */       
 	        $.ajax({
 	        	type:'post',
-	        	url: "/",
-	        	data: JSON.stringify('${jList}'),
+	        	url: "/tBoardList",
+	        	// data: JSON.stringify('${jList}'),
+	        	data: list,
 	        	dataType:'json',
 	        	success: function(jList){
 	        		var list = jList;
@@ -69,10 +78,16 @@
 	        		$("#show").append(add);
 	        		console.log(".ajax 파일 : " + add);
 	        	},
-	        	error: function(){
+	        	error: function(error){
 	        		console.log("에러 : " + error);
 	        	}	        	
 	        });
+	        
+	        // json 표시
+	        // $('#test').text(list);
+	        
+	        // String 표시
+	        $('#test').text(sList);
 	        
 	    });
 	    
@@ -87,20 +102,25 @@
         
         <h1>name : {{name}}</h1>
         
-        mList : ${mList }
+        mList list Object 형태 : <br>${mList }
 	    <br><br><br>
 	    
-	    jList : ${jList }
+	    jList json 파일을 String 으로 변환한 형태 : <br>${jList }
 	    <br><br><br>
 	    
-	    vList : {{vList }}
+	    vList json 파일 형태 = list : <br>{{vList }}
 	    <br><br><br>
-    
+	    
+	    gList json 파일 형태 : <br>{{gList }}
+	    <br><br><br>
+	    
+	    list (json 파일 형태를 html 에 text 로 표시) = vList : <br><span id="test"></span>
+        <br><br><br>
     
     
 	    <table width="500" cellpadding="0" cellspacing="0" border="1" >
 	        <tr>
-	            <th colspan="7">List (mList 사용)</th>
+	            <th colspan="7">JSTL List (mList 사용)</th>
 	        </tr>	         
 	        <tr>
 	            <th>번호</th>
@@ -137,10 +157,9 @@
 	        
 	        
 	        
-	    <table id="show" 
-	           width="500" cellpadding="0" cellspacing="0" border="1" >
+	    <table width="500" cellpadding="0" cellspacing="0" border="1" >
 	        <tr>
-	            <th colspan="7">List (vList 사용)</th>
+	            <th colspan="7">VueJS List (vList 사용)</th>
 	        </tr>	         
 	        <tr>
 	            <th>번호</th>
@@ -151,8 +170,7 @@
 	            <th>수정</th>
 	        </tr>	         
 	        
-	        
-	        <tr v-for="list in vList">
+	        <tr v-for="list in vList"> 
 	            <td>{{list.no }}</td>
 	            <td>{{list.user }}</td>
 	            <td>
@@ -169,12 +187,14 @@
 	            </td>
 	        </tr>
 	    </table>
+	    <br><br><br>
 	    
 	    
-	     <table id="show" 
+	    
+	    <table id="show" 
 	           width="500" cellpadding="0" cellspacing="0" border="1" >
 	        <tr>
-	            <th colspan="7">List (vList 사용)</th>
+	            <th colspan="7">ajax List (vList 사용)</th>
 	        </tr>	         
 	        <tr>
 	            <th>번호</th>

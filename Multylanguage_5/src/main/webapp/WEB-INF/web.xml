@@ -29,6 +29,20 @@
 	
 	
 	
+	<!-- (다국어 설정) 스프링 설정파일인 message-context.xml 파일을 로딩하도록 수정 -->
+	<context-param> 
+		<param-name>contextConfigLocation</param-name> 
+		<param-value> 
+			/WEB-INF/spring/root-context.xml 
+			/WEB-INF/spring/message-context.xml
+		</param-value> 
+	</context-param>
+
+	
+	
+	
+	
+	
 	
 	
 	
