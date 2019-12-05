@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <title>메뉴얼박스 관리자</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1, user-scalable=no">    
+    <link rel="stylesheet" type="text/css" href="../css/style.css">
+    <link rel="stylesheet" type="text/css" href="../css/font.css">
+    <link rel="stylesheet" type="text/css" href="../css/jquery-ui.min.css">
+    <script type="text/javascript" src="../js/jquery-3.3.1.min.js"></script>
+    <script type="text/javascript" src="../js/style.js"></script>
+    <script type="text/javascript" src="../js/jquery-ui.min.js"></script>
+</head> 
+<body>
+    <div id="wrap">
+       
+        <!--header-->
+        <div class="header">
+            <div class="top_bar">
+                <h1 class="logo"><a href="#"><img src="../image/logo_manualbox.png" alt="메뉴얼박스"><span>관리자센터</span></a></h1>
+                <div class="header_top">
+                    <p class="login_info"><span>Aniss</span><em>님</em></p>
+                    <div class="login_cnts">
+                        <div class="login_btns">
+                            <button type="button" class="btn_help">PW변경</button>
+                            <button type="button" class="btn_logout">로그아웃</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <button type="button" class="gnb_toggle"></button>
+            <div class="gnb">
+                <ul class="gnb_menu">
+                    <li>
+                        <button type="button">메뉴얼</button>
+                        <ul>
+                            <li><a href="#">구조관리</a></li>
+                            <li class="on"><a href="#">메뉴얼관리</a></li>
+                        </ul>
+                    </li>
+                    <li>
+                        <button type="button">요청관리</button>
+                        <ul>
+                            <li><a href="#">요청 목록</a></li>
+                            <li><a href="#">답변 등록</a></li>
+                            <li><a href="#">답변 수정</a></li>
+                            <li><a href="#">답변 삭제</a></li>
+                        </ul>    
+                    </li>
+                    <li>
+                        <button type="button">공지</button>
+                        <ul>
+                            <li><a href="#">공지사항 목록</a></li>
+                            <li><a href="#">공지사항 등록</a></li>
+                            <li><a href="#">공지사항 수정</a></li>
+                            <li><a href="#">공지사항 삭제</a></li>
+                        </ul>  
+                    </li>
+                    <li>
+                        <button type="button">FAQ</button>
+                        <ul>
+                            <li><a href="#">FAQ 목록</a></li>
+                            <li><a href="#">FAQ 등록</a></li>
+                            <li><a href="#">FAQ 수정</a></li>
+                            <li><a href="#">FAQ 삭제</a></li>
+                        </ul> 
+                    </li>
+                    <li><button type="button">회원목록</button></li>
+                    <li>
+                        <button type="button">관리자계정</button>
+                        <ul>
+                            <li><a href="#">관리자 목록</a></li>
+                            <li><a href="#">관리자 등록</a></li>
+                            <li><a href="#">관리자 정보 수정</a></li>
+                            <li><a href="#">관리자 삭제</a></li>
+                        </ul> 
+                    </li>
+                    <li><button type="button">통계</button></li>
+                </ul>
+            </div>
+            <div class="gnb_bg"></div>
+        </div>
+        <!--header-->
+        
+        <!--contents-->
+        <div class="section">
+            <div class="contents">
+                <div class="tit_wrap">
+                    <div class="title tit1">메뉴얼관리</div>
+                    <!--navigation-->
+                    <dl class="navigation">
+                        <dt>메뉴얼</dt>
+                        <dd><a href="#">메뉴얼관리</a></dd>
+                        <dd><a href="#">메뉴얼 등록</a></dd>
+                    </dl>
+                    <!--navigation-->
+                </div>
+                    
+                <div class="contents_box">
+                    
+                    <ul class="tab2 tab2_4">
+                        <li><button type="button">메뉴얼 목록</button></li>    
+                        <li class="on"><button type="button">메뉴얼 등록</button></li>    
+                        <li><button type="button">메뉴얼 수정</button></li>    
+                        <li><button type="button">메뉴얼 삭제</button></li>    
+                    </ul>
+                    
+                    
+                    <div class="table_top">
+                        <div class="table_tit">메뉴얼 등록</div>
+                    </div>
+                    
+                    <!--게시판 write-->
+                    <div class="board_write">
+                        <div class="board_write_row cells_wrap1">
+                            <p><span>구조</span></p>
+                            <div class="input_wrap">
+                                <input type="text" class="board_input">
+                            </div>
+                        </div>
+                        <div class="board_write_row cells_wrap2">
+                            <p><span>카테고리</span></p>
+                            <select class="board_input">
+                                <option value="카테고리">카테고리</option>
+                                <option value="카테고리">카테고리</option>
+                            </select>
+                            <p><span>제조사</span></p>
+                            <select class="board_input">
+                                <option value="카테고리">카테고리</option>
+                                <option value="카테고리">카테고리</option>
+                            </select>
+                        </div>
+                        <div class="board_write_row cells_wrap1">
+                            <p><span>제품명</span></p>
+                            <div class="input_wrap">
+                                <input type="text" class="board_input board_input_s">
+                            </div>
+                            <div class="board_write_warning board_write_notice">예 : 갤럭시 노트9</div>
+                        </div>
+                        <div class="board_write_row cells_wrap1">
+                            <p><span>모델명</span></p>
+                            <div class="input_wrap">
+                                <input type="text" class="board_input board_input_s">
+                            </div>
+                            <div class="board_write_warning board_write_notice">예 : SHW-M308</div>
+                        </div>
+                        <div class="board_write_row cells_wrap1">
+                            <p><span>바코드정보</span></p>
+                            <div class="input_wrap">
+                                <input type="text" class="board_input board_input_s">
+                            </div>
+                            <div class="board_write_warning board_write_notice">예 : 99123941959511</div>
+                        </div>
+                        <div class="board_write_row">
+                            <p><span>메뉴얼</span></p>
+                            <input type="file" class="board_attachment">
+                            <div class="board_write_warning board_write_notice"><span>사용자 매뉴얼 (Pie) ver 1.0(한국어).pdf  / 11.63 MB</span><button type="button" class="btn_mtb">delete</button></div>
+                            <div class="board_write_warning board_write_notice"><span>안전 주의사항 ver 2.4(한국어, 영어).doc /  4.79 MB</span><button type="button" class="btn_mtb">delete</button></div>
+                            <div class="board_write_warning board_write_notice"><span>사용자 매뉴얼 (Oreo) ver 1.2(한국어).pdf / 3.0 MB</span><button type="button" class="btn_mtb">delete</button></div>
+                        </div>
+                    </div>
+                    
+                    <!--추가버튼-->
+                    <div class="btnset_center">
+                        <button type="button" class="btn4">목록</button>
+                        <button type="button" class="btn4">저장</button>
+                        <button type="button" class="btn4">삭제</button>
+                    </div>
+                    
+                    
+                    
+                    
+
+                </div>    
+        
+            
+            </div>
+        </div>
+        <!--contents-->
+        
+        <div class="footer">
+            <p>[06245] 서울시 강남구 논현로79길 57 (역삼동 742-17) 2층 TEL 070-7137-7111 FAX 070-5033-0877</p>
+            <em>Copyright ANISS Soft. Rights Reserved.</em>
+       </div>
+        
+    </div>
+</body>
+</html>

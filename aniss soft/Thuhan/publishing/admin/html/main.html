@@ -1,0 +1,452 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, width=device-width" />
+
+    <title>ANISS-SOFT 관리자</title>
+
+    <!-- reset, style.css -->
+    <link type="text/css" rel="stylesheet" href="css/reset.css" />
+    <link type="text/css" rel="stylesheet" href="css/common.css" />
+    <link type="text/css" rel="stylesheet" href="css/main.css" />
+
+
+    <!-- script.js -->
+    <script type="text/javascript" src="js/jquery-3.2.1.min.js"></script>
+
+
+    <script type="text/javascript">
+        $(document).ready(function() {
+            //아코디언메뉴
+            $('#GnbMenu .menu > li > a').click(function() {
+
+                if ($(this).next('ul').is(':visible')) {
+                    $(this).removeClass('on');
+                    $(this).next('ul').slideToggle();
+                } else {
+                    $(this).addClass('on');
+                    $(this).next('ul').slideToggle();
+                }
+
+            });
+        });
+
+    </script>
+</head>
+
+<body>
+
+    <!--WRAP : S-->
+    <div id="wrap">
+
+        <!--HEADER : S-->
+        <header id="header">
+
+            <!--logo-->
+            <div class="left">
+                <h1><a href="#"><img src="images/common/logo.png" alt="logo" /></a>관리자센터</h1>
+            </div>
+
+            <!--login-->
+            <div class="right">
+                <ul>
+                    <li>aniss 님</li>
+                    <li class="info"><a href="#">내정보</a></li>
+                    <li><a href="#">로그아웃</a></li>
+                    <li><a href="#">도움말</a></li>
+                </ul>
+            </div>
+        </header>
+        <!--HEADER : E-->
+
+
+        <!--CONTAINER : S-->
+        <section id="container">
+
+            <!-- menu : S -->
+            <nav id="GnbMenu" class="gnb">
+                <ul class="menu">
+                    <li>
+                        <a href="javascript:;">상품문의</a>
+                        <ul class="lnb">
+                            <li><a href="#">상품문의</a></li>
+                            <li><a href="#">상품문의</a></li>
+                            <li><a href="#">상품문의</a></li>
+                            <li><a href="#">상품문의</a></li>
+                            <li><a href="#">상품문의</a></li>
+                        </ul>
+                    </li>
+                    <li>
+                        <a href="javascript:;">상품문의</a>
+                        <ul class="lnb">
+                            <li><a href="#">상품문의</a></li>
+                            <li><a href="#">상품문의</a></li>
+                            <li><a href="#">상품문의</a></li>
+                            <li><a href="#">상품문의</a></li>
+                            <li><a href="#">상품문의</a></li>
+                        </ul>
+                    </li>
+                    <li>
+                        <a href="javascript:;">상품문의</a>
+                        <ul class="lnb">
+                            <li><a href="#">상품문의</a></li>
+                            <li><a href="#">상품문의</a></li>
+                            <li><a href="#">상품문의</a></li>
+                            <li><a href="#">상품문의</a></li>
+                            <li><a href="#">상품문의</a></li>
+                        </ul>
+                    </li>
+                    <li>
+                        <a href="javascript:;">상품문의</a>
+                        <ul class="lnb">
+                            <li><a href="#">상품문의</a></li>
+                            <li><a href="#">상품문의</a></li>
+                            <li><a href="#">상품문의</a></li>
+                            <li><a href="#">상품문의</a></li>
+                            <li><a href="#">상품문의</a></li>
+                        </ul>
+                    </li>
+                </ul>
+            </nav>
+            <!-- menu : E -->
+
+            <!-- content : S -->
+            <div class="content clear_after">
+                <h2 class="title">상품관리</h2>
+
+
+                <!--상단 박스-->
+                <div class="mt20 main_info">
+
+                    <div class="box green">
+                        <div class="top">
+                            <img src="images/main/main_img01.jpg" alt="상품관리" />
+                            <button type="button" class="refresh">새로고침</button>
+                        </div>
+                        <div class="bottom">
+                            <table>
+                                <caption>상품관리</caption>
+                                <tr>
+                                    <th>입금대기</th>
+                                    <td><span class="fc_green">0</span>건</td>
+                                </tr>
+                                <tr>
+                                    <th>신규주문</th>
+                                    <td><span class="fc_green">0</span>건</td>
+                                </tr>
+                                <tr>
+                                    <th>배송준비</th>
+                                    <td><span class="fc_green">0</span>건</td>
+                                </tr>
+                            </table>
+                        </div>
+                    </div>
+
+                    <div class="box yellow">
+                        <div class="top">
+                            <img src="images/main/main_img02.jpg" alt="상품관리" />
+                            <button type="button" class="refresh">새로고침</button>
+                        </div>
+                        <div class="bottom">
+                            <table>
+                                <caption>상품관리</caption>
+                                <tr>
+                                    <th>배송중</th>
+                                    <td><span class="fc_yellow">0</span>건</td>
+                                </tr>
+                                <tr>
+                                    <th>배송완료</th>
+                                    <td><span class="fc_yellow">0</span>건</td>
+                                </tr>
+                            </table>
+                        </div>
+                    </div>
+
+                    <div class="box red">
+                        <div class="top">
+                            <img src="images/main/main_img03.jpg" alt="상품관리" />
+                            <button type="button" class="refresh">새로고침</button>
+                        </div>
+                        <div class="bottom">
+                            <table>
+                                <caption>상품관리</caption>
+                                <tr>
+                                    <th>취소요청</th>
+                                    <td><span class="fc_red">0</span>건</td>
+                                </tr>
+                                <tr>
+                                    <th>반품요청</th>
+                                    <td><span class="fc_red">0</span>건</td>
+                                </tr>
+                                <tr>
+                                    <th>교환요청</th>
+                                    <td><span class="fc_red">0</span>건</td>
+                                </tr>
+                            </table>
+                        </div>
+                    </div>
+
+                    <div class="box blue">
+                        <div class="top">
+                            <img src="images/main/main_img04.jpg" alt="상품관리" />
+                            <button type="button" class="refresh">새로고침</button>
+                        </div>
+                        <div class="bottom">
+                            <table>
+                                <caption>상품관리</caption>
+                                <tr>
+                                    <th>오늘정산</th>
+                                    <td><span class="fc_blue">0</span>건</td>
+                                </tr>
+                                <tr>
+                                    <th>정산예정</th>
+                                    <td><span class="fc_blue">0</span>건</td>
+                                </tr>
+                                <tr>
+                                    <th>충전금</th>
+                                    <td><span class="fc_blue">0</span>건</td>
+                                </tr>
+                            </table>
+                        </div>
+                    </div>
+
+                    <!-- 매출통계 -->
+                    <div class="left admin_box mt20 main_01">
+                        <div class="top">
+                            <h3 class="admin_tit">매출 통계</h3>
+                            <button type="button" class="refresh">새로고침</button>
+                        </div>
+                        <div class="box_cont clear_after">
+                            <div class="left">
+                                <button type="button" class="btn_tab">결제건수</button>
+                                <button type="button" class="btn_tab">결제자수</button>
+                                <button type="button" class="btn_tab">결제금액</button>
+                            </div>
+                            <div class="right">
+
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- 판매지연 -->
+                    <div class="left admin_box mt20 main_01">
+                        <div class="top">
+                            <h3 class="admin_tit">판매지연</h3>
+                            <button type="button" class="refresh">새로고침</button>
+                        </div>
+                        <div class="box_cont">
+                            <ul class="delay clear_after">
+                                <li>
+                                    <p class="tit">신규주문 지연</p>
+                                    <p class="txt">100</p>
+                                </li>
+                                <li>
+                                    <p class="tit">배송준비 지연</p>
+                                    <p class="txt">100</p>
+                                </li>
+                                <li>
+                                    <p class="tit">취소 지연</p>
+                                    <p class="txt">100</p>
+                                </li>
+                                <li>
+                                    <p class="tit">반품 지연</p>
+                                    <p class="txt">100</p>
+                                </li>
+                                <li>
+                                    <p class="tit">교환 지연</p>
+                                    <p class="txt">100</p>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <!-- 미답변문의 -->
+                    <div class="left admin_box mt20 main_02">
+                        <div class="top">
+                            <h3 class="admin_tit">판매지연</h3>
+                            <button type="button" class="refresh">새로고침</button>
+                        </div>
+                        <div class="box_cont qna">
+
+                            <div class="qna_tab center">
+                                <button type="button" class="btn_qna">
+                                    <span class="qna_num">100</span><br /><span class="qnatit">상품문의</span>
+                                </button>
+                                <button type="button" class="btn_qna">
+                                    <span class="qna_num">100</span><br /><span class="qnatit">고객문의</span>
+                                </button>
+                            </div>
+
+                            <div class="qna_list">
+                                <dl>
+                                    <dt><a href="#">안녕하세요. 이 제품 유통기한이 언제까지 인가요????????????????????</a></dt>
+                                    <dd>pear**** <span class="right date">2017.11.27 11:52</span></dd>
+                                </dl>
+                                <dl>
+                                    <dt><a href="#">안녕하세요. 이 제품 유통기한이 언제까지 인가요?</a></dt>
+                                    <dd>pear**** <span class="right date">2017.11.27 11:52</span></dd>
+                                </dl>
+                                <dl>
+                                    <dt><a href="#">안녕하세요. 이 제품 유통기한이 언제까지 인가요?</a></dt>
+                                    <dd>pear**** <span class="right date">2017.11.27 11:52</span></dd>
+                                </dl>
+                                <div class="center mt20">
+                                    <a href="#" class="btn_go">상품문의 확인 </a>
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+
+                    <!-- 공지사항 -->
+                    <div class="left admin_box mt20 main_02">
+                        <div class="top">
+                            <h3 class="admin_tit">공지사항</h3>
+                            <button type="button" class="refresh">새로고침</button>
+                        </div>
+                        <div class="box_cont notice">
+
+                            <ul>
+                                <li class="first">
+                                    <span class="red_banner">중요</span><a href="#">클린 프로그램 제한기간 안내입니다.</a><span class="right date">2017.11.27</span>
+                                </li>
+                                <li class="first">
+                                    <span class="red_banner">중요</span><a href="#">클린 프로그램 제한기간 안내입니다.</a><span class="right date">2017.11.27</span>
+                                </li>
+
+                                <li class="nomal">
+                                    <a href="#">클린 프로그램 제한기간 안내입니다.</a><span class="right date">2017.11.27</span>
+                                </li>
+                                <li class="nomal">
+                                    <a href="#">클린 프로그램 제한기간 안내입니다.</a><span class="right date">2017.11.27</span>
+                                </li>
+                                <li class="nomal">
+                                    <a href="#">클린 프로그램 제한기간 안내입니다.</a><span class="right date">2017.11.27</span>
+                                </li>
+                                <li class="nomal">
+                                    <a href="#">클린 프로그램 제한기간 안내입니다.</a><span class="right date">2017.11.27</span>
+                                </li>
+                                <li class="nomal">
+                                    <a href="#">클린 프로그램 제한기간 안내입니다.</a><span class="right date">2017.11.27</span>
+                                </li>
+                            </ul>
+                            <div class="center mt20">
+                                <a href="#" class="btn_go">상품문의 확인 </a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!--상품-->
+                    <div class="left admin_box mt20 main_03">
+                        <div class="top">
+                            <h3 class="admin_tit">상품</h3>
+                            <button type="button" class="refresh">새로고침</button>
+                        </div>
+                        <div class="box_cont goods clear_after">
+                            <div class="left">
+                                <div class="ib goods_tit">
+                                    <p>판매중 상품</p>
+                                </div>
+                                <div class="ib goods_num">
+                                    <p>100</p>
+                                </div>
+                            </div>
+                            <div class="left">
+                                <div class="ib goods_tit">
+                                    <p>수정요청 상품</p>
+                                </div>
+                                <div class="ib goods_num">
+                                    <p>100</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!--패널티-->
+                    <div class="left admin_box mt20 main_03">
+                        <div class="top">
+                            <h3 class="admin_tit">패널티</h3>
+                            <button type="button" class="refresh">새로고침</button>
+                        </div>
+                        <div class="box_cont penalty">
+                            <div class="cell">
+                                판매관리<br />
+                                <span class="txt">100</span>
+                            </div>
+                            <div class="cell">
+                                판매관리<br />
+                                <span class="txt">100</span>
+                            </div>
+                            <div class="cell bd0">
+                                판매관리<br />
+                                <span class="txt">100</span>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- 관리자 현황 -->
+                    <div class="left admin_box mt20 main_01">
+                        <div class="top">
+                            <h3 class="admin_tit">관리자 현황</h3>
+                            <button type="button" class="refresh">새로고침</button>
+                        </div>
+                        <div class="box_cont clear_after">
+                            <div class="left">
+                                <button type="button" class="btn_tab">방문수</button>
+                                <button type="button" class="btn_tab">찜</button>
+                                <button type="button" class="btn_tab">친구</button>
+                            </div>
+                            <div class="right">
+
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- 구매확정 -->
+                    <div class="left admin_box mt20 main_01">
+                        <div class="top">
+                            <h3 class="admin_tit">구매확정</h3>
+                            <button type="button" class="refresh">새로고침</button>
+                        </div>
+                        <div class="box_cont">
+                            <ul class="decide clear_after">
+                                <li>
+                                    <p class="tit">구매확정</p>
+                                    <p class="txt">100</p>
+                                </li>
+                                <li>
+                                    <p class="tit">구매확정 연장</p>
+                                    <p class="txt">100</p>
+                                </li>
+                                <li>
+                                    <p class="tit">구매확정 연장(교환)</p>
+                                    <p class="txt">100</p>
+                                </li>
+                                
+                            </ul>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+            <!-- content : S -->
+
+        </section>
+        <!--CONTAINER : E-->
+
+
+        <!--footer : S-->
+        <footer>
+
+        </footer>
+        <!--footer : E-->
+
+    </div>
+    <!--WRAP : E-->
+
+
+</body>
+
+</html>

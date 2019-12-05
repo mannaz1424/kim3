@@ -1,0 +1,231 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <title>메뉴얼박스 관리자</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1, user-scalable=no">    
+    <link rel="stylesheet" type="text/css" href="../css/style.css">
+    <link rel="stylesheet" type="text/css" href="../css/font.css">
+    <link rel="stylesheet" type="text/css" href="../css/jquery-ui.min.css">
+    <script type="text/javascript" src="../js/jquery-3.3.1.min.js"></script>
+    <script type="text/javascript" src="../js/style.js"></script>
+    <script type="text/javascript" src="../js/jquery-ui.min.js"></script>
+</head> 
+<body>
+    <div id="wrap">
+       
+        <!--header-->
+        <div class="header">
+            <div class="top_bar">
+                <h1 class="logo"><a href="#"><img src="../image/logo_manualbox.png" alt="메뉴얼박스"><span>관리자센터</span></a></h1>
+                <div class="header_top">
+                    <p class="login_info"><span>Aniss</span><em>님</em></p>
+                    <div class="login_cnts">
+                        <div class="login_btns">
+                            <button type="button" class="btn_help">PW변경</button>
+                            <button type="button" class="btn_logout">로그아웃</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <button type="button" class="gnb_toggle"></button>
+            <div class="gnb">
+                <ul class="gnb_menu">
+                    <li>
+                        <button type="button">메뉴얼</button>
+                        <ul>
+                            <li><a href="#">구조관리</a></li>
+                            <li><a href="#">메뉴얼관리</a></li>
+                        </ul>
+                    </li>
+                    <li>
+                        <button type="button">요청관리</button>
+                        <ul>
+                            <li><a href="#">요청 목록</a></li>
+                            <li><a href="#">답변 등록</a></li>
+                            <li><a href="#">답변 수정</a></li>
+                            <li><a href="#">답변 삭제</a></li>
+                        </ul>    
+                    </li>
+                    <li>
+                        <button type="button">공지</button>
+                        <ul>
+                            <li><a href="#">공지사항 목록</a></li>
+                            <li><a href="#">공지사항 등록</a></li>
+                            <li><a href="#">공지사항 수정</a></li>
+                            <li><a href="#">공지사항 삭제</a></li>
+                        </ul>  
+                    </li>
+                    <li>
+                        <button type="button">FAQ</button>
+                        <ul>
+                            <li class="on"><a href="#">FAQ 목록</a></li>
+                            <li><a href="#">FAQ 등록</a></li>
+                            <li><a href="#">FAQ 수정</a></li>
+                            <li><a href="#">FAQ 삭제</a></li>
+                        </ul> 
+                    </li>
+                    <li><button type="button">회원목록</button></li>
+                    <li>
+                        <button type="button">관리자계정</button>
+                        <ul>
+                            <li><a href="#">관리자 목록</a></li>
+                            <li><a href="#">관리자 등록</a></li>
+                            <li><a href="#">관리자 정보 수정</a></li>
+                            <li><a href="#">관리자 삭제</a></li>
+                        </ul> 
+                    </li>
+                    <li><button type="button">통계</button></li>
+                </ul>
+            </div>
+            <div class="gnb_bg"></div>
+        </div>
+        <!--header-->
+        
+        <!--contents-->
+        <div class="section">
+            <div class="contents">
+                <div class="tit_wrap">
+                    <div class="title tit1">FAQ 목록</div>
+                    <!--navigation-->
+                    <dl class="navigation">
+                        <dt>FAQ</dt>
+                        <dd><a href="#">FAQ 목록</a></dd>
+                    </dl>
+                    <!--navigation-->
+                </div>
+                    
+                <div class="contents_box">
+                    
+                    <div class="table_top">
+                        <div class="table_tit">FAQ 목록</div>
+                        
+                        <!--검색-->
+                        <div class="table_search board_search">
+                            <select>
+                                <option value="선택">선택</option>
+                                <option value="선택">선택</option>
+                            </select>
+                            <div class="board_search_box">
+                                <input type="text">
+                                <button type="submit" class="btn_search">검색</button>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!--게시판 list-->
+                    <div class="board_table">
+                        <table>
+                            <colgroup>
+                                <col width="8%;">
+                                <col width="8%;">
+                                <col width="auto;">
+                                <col width="10%;">
+                                <col width="10%;">
+                                <col width="10%;">
+                            </colgroup>
+                            <tr>
+                                <th><input type="checkbox"></th>
+                                <th>NO</th>
+                                <th>제목</th>
+                                <th>작성자</th>
+                                <th>작성일</th>
+                                <th>조회</th>
+                            </tr>
+                            <tr>
+                                <td><input type="checkbox"></td>
+                                <td>100</td>
+                                <td>FAQ 제목출력</td>
+                                <td>관리자</td>
+                                <td>2019.06.21</td>
+                                <td>10,000</td>
+                            </tr>
+                            <tr>
+                                <td><input type="checkbox"></td>
+                                <td>100</td>
+                                <td>FAQ 제목출력</td>
+                                <td>관리자</td>
+                                <td>2019.06.21</td>
+                                <td>10,000</td>
+                            </tr>
+                            <tr>
+                                <td><input type="checkbox"></td>
+                                <td>100</td>
+                                <td>FAQ 제목출력</td>
+                                <td>관리자</td>
+                                <td>2019.06.21</td>
+                                <td>10,000</td>
+                            </tr>
+                            <tr>
+                                <td><input type="checkbox"></td>
+                                <td>100</td>
+                                <td>FAQ 제목출력</td>
+                                <td>관리자</td>
+                                <td>2019.06.21</td>
+                                <td>10,000</td>
+                            </tr>
+                            <tr>
+                                <td><input type="checkbox"></td>
+                                <td>100</td>
+                                <td>FAQ 제목출력</td>
+                                <td>관리자</td>
+                                <td>2019.06.21</td>
+                                <td>10,000</td>
+                            </tr>
+                            <tr>
+                                <td><input type="checkbox"></td>
+                                <td>100</td>
+                                <td>FAQ 제목출력</td>
+                                <td>관리자</td>
+                                <td>2019.06.21</td>
+                                <td>10,000</td>
+                            </tr>
+                            <tr>
+                                <td><input type="checkbox"></td>
+                                <td>100</td>
+                                <td>FAQ 제목출력</td>
+                                <td>관리자</td>
+                                <td>2019.06.21</td>
+                                <td>10,000</td>
+                            </tr>
+                        </table>
+                    </div>
+                    
+                    <div class="table_bttom">
+                        <div class="btm_left">
+                            <button type="button" class="btn2">삭제</button>
+                        </div>
+                        <div class="btm_right">
+                            <button type="button" class="btn2 btn2_2">등록</button>
+                        </div>
+                    </div>
+                    <!--페이징-->
+                    <div class="paging paging_btns">
+                        <ul>
+                            <li class="paging_p p_first"><a href="#">처음으로</a></li>
+                            <li class="paging_p p_prev"><a href="#">이전</a></li>
+                            <li class="on"><a href="#">1</a></li>
+                            <li><a href="#">2</a></li>
+                            <li><a href="#">3</a></li>
+                            <li><a href="#">4</a></li>
+                            <li><a href="#">5</a></li>
+                            <li class="paging_p p_next"><a href="#">다음</a></li>
+                            <li class="paging_p p_last"><a href="#">마지막</a></li>
+                        </ul>
+                    </div>
+
+                </div>    
+        
+            
+            </div>
+        </div>
+        <!--contents-->
+        
+        <div class="footer">
+            <p>[06245] 서울시 강남구 논현로79길 57 (역삼동 742-17) 2층 TEL 070-7137-7111 FAX 070-5033-0877</p>
+            <em>Copyright ANISS Soft. Rights Reserved.</em>
+       </div>
+        
+    </div>
+</body>
+</html>

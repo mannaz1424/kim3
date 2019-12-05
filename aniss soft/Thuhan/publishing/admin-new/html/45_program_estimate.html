@@ -1,0 +1,381 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <title>애니스소프트 관리자</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1, user-scalable=no">    
+    <link rel="stylesheet" type="text/css" href="../css/style.css">
+    <link rel="stylesheet" type="text/css" href="../css/font.css">
+    <link rel="stylesheet" type="text/css" href="../css/jquery-ui.min.css">
+    <script type="text/javascript" src="../js/jquery-3.3.1.min.js"></script>
+    <script type="text/javascript" src="../js/style.js"></script>
+    <script type="text/javascript" src="../js/jquery-ui.min.js"></script>
+</head> 
+<body>
+    <div id="wrap">
+       
+        <!--header-->
+        <div class="header">
+            <div class="top_bar">
+                <h1 class="logo"><a href="#"><img src="../image/logo_aniss.png" alt="애니스소프트"><span>관리자센터</span></a></h1>
+                <div class="header_top">
+                    <p class="login_info"><span>Aniss</span><em>님</em></p>
+                    <a href="#" class="login_my">내정보</a>
+                    <div class="login_cnts">
+                        <div class="login_btns">
+                            <button type="button" class="btn_logout">로그아웃</button>
+                            <button type="button" class="btn_help">도움말</button>
+                        </div>
+                        <a href="#" class="top_ipgrade">연장/업그레이드</a>
+                    </div>
+                </div>
+            </div>
+            <button type="button" class="gnb_toggle"></button>
+            <div class="gnb">
+                <ul class="gnb_menu">
+                    <li>
+                        <button type="button">기본설정</button>
+                        <ul>
+                            <li class="on"><a href="#">관리자정보</a></li>
+                            <li><a href="#">전자결제(PG)설정</a></li>
+                            <li><a href="#">도메인 설정</a></li>
+                            <li><a href="#">SSL(보안서버) 구입 및 설정</a></li>
+                            <li><a href="#">가입 및 그룹설정</a></li>
+                            <li><a href="#">SEO, 헤더설정</a></li>
+                            <li><a href="#">안내 및 기타</a></li>
+                            <li><a href="#">소셜로그인/API설정</a></li>
+                            <li><a href="#">실시간 상담 설정</a></li>
+                            <li><a href="#">팝업/배너 관리</a></li>
+                        </ul>
+                    </li>
+                    <li>
+                        <button type="button">회원관리</button>
+                        <ul>
+                            <li><a href="#">회원관리</a></li>
+                            <li><a href="#">회원등급 관리</a></li>
+                            <li><a href="#">적립금관리</a></li>
+                            <li><a href="#">쿠폰관리</a></li>
+                        </ul>
+                    </li>
+                    <li>
+                        <button type="button">쇼핑몰 관리</button>
+                        <ul>
+                            <li><a href="#">쇼핑 환경설정</a></li>
+                            <li><a href="#">상품 카테고리 관리</a></li>
+                            <li><a href="#">상품관리</a></li>
+                            <li><a href="#">주문/배송/취소 관리</a></li>
+                            <li><a href="#">메일발송 설정</a></li>
+                            <li><a href="#">구매평 관리</a></li>
+                            <li><a href="#">문의관리</a></li>
+                            <li><a href="#">네이버/다음 쇼핑</a></li>
+                        </ul>
+                    </li>
+                    <li>
+                        <button type="button">발송관리</button>
+                        <ul>
+                            <li><a href="#">메일 템플릿 관리</a></li>
+                            <li><a href="#">푸시 템플릿 관리</a></li>
+                            <li><a href="#">SMS 템플릿 관리</a></li>
+                            <li><a href="#">카카오톡 템플릿 관리</a></li>
+                            <li><a href="#">단체 메일 발송 (즉시, 예약발송)</a></li>
+                            <li><a href="#">단체 푸시 관리 (즉시, 예약발송)</a></li>
+                            <li><a href="#">단체 SMS 관리 (즉시, 예약발송)</a></li>
+                            <li><a href="#">카카오톡 관리 (즉시, 예약발송)</a></li>
+                        </ul>
+                    </li>
+                    <li>
+                        <button type="button">게시판 관리</button>
+                        <ul>
+                            <li><a href="#">게시판 카테고리 관리</a></li>
+                            <li><a href="#">게시판 관리(공지, 일반, 갤러리, 신청)</a></li>
+                        </ul>
+                    </li>
+                    <li>
+                        <button type="button">예약 관리</button>
+                        <ul>
+                            <li><a href="#">예약설정</a></li>
+                            <li><a href="#">객실/사이트 관리</a></li>
+                            <li><a href="#">예약 현황 관리</a></li>
+                            <li><a href="#">예약 신청 관리</a></li>
+                            <li><a href="#">구매평 관리</a></li>
+                            <li><a href="#">문의관리</a></li>
+                            <li><a href="#">옵션관리</a></li>
+                            <li><a href="#">성수기/휴일 관리</a></li>
+                        </ul>
+                    </li>
+                    <li>
+                        <button type="button">게시판 관리</button>
+                        <ul>
+                            <li><a href="#">게시판 카테고리 관리</a></li>
+                            <li><a href="#">게시판 관리(공지, 일반, 갤러리, 신청)</a></li>
+                            <li><a href="#">게시물 관리</a></li>
+                            <li><a href="#">댓글관리</a></li>
+                            <li><a href="#">신고관리</a></li>
+                        </ul>
+                    </li>
+                    <li>
+                        <button type="button">접속통계</button>
+                        <ul>
+                            <li><a href="#">일별/월별/요일별 통계</a></li>
+                            <li><a href="#">유입통계</a></li>
+                            <li><a href="#">찜한상품 현황목록</a></li>
+                            <li><a href="#">많이 방문한 페이지</a></li>
+                            <li><a href="#">저장공간</a></li>
+                            <li><a href="#">트래픽</a></li>
+                        </ul>
+                    </li>
+                    <li>
+                        <button type="button">마케팅관리</button>
+                        <ul>
+                            <li><a href="#">구글 Analytics</a></li>
+                            <li><a href="#">네이버 검색엔진 최적화</a></li>
+                            <li><a href="#">네이버 블로그 연동설정</a></li>
+                            <li><a href="#">전환추적/리타게팅 관리</a></li>
+                        </ul>
+                    </li>
+                    <li>
+                        <button type="button">앱(App) 신청 및 관리</button>
+                        <ul>
+                            <li><a href="#">안내 및 신청</a></li>
+                            <li><a href="#">Android 관리</a></li>
+                            <li><a href="#">ios 관리</a></li>
+                        </ul>
+                    </li>
+                    <li>
+                        <button type="button">업체관리(애니스소프트 특화)</button>
+                        <ul>
+                            <li><a href="#">업체 리스트(업체등록, 수정, 삭제)</a></li>
+                            <li><a href="#">견적서 리스트</a></li>
+                            <li><a href="#">작업 리스트(레드마인, 서버정보, 소스정보 등)</a></li>
+                            <li><a href="#">계약 리스트</a></li>
+                            <li><a href="#">결제 리스트</a></li>
+                            <li><a href="#">1:1문의 리스트</a></li>
+                        </ul>
+                    </li>
+                </ul>
+            </div>
+            <div class="gnb_bg"></div>
+        </div>
+        <!--header-->
+        
+        <!--contents-->
+        <div class="section">
+            <div class="contents">
+                <div class="tit_wrap">
+                    <div class="title tit1">프로그램 제작 견적문의 상세</div>
+                    <!--navigation-->
+                    <dl class="navigation">
+                        <dt>관리자센터</dt>
+                        <dd><a href="#">고객사 등록</a></dd>
+                        <dd><a href="#">고객사 관리</a></dd>
+                    </dl>
+                    <!--navigation-->
+                </div>
+                <div class="contents_box">
+                   
+                    <div class="title">
+                        <h2>프로그램제작 견적문의</h2>
+                        <p>홈페이지, 앱(APP) 그리고 응용프로그램까지<br>최고의 컨설팅과 서비스로 보답하겠습니다.</p>
+                    </div>
+                    
+                    <p class="sub_tit1">프로젝트 타입선택<span>원하시는 홈페이지의 형태를 선택해 주세요 (다중선택이 가능합니다)</span></p>
+                    <ul class="clear_after quotation_type">
+                        <li class="on"><button type="button" class="type_1">쇼핑몰</button></li>
+                        <li><button type="button" class="type_2">홈페이지</button></li>
+                        <li><button type="button" class="type_3">반응형</button></li>
+                        <li><button type="button" class="type_4">모바일웹</button></li>
+                        <li><button type="button" class="type_5">유지보수</button></li>
+                        <li><button type="button" class="type_6">기타</button></li>
+                    </ul>
+                    
+                    
+                    
+                    <p class="sub_tit1 space1">견적신청 업체 · 담당자정보</p>
+                    <div class="board_write">
+                        <div class="board_write_row cells_wrap1">
+                            <p><span>상담분류</span></p>
+                            <div class="input_wrap input_display">
+                                <p>상담분류</p>
+                            </div>
+                        </div>
+                        <div class="board_write_row cells_wrap2 cellbox_wrap">
+                            <div class="cellbox">
+                                <p><span>업체명</span></p>
+                                <div class="input_wrap input_display">
+                                    <p>업체명</p>
+                                </div>
+                            </div>
+                            <div class="cellbox">
+                                <p><span>담당자명</span></p>
+                                <div class="input_wrap input_display">
+                                    <p>담당자명</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="board_write_row cells_wrap2 cellbox_wrap">
+                            <div class="cellbox">
+                                <p><span>이메일</span></p>
+                                <div class="input_wrap input_display">
+                                    <p>이메일</p>
+                                </div>
+                            </div>
+                            <div class="cellbox">
+                                <p><span>전화번호</span></p>
+                                <div class="input_wrap input_display">
+                                    <p>전화번호</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <p class="sub_tit1 space1">견적신청 상세내용</p>
+                    <div class="board_write">
+                        <div class="board_write_row cells_wrap1">
+                            <p><span>솔루션선택</span></p>
+                            <div class="input_wrap input_display">
+                                <p>솔루션선택</p>
+                            </div>
+                        </div>
+                        <div class="board_write_row cells_wrap1">
+                            <p><span>사이트주소</span></p>
+                            <div class="input_wrap input_display">
+                                <p>사이트주소</p>
+                            </div>
+                        </div>
+                        <div class="board_write_row cells_wrap1">
+                            <p><span>참조사이트</span></p>
+                            <div class="input_wrap input_display">
+                                <ul>
+                                    <li><a href="#">naver.com</a></li>
+                                    <li><a href="#">naver.com</a></li>
+                                    <li><a href="#">naver.com</a></li>
+                                    <li><a href="#">naver.com</a></li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="board_write_row cells_wrap1">
+                            <p><span>캡춰이미지</span></p>
+                            <div class="input_wrap input_display">
+                                <ul class="thumb_list">
+                                    <li>
+                                        <div class="thumb_box thumb_original">
+                                            <img src="../image/temp_banner-1.jpg">
+                                            <span class="thumb_box_zoom">
+                                                <img src="../image/temp_banner-1.jpg">
+                                            </span>
+                                        </div>
+                                    </li>
+                                    <li>
+                                        <div class="thumb_box thumb_original">
+                                            <img src="../image/temp_banner-1.jpg">
+                                            <span class="thumb_box_zoom">
+                                                <img src="../image/temp_banner-1.jpg">
+                                            </span>
+                                        </div>
+                                    </li>
+                                    <li>
+                                        <div class="thumb_box thumb_original">
+                                            <img src="../image/temp_banner-1.jpg">
+                                            <span class="thumb_box_zoom">
+                                                <img src="../image/temp_banner-1.jpg">
+                                            </span>
+                                        </div>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="board_write_row cells_wrap1">
+                            <p><span>기획서</span></p>
+                            <div class="input_wrap input_display">
+                                <ul class="thumb_list">
+                                    <li>
+                                        <div class="thumb_box thumb_original">
+                                            <img src="../image/temp_banner-1.jpg">
+                                            <span class="thumb_box_zoom">
+                                                <img src="../image/temp_banner-1.jpg">
+                                            </span>
+                                        </div>
+                                    </li>
+                                    <li>
+                                        <div class="thumb_box thumb_original">
+                                            <img src="../image/temp_banner-1.jpg">
+                                            <span class="thumb_box_zoom">
+                                                <img src="../image/temp_banner-1.jpg">
+                                            </span>
+                                        </div>
+                                    </li>
+                                    <li>
+                                        <div class="thumb_box thumb_original">
+                                            <img src="../image/temp_banner-1.jpg">
+                                            <span class="thumb_box_zoom">
+                                                <img src="../image/temp_banner-1.jpg">
+                                            </span>
+                                        </div>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="board_write_row cells_wrap2 cellbox_wrap">
+                            <div class="cellbox">
+                                <p><span>예산</span></p>
+                                <div class="input_wrap input_display">
+                                    <p>예산</p>
+                                </div>
+                            </div>
+                            <div class="cellbox">
+                                <p><span>이메일</span></p>
+                                <div class="input_wrap input_display">
+                                    <p>이메일</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="board_write_row cells_wrap2 cellbox_wrap">
+                            <div class="cellbox">
+                                <p><span>예산</span></p>
+                                <div class="input_wrap input_display">
+                                    <p>예산</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="board_write_row cells_wrap1">
+                            <p><span>타입</span></p>
+                            <div class="input_wrap input_display">
+                                <ul>
+                                    <li>일반/기업 템플릿(임대)형</li>
+                                    <li>랜딩 템플릿(임대)형</li>
+                                    <li>쇼핑몰 템플릿(임대)형</li>
+                                    <li>상세페이지 베이직형</li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="board_write_row cells_wrap1">
+                            <p><span>문의내용</span></p>
+                            <div class="input_wrap input_display">
+                                <p>문의내용 안녕하세요 문의드립니다.<br>문의 드리고 싶은 내용이 있어서 드립니다.<br>여러가지 문의 드립니다.<br>문의내용 안녕하세요 문의드립니다.<br>문의 드리고 싶은 내용이 있어서 드립니다.<br>여러가지 문의 드립니다.</p>
+                            </div>
+                        </div>
+                        <div class="board_write_row cells_wrap1">
+                            <p><span>비밀번호</span></p>
+                            <div class="input_wrap input_display">
+                                <p>비밀번호</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="btnset_center">
+                        <button type="button" class="btn2 btn2_2">확인</button>
+                        <button type="button" class="btn2">취소</button>
+                    </div>
+                    
+                </div>
+            </div>
+        </div>
+        <!--contents-->
+        
+        <div class="footer">
+            <p>[06245] 서울시 강남구 논현로79길 57 (역삼동 742-17) 2층 TEL 070-7137-7111 FAX 070-5033-0877</p>
+            <em>Copyright ANISS Soft. Rights Reserved.</em>
+       </div>
+        
+    </div>
+</body>
+</html>

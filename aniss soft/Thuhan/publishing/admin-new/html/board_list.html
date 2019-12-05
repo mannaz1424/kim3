@@ -1,0 +1,305 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <title>애니스소프트 관리자</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1, user-scalable=no">    
+    <link rel="stylesheet" type="text/css" href="../css/style.css">
+    <link rel="stylesheet" type="text/css" href="../css/font.css">
+    <link rel="stylesheet" type="text/css" href="../css/jquery-ui.min.css">
+    <script type="text/javascript" src="../js/jquery-3.3.1.min.js"></script>
+    <script type="text/javascript" src="../js/style.js"></script>
+    <script type="text/javascript" src="../js/jquery-ui.min.js"></script>
+</head> 
+<body>
+    <div id="wrap">
+       
+        <!--header-->
+        <div class="header">
+            <div class="top_bar">
+                <h1 class="logo"><a href="#"><img src="../image/logo_aniss.png" alt="애니스소프트"><span>관리자센터</span></a></h1>
+                <div class="header_top">
+                    <p class="login_info"><span>Aniss</span><em>님</em></p>
+                    <a href="#" class="login_my">내정보</a>
+                    <div class="login_cnts">
+                        <div class="login_btns">
+                            <button type="button" class="btn_logout">로그아웃</button>
+                            <button type="button" class="btn_help">도움말</button>
+                        </div>
+                        <a href="#" class="top_ipgrade">연장/업그레이드</a>
+                    </div>
+                </div>
+            </div>
+            <button type="button" class="gnb_toggle"></button>
+            <div class="gnb">
+                <ul class="gnb_menu">
+                    <li>
+                        <button type="button">기본설정</button>
+                        <ul>
+                            <li class="on"><a href="#">관리자정보</a></li>
+                            <li><a href="#">전자결제(PG)설정</a></li>
+                            <li><a href="#">도메인 설정</a></li>
+                            <li><a href="#">SSL(보안서버) 구입 및 설정</a></li>
+                            <li><a href="#">가입 및 그룹설정</a></li>
+                            <li><a href="#">SEO, 헤더설정</a></li>
+                            <li><a href="#">안내 및 기타</a></li>
+                            <li><a href="#">소셜로그인/API설정</a></li>
+                            <li><a href="#">실시간 상담 설정</a></li>
+                            <li><a href="#">팝업/배너 관리</a></li>
+                        </ul>
+                    </li>
+                    <li>
+                        <button type="button">회원관리</button>
+                        <ul>
+                            <li><a href="#">회원관리</a></li>
+                            <li><a href="#">회원등급 관리</a></li>
+                            <li><a href="#">적립금관리</a></li>
+                            <li><a href="#">쿠폰관리</a></li>
+                        </ul>
+                    </li>
+                    <li>
+                        <button type="button">쇼핑몰 관리</button>
+                        <ul>
+                            <li><a href="#">쇼핑 환경설정</a></li>
+                            <li><a href="#">상품 카테고리 관리</a></li>
+                            <li><a href="#">상품관리</a></li>
+                            <li><a href="#">주문/배송/취소 관리</a></li>
+                            <li><a href="#">메일발송 설정</a></li>
+                            <li><a href="#">구매평 관리</a></li>
+                            <li><a href="#">문의관리</a></li>
+                            <li><a href="#">네이버/다음 쇼핑</a></li>
+                        </ul>
+                    </li>
+                    <li>
+                        <button type="button">발송관리</button>
+                        <ul>
+                            <li><a href="#">메일 템플릿 관리</a></li>
+                            <li><a href="#">푸시 템플릿 관리</a></li>
+                            <li><a href="#">SMS 템플릿 관리</a></li>
+                            <li><a href="#">카카오톡 템플릿 관리</a></li>
+                            <li><a href="#">단체 메일 발송 (즉시, 예약발송)</a></li>
+                            <li><a href="#">단체 푸시 관리 (즉시, 예약발송)</a></li>
+                            <li><a href="#">단체 SMS 관리 (즉시, 예약발송)</a></li>
+                            <li><a href="#">카카오톡 관리 (즉시, 예약발송)</a></li>
+                        </ul>
+                    </li>
+                    <li>
+                        <button type="button">게시판 관리</button>
+                        <ul>
+                            <li><a href="#">게시판 카테고리 관리</a></li>
+                            <li><a href="#">게시판 관리(공지, 일반, 갤러리, 신청)</a></li>
+                        </ul>
+                    </li>
+                    <li>
+                        <button type="button">예약 관리</button>
+                        <ul>
+                            <li><a href="#">예약설정</a></li>
+                            <li><a href="#">객실/사이트 관리</a></li>
+                            <li><a href="#">예약 현황 관리</a></li>
+                            <li><a href="#">예약 신청 관리</a></li>
+                            <li><a href="#">구매평 관리</a></li>
+                            <li><a href="#">문의관리</a></li>
+                            <li><a href="#">옵션관리</a></li>
+                            <li><a href="#">성수기/휴일 관리</a></li>
+                        </ul>
+                    </li>
+                    <li>
+                        <button type="button">게시판 관리</button>
+                        <ul>
+                            <li><a href="#">게시판 카테고리 관리</a></li>
+                            <li><a href="#">게시판 관리(공지, 일반, 갤러리, 신청)</a></li>
+                            <li><a href="#">게시물 관리</a></li>
+                            <li><a href="#">댓글관리</a></li>
+                            <li><a href="#">신고관리</a></li>
+                        </ul>
+                    </li>
+                    <li>
+                        <button type="button">접속통계</button>
+                        <ul>
+                            <li><a href="#">일별/월별/요일별 통계</a></li>
+                            <li><a href="#">유입통계</a></li>
+                            <li><a href="#">찜한상품 현황목록</a></li>
+                            <li><a href="#">많이 방문한 페이지</a></li>
+                            <li><a href="#">저장공간</a></li>
+                            <li><a href="#">트래픽</a></li>
+                        </ul>
+                    </li>
+                    <li>
+                        <button type="button">마케팅관리</button>
+                        <ul>
+                            <li><a href="#">구글 Analytics</a></li>
+                            <li><a href="#">네이버 검색엔진 최적화</a></li>
+                            <li><a href="#">네이버 블로그 연동설정</a></li>
+                            <li><a href="#">전환추적/리타게팅 관리</a></li>
+                        </ul>
+                    </li>
+                    <li>
+                        <button type="button">앱(App) 신청 및 관리</button>
+                        <ul>
+                            <li><a href="#">안내 및 신청</a></li>
+                            <li><a href="#">Android 관리</a></li>
+                            <li><a href="#">ios 관리</a></li>
+                        </ul>
+                    </li>
+                    <li>
+                        <button type="button">업체관리(애니스소프트 특화)</button>
+                        <ul>
+                            <li><a href="#">업체 리스트(업체등록, 수정, 삭제)</a></li>
+                            <li><a href="#">견적서 리스트</a></li>
+                            <li><a href="#">작업 리스트(레드마인, 서버정보, 소스정보 등)</a></li>
+                            <li><a href="#">계약 리스트</a></li>
+                            <li><a href="#">결제 리스트</a></li>
+                            <li><a href="#">1:1문의 리스트</a></li>
+                        </ul>
+                    </li>
+                </ul>
+            </div>
+            <div class="gnb_bg"></div>
+        </div>
+        <!--header-->
+        
+        <!--contents-->
+        <div class="section">
+            <div class="contents">
+                <div class="tit_wrap">
+                    <div class="title tit1">게시판</div>
+                    <!--navigation-->
+                    <dl class="navigation">
+                        <dt>관리자센터</dt>
+                        <dd><a href="#">메뉴1</a></dd>
+                        <dd><a href="#">메뉴2</a></dd>
+                    </dl>
+                    <!--navigation-->
+                </div>
+                
+                <div class="contents_box">
+                   
+                    <div class="table_top">
+                        <div class="table_tit">공지사항</div>
+                        <button type="button" class="btn2">글쓰기</button>
+                    </div>
+                    
+                    <!--게시판 list-->
+                    <div class="board_table">
+                        <table>
+                            <colgroup>
+                                <col width="8%;">
+                                <col width="auto;">
+                                <col width="15%;">
+                                <col width="12%;">
+                            </colgroup>
+                            <tr>
+                                <th>No.</th>
+                                <th>제목</th>
+                                <th>글쓴이</th>
+                                <th>작성일</th>
+                            </tr>
+                            <tr>
+                                <td class="center">1000</td>
+                                <td class="board_table_tit"><a href="#">제목입니다 제목을 입력해 주세요제목입니다 제목을 입력해 주세요제목입니다 제목을 입력해 주세요제목입니다 제목을 입력해 주세요제목입니다 제목을 입력해 주세요제목입니다 제목을 입력해 주세요제목입니다 </a></td>
+                                <td class="center">글쓴이</td>
+                                <td class="center">2017.11.09</td>
+                            </tr>
+                            <tr>
+                                <td class="center">1000</td>
+                                <td class="board_table_tit"><a href="#">제목입니다 제목을 입력해 주세요</a></td>
+                                <td class="center">글쓴이</td>
+                                <td class="center">2017.11.09</td>
+                            </tr>
+                            <tr>
+                                <td class="center">1000</td>
+                                <td class="board_table_tit"><a href="#">제목입니다 제목을 입력해 주세요</a></td>
+                                <td class="center">글쓴이</td>
+                                <td class="center">2017.11.09</td>
+                            </tr>
+                            <tr>
+                                <td class="center">1000</td>
+                                <td class="board_table_tit"><a href="#">제목입니다 제목을 입력해 주세요</a></td>
+                                <td class="center">글쓴이</td>
+                                <td class="center">2017.11.09</td>
+                            </tr>
+                            <tr>
+                                <td class="center">1000</td>
+                                <td class="board_table_tit"><a href="#">제목입니다 제목을 입력해 주세요</a></td>
+                                <td class="center">글쓴이</td>
+                                <td class="center">2017.11.09</td>
+                            </tr>
+                            <tr>
+                                <td class="center">1000</td>
+                                <td class="board_table_tit"><a href="#">제목입니다 제목을 입력해 주세요</a></td>
+                                <td class="center">글쓴이</td>
+                                <td class="center">2017.11.09</td>
+                            </tr>
+                            <tr>
+                                <td class="center">1000</td>
+                                <td class="board_table_tit"><a href="#">제목입니다 제목을 입력해 주세요</a></td>
+                                <td class="center">글쓴이</td>
+                                <td class="center">2017.11.09</td>
+                            </tr>
+                            <tr>
+                                <td class="center">1000</td>
+                                <td class="board_table_tit"><a href="#">제목입니다 제목을 입력해 주세요</a></td>
+                                <td class="center">글쓴이</td>
+                                <td class="center">2017.11.09</td>
+                            </tr>
+                            <tr>
+                                <td class="center">1000</td>
+                                <td class="board_table_tit"><a href="#">제목입니다 제목을 입력해 주세요</a></td>
+                                <td class="center">글쓴이</td>
+                                <td class="center">2017.11.09</td>
+                            </tr>
+                            <tr>
+                                <td class="center">1000</td>
+                                <td class="board_table_tit"><a href="#">제목입니다 제목을 입력해 주세요</a></td>
+                                <td class="center">글쓴이</td>
+                                <td class="center">2017.11.09</td>
+                            </tr>
+                        </table>
+                    </div>
+                    
+                    <!--페이징-->
+                    <div class="paging">
+                        <ul>
+                            <li class="paging_p p_first"><a href="#">처음으로</a></li>
+                            <li class="paging_p p_prev"><a href="#">이전</a></li>
+                            <li class="on"><a href="#">1</a></li>
+                            <li><a href="#">2</a></li>
+                            <li><a href="#">3</a></li>
+                            <li><a href="#">4</a></li>
+                            <li><a href="#">5</a></li>
+                            <li class="paging_p p_next"><a href="#">다음</a></li>
+                            <li class="paging_p p_last"><a href="#">마지막</a></li>
+                        </ul>
+                    </div>
+
+                    <!--검색-->
+                    <div class="board_search">
+                        <select>
+                            <option value="제목">제목</option>
+                            <option value="작성자">작성자</option>
+                        </select>
+                        <div class="board_search_box">
+                            <input type="text">
+                            <button type="submit" class="btn_search">검색</button>
+                        </div>
+                    </div>
+                    
+                </div>
+                
+         
+           
+                   
+           
+           
+            </div>
+        </div>
+        <!--contents-->
+        
+        <div class="footer">
+            <p>[06245] 서울시 강남구 논현로79길 57 (역삼동 742-17) 2층 TEL 070-7137-7111 FAX 070-5033-0877</p>
+            <em>Copyright ANISS Soft. Rights Reserved.</em>
+       </div>
+        
+    </div>
+</body>
+</html>

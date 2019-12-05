@@ -1,0 +1,560 @@
+CREATE TABLE mst000(
+    code VARCHAR(3) NOT NULL,
+    NAME VARCHAR(36),
+    kana VARCHAR(36),
+    executive VARCHAR(16),
+	
+    zip VARCHAR(8),
+    addr1 VARCHAR(40),
+    addr2 VARCHAR(40),
+    tel VARCHAR(20),
+    fax VARCHAR(20),
+	
+    account1 VARCHAR(5),
+    account2 VARCHAR(1),
+    account3 VARCHAR(7),
+    taxrate DECIMAL(15,2),
+    newtaxrate DECIMAL(15,2),
+    newtaxdate TIMESTAMP,
+    calcctrl VARCHAR(1),
+    termbegin TIMESTAMP,
+    closeday DECIMAL(15,0),
+    form VARCHAR(6),
+    fracunit VARCHAR(1),
+    fractype VARCHAR(1),
+    fracctrl VARCHAR(1),
+    taxtype VARCHAR(1),
+    accountname VARCHAR(40),
+    accounttel VARCHAR(20),
+    recmade TIMESTAMP,
+    RECUPDATE TIMESTAMP,
+    days DECIMAL(15,0),
+    bil_cust_cd VARCHAR(20),
+    bil_class_cd VARCHAR(20),
+    fare_no VARCHAR(20),
+    payday DECIMAL(15,0),
+    reg_discount_cnt DECIMAL(15,0),
+    reg_discountrate DECIMAL(15,0),
+    PASSWORD01 VARCHAR(20));
+	
+	
+	CREATE TABLE mst001(
+    code VARCHAR(5) NOT null,
+    NAME VARCHAR(20),
+    kana VARCHAR(20),
+    zip VARCHAR(8),
+    addr1 VARCHAR(50),
+    addr2 VARCHAR(50),
+    tel VARCHAR(20),
+    fax VARCHAR(20),
+    leader VARCHAR(16),
+    recmade TIMESTAMP,
+    recupdate TIMESTAMP     
+    );
+    
+	
+	CREATE TABLE mst002(
+    code VARCHAR(5) NOT null,
+    NAME VARCHAR(20),
+    kana VARCHAR(20),
+    assign VARCHAR(5),
+    note VARCHAR(255),
+    startdate TIMESTAMP,
+    disabled VARCHAR(1),    
+    recmade TIMESTAMP,
+    recupdate TIMESTAMP,
+	 login_pw VARCHAR(50),
+	 authority VARCHAR(1),
+	 branchcode VARCHAR(4),
+	 teamcode VARCHAR(4),
+	 enddate TIMESTAMP     
+    );
+    
+    
+	
+	CREATE TABLE mst010(
+    code VARCHAR(16) NOT null,
+    NAME VARCHAR(40),
+    kana VARCHAR(40),
+    
+    publish TIMESTAMP,
+    SendADDR VARCHAR(1),
+    zip1 VARCHAR(8),
+    addr11 VARCHAR(60),
+    addr12 VARCHAR(40),
+    telno1 VARCHAR(20),
+    
+    zip2 VARCHAR(8),
+    addr21 VARCHAR(60),
+    addr22 VARCHAR(40),
+    telno2 VARCHAR(20),
+    
+    faxno VARCHAR(20),
+    telnum VARCHAR(20),
+    ShortTel VARCHAR(4),
+    birth TIMESTAMP,
+    sex VARCHAR(1),
+    areacode VARCHAR(4),
+    MediaLCode VARCHAR(3),
+    MediaCode VARCHAR(3),
+    Introduce VARCHAR(16),
+    dissenddm VARCHAR(1),
+    ProcType VARCHAR(1),
+    PrtType VARCHAR(1),
+    PrnFormat VARCHAR(1),
+    CloseDay1 DECIMAL(15,0),
+    CloseDay2 DECIMAL(15,0),
+    CloseDay3 DECIMAL(15,0),
+    Span1 DECIMAL(15,0),
+    Span2 DECIMAL(15,0),
+    Span3 DECIMAL(15,0),
+    CollDay1 DECIMAL(15,0),
+    CollDay2 DECIMAL(15,0),
+    CollDay3 DECIMAL(15,0),
+    TYPE1 VARCHAR(4),
+    TYPE2 VARCHAR(4),
+    TYPE3 VARCHAR(4),
+    TYPE4 VARCHAR(4),
+    TYPE5 VARCHAR(4),
+    staffcode VARCHAR(5),
+    note1 VARCHAR(40),
+    note2 VARCHAR(40),
+    FirstDate TIMESTAMP,
+    LastDate TIMESTAMP,
+    disabled VARCHAR(1),
+    recmade TIMESTAMP,
+    recupdate TIMESTAMP,
+    
+    frequency01 VARCHAR(10),
+    frequency02 VARCHAR(10),
+    frequencyafter VARCHAR(30),
+    presstop VARCHAR(10),
+    pressunder VARCHAR(10),
+    pressafter VARCHAR(30),
+    sugarlvl01 VARCHAR(10),
+    sugarlvl02 VARCHAR(10),
+    
+    cholesterol01 VARCHAR(10),
+    cholesterol02 VARCHAR(10),
+    
+    condition01 VARCHAR(1),
+    condition02 VARCHAR(1),
+    condition03 VARCHAR(1),
+    condition04 VARCHAR(1),
+    condition05 VARCHAR(1),
+    condition06 VARCHAR(1),
+    condition07 VARCHAR(1),
+    condition08 VARCHAR(1),
+    condition09 VARCHAR(1),
+    condition10 VARCHAR(1),
+    condition11 VARCHAR(1),
+    condition12 VARCHAR(1),
+    condition13 VARCHAR(1),
+    condition14 VARCHAR(1),
+    condition15 VARCHAR(1),
+    condition16 VARCHAR(1),
+    condition17 VARCHAR(1),
+    condition18 VARCHAR(1),
+    condition19 VARCHAR(1),
+    condition20 VARCHAR(1),
+    condition21 VARCHAR(1),
+    condition22 VARCHAR(1),
+    condition23 VARCHAR(1),
+    condition24 VARCHAR(1),
+    condition25 VARCHAR(1),
+    condition26 VARCHAR(1),
+	 condition27 VARCHAR(1),
+	 
+    medicine VARCHAR(60),
+    USAGE VARCHAR(50),
+    healthfood VARCHAR(60),
+    attention VARCHAR(255),
+    inputdate TIMESTAMP,
+    
+    cust_status VARCHAR(1),
+    dist_date TIMESTAMP,
+    return_date TIMESTAMP,
+    dist_staff VARCHAR(5),
+    befdist_staff VARCHAR(5),
+    
+    parents_code VARCHAR(16),
+    email VARCHAR(100),
+    imode VARCHAR(100),
+    dissend_dm VARCHAR(1),
+    dissend_tel VARCHAR(1),
+    cust_memo VARCHAR(1000),
+    addr1_title VARCHAR(2),
+    addr2_title VARCHAR(2),
+    account_type VARCHAR(2),
+    bank_name VARCHAR(200),
+    bank_branname VARCHAR(200),
+    bank_namekana VARCHAR(200),
+    bank_type VARCHAR(2),
+    bank_no VARCHAR(10),
+    post_mk VARCHAR(10),
+    post_no VARCHAR(10),
+    post_namekana VARCHAR(200),
+    FREE01 VARCHAR(200),
+    FREE02 VARCHAR(200),
+    FREE03 VARCHAR(200),
+    FREE04 VARCHAR(200),
+    FREE05 VARCHAR(200),
+    ques01_chk01 VARCHAR(1),
+    ques01_chk02 VARCHAR(1),
+    ques01_chk03 VARCHAR(1),
+    ques01_com01 VARCHAR(200),
+    
+    ques02_chk01 VARCHAR(1),
+    ques02_chk02 VARCHAR(1),
+    ques02_chk03 VARCHAR(1),
+    ques02_com01 VARCHAR(200),
+    
+    ques03_chk01 VARCHAR(1),
+    ques03_chk02 VARCHAR(1),
+    ques03_chk03 VARCHAR(1),
+    ques03_chk04 VARCHAR(1),
+    ques03_chk05 VARCHAR(1),
+    ques03_com01 VARCHAR(200),
+    
+    ques04_com01 VARCHAR(200),
+    
+    ques05_chk01 VARCHAR(1),
+    ques05_chk02 VARCHAR(1),
+    ques05_chk03 VARCHAR(1),
+    
+    ques06_chk01 VARCHAR(1),
+    ques06_chk02 VARCHAR(1),
+    ques06_chk03 VARCHAR(1),
+    ques06_chk04 VARCHAR(1),
+    ques06_chk05 VARCHAR(1),
+    ques06_chk06 VARCHAR(1),
+    ques06_chk07 VARCHAR(1),
+    ques06_com01 DECIMAL(15,0),
+    
+    age_kbn VARCHAR(2),
+    telnum02 VARCHAR(20),
+    bank_code VARCHAR(4),
+    bankbran_code VARCHAR(3),
+    post_code VARCHAR(4),
+    postbran_code VARCHAR(3),
+    dist_code VARCHAR(10)
+      
+    );
+    
+	
+    
+    CREATE TABLE mst011(
+    code VARCHAR(16) NOT null,
+    SEQUENCE DECIMAL(15,0) NOT null,
+    INTERVAL DECIMAL(15,0) NOT null,
+    nextdate TIMESTAMP NOT null,
+    true_nextdate TIMESTAMP NOT null,
+    orderdate TIMESTAMP NOT null,
+    
+    ProdCode1 VARCHAR(16) NOT null,
+    Amount1 DECIMAL(15,2) NOT null,    
+    unitprice1 DECIMAL(15,2) NOT null,
+    
+    ProdCode2 VARCHAR(16),
+    Amount2 DECIMAL(15,2),    
+    unitprice2 DECIMAL(15,2),
+    
+    ProdCode3 VARCHAR(16),
+    Amount3 DECIMAL(15,2),    
+    unitprice3 DECIMAL(15,2),
+    
+    ProdCode4 VARCHAR(16),
+    Amount4 DECIMAL(15,2),    
+    unitprice4 DECIMAL(15,2),
+    
+    ProdCode5 VARCHAR(16),
+    Amount5 DECIMAL(15,2),    
+    unitprice5 DECIMAL(15,2),
+    
+    ProdCode6 VARCHAR(16),
+    Amount6 DECIMAL(15,2),    
+    unitprice6 DECIMAL(15,2),
+    
+    subtotal DECIMAL(15,0),
+    discount DECIMAL(15,0),
+    fee DECIMAL(15,0),
+    subtax DECIMAL(15,0),
+    control DECIMAL(15,0),
+    total DECIMAL(15,0),
+    
+    invoicecode VARCHAR(2),
+    TimeCode VARCHAR(2),
+    recmade TIMESTAMP,
+    recupdate TIMESTAMP,
+    next_arr_dt TIMESTAMP,
+    stop_day TIMESTAMP,
+    NAME VARCHAR(40),
+    zip VARCHAR(8),
+    sendtype VARCHAR(1),
+    addr1 VARCHAR(60),
+    addr2 VARCHAR(40),
+    telno VARCHAR(20),
+    create_hideseq DECIMAL(15,0),
+    nake_flg DECIMAL(15,0),
+    payment VARCHAR(4),
+    
+    sendunit VARCHAR(2),
+    arrive_day DECIMAL(15,0),
+    buycount DECIMAL(15,0),
+    perdiscount DECIMAL(15,0),
+    
+    
+    first_discount DECIMAL(15,0),
+    maketype_flg VARCHAR(2),
+    salemake_day TIMESTAMP,
+    bef_next_arr_dt TIMESTAMP,
+    bef_nextdate TIMESTAMP
+    
+    );
+    
+	
+	
+	
+	CREATE TABLE mst030(
+
+    code VARCHAR(16) NOT null,    
+    NAME VARCHAR(40) NOT null,
+    kana VARCHAR(40),
+    sizename VARCHAR(40),
+    unitunit VARCHAR(6),
+    jancode VARCHAR(13),
+    TYPE1 VARCHAR(4) NOT null,
+    TYPE2 VARCHAR(4),
+    TYPE3 VARCHAR(4),
+    TYPE4 VARCHAR(4),
+    TYPE5 VARCHAR(4),
+    stockctrl VARCHAR(1) NOT null,
+    taxtype VARCHAR(1) NOT null,
+    unitprice DECIMAL(15,0),
+    unitcost DECIMAL(15,0),
+    cycle DECIMAL(15,0),
+    disabled VARCHAR(1),
+    recmade TIMESTAMP,
+    recupdate TIMESTAMP,
+    print_name VARCHAR(40),
+    correct_amount DECIMAL(15,0),
+    short_name VARCHAR(40)    
+    
+    );
+	
+	
+	
+	
+	CREATE TABLE mst040(
+
+    tbltype VARCHAR(3) NOT NULL,
+    typeon VARCHAR(1) NOT NULL,
+	code VARCHAR(4) NOT null,    
+    NAME VARCHAR(30),
+    
+    disabled VARCHAR(1),
+    recmade TIMESTAMP,
+    recupdate TIMESTAMP
+   
+    );
+	
+	
+	
+	
+	CREATE TABLE mst054(
+
+    tabletype VARCHAR(1) NOT NULL,
+    lcode VARCHAR(3) NOT NULL,
+	 code VARCHAR(3) NOT null,    
+    NAME VARCHAR(20),
+    
+    recmade TIMESTAMP,
+    recupdate TIMESTAMP
+   
+    );
+    
+	
+	
+	
+	CREATE TABLE mst055(
+   
+	code VARCHAR(3) NOT null,    
+    NAME VARCHAR(20),
+    
+    recmade TIMESTAMP,
+    recupdate TIMESTAMP
+   
+    );
+	
+	
+	
+	CREATE TABLE mst060(
+   
+	code VARCHAR(3) NOT null,    
+    NAME VARCHAR(30) NOT null,
+    note VARCHAR(40),
+    repeatflg VARCHAR(1),
+    
+    recmade TIMESTAMP,
+    recupdate TIMESTAMP
+   
+    );
+	
+	
+	
+	
+	CREATE TABLE mst070(
+   
+	hideseq DECIMAL(15,0) NOT NULL,    
+    NAME VARCHAR(40) NOT NULL,
+    
+    ProdCode1 VARCHAR(16) NOT NULL,
+    Amount1 DECIMAL(15,2) NOT NULL,
+    ProdCode2 VARCHAR(16),
+    Amount2 DECIMAL(15,2),
+    ProdCode3 VARCHAR(16),
+    Amount3 DECIMAL(15,2),
+    ProdCode4 VARCHAR(16),
+    Amount4 DECIMAL(15,2),
+    ProdCode5 VARCHAR(16),
+    Amount5 DECIMAL(15,2),
+    ProdCode6 VARCHAR(16),
+    Amount6 DECIMAL(15,2),
+    
+    subtotal DECIMAL(15,0),
+    discount DECIMAL(15,0),
+    fee DECIMAL(15,0),
+    subtax DECIMAL(15,0),
+    control DECIMAL(15,0),
+    total DECIMAL(15,0),    
+    
+    recmade TIMESTAMP,
+    recupdate TIMESTAMP
+   
+    );
+	
+	
+	
+	
+	CREATE TABLE mst080(
+   
+	code VARCHAR(3) NOT NULL,    
+    NAME VARCHAR(40) NOT NULL,
+    days DECIMAL(15,0),
+    
+    recmade TIMESTAMP,
+    recupdate TIMESTAMP
+   
+    );
+	
+	
+	
+	CREATE TABLE mst090(
+   
+	 tabletype VARCHAR(1) NOT NULL,
+	 lcode VARCHAR(4) NOT NULL,
+	 code VARCHAR(4) NOT NULL,    
+    NAME VARCHAR(30),
+    
+    recmade TIMESTAMP,
+    recupdate TIMESTAMP
+   
+    );
+    
+	
+	
+	CREATE TABLE mst0021(
+    
+    staffcode VARCHAR(5) NOT NULL,
+    autho_cd VARCHAR(2) NOT NULL,
+    disabled VARCHAR(1),
+    
+    recmade TIMESTAMP,
+    recupdate TIMESTAMP
+   
+    );
+	
+	
+	
+	
+CREATE TABLE mst0022(
+
+staffcode VARCHAR(5) NOT NULL,
+sys_kbn VARCHAR(1) NOT NULL,
+prog_id VARCHAR(30) NOT NULL,
+disabled VARCHAR(1),
+
+recmade TIMESTAMP,
+recupdate TIMESTAMP
+
+);
+	
+	
+
+
+CREATE TABLE mst0031(
+    
+    autho_cd VARCHAR(2) NOT NULL,
+    autho_nm VARCHAR(30),
+    disabled VARCHAR(1),
+    
+    recmade TIMESTAMP,
+    recupdate TIMESTAMP
+   
+    );
+	
+
+
+
+
+CREATE TABLE mst0032(
+    
+    autho_cd VARCHAR(2) NOT NULL,
+    sys_kbn VARCHAR(1) NOT NULL,
+    prog_id VARCHAR(30) NOT NULL,
+    disabled VARCHAR(1),
+    
+    recmade TIMESTAMP,
+    recupdate TIMESTAMP
+   
+    );
+    
+
+
+CREATE TABLE mst0301(
+    
+    pcode VARCHAR(5) NOT NULL,
+    YEAR VARCHAR(4) NOT NULL,
+    day VARCHAR(5) NOT NULL,
+    fulldate TIMESTAMP,
+    NAME VARCHAR(50),
+    insuser_cd VARCHAR(5),
+    insdate TIMESTAMP,
+    upduser_cd  VARCHAR(5),
+    upddate timestamp
+   
+    );	
+	
+	
+	
+	
+	
+CREATE TABLE mst0002(
+    
+    pcode VARCHAR(5) NOT NULL,
+    YEAR VARCHAR(4) NOT NULL,
+    day VARCHAR(5) NOT NULL,
+    fulldate TIMESTAMP,
+    NAME VARCHAR(50),
+    insuser_cd VARCHAR(5),
+    insdate TIMESTAMP,
+    upduser_cd  VARCHAR(5),
+    upddate timestamp
+   
+    );
+    	
+	
+    
+    
+    
+    

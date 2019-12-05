@@ -1,0 +1,23 @@
+CREATE TABLE SYS010(
+    SYS_KBN VARCHAR(1) NOT NULL,
+    PROG_NO VARCHAR(15) NOT NULL,
+    PROG_ID VARCHAR(30) NOT NULL,
+    PROG_NM VARCHAR(50),
+    AUTHO_CD VARCHAR(1),
+    DISABLED VARCHAR(1),
+    BTN_NM VARCHAR(30));
+	
+	
+CREATE TABLE sys020(
+    seq_id VARCHAR(20) NOT NULL,
+    seq_nm VARCHAR(40),
+    seq_no DECIMAL(15,0),
+    cycle_kbn DECIMAL(15,0),
+    seq_length DECIMAL(15,0),
+    insuser_cd VARCHAR(6),
+    insdate VARCHAR(8),
+    instime VARCHAR(6),
+    upduser_cd VARCHAR(6),
+    upddate VARCHAR(8),
+    updtime VARCHAR(6),
+    disabled VARCHAR(1));

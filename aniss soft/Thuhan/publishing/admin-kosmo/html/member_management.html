@@ -1,0 +1,287 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <title>메뉴얼박스 관리자</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1, user-scalable=no">    
+    <link rel="stylesheet" type="text/css" href="../css/style.css">
+    <link rel="stylesheet" type="text/css" href="../css/font.css">
+    <link rel="stylesheet" type="text/css" href="../css/jquery-ui.min.css">
+    <script type="text/javascript" src="../js/jquery-3.3.1.min.js"></script>
+    <script type="text/javascript" src="../js/style.js"></script>
+    <script type="text/javascript" src="../js/jquery-ui.min.js"></script>
+</head> 
+<body>
+    <div id="wrap">
+       
+        <!--header-->
+        <div class="header">
+            <div class="top_bar">
+                <h1 class="logo"><a href="#"><img src="../image/logo.jpg" alt="코스모 한국소프트웨어인재개발원"><span>관리자센터</span></a></h1>
+                <div class="header_top">
+                    <p class="login_info"><span>Aniss</span><em>님</em></p>
+                    <button type="button" class="login_my">내정보</button>
+                    <div class="login_cnts">
+                        <div class="login_btns">
+                            <button type="button" class="btn_logout">로그아웃</button>
+                            <button type="button" class="btn_help">도움말</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <button type="button" class="gnb_toggle"></button>
+            <div class="gnb">
+                <ul class="gnb_menu">
+                    <li>
+                        <button type="button">기본설정</button>
+                        <ul>
+                            <li class="on"><a href="#">SEC, 헤더설정</a></li>
+                            <li><a href="#">팝업/배너 관리</a></li>
+                        </ul>
+                    </li>
+                    <li>
+                        <button type="button">회원관리</button>
+                        <ul>
+                            <li><a href="#">회원관리</a></li>
+                            <li><a href="#">접수자/훈련생 관리</a></li>
+                        </ul>    
+                    </li>
+                    <li><button type="button">강의관리</button></li>
+                    <li>
+                        <button type="button">발송관리</button>
+                        <ul>
+                            <li><a href="#">SMS 템플릿관리</a></li>
+                            <li><a href="#">단체 SMS발송(즉시, 예약발송)</a></li>
+                        </ul> 
+                    </li>
+                    <li>
+                        <button type="button">게시판 관리</button>
+                        <ul>
+                            <li><a href="#">게시판 카테고리 관리</a></li>
+                            <li><a href="#">게시판 관리(공지, 일반, 갤러리, 신청)</a></li>
+                            <li><a href="#">게시물 관리</a></li>
+                        </ul> 
+                    </li>
+                    <li>
+                        <button type="button">접속통계</button>
+                        <ul>
+                            <li><a href="#">일별/월별/요일별 통계</a></li>
+                            <li><a href="#">유입통계</a></li>
+                            <li><a href="#">많이 방문한 페이지</a></li>
+                            <li><a href="#">저장공간</a></li>
+                            <li><a href="#">트레픽</a></li>
+                        </ul> 
+                    </li>
+                    <li>
+                        <button type="button">마케팅 관리</button>
+                        <ul>
+                            <li><a href="#">구글 Analytics</a></li>
+                            <li><a href="#">네이버 검색엔진 최적화</a></li>
+                        </ul> 
+                    </li>
+                </ul>
+            </div>
+            <div class="gnb_bg"></div>
+        </div>
+        <!--header-->
+        
+        <!--contents-->
+        <div class="section">
+            <div class="contents">
+               
+                <div class="tit_wrap float_wrap">
+                    <div class="title tit1">회원관리</div>
+                    <!--navigation-->
+                    <dl class="navigation">
+                        <dt>관리자센터</dt>
+                        <dd>회원관리</dd>
+                        <dd><a href="#">회원관리</a></dd>
+                    </dl>
+                    <!--navigation-->
+                </div>
+                
+                <div class="contents_box">
+                    <div class="top_set">
+                        <div class="top_left">
+                            <p>회원검색</p>
+                        </div>
+                        <div class="top_right">
+                            <button type="button" class="btn_md btn_secondary" id="btn_member_register">회원등록</button>
+                        </div>
+                    </div>
+                    <div class="table1">
+                        <table>
+                            <colgroup>
+                                <col style="width:15%;">
+                                <col style="width:35%;">
+                                <col style="width:15%;">
+                                <col style="width:35%;">
+                            </colgroup>
+                            <tr>
+                                <th>검색어</th>
+                                <td>
+                                    <ul class="inputs_wrap1">
+                                        <li>
+                                            <select>
+                                                <option>전체검색</option>
+                                                <option>전체검색</option>
+                                                <option>전체검색</option>
+                                            </select>
+                                        </li>
+                                        <li><input type="text"></li>
+                                    </ul>
+                                    
+                                </td>
+                                <th>게시판 선택</th>
+                                <td class="td_left td_space_l td_display">
+                                    <input type="checkbox" id="opt1" class="checkbox1"><label for="opt1">재직자</label>
+                                    <input type="checkbox" id="opt2" class="checkbox1"><label for="opt2">훈련생</label>
+                                    <input type="checkbox" id="opt3" class="checkbox1"><label for="opt3">접수자</label>
+                                </td>
+                            </tr>
+                        </table>
+                    </div>
+                    <p class="txt_info">순위변경의 경우 노출구분 검색시에만 변경 가능합니다.</p>
+                    <div class="btns btns_center">
+                        <button type="button" class="btn_lg btn_primary">검색</button>
+                    </div>
+                    <div class="btns btns_top space_md">
+                        <button type="button" class="btn_md btn_secondary">전체목록 엑셀다운</button>
+                    </div>
+                    <div class="table1">
+                        <table>
+                            <tr>
+                                <th class="checkbox_td"><input type="checkbox" class="checkbox1 checkbox_single check_row" id="opt4"><label for="opt4"></label></th>
+                                <th>이름</th>                                
+                                <th>생년월일</th>                                
+                                <th>전화번호</th>                                
+                                <th>이메일</th>                                
+                                <th>경로</th>                                
+                                <th>가입일</th>                                
+                                <th>관리</th>                                
+                            </tr>
+                            <tr>
+                                <td class="checkbox_td"><input type="checkbox" class="checkbox1 checkbox_single check_row" id="opt5"><label for="opt5"></label></td>
+                                <td>김민경</td>
+                                <td>1990-05-02</td>
+                                <td>010-9446-2121</td>
+                                <td>linknmd@gmail.com</td>
+                                <td>포털</td>
+                                <td>2019-08-04</td>
+                                <td>
+                                    <button type="button" class="btn_sm btn_edit">수정</button>
+                                    <button type="button" class="btn_sm btn_delete">삭제</button>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td class="checkbox_td"><input type="checkbox" class="checkbox1 checkbox_single check_row" id="opt6"><label for="opt6"></label></td>
+                                <td>김민경</td>
+                                <td>1990-05-02</td>
+                                <td>010-9446-2121</td>
+                                <td>linknmd@gmail.com</td>
+                                <td>이메일</td>
+                                <td>2019-08-04</td>
+                                <td>
+                                    <button type="button" class="btn_sm btn_edit">수정</button>
+                                    <button type="button" class="btn_sm btn_delete">삭제</button>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td class="checkbox_td"><input type="checkbox" class="checkbox1 checkbox_single check_row" id="opt7"><label for="opt7"></label></td>
+                                <td>김민경</td>
+                                <td>1990-05-02</td>
+                                <td>010-9446-2121</td>
+                                <td>linknmd@gmail.com</td>
+                                <td>인테넷</td>
+                                <td>2019-08-04</td>
+                                <td>
+                                    <button type="button" class="btn_sm btn_edit">수정</button>
+                                    <button type="button" class="btn_sm btn_delete">삭제</button>
+                                </td>
+                            </tr>
+                        </table>
+                    </div>
+                    
+                    <!--페이징-->
+                    <div class="paging">
+                        <ul>
+                            <li class="paging_p p_first"><a href="#">처음으로</a></li>
+                            <li class="paging_p p_prev"><a href="#">이전</a></li>
+                            <li class="on"><a href="#">1</a></li>
+                            <li><a href="#">2</a></li>
+                            <li><a href="#">3</a></li>
+                            <li><a href="#">4</a></li>
+                            <li><a href="#">5</a></li>
+                            <li class="paging_p p_next"><a href="#">다음</a></li>
+                            <li class="paging_p p_last"><a href="#">마지막</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!--contents-->
+        
+        <div class="footer">
+            <p>[06245] 서울시 강남구 논현로79길 57 (역삼동 742-17) 2층 TEL 070-7137-7111 FAX 070-5033-0877</p>
+            <em>Copyright ANISS Soft. Rights Reserved.</em>
+       </div>
+        
+    </div>
+    
+    
+    <div class="popup" id="pop_member_register">
+        <div class="popup_box">
+            <div class="pop_header">
+                <p class="pop_tit">회원관리</p>
+                <button type="button" class="pop_close">닫기</button>
+            </div>
+            <div class="pop_cont">
+                <div class="table1 table_resp_h">
+                    <table>
+                        <colgroup>
+                            <col style="width:20%;">
+                            <col style="width:80%;">
+                        </colgroup>
+                        <tr>
+                            <th>제목</th>
+                            <td><input type="text"></td>
+                        </tr>
+                        <tr>
+                            <th>작성자</th>
+                            <td class="td_left td_space_l td_display">
+                                <input type="checkbox" id="opt8" class="checkbox1"><label for="opt8">재직자</label>
+                                <input type="checkbox" id="opt9" class="checkbox1"><label for="opt9">훈련생</label>
+                                <input type="checkbox" id="opt10" class="checkbox1"><label for="opt10">접수자</label>
+                            </td>
+                        </tr>
+                        <tr>
+                            <th>문의내용</th>
+                            <td>
+                                <textarea rows="5"></textarea>
+                            </td>
+                        </tr>
+                        <tr>
+                            <th>첨부파일</th>
+                            <td class="td_left">
+                                <input type="file" class="input_md">
+                                <p class="txt_info">첨부파일은 jpg, gif, png만 업로드 가능합니다. (단 용량은 2M Byte미만)</p>
+                                <ul class="attachment_list">
+                                    <li><span>첨부파일 파일이름 예제1</span><button type="button" class="icon_btn_del icon_btn"></button></li>
+                                    <li><span>첨부파일 파일이름2</span><button type="button" class="icon_btn_del icon_btn"></button></li>
+                                    <li><span>첨부파일 파일이름 파일이름제3</span><button type="button" class="icon_btn_del icon_btn"></button></li>
+                                </ul>
+                            </td>
+                        </tr>
+                    </table>
+                </div>
+                <div class="btns btns_bottom btns_center">
+                    <button type="button" class="btn_lg btn_primary">확인</button>
+                    <button type="button" class="btn_lg btn_cancel">취소</button>
+                </div>
+            </div>
+        </div>
+        <div class="popup_bg"></div>
+    </div>
+    
+</body>
+</html>

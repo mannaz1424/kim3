@@ -13,12 +13,15 @@ import org.springframework.web.servlet.i18n.SessionLocaleResolver;
 
 public class LocaleInterceptor extends  HandlerInterceptorAdapter{
 	   @Override
-	   public boolean preHandle(HttpServletRequest request, HttpServletResponse response, Object handler){
+	   public boolean preHandle(HttpServletRequest request, 
+			                    HttpServletResponse response, 
+			                    Object handler){
 	      HttpSession session=request.getSession();
 	      String locale=request.getParameter("locale");
 	      if(locale==null)
 	         locale="ko";
-	      session.setAttribute("org.springframework.web.servlet.i18n.SessionLocaleResolver.LOCALE",new Locale(locale));
+	      session.setAttribute("org.springframework.web.servlet.i18n.SessionLoca leResolver.LOCALE",
+	    		               new Locale(locale));
 	      return true;
 	   }
 

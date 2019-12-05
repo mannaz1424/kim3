@@ -1,0 +1,85 @@
+@charset "utf-8";
+
+.main_info{width: 100%;}
+.main_info:after{content: ''; display: block; clear: both;}
+.main_info .box{width: 24%; height: 260px;float: left;overflow: hidden; padding: 20px; margin-right: 1%; background-color: #fff;}
+.main_info .box.green{border: 1px solid #69db69;}
+.main_info .box.yellow{border: 1px solid #ffd653;}
+.main_info .box.red{border: 1px solid #ff3c00;}
+.main_info .box.blue{border: 1px solid #3da5ff; margin-right: 0;}
+.main_info .box .top{ text-align: center; position: relative;}
+
+.main_info .box .bottom{width: 100%; margin-top: 20px;}
+.main_info .box .bottom table{width: 100%;}
+.main_info .box .bottom table tr th,
+.main_info .box .bottom table tr td{width: 50%;font-size:1.25rem; color: #666; font-weight: 300; padding: 5px;}
+.main_info .box .bottom table tr th{text-align: left;}
+.main_info .box .bottom table tr td{text-align: right;}
+.main_info .box .bottom table tr td span{font-weight: 700; vertical-align: top; margin-right: 10px;}
+
+/*매출통계*/
+.main_01{height: 241px; width: 49%; margin-right: 1%;}
+.main_01 .left{width: 30%;}
+.main_01 .right{width: 70%; padding-left: 20px;}
+.main_01 .left .btn_tab{width: 200px; height: 45px; border: 1px solid #ddd;background-color: #fff; color: #666; font-size: 0.875rem; margin-top: -1px;}
+.main_01 .left .btn_tab:hover,
+.main_01 .left .btn_tab:focus{background-color: #0096ff; color: #fff;}
+
+/*판매지연*/
+.main_01 .delay li{width: 20%; float: left; text-align: center;}
+.main_01 .delay li .tit{padding-top: 80px;font-size: 0.938rem; color: #666;}
+.main_01 .delay li:nth-child(1) .tit{background-size: 60px; background: url("http://via.placeholder.com/60x60")no-repeat center top;}
+.main_01 .delay li:nth-child(2) .tit{background-size: 60px; background: url("http://via.placeholder.com/60x60")no-repeat center top;}
+.main_01 .delay li:nth-child(3) .tit{background-size: 60px; background: url("http://via.placeholder.com/60x60")no-repeat center top;}
+.main_01 .delay li:nth-child(4) .tit{background-size: 60px; background: url("http://via.placeholder.com/60x60")no-repeat center top;}
+.main_01 .delay li:nth-child(5) .tit{background-size: 60px; background: url("http://via.placeholder.com/60x60")no-repeat center top;}
+.main_01 .delay li .txt{font-size: 1.125rem; font-weight: 700;}
+
+/*미답변문의*/
+.main_02{width: 24%;margin-right: 1%; height: 420px;}
+.main_02 .qna_tab button{border: none; background-color: transparent; margin: 0 20px;}
+.main_02 .qna_tab button .qna_num{position: relative; display: inline-block; width: 40px; height: 40px; line-height: 36px;border-radius: 100%; background-color: #aaa; color: #fff; font-weight: 300;}
+.main_02 .qna_tab button .qnatit{color: #aaa;}
+.main_02 .qna_tab button:hover .qna_num,
+.main_02 .qna_tab button:focus .qna_num{background-color: #0096ff;}
+.main_02 .qna_tab button:hover .qnatit,
+.main_02 .qna_tab button:focus .qnatit{color: #0096ff;}
+
+.main_02 .qna_list dl{margin-top: 20px;}
+.main_02 .qna_list dl dt{width: 100%;}
+.main_02 .qna_list dl dt a{width: 100%; font-size: 0.875rem; color: #333; display: inline-block; overflow: hidden; text-overflow: ellipsis; white-space: nowrap;}
+.main_02 .qna_list dl dd{font-size: 0.75rem; color: #666;margin-top: -5px}
+.main_02 .qna_list dl dd:after{content: ''; display: block; clear: both; }
+
+/*공지사항*/
+.notice ul li.first{margin-bottom: 15px;}
+.notice ul li.first .red_banner{display: inline-block; font-size: 0.75rem; color: #fff; background-color: #ff0000; padding: 0px 5px; vertical-align: text-top; }
+.notice ul li.first a{display: inline-block; width: 230px; white-space: nowrap; font-size: 0.938rem; overflow: hidden; text-overflow: ellipsis; padding-left: 5px;}
+.notice ul li.first .date,
+.notice ul li.nomal .date{font-size: 0.875rem; vertical-align: top; color: #666;}
+.notice ul li.nomal{margin-bottom: 6px;}
+.notice ul li.nomal a{display: inline-block; width: 250px; white-space: nowrap; font-size: 0.938rem; overflow: hidden; text-overflow: ellipsis;}
+
+/*상품*/
+.main_03{width: 49%; height: 200px;}
+.main_03 .goods .left{width: 50%; }
+.main_03 .goods .left .ib{display: inline-block; text-align: center; width: 49%;}
+.main_03 .goods .left .goods_tit p{padding-top: 67px; font-size: 0.938rem; color: #666;}
+.main_03 .goods .left:nth-child(1) .goods_tit p{background-size: 50px; background: url("http://via.placeholder.com/60x60")no-repeat center top;}
+.main_03 .goods .left:nth-child(2) .goods_tit p{background-size: 50px; background: url("http://via.placeholder.com/60x60")no-repeat center top;}
+.main_03 .goods .left .goods_num{margin-top: -80px;vertical-align: middle;}
+.main_03 .goods .left .goods_num p{font-size: 1.25rem; color: #0096ff; font-weight: 700;}
+
+/*패널티*/
+.main_03 .penalty{padding: 0; display: table; width: 100%;}
+.main_03 .penalty .cell{width: 33.33%; padding: 40px 0; vertical-align: middle; float: left;border-right: 1px solid #ddd; text-align: center; font-size: 0.875rem; color: #666;}
+.main_03 .penalty .cell.bd0{border-right: 0;}
+.main_03 .penalty .cell .txt{font-size: 1.25rem; color: #000; font-weight: 700;}
+
+/*구매확정*/
+.main_01 .decide li{width: 33.33%; float: left; text-align: center;}
+.main_01 .decide li .tit{padding-top: 80px;font-size: 0.938rem; color: #666;}
+.main_01 .decide li:nth-child(1) .tit{background-size: 60px; background: url("http://via.placeholder.com/60x60")no-repeat center top;}
+.main_01 .decide li:nth-child(2) .tit{background-size: 60px; background: url("http://via.placeholder.com/60x60")no-repeat center top;}
+.main_01 .decide li:nth-child(3) .tit{background-size: 60px; background: url("http://via.placeholder.com/60x60")no-repeat center top;}
+.main_01 .decide li .txt{font-size: 1.125rem; font-weight: 700;}

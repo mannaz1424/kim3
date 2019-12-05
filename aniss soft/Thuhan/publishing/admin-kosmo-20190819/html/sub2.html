@@ -1,0 +1,386 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <title>한국소프트웨어인재개발원 관리자</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1, user-scalable=no">    
+    <script type="text/javascript" src="../js/jquery-3.3.1.min.js"></script>
+    <script type="text/javascript" src="../js/style.js"></script>
+    <script type="text/javascript" src="../js/jquery-ui.min.js"></script>
+    <link rel="stylesheet" type="text/css" href="../css/style.css">
+    <link rel="stylesheet" type="text/css" href="../css/font.css">
+    <link rel="stylesheet" type="text/css" href="../css/jquery-ui.min.css">
+</head> 
+<body>
+    <div id="wrap">
+       
+        <!--header-->
+        <div class="header">
+            <div class="top_bar">
+                <h1 class="logo"><a href="#"><img src="../image/logo.jpg" alt="코스모 한국소프트웨어인재개발원"><span>관리자센터</span></a></h1>
+                <div class="header_top">
+                    <p class="login_info"><span>Aniss</span><em>님</em></p>
+                    <a href="#" class="login_my">내정보</a>
+                    <div class="login_cnts">
+                        <div class="login_btns">
+                            <button type="button" class="btn_logout">로그아웃</button>
+                            <button type="button" class="btn_help">도움말</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <button type="button" class="gnb_toggle"></button>
+            <div class="gnb">
+                <ul class="gnb_menu">
+                    <li>
+                        <button type="button">기본설정</button>
+                        <ul>
+                            <li class="on"><a href="#">SEC, 헤더설정</a></li>
+                            <li><a href="#">팝업/배너 관리</a></li>
+                        </ul>
+                    </li>
+                    <li>
+                        <button type="button">회원관리</button>
+                        <ul>
+                            <li><a href="#">회원관리</a></li>
+                            <li><a href="#">접수자/훈련생 관리</a></li>
+                        </ul>    
+                    </li>
+                    <li><button type="button">강의관리</button></li>
+                    <li>
+                        <button type="button">발송관리</button>
+                        <ul>
+                            <li><a href="#">SMS 템플릿관리</a></li>
+                            <li><a href="#">단체 SMS발송(즉시, 예약발송)</a></li>
+                        </ul> 
+                    </li>
+                    <li>
+                        <button type="button">게시판 관리</button>
+                        <ul>
+                            <li><a href="#">게시판 카테고리 관리</a></li>
+                            <li><a href="#">게시판 관리(공지, 일반, 갤러리, 신청)</a></li>
+                            <li><a href="#">게시물 관리</a></li>
+                        </ul> 
+                    </li>
+                    <li>
+                        <button type="button">접속통계</button>
+                        <ul>
+                            <li><a href="#">일별/월별/요일별 통계</a></li>
+                            <li><a href="#">유입통계</a></li>
+                            <li><a href="#">많이 방문한 페이지</a></li>
+                            <li><a href="#">저장공간</a></li>
+                            <li><a href="#">트레픽</a></li>
+                        </ul> 
+                    </li>
+                    <li>
+                        <button type="button">마케팅 관리</button>
+                        <ul>
+                            <li><a href="#">구글 Analytics</a></li>
+                            <li><a href="#">네이버 검색엔진 최적화</a></li>
+                        </ul> 
+                    </li>
+                </ul>
+            </div>
+            <div class="gnb_bg"></div>
+        </div>
+        <!--header-->
+        
+        <!--contents-->
+        <div class="section">
+            <div class="contents">
+                <div class="tit_wrap">
+                    <div class="title tit1">강의관리</div>
+                    <!--navigation-->
+                    <dl class="navigation">
+                        <dt>관리자센터</dt>
+                        <dd>메뉴1</dd>
+                        <dd><a href="#">메뉴2</a></dd>
+                    </dl>
+                    <!--navigation-->
+                </div>
+                
+                <div class="contents_box">
+                    <div class="board_write">
+                        <div class="board_write_row cells_wrap2">
+                            <p><span>구분</span></p>
+                            <select class="board_input">
+                                <option>모두보기</option>
+                                <option>모두보기</option>
+                                <option>모두보기</option>
+                            </select>
+                            <p><span>수강료</span></p>
+                            <select class="board_input">
+                                <option>모두보기</option>
+                                <option>모두보기</option>
+                                <option>모두보기</option>
+                            </select>
+                        </div>
+                        <div class="board_write_row cells_wrap2">
+                            <p><span>상태</span></p>
+                            <select class="board_input">
+                                <option>모두보기</option>
+                                <option>모두보기</option>
+                                <option>모두보기</option>
+                            </select>
+                            <p><span>검색</span></p>
+                            <input type="text" class="board_input">
+                        </div>
+                    </div>
+                    <p class="txt_warning">강의목록을 조회하실 수 있습니다.</p>
+                    <div class="btnset_center">
+                        <button type="button" class="btn2 btn2_2">검색</button>
+                    </div>
+                    
+                    
+                    <!--게시판 list-->
+                    <div class="table_top space2">
+                        <button type="button" class="btn5">강의등록</button>
+                    </div>
+                    <div class="board_table table_760">
+                        <table>
+                            <tr>
+                                <th>선택</th>
+                                <th>등록일</th>
+                                <th>구분</th>                                
+                                <th>강의명</th>                                
+                                <th>신청자수</th>                                
+                                <th>수강료</th>                                
+                                <th>경로상태</th>                                
+                                <th>보기순서</th>                                
+                                <th>관리</th>                                
+                            </tr>
+                            <tr>
+                                <td><input type="checkbox" class="checkbox2"><label for=""></label></td>
+                                <td>2019-07-26</td>
+                                <td>재작자</td>
+                                <td>노드 Node.js 프로그래밍 과정 드 Node.js 프로그래밍 과정</td>
+                                <td>50</td>
+                                <td>0</td>
+                                <td>모집중</td>
+                                <td>
+                                    <div class="num_set">
+                                        <button type="button" class="minus down">down</button>
+                                        <div class="num">1</div>
+                                        <button type="button" class="plus up">up</button>
+                                    </div>
+                                </td>
+                                <td>
+                                    <button type="button" class="btn3 btn3_3 btn_applicant_edit">수정</button>
+                                    <button type="button" class="btn3 btn3_5">상세</button>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td><input type="checkbox" class="checkbox2"><label for=""></label></td>
+                                <td>2019-07-26</td>
+                                <td>재작자</td>
+                                <td>노드 Node.js 프로그래밍 과정</td>
+                                <td>50</td>
+                                <td>0</td>
+                                <td>모집중</td>
+                                <td>
+                                    <div class="num_set">
+                                        <button type="button" class="minus down">down</button>
+                                        <div class="num">1</div>
+                                        <button type="button" class="plus up">up</button>
+                                    </div>
+                                </td>
+                                <td>
+                                    <button type="button" class="btn3 btn3_3 btn_applicant_edit">수정</button>
+                                    <button type="button" class="btn3 btn3_5">상세</button>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td><input type="checkbox" class="checkbox2"><label for=""></label></td>
+                                <td>2019-07-26</td>
+                                <td>재작자</td>
+                                <td>노드 Node.js 프로그래밍 과정</td>
+                                <td>50</td>
+                                <td>0</td>
+                                <td>모집중</td>
+                                <td>
+                                    <div class="num_set">
+                                        <button type="button" class="minus down">down</button>
+                                        <div class="num">1</div>
+                                        <button type="button" class="plus up">up</button>
+                                    </div>
+                                </td>
+                                <td>
+                                    <button type="button" class="btn3 btn3_3 btn_applicant_edit">수정</button>
+                                    <button type="button" class="btn3 btn3_5">상세</button>
+                                </td>
+                            </tr>
+                        </table>
+                    </div>
+                    
+                    <!--페이징-->
+                    <div class="paging">
+                        <ul>
+                            <li class="paging_p p_first"><a href="#">처음으로</a></li>
+                            <li class="paging_p p_prev"><a href="#">이전</a></li>
+                            <li class="on"><a href="#">1</a></li>
+                            <li><a href="#">2</a></li>
+                            <li><a href="#">3</a></li>
+                            <li><a href="#">4</a></li>
+                            <li><a href="#">5</a></li>
+                            <li class="paging_p p_next"><a href="#">다음</a></li>
+                            <li class="paging_p p_last"><a href="#">마지막</a></li>
+                        </ul>
+                    </div>
+                    
+                    
+                    <div class="board_table space2 table_txt_sm table_760">
+                        <table>
+                            <tr>
+                                <th>선택</th>
+                                <th>신청일</th>
+                                <th>이름</th>                                
+                                <th>생년월일</th>                                
+                                <th>연락처</th>                                
+                                <th>이메일</th>                                
+                                <th>메모</th>                                
+                                <th>신청경로</th>                                
+                                <th>상태</th>                                
+                                <th>관리</th>                                  
+                            </tr>
+                            <tr>
+                                <td><input type="checkbox" class="checkbox2"><label for=""></label></td>
+                                <td><p class="status"><span class="new">new</span></p>2019-07-26</td>
+                                <td>송종우</td>
+                                <td>2000-07-26</td>
+                                <td>010-1234-5678</td>
+                                <td>kdjljsdfsdd@gmail.com</td>
+                                <td>메모내용은 2줄이 될수 있음</td>
+                                <td>포털</td>
+                                <td>신청</td>
+                                <td>
+                                    <button type="button" class="btn3 btn3_l btn3_5">비번초기화</button>
+                                    <button type="button" class="btn3 btn3_3">수정</button>
+                                    <button type="button" class="btn3 btn3_2">삭제</button>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td><input type="checkbox" class="checkbox2"><label for=""></label></td>
+                                <td><p class="status"><span class="new">new</span></p>2019-07-26</td>
+                                <td>송종우</td>
+                                <td>2000-07-26</td>
+                                <td>010-1234-5678</td>
+                                <td>kdjljsdfsdd@gmail.com</td>
+                                <td>메모내용은 2줄이 될수 있음</td>
+                                <td>포털</td>
+                                <td>신청</td>
+                                <td>
+                                    <button type="button" class="btn3 btn3_l btn3_5">비번초기화</button>
+                                    <button type="button" class="btn3 btn3_3">수정</button>
+                                    <button type="button" class="btn3 btn3_2">삭제</button>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td><input type="checkbox" class="checkbox2"><label for=""></label></td>
+                                <td><p class="status"><span class="new">new</span></p>2019-07-26</td>
+                                <td>송종우</td>
+                                <td>2000-07-26</td>
+                                <td>010-1234-5678</td>
+                                <td>kdjljsdfsdd@gmail.com</td>
+                                <td>메모내용은 2줄이 될수 있음</td>
+                                <td>포털</td>
+                                <td>신청</td>
+                                <td>
+                                    <button type="button" class="btn3 btn3_l btn3_5">비번초기화</button>
+                                    <button type="button" class="btn3 btn3_3">수정</button>
+                                    <button type="button" class="btn3 btn3_2">삭제</button>
+                                </td>
+                            </tr>
+                        </table>
+                    </div>
+                    
+                </div>
+            </div>
+        </div>
+        <!--contents-->
+        
+        <div class="footer">
+            <p>[06245] 서울시 강남구 논현로79길 57 (역삼동 742-17) 2층 TEL 070-7137-7111 FAX 070-5033-0877</p>
+            <em>Copyright ANISS Soft. Rights Reserved.</em>
+       </div>
+        
+    </div>
+    
+    
+    <div class="popup" id="pop_applicant_edit">
+        <div class="popup_box">
+            <div class="pop_header">
+                <p class="pop_tit">신청자 상세보기</p>
+                <button type="button" class="pop_close">닫기</button>
+            </div>
+            <div class="pop_cont">
+                <div class="board_write">
+                    <div class="board_write_row cells_wrap1">
+                        <p><span>신청일</span></p>
+                        <div class="input_wrap input_display">
+                            <p>2019-04-11 12:11:11</p>
+                        </div>
+                    </div>
+                    <div class="board_write_row cells_wrap1">
+                        <p><span>이름</span></p>
+                        <div class="input_wrap input_display">
+                            <p>홍길동</p>
+                        </div>
+                    </div>
+                    <div class="board_write_row cells_wrap1">
+                        <p><span>생년월일</span></p>
+                        <div class="input_wrap input_display">
+                            <p>홍길동</p>
+                        </div>
+                    </div>
+                    <div class="board_write_row cells_wrap1">
+                        <p><span>연락처</span></p>
+                        <div class="input_wrap input_display">
+                            <p>홍길동</p>
+                        </div>
+                    </div>
+                    <div class="board_write_row cells_wrap1">
+                        <p><span>이메일</span></p>
+                        <div class="input_wrap input_display">
+                            <p>홍길동</p>
+                        </div>
+                    </div>
+                    <div class="board_write_row cells_wrap1">
+                        <p><span>신청경로</span></p>
+                        <div class="input_wrap input_display">
+                            <p>홍길동</p>
+                        </div>
+                    </div>
+                    <div class="board_write_row cells_wrap1">
+                        <p><span>상태</span></p>
+                        <div class="input_wrap input_display">
+                            <p>
+                                <input type="checkbox" class="radio1" checked><label for="">신청</label>
+                                <input type="checkbox" class="radio1"><label for="">신청취소</label>
+                            </p>
+                        </div>
+                    </div>
+                    <div class="board_write_row board_write_cont">
+                        <p><span>메모</span></p>
+                        <div class="board_write_area">
+                            <!--에디터 영역-->
+                        </div>
+                    </div>
+                    <div class="board_write_row cells_wrap1">
+                        <p><span>수정일</span></p>
+                        <div class="input_wrap input_display">
+                            <p>홍길동</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="btnset_center">
+                    <button type="button" class="btn2 btn2_2">확인</button>
+                    <button type="button" class="btn2">취소</button>
+                </div>
+            </div>
+        </div>
+        <div class="popup_bg"></div>
+    </div>
+    
+    
+</body>
+</html>

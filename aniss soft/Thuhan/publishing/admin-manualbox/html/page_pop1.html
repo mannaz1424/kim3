@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <title>메뉴얼박스 관리자</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1, user-scalable=no">    
+    <link rel="stylesheet" type="text/css" href="../css/style.css">
+    <link rel="stylesheet" type="text/css" href="../css/font.css">
+    <link rel="stylesheet" type="text/css" href="../css/jquery-ui.min.css">
+    <script type="text/javascript" src="../js/jquery-3.3.1.min.js"></script>
+    <script type="text/javascript" src="../js/style.js"></script>
+    <script type="text/javascript" src="../js/jquery-ui.min.js"></script>
+</head> 
+<body>
+    <div id="wrap">
+       
+        <!--header-->
+        <div class="header">
+            <div class="top_bar">
+                <h1 class="logo"><a href="#"><img src="../image/logo_manualbox.png" alt="메뉴얼박스"><span>관리자센터</span></a></h1>
+                <div class="header_top">
+                    <p class="login_info"><span>Aniss</span><em>님</em></p>
+                    <div class="login_cnts">
+                        <div class="login_btns">
+                            <button type="button" class="btn_help">PW변경</button>
+                            <button type="button" class="btn_logout">로그아웃</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <button type="button" class="gnb_toggle"></button>
+            <div class="gnb">
+                <ul class="gnb_menu">
+                    <li>
+                        <button type="button">메뉴얼</button>
+                        <ul>
+                            <li class="on"><a href="#">구조관리</a></li>
+                            <li><a href="#">메뉴얼관리</a></li>
+                        </ul>
+                    </li>
+                    <li>
+                        <button type="button">요청관리</button>
+                        <ul>
+                            <li><a href="#">요청 목록</a></li>
+                            <li><a href="#">답변 등록</a></li>
+                            <li><a href="#">답변 수정</a></li>
+                            <li><a href="#">답변 삭제</a></li>
+                        </ul>    
+                    </li>
+                    <li>
+                        <button type="button">공지</button>
+                        <ul>
+                            <li><a href="#">공지사항 목록</a></li>
+                            <li><a href="#">공지사항 등록</a></li>
+                            <li><a href="#">공지사항 수정</a></li>
+                            <li><a href="#">공지사항 삭제</a></li>
+                        </ul>  
+                    </li>
+                    <li>
+                        <button type="button">FAQ</button>
+                        <ul>
+                            <li><a href="#">FAQ 목록</a></li>
+                            <li><a href="#">FAQ 등록</a></li>
+                            <li><a href="#">FAQ 수정</a></li>
+                            <li><a href="#">FAQ 삭제</a></li>
+                        </ul> 
+                    </li>
+                    <li><button type="button">회원목록</button></li>
+                    <li>
+                        <button type="button">관리자계정</button>
+                        <ul>
+                            <li><a href="#">관리자 목록</a></li>
+                            <li><a href="#">관리자 등록</a></li>
+                            <li><a href="#">관리자 정보 수정</a></li>
+                            <li><a href="#">관리자 삭제</a></li>
+                        </ul> 
+                    </li>
+                    <li><button type="button">통계</button></li>
+                </ul>
+            </div>
+            <div class="gnb_bg"></div>
+        </div>
+        <!--header-->
+        
+        <!--contents-->
+        <div class="section">
+
+        </div>
+        <!--contents-->
+        
+        <div class="footer">
+            <p>[06245] 서울시 강남구 논현로79길 57 (역삼동 742-17) 2층 TEL 070-7137-7111 FAX 070-5033-0877</p>
+            <em>Copyright ANISS Soft. Rights Reserved.</em>
+       </div>
+        
+    </div>
+    
+    <!--popup-->
+    <div class="pop_wrap">
+        <div class="pop_box">
+            <div class="pop_header">
+                <div class="pop_tit">구조관리</div>
+                <button type="button" class="pop_close">닫기</button>
+            </div>
+            <div class="pop_cont">
+               
+                <!--board-->
+                <div class="board_write">
+                    <div class="board_write_row cells_wrap1">
+                        <p><span>구분명</span></p>
+                        <div class="input_wrap">
+                            <input type="text" class="board_input">
+                        </div>
+                    </div>
+                    <div class="board_write_row">
+                        <p><span>아이콘</span></p>
+                        <input type="file" class="board_attachment board_attachment_l">
+                    </div>
+                </div>
+                <!--board-->
+                
+                <!--button-->
+                <div class="btnset_center">
+                    <button type="button" class="btn4">취소</button>
+                    <button type="button" class="btn4">등록</button>
+                </div>
+                <!--button-->
+                
+            </div>
+        </div>
+        <div class="pop_bg"></div>
+    </div>
+    <!--popup-->
+    
+</body>
+</html>

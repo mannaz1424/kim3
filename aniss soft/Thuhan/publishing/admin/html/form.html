@@ -1,0 +1,493 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, width=device-width" />
+
+    <title>ANISS-SOFT 관리자</title>
+
+    <!-- reset, style.css -->
+    <link type="text/css" rel="stylesheet" href="css/reset.css" />
+    <link type="text/css" rel="stylesheet" href="css/common.css" />
+    <link type="text/css" rel="stylesheet" href="css/form.css" />
+
+
+    <!-- script.js -->
+    <script type="text/javascript" src="js/jquery-3.2.1.min.js"></script>
+
+
+    <script type="text/javascript">
+        $(document).ready(function() {
+            //아코디언메뉴
+            $('#GnbMenu .menu > li > a').click(function() {
+
+                if ($(this).next('ul').is(':visible')) {
+                    $(this).removeClass('on');
+                    $(this).next('ul').slideToggle();
+                } else {
+                    $(this).addClass('on');
+                    $(this).next('ul').slideToggle();
+                }
+
+            });
+        });
+
+    </script>
+</head>
+
+<body>
+
+    <!--WRAP : S-->
+    <div id="wrap">
+
+        <!--HEADER : S-->
+        <header id="header">
+
+            <!--logo-->
+            <div class="left">
+                <h1><a href="#"><img src="images/common/logo.png" alt="logo" /></a>관리자센터</h1>
+            </div>
+
+            <!--login-->
+            <div class="right">
+                <ul>
+                    <li>aniss 님</li>
+                    <li class="info"><a href="#">내정보</a></li>
+                    <li><a href="#">로그아웃</a></li>
+                    <li><a href="#">도움말</a></li>
+                </ul>
+            </div>
+        </header>
+        <!--HEADER : E-->
+
+
+        <!--CONTAINER : S-->
+        <section id="container">
+
+            <!-- menu : S -->
+            <nav id="GnbMenu" class="gnb">
+                <ul class="menu">
+                    <li>
+                        <a href="javascript:;">상품문의</a>
+                        <ul class="lnb">
+                            <li><a href="#">상품문의</a></li>
+                            <li><a href="#">상품문의</a></li>
+                            <li><a href="#">상품문의</a></li>
+                            <li><a href="#">상품문의</a></li>
+                            <li><a href="#">상품문의</a></li>
+                        </ul>
+                    </li>
+                    <li>
+                        <a href="javascript:;">상품문의</a>
+                        <ul class="lnb">
+                            <li><a href="#">상품문의</a></li>
+                            <li><a href="#">상품문의</a></li>
+                            <li><a href="#">상품문의</a></li>
+                            <li><a href="#">상품문의</a></li>
+                            <li><a href="#">상품문의</a></li>
+                        </ul>
+                    </li>
+                    <li>
+                        <a href="javascript:;">상품문의</a>
+                        <ul class="lnb">
+                            <li><a href="#">상품문의</a></li>
+                            <li><a href="#">상품문의</a></li>
+                            <li><a href="#">상품문의</a></li>
+                            <li><a href="#">상품문의</a></li>
+                            <li><a href="#">상품문의</a></li>
+                        </ul>
+                    </li>
+                    <li>
+                        <a href="javascript:;">상품문의</a>
+                        <ul class="lnb">
+                            <li><a href="#">상품문의</a></li>
+                            <li><a href="#">상품문의</a></li>
+                            <li><a href="#">상품문의</a></li>
+                            <li><a href="#">상품문의</a></li>
+                            <li><a href="#">상품문의</a></li>
+                        </ul>
+                    </li>
+                </ul>
+            </nav>
+            <!-- menu : E -->
+
+            <!-- content : S -->
+            <div class="content clear_after">
+                <h2 class="title">상품 조회/수정</h2>
+
+                <!--상품현황-->
+                <div class="mt30 condition">
+                    <ul class="clear_after">
+                        <li>
+                            <p class="tit">전체</p>
+                            <p class="txt"><span class="fc_blue">100</span>건</p>
+                        </li>
+                        <li>
+                            <p class="tit">판매대기</p>
+                            <p class="txt">100 건</p>
+                        </li>
+                        <li>
+                            <p class="tit">판매중</p>
+                            <p class="txt">100 건</p>
+                        </li>
+                        <li>
+                            <p class="tit">품절</p>
+                            <p class="txt">100 건</p>
+                        </li>
+                        <li>
+                            <p class="tit">승인대기</p>
+                            <p class="txt">100 건</p>
+                        </li>
+                        <li>
+                            <p class="tit">판매중지</p>
+                            <p class="txt">100 건</p>
+                        </li>
+                        <li>
+                            <p class="tit">판매종료</p>
+                            <p class="txt">100 건</p>
+                        </li>
+                        <li>
+                            <p class="tit">판매금지</p>
+                            <p class="txt">100 건</p>
+                        </li>
+                    </ul>
+                </div>
+
+                <!-- 검색 -->
+                <div class="left admin_box mt20 form">
+                    <div class="top">
+                        <h3 class="admin_tit">검색</h3>
+                    </div>
+                    <div class="box_cont">
+                        <form>
+
+                            <fieldset>
+                                <legend>검색어</legend>
+                                <h4>검색어</h4>
+
+                                <div class="form_box search">
+                                    <div class="cell mt20">
+                                        <div class="radio">
+                                            <input type="radio" id="radio1" name="productNum" />
+                                            <label for="radio1">상품번호</label>
+                                        </div>
+                                        <div class="radio">
+                                            <input type="radio" id="radio2" name="productNum" />
+                                            <label for="radio2">판매자 상품코드</label>
+                                        </div>
+                                        <textarea class="input01" placeholder="복수검색(&#39;enter&#39; 또는 &#39;,&#39;으로 구분)"></textarea>
+                                    </div>
+                                    <div class="cell mt20 textform">
+                                        <label for="pd_num">상품번호</label>
+                                        <input type="text" id="pd_num" class="input01" />
+                                        <label for="manufacturer">제조사명</label>
+                                        <input type="text" id="manufacturer" class="input01" />
+                                    </div>
+                                    <div class="cell mt20 textform">
+                                        <label for="pd_name">모델명</label>
+                                        <input type="text" id="pd_name" class="input01" />
+                                        <label for="brand">브랜드명</label>
+                                        <input type="text" id="brand" class="input01" />
+                                    </div>
+                                </div>
+                            </fieldset>
+
+                            <fieldset>
+                                <legend>판매상태</legend>
+                                <h4>판매상태</h4>
+
+                                <div class="form_box">
+                                    <label class="chk_label"><input type="checkbox" class="checkbox">전체</label>
+                                    <label class="chk_label"><input type="checkbox" class="checkbox">판매대기</label>
+                                    <label class="chk_label"><input type="checkbox" class="checkbox">판매중</label>
+                                    <label class="chk_label"><input type="checkbox" class="checkbox">품절</label>
+                                    <label class="chk_label"><input type="checkbox" class="checkbox">승인대기</label>
+                                    <label class="chk_label"><input type="checkbox" class="checkbox">판매중지</label>
+                                    <label class="chk_label"><input type="checkbox" class="checkbox">판매종료</label>
+                                    <label class="chk_label"><input type="checkbox" class="checkbox">판매금지</label>
+                                </div>
+                            </fieldset>
+
+                            <fieldset>
+                                <legend>카테고리</legend>
+                                <h4>카테고리</h4>
+
+                                <div class="category form_box">
+                                    <select class="select">
+                                        <option value="">대분류</option>
+                                        <option value="">대분류</option>
+                                        <option value="">대분류</option>
+                                        <option value="">대분류</option>
+                                        <option value="">대분류</option>
+                                    </select>
+                                    <select class="select">
+                                        <option value="">중분류</option>
+                                        <option value="">중분류</option>
+                                        <option value="">중분류</option>
+                                        <option value="">중분류</option>
+                                        <option value="">중분류</option>
+                                    </select>
+                                    <select class="select">
+                                        <option value="">소분류</option>
+                                        <option value="">소분류</option>
+                                        <option value="">소분류</option>
+                                        <option value="">소분류</option>
+                                        <option value="">소분류</option>
+                                    </select>
+                                    <select class="select">
+                                        <option value="">세분류</option>
+                                        <option value="">세분류</option>
+                                        <option value="">세분류</option>
+                                        <option value="">세분류</option>
+                                        <option value="">세분류</option>
+                                    </select>
+                                </div>
+                            </fieldset>
+
+                            <fieldset>
+                                <legend>채널</legend>
+                                <h4>채널</h4>
+
+                                <div class="form_box">
+                                    <label class="chk_label"><input type="checkbox" class="checkbox">전체</label>
+                                    <label class="chk_label"><input type="checkbox" class="checkbox">스토어팜</label>
+                                    <label class="chk_label"><input type="checkbox" class="checkbox">쇼핑윈도</label>
+                                </div>
+                            </fieldset>
+
+                            <fieldset>
+                                <legend>결제여부</legend>
+                                <h4>결제여부</h4>
+
+                                <div class="form_box">
+                                    <div class="radio">
+                                        <input type="radio" id="paytype01" name="paytype" />
+                                        <label for="paytype01">전체</label>
+                                    </div>
+                                    <div class="radio">
+                                        <input type="radio" id="paytype02" name="paytype" />
+                                        <label for="paytype02">결제가능 상품</label>
+                                    </div>
+                                    <div class="radio">
+                                        <input type="radio" id="paytype03" name="paytype" />
+                                        <label for="paytype03">결제 불가능 상품</label>
+                                    </div>
+                                </div>
+                            </fieldset>
+
+                            <fieldset>
+                                <legend>기간</legend>
+                                <h4>기간</h4>
+
+                                <div class="form_box period">
+
+                                    <div class="cell">
+                                        <select class="select">
+                                            <option value="">상품등록일</option>
+                                            <option value="">상품등록일</option>
+                                            <option value="">상품등록일</option>
+                                            <option value="">상품등록일</option>
+                                            <option value="">상품등록일</option>
+                                        </select>
+                                    </div>
+
+                                    <div class="cell period_box">
+                                        <button type="button" class="btn_period">오늘</button>
+                                        <button type="button" class="btn_period">1주일</button>
+                                        <button type="button" class="btn_period">1개월</button>
+                                        <button type="button" class="btn_period">3개월</button>
+                                        <button type="button" class="btn_period">6개월</button>
+                                        <button type="button" class="btn_period">1년</button>
+                                    </div>
+
+                                    <div class="cell period_calrendar">
+
+                                    </div>
+
+                                </div>
+                            </fieldset>
+
+                            <div class="mt30 center">
+                                <button type="submit" class="btn_sky">검색</button>
+                                <button type="reset" class="btn_white">초기화</button>
+                            </div>
+
+                        </form>
+                    </div>
+                </div>
+
+                <!-- 상품목록 -->
+                <div class="left admin_box mt20 product_list">
+                    <div class="top clear_after">
+                        <div class="left">
+                            <h3 class="admin_tit">검색 (총 <span class="fc_blue">100</span>개)</h3>
+                            <p class="subtit">관리자 검수가 필요한 채널 '쇼핑윈도'의 경우에는 전시상태를 직접 변경하실 수 없습니다.</p>
+                        </div>
+                        <div class="right">
+                            <select class="select">
+                                <option value="">상품등록일순</option>
+                                <option value="">상품등록일순</option>
+                                <option value="">상품등록일순</option>
+                                <option value="">상품등록일순</option>
+                                <option value="">상품등록일순</option>
+                            </select>
+                            <select class="select">
+                                <option value="">100개씩</option>
+                                <option value="">100개씩</option>
+                                <option value="">100개씩</option>
+                                <option value="">100개씩</option>
+                                <option value="">100개씩</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="box_cont">
+
+                        <div class="list_top">
+                            <div class="cell">
+                                <button type="button" class="btn_white">선택삭제</button>
+                            </div>
+                            <div class="cell">
+                                <select class="select">
+                                    <option value="">판매변경</option>
+                                    <option value="">판매변경</option>
+                                    <option value="">판매변경</option>
+                                    <option value="">판매변경</option>
+                                    <option value="">판매변경</option>
+                                </select>
+                                <select class="select">
+                                    <option value="">전시변경</option>
+                                    <option value="">전시변경</option>
+                                    <option value="">전시변경</option>
+                                    <option value="">전시변경</option>
+                                    <option value="">전시변경</option>
+                                </select>
+                            </div>
+                            <div class="cell">
+                                <button type="button" class="btn_white">즉시할인 설정</button>
+                                <button type="button" class="btn_white">판매가 설정</button>
+                                <button type="button" class="btn_white">판매기간 변경</button>
+                                <button type="button" class="btn_white">배송정보</button>
+                            </div>
+                            <div class="cell">
+                                <select class="select">
+                                    <option value="">일괄변경</option>
+                                    <option value="">일괄변경</option>
+                                    <option value="">일괄변경</option>
+                                    <option value="">일괄변경</option>
+                                    <option value="">일괄변경</option>
+                                </select>
+                            </div>
+                        </div>
+
+                        <!--list table-->
+                        <div class="mt20 list_table">
+                            <div class="list_table_box clear_after">
+                                <div class="table_left">
+                                    
+                                    <table>
+                                        <caption>왼쪽테이블</caption>
+                                        <colgroup>
+                                            <col width="45px" />
+                                            <col width="70px" />
+                                            <col width="70px" />
+                                            <col width="175px" />
+                                            <col width="175px" />
+                                        </colgroup>
+                                        <tr>
+                                            <th>선택</th>
+                                            <th>수정</th>
+                                            <th>복사</th>
+                                            <th>상품번호(스토어팜)</th>
+                                            <th>판매자상품코드</th>
+                                        </tr>
+                                        <tr class="tablecont">
+                                            <td>
+                                                <input type="checkbox" class="checkbox" />
+                                            </td>
+                                            <td>
+                                                <button type="button" class="btn_sky2">수정</button>
+                                            </td>
+                                            <td>
+                                                <button type="button" class="btn_sky2">복사</button>
+                                            </td>
+                                            <td>
+                                                01234567890
+                                            </td>
+                                            <td>
+                                                01234567890
+                                            </td>
+                                        </tr>
+                                    </table>
+                                    
+                                </div>
+                                <div class="table_right">
+                                    
+                                    <table>
+                                        <caption>오른쪽테이블</caption>
+                                        <colgroup>
+                                            <col width="75px" />
+                                            <col width="245px" />
+                                            <col width="170px" />
+                                            <col width="170px" />
+                                            <col width="100px" />
+                                            <col width="100px" />
+                                            <col width="100px" />
+                                            <col width="100px" />
+                                            <col width="100px" />
+                                            <col width="100px" />
+                                        </colgroup>
+                                        <tr>
+                                            <th>결제여부</th>
+                                            <th>상품명</th>
+                                            <th>스토어팜전용 상품명</th>
+                                            <th>쇼핑윈도정용 상품명</th>
+                                            <th>판매상태</th>
+                                            <th>전시상태</th>
+                                            <th>재고수량</th>
+                                            <th>판매상태</th>
+                                            <th>판매상태</th>
+                                            <th>판매상태</th>
+                                        </tr>
+                                        <tr class="tablecont">
+                                            <td>012345</td>
+                                            <td>0123456789</td>
+                                            <td>0123456789</td>
+                                            <td>0123456789</td>
+                                            <td>0123456789</td>
+                                            <td>0123456789</td>
+                                            <td>0123456789</td>
+                                            <td>0123456789</td>
+                                            <td>0123456789</td>
+                                            <td>0123456789</td>
+                                        </tr>
+                                    </table>
+                                    
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+
+
+            </div>
+            <!-- content : S -->
+
+        </section>
+        <!--CONTAINER : E-->
+
+
+        <!--footer : S-->
+        <footer>
+
+        </footer>
+        <!--footer : E-->
+
+    </div>
+    <!--WRAP : E-->
+
+
+</body>
+
+</html>

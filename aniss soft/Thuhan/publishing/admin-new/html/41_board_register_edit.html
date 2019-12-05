@@ -1,0 +1,476 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <title>애니스소프트 관리자</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1, user-scalable=no">    
+    <link rel="stylesheet" type="text/css" href="../css/style.css">
+    <link rel="stylesheet" type="text/css" href="../css/font.css">
+    <link rel="stylesheet" type="text/css" href="../css/jquery-ui.min.css">
+    <script type="text/javascript" src="../js/jquery-3.3.1.min.js"></script>
+    <script type="text/javascript" src="../js/style.js"></script>
+    <script type="text/javascript" src="../js/jquery-ui.min.js"></script>
+</head> 
+<body>
+    <div id="wrap">
+       
+        <!--header-->
+        <div class="header">
+            <div class="top_bar">
+                <h1 class="logo"><a href="#"><img src="../image/logo_aniss.png" alt="애니스소프트"><span>관리자센터</span></a></h1>
+                <div class="header_top">
+                    <p class="login_info"><span>Aniss</span><em>님</em></p>
+                    <a href="#" class="login_my">내정보</a>
+                    <div class="login_cnts">
+                        <div class="login_btns">
+                            <button type="button" class="btn_logout">로그아웃</button>
+                            <button type="button" class="btn_help">도움말</button>
+                        </div>
+                        <a href="#" class="top_ipgrade">연장/업그레이드</a>
+                    </div>
+                </div>
+            </div>
+            <button type="button" class="gnb_toggle"></button>
+            <div class="gnb">
+                <ul class="gnb_menu">
+                    <li>
+                        <button type="button">기본설정</button>
+                        <ul>
+                            <li class="on"><a href="#">관리자정보</a></li>
+                            <li><a href="#">전자결제(PG)설정</a></li>
+                            <li><a href="#">도메인 설정</a></li>
+                            <li><a href="#">SSL(보안서버) 구입 및 설정</a></li>
+                            <li><a href="#">가입 및 그룹설정</a></li>
+                            <li><a href="#">SEO, 헤더설정</a></li>
+                            <li><a href="#">안내 및 기타</a></li>
+                            <li><a href="#">소셜로그인/API설정</a></li>
+                            <li><a href="#">실시간 상담 설정</a></li>
+                            <li><a href="#">팝업/배너 관리</a></li>
+                        </ul>
+                    </li>
+                    <li>
+                        <button type="button">회원관리</button>
+                        <ul>
+                            <li><a href="#">회원관리</a></li>
+                            <li><a href="#">회원등급 관리</a></li>
+                            <li><a href="#">적립금관리</a></li>
+                            <li><a href="#">쿠폰관리</a></li>
+                        </ul>
+                    </li>
+                    <li>
+                        <button type="button">쇼핑몰 관리</button>
+                        <ul>
+                            <li><a href="#">쇼핑 환경설정</a></li>
+                            <li><a href="#">상품 카테고리 관리</a></li>
+                            <li><a href="#">상품관리</a></li>
+                            <li><a href="#">주문/배송/취소 관리</a></li>
+                            <li><a href="#">메일발송 설정</a></li>
+                            <li><a href="#">구매평 관리</a></li>
+                            <li><a href="#">문의관리</a></li>
+                            <li><a href="#">네이버/다음 쇼핑</a></li>
+                        </ul>
+                    </li>
+                    <li>
+                        <button type="button">발송관리</button>
+                        <ul>
+                            <li><a href="#">메일 템플릿 관리</a></li>
+                            <li><a href="#">푸시 템플릿 관리</a></li>
+                            <li><a href="#">SMS 템플릿 관리</a></li>
+                            <li><a href="#">카카오톡 템플릿 관리</a></li>
+                            <li><a href="#">단체 메일 발송 (즉시, 예약발송)</a></li>
+                            <li><a href="#">단체 푸시 관리 (즉시, 예약발송)</a></li>
+                            <li><a href="#">단체 SMS 관리 (즉시, 예약발송)</a></li>
+                            <li><a href="#">카카오톡 관리 (즉시, 예약발송)</a></li>
+                        </ul>
+                    </li>
+                    <li>
+                        <button type="button">게시판 관리</button>
+                        <ul>
+                            <li><a href="#">게시판 카테고리 관리</a></li>
+                            <li><a href="#">게시판 관리(공지, 일반, 갤러리, 신청)</a></li>
+                        </ul>
+                    </li>
+                    <li>
+                        <button type="button">예약 관리</button>
+                        <ul>
+                            <li><a href="#">예약설정</a></li>
+                            <li><a href="#">객실/사이트 관리</a></li>
+                            <li><a href="#">예약 현황 관리</a></li>
+                            <li><a href="#">예약 신청 관리</a></li>
+                            <li><a href="#">구매평 관리</a></li>
+                            <li><a href="#">문의관리</a></li>
+                            <li><a href="#">옵션관리</a></li>
+                            <li><a href="#">성수기/휴일 관리</a></li>
+                        </ul>
+                    </li>
+                    <li>
+                        <button type="button">게시판 관리</button>
+                        <ul>
+                            <li><a href="#">게시판 카테고리 관리</a></li>
+                            <li><a href="#">게시판 관리(공지, 일반, 갤러리, 신청)</a></li>
+                            <li><a href="#">게시물 관리</a></li>
+                            <li><a href="#">댓글관리</a></li>
+                            <li><a href="#">신고관리</a></li>
+                        </ul>
+                    </li>
+                    <li>
+                        <button type="button">접속통계</button>
+                        <ul>
+                            <li><a href="#">일별/월별/요일별 통계</a></li>
+                            <li><a href="#">유입통계</a></li>
+                            <li><a href="#">찜한상품 현황목록</a></li>
+                            <li><a href="#">많이 방문한 페이지</a></li>
+                            <li><a href="#">저장공간</a></li>
+                            <li><a href="#">트래픽</a></li>
+                        </ul>
+                    </li>
+                    <li>
+                        <button type="button">마케팅관리</button>
+                        <ul>
+                            <li><a href="#">구글 Analytics</a></li>
+                            <li><a href="#">네이버 검색엔진 최적화</a></li>
+                            <li><a href="#">네이버 블로그 연동설정</a></li>
+                            <li><a href="#">전환추적/리타게팅 관리</a></li>
+                        </ul>
+                    </li>
+                    <li>
+                        <button type="button">앱(App) 신청 및 관리</button>
+                        <ul>
+                            <li><a href="#">안내 및 신청</a></li>
+                            <li><a href="#">Android 관리</a></li>
+                            <li><a href="#">ios 관리</a></li>
+                        </ul>
+                    </li>
+                    <li>
+                        <button type="button">업체관리(애니스소프트 특화)</button>
+                        <ul>
+                            <li><a href="#">업체 리스트(업체등록, 수정, 삭제)</a></li>
+                            <li><a href="#">견적서 리스트</a></li>
+                            <li><a href="#">작업 리스트(레드마인, 서버정보, 소스정보 등)</a></li>
+                            <li><a href="#">계약 리스트</a></li>
+                            <li><a href="#">결제 리스트</a></li>
+                            <li><a href="#">1:1문의 리스트</a></li>
+                        </ul>
+                    </li>
+                </ul>
+            </div>
+            <div class="gnb_bg"></div>
+        </div>
+        <!--header-->
+        
+        <!--contents-->
+        <div class="section">
+            <div class="contents">
+                <div class="tit_wrap">
+                    <div class="title tit1">게시판 검색</div>
+                    <!--navigation-->
+                    <dl class="navigation">
+                        <dt>관리자센터</dt>
+                        <dd><a href="#">고객사 등록</a></dd>
+                        <dd><a href="#">고객사 관리</a></dd>
+                    </dl>
+                    <!--navigation-->
+                </div>
+                <div class="contents_box">
+                   
+                    <div class="table_top">
+                        <div class="table_tit">게시판 기본설정</div>
+                    </div>
+                    
+                    <!--게시판 write-->
+                    <div class="board_write">
+                        <div class="board_write_row cells_wrap2 cellbox_wrap">
+                            <div class="cellbox">
+                                <p><span>게시판 아이디</span></p>
+                                <div class="board_input_wrap">
+                                    <input type="text" class="board_input" placeholder="게시판아이디">
+                                    <p class="txt_warning">게시판 아이디는 영문(대문자, 소문자), 숫자, 언더바(_)만 사용 가능하며 초기등록 후변경할 수 없습니다.</p>
+                                </div>
+                            </div>
+                            <div class="cellbox">
+                                <p><span>게시판선택</span></p>
+                                <div class="board_input_wrap">
+                                    <input type="text" class="board_input" placeholder="게시판 이름">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="board_write_row cells_wrap2">
+                            <p><span>노출여부</span></p>
+                            <div class="input_wrap input_display">
+                                <p>
+                                    <input type="radio" name="expose_select" id="expose_select1" class="radio1" checked><label for="expose_select1">노출</label>
+                                    <input type="radio" name="expose_select" id="expose_select2" class="radio1"><label for="expose_select2">숨김</label>
+                                </p>
+                            </div>
+                            <p><span>노출타입</span></p>
+                            <div class="input_wrap input_display">
+                                <p>
+                                    <input type="radio" name="expose_option" id="expose_option1" class="radio1" checked><label for="expose_option1">고객센터</label>
+                                    <input type="radio" name="expose_option" id="expose_option2" class="radio1"><label for="expose_option2">커뮤니티</label>
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="table_top space1">
+                        <div class="table_tit">게시판 스킨설정</div>
+                    </div>
+                    
+                    <!--게시판 write-->
+                    <div class="board_write">
+                        <div class="board_write_row cells_wrap2 cellbox_wrap cells_wrap2_half">
+                            <div class="cellbox">
+                                <p><span>스킨선택</span></p>
+                                <div class="board_input_wrap">
+                                    <select class="board_input">
+                                        <option value="스킨선택">스킨선택</option>
+                                        <option value="스킨선택">스킨선택</option>
+                                        <option value="스킨선택">스킨선택</option>
+                                        <option value="스킨선택">스킨선택</option>
+                                    </select>
+                                    <p class="txt_warning">게시판 스킨에 따라 게시판의 권한설정 및 기본설정이 달라집니다.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="table_top space1">
+                        <div class="table_tit">권한설정</div>
+                    </div>
+                    
+                    <!--게시판 write-->
+                    <div class="board_write">
+                        <div class="board_write_row cells_wrap2 cellbox_wrap">
+                            <div class="cellbox">
+                                <p><span>리스트권한 설정</span></p>
+                                <div class="board_input_wrap">
+                                    <div>
+                                        <input type="radio" name="auth1" id="auth1_1" class="radio1" checked><label for="auth1_1">제한없음</label>
+                                        <input type="radio" name="auth1" id="auth1_2" class="radio1"><label for="auth1_2">회원</label>
+                                        <input type="radio" name="auth1" id="auth1_3" class="radio1"><label for="auth1_3">관리자</label>
+                                    </div>
+                                    <div>
+                                        회원등급지정 &nbsp;:&nbsp;&nbsp; 
+                                        <input type="checkbox" name="auth2" id="auth2_1" class="checkbox2"><label for="auth2_1">일반회원</label>
+                                        <input type="checkbox" name="auth2" id="auth2_2" class="checkbox2"><label for="auth2_2">실버회원</label>
+                                        <input type="checkbox" name="auth2" id="auth2_3" class="checkbox2"><label for="auth2_3">다이아회원</label>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="cellbox">
+                                <p><span>보기권한 설정</span></p>
+                                <div class="board_input_wrap">
+                                    <div>
+                                        <input type="radio" name="auth3" id="auth3_1" class="radio1" checked><label for="auth3_1">제한없음</label>
+                                        <input type="radio" name="auth3" id="auth3_2" class="radio1"><label for="auth3_2">회원</label>
+                                        <input type="radio" name="auth3" id="auth3_3" class="radio1"><label for="auth3_3">관리자</label>
+                                    </div>
+                                    <div>
+                                        회원등급지정 &nbsp;:&nbsp;&nbsp; 
+                                        <input type="checkbox" name="auth4" id="auth4_1" class="checkbox2"><label for="auth4_1">일반회원</label>
+                                        <input type="checkbox" name="auth4" id="auth4_2" class="checkbox2"><label for="auth4_2">실버회원</label>
+                                        <input type="checkbox" name="auth4" id="auth4_3" class="checkbox2"><label for="auth4_3">다이아회원</label>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="board_write_row cells_wrap2 cellbox_wrap">
+                            <div class="cellbox">
+                                <p><span>쓰기권한 설정</span></p>
+                                <div class="board_input_wrap">
+                                    <div>
+                                        <input type="radio" name="auth5" id="auth5_1" class="radio1" checked><label for="auth5_1">제한없음</label>
+                                        <input type="radio" name="auth5" id="auth5_2" class="radio1"><label for="auth5_2">회원</label>
+                                        <input type="radio" name="auth5" id="auth5_3" class="radio1"><label for="auth5_3">관리자</label>
+                                    </div>
+                                    <div>
+                                        회원등급지정 &nbsp;:&nbsp;&nbsp; 
+                                        <input type="checkbox" name="auth6" id="auth6_1" class="checkbox2"><label for="auth6_1">일반회원</label>
+                                        <input type="checkbox" name="auth6" id="auth6_2" class="checkbox2"><label for="auth6_2">실버회원</label>
+                                        <input type="checkbox" name="auth6" id="auth6_3" class="checkbox2"><label for="auth6_3">다이아회원</label>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="cellbox">
+                                <p><span>에디터권한 설정</span></p>
+                                <div class="board_input_wrap">
+                                    <div>
+                                        <input type="radio" name="auth7" id="auth7_1" class="radio1" checked><label for="auth7_1">제한없음</label>
+                                        <input type="radio" name="auth7" id="auth7_2" class="radio1"><label for="auth7_2">회원</label>
+                                        <input type="radio" name="auth7" id="auth7_3" class="radio1"><label for="auth7_3">관리자</label>
+                                    </div>
+                                    <div>
+                                        회원등급지정 &nbsp;:&nbsp;&nbsp; 
+                                        <input type="checkbox" name="auth8" id="auth8_1" class="checkbox2"><label for="auth8_1">일반회원</label>
+                                        <input type="checkbox" name="auth8" id="auth8_2" class="checkbox2"><label for="auth8_2">실버회원</label>
+                                        <input type="checkbox" name="auth8" id="auth8_3" class="checkbox2"><label for="auth8_3">다이아회원</label>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="board_write_row cells_wrap2 cellbox_wrap">
+                            <div class="cellbox">
+                                <p><span>답글쓰기 사용여부</span></p>
+                                <div class="board_input_wrap">
+                                    <div>
+                                        <input type="radio" name="auth9" id="auth9_1" class="radio1" checked><label for="auth9_1">사용</label>
+                                        <input type="radio" name="auth9" id="auth9_2" class="radio1"><label for="auth9_2">미사용</label>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="cellbox">
+                                <p><span>답글쓰기 권한설정</span></p>
+                                <div class="board_input_wrap">
+                                    <div>
+                                        <input type="radio" name="auth10" id="auth10_1" class="radio1" checked><label for="auth10_1">제한없음</label>
+                                        <input type="radio" name="auth10" id="auth10_2" class="radio1"><label for="auth10_2">회원</label>
+                                        <input type="radio" name="auth10" id="auth10_3" class="radio1"><label for="auth10_3">관리자</label>
+                                    </div>
+                                    <div>
+                                        회원등급지정 &nbsp;:&nbsp;&nbsp; 
+                                        <input type="checkbox" name="auth11" id="auth11_1" class="checkbox2"><label for="auth11_1">일반회원</label>
+                                        <input type="checkbox" name="auth11" id="auth11_2" class="checkbox2"><label for="auth11_2">실버회원</label>
+                                        <input type="checkbox" name="auth11" id="auth11_3" class="checkbox2"><label for="auth11_3">다이아회원</label>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="board_write_row cells_wrap2 cellbox_wrap">
+                            <div class="cellbox">
+                                <p><span>댓글쓰기 사용여부</span></p>
+                                <div class="board_input_wrap">
+                                    <div>
+                                        <input type="radio" name="auth12" id="auth12_1" class="radio1" checked><label for="auth12_1">사용</label>
+                                        <input type="radio" name="auth12" id="auth12_2" class="radio1"><label for="auth12_2">미사용</label>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="cellbox">
+                                <p><span>댓글쓰기 권한설정</span></p>
+                                <div class="board_input_wrap">
+                                    <div>
+                                        <input type="radio" name="auth13" id="auth13_1" class="radio1" checked><label for="auth13_1">제한없음</label>
+                                        <input type="radio" name="auth13" id="auth13_2" class="radio1"><label for="auth13_2">회원</label>
+                                        <input type="radio" name="auth13" id="auth13_3" class="radio1"><label for="auth13_3">관리자</label>
+                                    </div>
+                                    <div>
+                                        회원등급지정 &nbsp;:&nbsp;&nbsp; 
+                                        <input type="checkbox" name="auth14" id="auth14_1" class="checkbox2"><label for="auth14_1">일반회원</label>
+                                        <input type="checkbox" name="auth14" id="auth14_2" class="checkbox2"><label for="auth14_2">실버회원</label>
+                                        <input type="checkbox" name="auth14" id="auth14_3" class="checkbox2"><label for="auth14_3">다이아회원</label>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="table_top space1">
+                        <div class="table_tit">기능설정</div>
+                    </div>
+                    
+                    <!--게시판 write-->
+                    <div class="board_write">
+                        <div class="board_write_row cells_wrap2 cellbox_wrap cells_wrap2_half">
+                            <div class="cellbox">
+                                <p><span>쇼핑몰 게시글 양식설정</span></p>
+                                <div class="board_input_wrap">
+                                    <select class="board_input">
+                                        <option value="일반양식">일반양식</option>
+                                        <option value="일반양식">일반양식</option>
+                                        <option value="일반양식">일반양식</option>
+                                        <option value="일반양식">일반양식</option>
+                                    </select>
+                                    <p class="txt_warning">쇼핑몰 게시글 양식설정은 <a href="#">게시판>게시판관리>게시글양식관리</a>에서 가능합니다.</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="board_write_row cells_wrap2 cellbox_wrap">
+                            <div class="cellbox">
+                                <p><span>비밀글 사용여부</span></p>
+                                <div class="board_input_wrap">
+                                    <div>
+                                        <input type="radio" name="auth15" id="auth15_1" class="radio1" checked><label for="auth15_1">사용</label>
+                                        <input type="radio" name="auth15" id="auth15_2" class="radio1"><label for="auth15_2">미사용</label>
+                                    </div>
+                                    <p class="txt_warning">게시판 스킨에 따라 비밀글기능 사용에 제한이 있을 수 있습니다.</p>
+                                </div>
+                            </div>
+                            <div class="cellbox">
+                                <p><span>리캡챠(스팸방지기능)<br>사용여부</span></p>
+                                <div class="board_input_wrap">
+                                    <div>
+                                        <input type="radio" name="auth16" id="auth16_1" class="radio1" checked><label for="auth16_1">사용</label>
+                                        <input type="radio" name="auth16" id="auth16_2" class="radio1"><label for="auth16_2">미사용</label>
+                                    </div>
+                                    <div>
+                                        회원등급지정 &nbsp;:&nbsp;&nbsp; 
+                                        <input type="checkbox" name="auth17" id="auth17_1" class="checkbox2"><label for="auth17_1">회원+비회원</label>
+                                        <input type="checkbox" name="auth17" id="auth17_2" class="checkbox2"><label for="auth17_2">비회원</label>
+                                    </div>
+                                    <p class="txt_warning">관리자는 기본적으로 스팸방지 기능이 적용되지 않습니다.</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="board_write_row cells_wrap2 cellbox_wrap">
+                            <div class="cellbox">
+                                <p><span>작성자노출 설정</span></p>
+                                <div class="board_input_wrap">
+                                    <div>
+                                        <input type="radio" name="auth18" id="auth18_1" class="radio1" checked><label for="auth18_1">전체노출</label>
+                                        <input type="radio" name="auth18" id="auth18_2" class="radio1"><label for="auth18_2">부분노출</label>
+                                    </div>
+                                    <p class="txt_warning">부분노출로 설정 시 작성자명은 첫 한글자만 노출되며 모두 *처리 됩니다.</p>
+                                    <p class="txt_warning">게시판 스킨에따라 작성자 노출에 제한이 있을 수 있습니다.</p>
+                                </div>
+                            </div>
+                            <div class="cellbox">
+                                <p><span>글쓰기 제한</span></p>
+                                <div class="board_input_wrap">
+                                    <div>
+                                        <input type="radio" name="auth19" id="auth19_1" class="radio1" checked><label for="auth19_1">사용</label>
+                                        <input type="radio" name="auth19" id="auth19_2" class="radio1"><label for="auth19_2">미사용</label>
+                                    </div>
+                                    <div>
+                                        당일기준<input type="text" class="board_input board_input_sm">개 등록가능
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="board_write_row cells_wrap2 cellbox_wrap">
+                            <div class="cellbox">
+                                <p><span>NEW아이콘 노출기간</span></p>
+                                <div class="board_input_wrap">
+                                    <div>
+                                        <input type="text" class="board_input board_input_sm">일
+                                    </div>
+                                    <p class="txt_warning">게시판 스킨에 따라 NEW아이콘 노출이 되지 않을 수 있습니다.</p>
+                                </div>
+                            </div>
+                            <div class="cellbox">
+                                <p><span>페이지당 게시물 수</span></p>
+                                <div class="board_input_wrap">
+                                    <div>
+                                        <input type="text" class="board_input board_input_sm">개
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="btnset_center">
+                        <button type="button" class="btn2 btn2_2">확인</button>
+                        <button type="button" class="btn2">목록</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!--contents-->
+        
+        <div class="footer">
+            <p>[06245] 서울시 강남구 논현로79길 57 (역삼동 742-17) 2층 TEL 070-7137-7111 FAX 070-5033-0877</p>
+            <em>Copyright ANISS Soft. Rights Reserved.</em>
+       </div>
+        
+    </div>
+</body>
+</html>

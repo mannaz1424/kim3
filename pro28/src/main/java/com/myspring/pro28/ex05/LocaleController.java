@@ -13,7 +13,7 @@ public class LocaleController {
    @RequestMapping(value="/test/locale.do", method={RequestMethod.GET})
    public String locale(HttpServletRequest request, HttpServletResponse response) 
                                                           throws Exception {
-      System.out.println("localeController�Դϴ�.");
+      System.out.println("localeControlle 입니다...");
       return "locale";
    }
 }

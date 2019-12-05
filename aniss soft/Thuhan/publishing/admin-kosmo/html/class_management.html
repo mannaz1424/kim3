@@ -1,0 +1,469 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <title>메뉴얼박스 관리자</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1, user-scalable=no">    
+    <link rel="stylesheet" type="text/css" href="../css/style.css">
+    <link rel="stylesheet" type="text/css" href="../css/font.css">
+    <link rel="stylesheet" type="text/css" href="../css/jquery-ui.min.css">
+    <script type="text/javascript" src="../js/jquery-3.3.1.min.js"></script>
+    <script type="text/javascript" src="../js/style.js"></script>
+    <script type="text/javascript" src="../js/jquery-ui.min.js"></script>
+</head> 
+<body>
+    <div id="wrap">
+       
+        <!--header-->
+        <div class="header">
+            <div class="top_bar">
+                <h1 class="logo"><a href="#"><img src="../image/logo.jpg" alt="코스모 한국소프트웨어인재개발원"><span>관리자센터</span></a></h1>
+                <div class="header_top">
+                    <p class="login_info"><span>Aniss</span><em>님</em></p>
+                    <button type="button" class="login_my">내정보</button>
+                    <div class="login_cnts">
+                        <div class="login_btns">
+                            <button type="button" class="btn_logout">로그아웃</button>
+                            <button type="button" class="btn_help">도움말</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <button type="button" class="gnb_toggle"></button>
+            <div class="gnb">
+                <ul class="gnb_menu">
+                    <li>
+                        <button type="button">기본설정</button>
+                        <ul>
+                            <li class="on"><a href="#">SEC, 헤더설정</a></li>
+                            <li><a href="#">팝업/배너 관리</a></li>
+                        </ul>
+                    </li>
+                    <li>
+                        <button type="button">회원관리</button>
+                        <ul>
+                            <li><a href="#">회원관리</a></li>
+                            <li><a href="#">접수자/훈련생 관리</a></li>
+                        </ul>    
+                    </li>
+                    <li><button type="button">강의관리</button></li>
+                    <li>
+                        <button type="button">발송관리</button>
+                        <ul>
+                            <li><a href="#">SMS 템플릿관리</a></li>
+                            <li><a href="#">단체 SMS발송(즉시, 예약발송)</a></li>
+                        </ul> 
+                    </li>
+                    <li>
+                        <button type="button">게시판 관리</button>
+                        <ul>
+                            <li><a href="#">게시판 카테고리 관리</a></li>
+                            <li><a href="#">게시판 관리(공지, 일반, 갤러리, 신청)</a></li>
+                            <li><a href="#">게시물 관리</a></li>
+                        </ul> 
+                    </li>
+                    <li>
+                        <button type="button">접속통계</button>
+                        <ul>
+                            <li><a href="#">일별/월별/요일별 통계</a></li>
+                            <li><a href="#">유입통계</a></li>
+                            <li><a href="#">많이 방문한 페이지</a></li>
+                            <li><a href="#">저장공간</a></li>
+                            <li><a href="#">트레픽</a></li>
+                        </ul> 
+                    </li>
+                    <li>
+                        <button type="button">마케팅 관리</button>
+                        <ul>
+                            <li><a href="#">구글 Analytics</a></li>
+                            <li><a href="#">네이버 검색엔진 최적화</a></li>
+                        </ul> 
+                    </li>
+                </ul>
+            </div>
+            <div class="gnb_bg"></div>
+        </div>
+        <!--header-->
+        
+        <!--contents-->
+        <div class="section">
+            <div class="contents">
+               
+                <div class="tit_wrap float_wrap">
+                    <div class="title tit1">강의관리</div>
+                    <!--navigation-->
+                    <dl class="navigation">
+                        <dt>관리자센터</dt>
+                        <dd>강의관리</dd>
+                    </dl>
+                    <!--navigation-->
+                </div>
+                
+                <div class="contents_box">
+                    <div class="top_set">
+                        <div class="top_left">
+                            <p>강의검색</p>
+                        </div>
+                    </div>
+                    <div class="table1">
+                        <table>
+                            <colgroup>
+                                <col style="width:15%;">
+                                <col style="width:35%;">
+                                <col style="width:15%;">
+                                <col style="width:35%;">
+                            </colgroup>
+                            <tr>
+                                <th>구분</th>
+                                <td>
+                                    <select>
+                                        <option>모두보기</option>
+                                        <option>모두보기</option>
+                                        <option>모두보기</option>
+                                    </select>
+                                </td>
+                                <th>수강료</th>
+                                <td>
+                                    <select>
+                                        <option>모두보기</option>
+                                        <option>모두보기</option>
+                                        <option>모두보기</option>
+                                    </select>
+                                </td>
+                            </tr>
+                            <tr>
+                                <th>상태</th>
+                                <td>
+                                    <select>
+                                        <option>모두보기</option>
+                                        <option>모두보기</option>
+                                        <option>모두보기</option>
+                                    </select>
+                                </td>
+                                <th>검색</th>
+                                <td>
+                                    <input type="text">
+                                </td>
+                            </tr>
+                        </table>
+                    </div>
+                    <div class="btns btns_center btns_bottom">
+                        <button type="button" class="btn_lg btn_primary">검색</button>
+                    </div>
+                    
+                    
+                    <div class="btns btns_top btns_right space_md">
+                        <button type="button" class="btn_md btn_secondary">강의등록</button>
+                    </div>
+                    <div class="table1">
+                        <table>
+                            <tr>
+                                <th>선택</th>
+                                <th>등록일</th>
+                                <th>구분</th>                                
+                                <th>강의명</th>                                
+                                <th>신청자수</th>                                
+                                <th>수강료</th>                                
+                                <th>경로상태</th>                                
+                                <th>보기순서</th>                                
+                                <th>관리</th>                                
+                            </tr>
+                            <tr>
+                                <td class="checkbox_td"><input type="checkbox" class="checkbox1 checkbox_single check_row" id="opt11"><label for="opt11"></label></td>
+                                <td>2019-07-26</td>
+                                <td>재작자</td>
+                                <td>노드 Node.js 프로그래밍 과정 드 Node.js 프로그래밍 과정</td>
+                                <td>50</td>
+                                <td>0</td>
+                                <td>모집중</td>
+                                <td>
+                                    <div class="order_set">
+                                        <button type="button" class="down">down</button>
+                                        <span class="order_display">1</span>
+                                        <button type="button" class="up">up</button>
+                                    </div>
+                                </td>
+                                <td>
+                                    <button type="button" class="btn_sm btn_edit">수정</button>
+                                    <button type="button" class="btn_sm btn_delete">삭제</button>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td class="checkbox_td"><input type="checkbox" class="checkbox1 checkbox_single check_row" id="opt12"><label for="opt12"></label></td>
+                                <td>2019-07-26</td>
+                                <td>재작자</td>
+                                <td>노드 Node.js 프로그래밍 과정</td>
+                                <td>50</td>
+                                <td>0</td>
+                                <td>모집중</td>
+                                <td>
+                                    <div class="order_set">
+                                        <button type="button" class="down">down</button>
+                                        <span class="order_display">1</span>
+                                        <button type="button" class="up">up</button>
+                                    </div>
+                                </td>
+                                <td>
+                                    <button type="button" class="btn_sm btn_edit">수정</button>
+                                    <button type="button" class="btn_sm btn_delete">삭제</button>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td class="checkbox_td"><input type="checkbox" class="checkbox1 checkbox_single check_row" id="opt13"><label for="opt13"></label></td>
+                                <td>2019-07-26</td>
+                                <td>재작자</td>
+                                <td>노드 Node.js 프로그래밍 과정</td>
+                                <td>50</td>
+                                <td>0</td>
+                                <td>모집중</td>
+                                <td>
+                                    <div class="order_set">
+                                        <button type="button" class="down">down</button>
+                                        <span class="order_display">1</span>
+                                        <button type="button" class="up">up</button>
+                                    </div>
+                                </td>
+                                <td>
+                                    <button type="button" class="btn_sm btn_edit">수정</button>
+                                    <button type="button" class="btn_sm btn_delete">삭제</button>
+                                </td>
+                            </tr>
+                        </table>
+                    </div>
+                    <!--페이징-->
+                    <div class="paging">
+                        <ul>
+                            <li class="paging_p p_first"><a href="#">처음으로</a></li>
+                            <li class="paging_p p_prev"><a href="#">이전</a></li>
+                            <li class="on"><a href="#">1</a></li>
+                            <li><a href="#">2</a></li>
+                            <li><a href="#">3</a></li>
+                            <li><a href="#">4</a></li>
+                            <li><a href="#">5</a></li>
+                            <li class="paging_p p_next"><a href="#">다음</a></li>
+                            <li class="paging_p p_last"><a href="#">마지막</a></li>
+                        </ul>
+                    </div>
+                    
+                    <div class="top_set space_lg">
+                        <div class="top_left">
+                            <p>선택된 강좌 신청자 리스트</p>
+                        </div>
+                        <div class="top_right">
+                            <button type="button" class="btn_md btn_secondary">신청자추가</button>
+                        </div>
+                    </div>
+                    <div class="table1">
+                        <table>
+                            <tr>
+                                <th>선택</th>
+                                <th>신청일</th>
+                                <th>이름</th>                                
+                                <th>생년월일</th>                                
+                                <th>연락처</th>                                
+                                <th>이메일</th>                                
+                                <th>메모</th>                                
+                                <th>신청경로</th>                                
+                                <th>상태</th>                                
+                                <th>관리</th>                                
+                            </tr>
+                            <tr>
+                                <td class="checkbox_td"><input type="checkbox" class="checkbox1 checkbox_single check_row" id="opt14"><label for="opt14"></label></td>
+                                <td><p class="status"><span class="new">new</span></p>2019-07-26</td>
+                                <td>송종우</td>
+                                <td>2000-07-26</td>
+                                <td>010-1234-5678</td>
+                                <td>kdjljsdfsdd@gmail.com</td>
+                                <td>메모내용은 2줄이 될수 있음</td>
+                                <td>포털</td>
+                                <td>신청</td>
+                                <td>
+                                    <button type="button" class="btn_sm btn_base">비번초기화</button>
+                                    <button type="button" class="btn_sm btn_edit btn_applicant_edit">수정</button>
+                                    <button type="button" class="btn_sm btn_delete">삭제</button>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td class="checkbox_td"><input type="checkbox" class="checkbox1 checkbox_single check_row" id="opt15"><label for="opt15"></label></td>
+                                <td><p class="status"><span class="new">new</span></p>2019-07-26</td>
+                                <td>송종우</td>
+                                <td>2000-07-26</td>
+                                <td>010-1234-5678</td>
+                                <td>kdjljsdfsdd@gmail.com</td>
+                                <td>메모내용은 2줄이 될수 있음</td>
+                                <td>포털</td>
+                                <td>신청</td>
+                                <td>
+                                    <button type="button" class="btn_sm btn_base">비번초기화</button>
+                                    <button type="button" class="btn_sm btn_edit">수정</button>
+                                    <button type="button" class="btn_sm btn_delete">삭제</button>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td class="checkbox_td"><input type="checkbox" class="checkbox1 checkbox_single check_row" id="opt16"><label for="opt16"></label></td>
+                                <td><p class="status"><span class="new">new</span></p>2019-07-26</td>
+                                <td>송종우</td>
+                                <td>2000-07-26</td>
+                                <td>010-1234-5678</td>
+                                <td>kdjljsdfsdd@gmail.com</td>
+                                <td>메모내용은 2줄이 될수 있음</td>
+                                <td>포털</td>
+                                <td>신청</td>
+                                <td>
+                                    <button type="button" class="btn_sm btn_base">비번초기화</button>
+                                    <button type="button" class="btn_sm btn_edit">수정</button>
+                                    <button type="button" class="btn_sm btn_delete">삭제</button>
+                                </td>
+                            </tr>
+                        </table>
+                    </div>
+                    
+                    <!--페이징-->
+                    <div class="paging">
+                        <ul>
+                            <li class="paging_p p_first"><a href="#">처음으로</a></li>
+                            <li class="paging_p p_prev"><a href="#">이전</a></li>
+                            <li class="on"><a href="#">1</a></li>
+                            <li><a href="#">2</a></li>
+                            <li><a href="#">3</a></li>
+                            <li><a href="#">4</a></li>
+                            <li><a href="#">5</a></li>
+                            <li class="paging_p p_next"><a href="#">다음</a></li>
+                            <li class="paging_p p_last"><a href="#">마지막</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!--contents-->
+        
+        <div class="footer">
+            <p>[06245] 서울시 강남구 논현로79길 57 (역삼동 742-17) 2층 TEL 070-7137-7111 FAX 070-5033-0877</p>
+            <em>Copyright ANISS Soft. Rights Reserved.</em>
+       </div>
+        
+    </div>
+    
+    
+    <div class="popup" id="pop_applicant_edit">
+        <div class="popup_box">
+            <div class="pop_header">
+                <p class="pop_tit"> </p>
+                <button type="button" class="pop_close">닫기</button>
+            </div>
+            <div class="pop_cont">
+                <div class="table1 table_td_left">
+                    <table>
+                        <colgroup>
+                            <col style="width:20%;">
+                            <col style="width:80%;">
+                        </colgroup>
+                        <tr>
+                            <th>신청일</th>
+                            <td>2019-07-10 13:50:30</td>
+                        </tr>
+                        <tr>
+                            <th>이름</th>
+                            <td>홍길동</td>
+                        </tr>
+                        <tr>
+                            <th>생년월일</th>
+                            <td></td>
+                        </tr>
+                        <tr>
+                            <th>연락처</th>
+                            <td>010-1245-5678</td>
+                        </tr>
+                        <tr>
+                            <th>생년월일</th>
+                            <td>asdlkjflsj@gmail.com</td>
+                        </tr>
+                        <tr>
+                            <th>신청경로</th>
+                            <td></td>
+                        </tr>
+                        <tr>
+                            <th>상태</th>
+                            <td>
+                                <input type="radio" name="radio_group1" id="radio1" class="radio1" checked><label for="radio1">신청</label>
+                                <input type="radio" name="radio_group1" id="radio2" class="radio1"><label for="radio2">신청취소</label>
+                            </td>
+                        </tr>
+                        <tr>
+                            <th>메모</th>
+                            <td>
+                                <textarea rows="5"></textarea>
+                            </td>
+                        </tr>
+                        <tr>
+                            <th>수정일</th>
+                            <td></td>
+                        </tr>
+                    </table>
+                </div>
+                <div class="btns btns_bottom btns_center">
+                    <button type="button" class="btn_lg btn_primary">수정</button>
+                    <button type="button" class="btn_lg btn_cancel">취소</button>
+                </div>
+
+                <div class="top_set space_md">
+                    <div class="top_left">
+                        <p>선택된 강좌 신청자 리스트</p>
+                    </div>
+                </div>
+                <div class="table1">
+                    <table>
+                        <tr>
+                            <th>No.</th>
+                            <th>강좌등록일</th>
+                            <th>강좌명</th>                                
+                            <th>신청일</th>                                
+                            <th>강좌상태</th>                                
+                            <th>신청상태</th>                                
+                            <th>전체신청자수</th>                                
+                            <th>수강료</th>                                
+                        </tr>
+                        <tr>
+                            <td>1</td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                        </tr>
+                        <tr>
+                            <td>2</td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                        </tr>
+                    </table>
+                </div>
+                
+                <!--페이징-->
+                <div class="paging">
+                    <ul>
+                        <li class="paging_p p_first"><a href="#">처음으로</a></li>
+                        <li class="paging_p p_prev"><a href="#">이전</a></li>
+                        <li class="on"><a href="#">1</a></li>
+                        <li><a href="#">2</a></li>
+                        <li><a href="#">3</a></li>
+                        <li><a href="#">4</a></li>
+                        <li><a href="#">5</a></li>
+                        <li class="paging_p p_next"><a href="#">다음</a></li>
+                        <li class="paging_p p_last"><a href="#">마지막</a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <div class="popup_bg"></div>
+    </div>
+    
+</body>
+</html>

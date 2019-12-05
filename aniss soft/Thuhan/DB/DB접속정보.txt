@@ -1,0 +1,5 @@
+url: server.aniss.co.kr
+port: 5432
+id: tsuhan
+pw: tsuhan!234
+DB: TsuHan
