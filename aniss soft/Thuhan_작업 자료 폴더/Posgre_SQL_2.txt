@@ -1,7 +1,7 @@
 CREATE TABLE mst000(
-    code VARCHAR(3) NOT NULL,
-    NAME VARCHAR(36),
-    kana VARCHAR(36),
+    code VARCHAR(3) NOT NULL '自社コード',
+    NAME VARCHAR(36) '自社名',
+    kana VARCHAR(36) '',
     executive VARCHAR(16),
 	
     account1 VARCHAR(5),
@@ -29,7 +29,11 @@ CREATE TABLE mst000(
     payday DECIMAL(15,0),
     reg_discount_cnt DECIMAL(15,0),
     reg_discountrate DECIMAL(15,0),
-    PASSWORD01 VARCHAR(20));
+    PASSWORD01 VARCHAR(20)
+);
+	
+comment on column mst000.code is '自社コード';
+comment on column mst000.NAME is '自社名';
 	
 	
 	
@@ -576,6 +580,50 @@ CREATE TABLE mst0023(
 
 
 
+
+CREATE TABLE mst1011(
+    
+    hideseq DECIMAL(15,0) NOT NULL,
+    cust_sel_cd VARCHAR(20),
+    cust_smp_cd VARCHAR(20),
+    NAME VARCHAR(40),
+    kana VARCHAR(40),
+    
+    zip1 VARCHAR(8),
+    addr11 VARCHAR(60),
+    addr12 VARCHAR(40),
+    telno1 VARCHAR(20),
+    
+    zip2 VARCHAR(8),
+    addr21 VARCHAR(60),
+    addr22 VARCHAR(40),
+    telno2 VARCHAR(20),
+    
+    telnum VARCHAR(20),
+    ShortTel VARCHAR(4),
+    birth TIMESTAMP,
+    
+    sex VARCHAR(1),
+    staffcode VARCHAR(5),
+    disabled VARCHAR(1),
+    cust_status VARCHAR(1),
+	
+    dissend_tel VARCHAR(1),
+    addr1_title VARCHAR(2),
+    addr2_title VARCHAR(2),
+    age_kbn VARCHAR(2),
+    telnum02 VARCHAR(20),
+   
+    recmade TIMESTAMP,
+    recupdate TIMESTAMP,
+    
+    kubun1 VARCHAR(40),
+    kubun2 VARCHAR(40),
+    kubun3 VARCHAR(40),
+    kubun4 VARCHAR(40),
+    kubun5 VARCHAR(40)
+    
+    );
 
 
 

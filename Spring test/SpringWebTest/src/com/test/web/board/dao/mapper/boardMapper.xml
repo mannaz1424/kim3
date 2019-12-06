@@ -16,8 +16,7 @@
         SELECT 
             * 
         FROM 
-            (SELECT * FROM TB_BOARD_KYJ <![CDATA[ WHERE NO <= #{nEnd} ]]>
-        ORDER BY NO ASC) A 
+            (SELECT * FROM TB_BOARD_KYJ <![CDATA[ WHERE NO <= #{nEnd} ]]> ORDER BY NO ASC) A 
         WHERE A.NO >= #{nStart} ORDER BY NO ASC
     </select>
     
