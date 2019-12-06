@@ -1,9 +1,2 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<aop-reference-model>
-<aop-project name="SpringWebTest2"/>
-<aop-project name="Test_Board"/>
-<aop-project name="SpringWebTest_vue"/>
-<aop-project name="Test_Vue"/>
-<aop-project name="SpringWebTest"/>
-<aop-project name="pro28"/>
-</aop-reference-model>
+<aop-reference-model/>

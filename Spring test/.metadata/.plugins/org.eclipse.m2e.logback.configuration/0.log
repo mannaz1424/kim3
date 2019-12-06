@@ -7403,3 +7403,5 @@ Caused by: java.io.FileNotFoundException: D:\Spring test\Test02\pom.xml (ÁöÁ¤µÈ 
 2019-12-05 00:51:55,608 [Worker-40: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory D:\my_Java\kim3\Spring test\SpringWebTest_vue\src\main\resources
 2019-12-05 00:51:55,610 [Worker-40: Building workspace] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (MS949 actually) to copy filtered resources, i.e. build is platform dependent!
 2019-12-05 00:51:55,611 [Worker-40: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory D:\my_Java\kim3\Spring test\SpringWebTest_vue\src\test\resources
+2019-12-07 00:40:11,526 [Worker-4: Loading available Gradle versions] INFO  o.e.b.c.i.u.g.PublishedGradleVersions - Gradle version information cache is up-to-date. Trying to read.
+2019-12-07 00:43:25,131 [Worker-5: Loading available Gradle versions] INFO  o.e.b.c.i.u.g.PublishedGradleVersions - Gradle version information cache is up-to-date. Trying to read.
