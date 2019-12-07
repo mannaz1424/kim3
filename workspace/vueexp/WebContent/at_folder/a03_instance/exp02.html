@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script src="https://code.jquery.com/jquery-3.4.1.js" type="text/javascript"></script>
+<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js" type="text/javascript"></script>
+<script type="text/javascript">
+	$(document).ready(function(){
+ 		var vm = new Vue({
+ 			el:"#container",
+ 			data:{msg:"watch 속성 활용",
+ 				 price:0,cnt:0, tot:0},
+ 			watch:{
+ 				price:function(v){
+ 					// 입력받은 가격에 모델데이터cnt를 곱하여 연산 처리..
+ 					this.tot=Number(v)*Number(this.cnt);
+ 				},
+ 				cnt:function(v){
+ 					// 입력받은 갯수에 모델데이터 price를 곱하여 연산 처리.
+ 					this.tot=Number(v)*Number(this.price);
+ 				}
+ 			}	 
+ 		});
+	});	
+	// ex) watch 속성을 이용하여, 아래와 같이 출력 처리 하세요..
+	//    model데이터 : price, cnt, tot
+</script>		
+</head>
+<body>
+	<div id="container">
+		<h1>{{msg}}</h1> 
+		가격:<input v-model="price"/><br>
+		갯수:<input v-model="cnt"/><br>
+		<h3>물건을 개당 {{price}}원에 {{cnt}}개 구매하여,
+			총비용이 {{tot}}원 입니다.
+		</h3>
+	</div>
+</body>
+</html>

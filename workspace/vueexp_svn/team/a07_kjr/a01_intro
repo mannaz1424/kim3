@@ -1,0 +1,58 @@
+김주리
+현재 직장인 퍼블리셔 4년차
+javascript 경험있음 
+vue 기본 적인 문법만 알고 있음
+
+# 11/30
+1. 수업 진도 속도 (보통)
+2. 이해도 (이해됨)
+3. 불편사항
+4. 미니프로젝트 진행여부 
+	1)full calendar (o)
+	2)답변형 게시판(o)
+ 	3)복습열심히!
+ 
+
+ # 12/07
+ 1. 수강 형태 : 재직자 신청
+ 2. 수업 진도 속도 :뒤로 갈수록 조금 빠른 느낌이 있어요
+ 3. 이해도 : 몇가지 이해 안되는 부분도 있었지만 대체적으로 이해 됨 
+ 4. 앞쪽에 간단한 예제에서 시간이 조금 지체된거 같아요,
+         뒤에 더 복잡하고 어려운 내용은 조금 더 자세히 설명 해주셨으면 좋겠어요!
+ 
+ 
+ 
+
+ 
+<사전평가정답>
+2.
+var man={name:"kim",age:"10"};
+for(var prop in man){
+	document.write(prop +":"+ man[prop],"<br>");
+}
+
+3.
+Var은 지역,전역변수로 사용가능하고 한번 선언하고 재선언해도 됨
+Let은 지역변수, 해당 블록 내에서만 사용하고 재선언 안됨 
+
+6.
+var goods={title:"shirts",price:5000, number:10}
+		var html = "<table>";
+		for(var prop in goods){
+			html += "<tr><th>"+prop+"</th><td>"+ goods[prop]+"</td></tr>";
+		}
+		html += "</table>";
+		
+		document.write(html);
+
+7.
+$(document).ready(function(){	
+	var rainbow=["red","orange","yellow","green","blue","navy","purple"];
+		for ( var i = 0; i < rainbow.length; i++) {
+			var color="<h2>"+rainbow[i]+"</h2>";
+			$("div").append(color);
+		}
+	});
+
+
+

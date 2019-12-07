@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script src="https://code.jquery.com/jquery-3.4.1.js" type="text/javascript"></script>
+<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js" type="text/javascript"></script>
+<script type="text/javascript">
+	$(document).ready(function(){
+ 		var vm = new Vue({
+ 			el:"#container",
+ 			data:{msg:"평균 자책점 계산",
+ 				inn:0,
+ 				lpt:0
+ 			},
+ 			methods:{
+ 				avgLpt:function(){
+ 					var ret=9.0*Number(this.lpt)/Number(this.inn);
+ 					// isNaN() : 숫자로 변경할 수 없는 문자열이 나올 때,  true
+ 					// ret===Infinity : 계산 결과가 무한대로 나올 때, true
+ 					// 위 두 경우일 때믄 0으로 정상적인 결과값일 때, ret값 처리..
+ 					return isNaN(ret)||ret===Infinity?0:ret;
+ 				}
+ 			}	
+ 		});
+	});
+	// ex) 평균 자책점을 methods 속성으로 이용해서 선언하여 출력하세요.
+	// 투수가 경기한 회수(이닝) :[    ]
+	// 투수가 실점(자책점) : [   ]
+	// 평균 자책점 : @@@  9*(실점/이닝수)
+</script>		
+</head>
+<body>
+	<div id="container">
+		<h1>{{msg}}</h1> 
+		투수가 경기한 회수(이닝) :<input v-model="inn"/><br>
+		투수가 실점(자책점) :<input v-model="lpt"/><br>
+		평균 자책점 : {{avgLpt()}}
+	</div>
+</body>
+</html>

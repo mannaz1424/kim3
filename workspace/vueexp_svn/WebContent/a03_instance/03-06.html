@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>03-06</title>
+<script src="https://unpkg.com/vue/dist/vue.min.js"></script>
+</head>
+<body>
+<div id="example">
+    x : <input type='text' v-model="x" /><br />
+    y : <input type='text' v-model="y" /><br />
+    덧셈 결과 : {{sum}}
+</div>
+<script type="text/javascript">
+/*
+# Vue 인스턴스 라이프 사이클
+1. Vue는 creation(생성), mounting(로딩), updating(변경),
+	destruction(소멸)의 4단계로 life cycle을 가지고 있다.
+2. 라이프 사이클에서 지원하는 기능과 함께  메서드를 구현하여 처리할 수 있다.
+	1) 뷰 인스턴스와 component에 생성 주기에 따라서 이벤트와 속성값으로
+		전달시, 활용된다.
+ 
+ */
+var vm = new Vue({
+    el : "#example",
+    data : { x:0, y:0 },
+    // 1. Vue 인스턴스 라이프 사이클의 첫번째 단계인 생성단계에서 처리되는
+    // 메서드
+    created:function(){
+    	 console.log("## instance 객체 생성 ##");
+    },
+    // 2. v-model에 의하거나 이벤트에 의해서 모델 데이터가 변경되어, 처리될때..
+    //    beforeUpdate(), updated() 메서드 호출..
+    beforeUpdate : function() {
+        console.log("before update")
+        console.log(this.x);
+    },
+    updated : function() {
+        console.log("update")
+        console.log(this.x);
+    },
+    computed : {
+        sum : function() {
+            var result = Number(this.x) + Number(this.y);
+            if (isNaN(result)) return  0;
+            else return result;
+        }
+    }
+})
+</script>
+</body>
+</html>

@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script src="https://code.jquery.com/jquery-3.4.1.js" type="text/javascript"></script>
+<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js" type="text/javascript"></script>
+<script type="text/javascript">
+	$(document).ready(function(){
+ 		var vm = new Vue({
+ 			el:"#container",
+ 			data:{msg:"객체형배열",
+ 				plist:[
+ 					{name:"사과",price:3000,cnt:2},
+ 					{name:"바나나",price:4000,cnt:3},
+ 					{name:"딸기",price:12000,cnt:5}
+ 				],
+ 				tot:0
+ 		    }
+ 		});
+ /*
+ ex) 구매 물품  리스트를 출력 처리하세요..
+ 	no  구매물품    단가    갯수     계
+ 	1   사과            3000   2   6000
+ 	2   바나나         4000   3   8000
+ 	3   딸기           12000   5  60000
+ 	          총계  @@@@ 원
+ 
+ */		
+ 		
+	});
+</script>		
+</head>
+<body>
+	<div id="container">
+		<h1>{{msg}}</h1> 
+		<!-- 
+		tot은 초기값을 설정 :id ==> v-bind:id
+		 -->
+		<table border :id="tot=0">
+			<tr><th>no</th><th>물건명</th><th>단가</th>
+			    <th>갯수</th><th>총계</th></tr>
+			    <!-- 
+			    총계 데이터 누적처리..
+			     -->
+            <tr v-for="(prod, index) in plist" 
+            	:id="tot+=parseInt(prod.price*prod.cnt)">
+                <td>{{index+1}}</td>
+                <td v-text="prod.name"></td>
+                <td v-text="prod.price"></td>
+                <td v-text="prod.cnt"></td>
+                <td >
+                	{{prod.price*prod.cnt}}</td>
+                </td>
+            </tr>	
+            <tr><td colspan="4">총계</td><td>{{tot}}</td></tr>	
+        </table>  
+          
+	</div>
+</body>
+</html>

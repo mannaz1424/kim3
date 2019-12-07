@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>03-05</title>
+<script src="https://unpkg.com/vue/dist/vue.min.js"></script>
+</head>
+<body>
+<div id="example">
+    x : <input type='text' v-model="x" /><br />
+    y : <input type='text' v-model="y" /><br />
+    덧셈 결과 : {{sum}}
+</div>
+<script type="text/javascript">
+var vm = new Vue({
+    el : "#example",
+    data : { x:0, y:0, sum:0 },
+/*
+# watch
+1. 관찰 속성으로  모델데이터와 mapping 데이터를 선언하면,
+2. x 값이 입력할 때, 해당 연동된 메서드가 처리가 된다.. 입력한 값은
+	함수의 function(매개변수)형식 매개 변수를 입력 받게 된다..
+3. 기본 형식
+	1) 모델 데이터를 선언하고, 초기값을 설정한다.
+		ex) data : { x:0, y:0, sum:0 },
+	2) view단에서 v-model로 모델 데이터를 mapping 해준다.
+	    ex) <input type='text' v-model="x" />
+	3) watch:{
+		   변경할 모델명:function(매개변수){
+			   수행할 내용
+		   }
+		}    
+ */    
+    watch : {
+        x : function(v) {
+            console.log('## x 변경')
+            var result = Number(v) + Number(this.y);
+            if (isNaN(result)) this.sum = 0;
+            
+            else this.sum = result;
+            console.log('결과값:'+result);
+        },
+        y : function(v) {
+            console.log('## y 변경')
+            this.y = v;
+            var result = Number(this.x) + Number(v);
+            if (isNaN(result)) this.sum = 0;
+            else this.sum = result;
+            console.log('결과값:'+result);
+        }
+    }
+})
+</script>
+</body>
+</html>

@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script src="https://code.jquery.com/jquery-3.4.1.js" type="text/javascript"></script>
+<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js" type="text/javascript"></script>
+<script type="text/javascript">
+	$(document).ready(function(){
+ 		var vm = new Vue({
+ 			el:"#container",
+ 			data:{
+ 				msg:"wathc 속성 활용",
+ 				price:0,
+ 				cnt:0,
+ 				tot:0
+ 			},
+ 			watch: {
+ 				price: function(v){
+ 					console.log('## price 변경');
+ 					var sum = Number(v) * Number(this.cnt);
+ 					if(isNaN(sum)) this.tot = 0; 					
+ 					else this.tot = sum
+ 					
+ 					console.log('## tot 변경' + this.tot);
+ 				},
+ 				cnt: function(v){
+ 					console.log('## cnt 변경');
+ 					var sum = Number(v) * Number(this.price);
+ 					if(isNaN(sum)) this.tot = 0;
+ 					else this.tot = sum
+ 					
+ 					console.log('## tot 변경' + this.tot);
+ 				},
+ 			}
+ 		});
+	});
+</script>		
+</head>
+<body>
+	<div id="container">
+		<h1>{{msg}}</h1> 
+		
+		가격 : <input v-model="price"/><br>
+		갯수 : <input v-model="cnt"/><br>
+		
+		<h3>물건을 개당 {{price}} 원에 {{cnt}} 개 구매하여,
+		    초이용이 {{tot}} 원 입니다.</h3>
+		
+	</div>
+</body>
+</html>

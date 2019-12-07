@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script src="https://code.jquery.com/jquery-3.4.1.js" type="text/javascript"></script>
+<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js" type="text/javascript"></script>
+<script type="text/javascript">
+	$(document).ready(function(){
+ 		var vm = new Vue({
+ 			el:"#container",
+ 			data:{msg:"반복문 template 활용",
+ 				graduCho:["대학원","대학","고등학교","중학교","초등학교"],
+ 				gradu:"",
+ 				id:""}
+ 		});
+/*
+ex) type radio를 이용하여,  
+	여러가지 중에 단일 선택을 할 수 있도록 하세요.
+	회원 등록 id: [    ]
+	학력 선택 : ()대학원 ()대학  ()고등학교 ()중학교 ()초등학교
+	
+ 
+ */ 		
+	});
+</script>		
+</head>
+<body>
+	<div id="container">
+		<h1>{{msg}}</h1> 
+		 아이디 입력:<input v-model="id"/><br>
+		학력선택:
+		<template v-for="school in graduCho">
+			<input type="radio" name="grad" 
+				v-model="gradu" :value="school"/>{{school}},
+		</template><br>
+		<h2>등록한 회원 정보</h2>
+		<h3>아이디:{{id}}</h3>
+		<h3>학력:{{gradu}}</h3>
+	</div>
+</body>
+</html>

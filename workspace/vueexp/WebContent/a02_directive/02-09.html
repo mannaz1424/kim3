@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>02-09</title>
+<script src="https://unpkg.com/vue/dist/vue.min.js"></script>
+</head>
+<body>
+    <div id="exmaple">
+        <select id="regions">
+            <option disabled="disabled" selected>지역을 선택하세요</option>
+            <option v-for="(val, key, index) in regions" 
+            	v-bind:value="key" v-text="val"></option>
+        </select>
+        
+        <table border>
+            <tr><th> 번호</th><th>속성</th><th>속성값</th></tr>
+            <tr v-for="(val,key,idx) in p01">
+                <td>{{idx+1}}</td>
+                <td>{{key}}</td>
+                <td>{{val}}</td>
+            </tr>                
+        </table>
+        
+        <table border>
+            <tr><th>영화제목</th><th>개봉날짜</th><th>관객수</th></tr>
+            <tr v-for="(val, key, idx) in mov">
+                <td>{{idx+1}}</td>
+                <td>{{key}}</td>
+                <td>{{val}}</td>
+            </tr>        
+        </table>
+    </div>
+    <script type="text/javascript">
+/*
+# 객체를 통한 v-for 구문 처리..
+1. 모델데이터를 객체로 선언하고 모델명:{속성:속성값, 속성2:속성2값...}
+형식 선언하고, 반복문 v-for를 통해서, 해당 객체가 가지고 있는 모든
+속성만큼 반복하여, 화면에 출력하는 처리..
+2. 기본 형식
+	1) json 형식의 객체 모델데이터 선언.
+	2) 요소객체 v-for="(속성값, 속성, index) in 모델객체명"
+ */    
+    
+    
+    var regionsData = {
+        "A" : "Asia",
+        "B" : "America",
+        "C" : "Europe",
+        "D" : "Africa",
+        "E" : "Oceania"
+    };
+	var p01 = {
+			name:"홍길동",
+			age:25,
+			loc:"서울"
+	};
+	
+	var movie = {
+		name:"m",
+		date:"2019.12.07",
+		value:200
+	};
+
+    var list = new Vue({
+        el : "#exmaple",
+        data : { 
+        	regions : regionsData,
+        	mov: movie,
+        	p01: p01
+        	}
+    });
+    </script>
+</body>
+</html>

@@ -1,0 +1,47 @@
+김주리
+현재 직장인 퍼블리셔 4년차
+javascript 경험있음 
+vue 기본 적인 문법만 알고 있음
+
+# 11/30
+1. 수업 진도 속도 (보통)
+2. 이해도 (이해됨)
+3. 불편사항
+4. 미니프로젝트 진행여부 
+	1)full calendar (o)
+	2)답변형 게시판(o)
+ 	3)복습열심히!
+ 
+ 
+<사전평가정답>
+2.
+var man={name:"kim",age:"10"};
+for(var prop in man){
+	document.write(prop +":"+ man[prop],"<br>");
+}
+
+3.
+Var은 지역,전역변수로 사용가능하고 한번 선언하고 재선언해도 됨
+Let은 지역변수, 해당 블록 내에서만 사용하고 재선언 안됨 
+
+6.
+var goods={title:"shirts",price:5000, number:10}
+		var html = "<table>";
+		for(var prop in goods){
+			html += "<tr><th>"+prop+"</th><td>"+ goods[prop]+"</td></tr>";
+		}
+		html += "</table>";
+		
+		document.write(html);
+
+7.
+$(document).ready(function(){	
+	var rainbow=["red","orange","yellow","green","blue","navy","purple"];
+		for ( var i = 0; i < rainbow.length; i++) {
+			var color="<h2>"+rainbow[i]+"</h2>";
+			$("div").append(color);
+		}
+	});
+
+
+
