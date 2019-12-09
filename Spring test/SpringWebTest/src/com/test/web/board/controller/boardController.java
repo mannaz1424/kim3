@@ -1,6 +1,8 @@
 package com.test.web.board.controller;
 
+import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -10,6 +12,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 
+import com.google.gson.Gson;
 import com.test.web.board.bean.ContentBean;
 import com.test.web.board.bean.PageBean;
 import com.test.web.board.dao.BoardDao;
@@ -206,7 +209,20 @@ public class boardController {
 		
 		return map;
 	}
- 
+	@RequestMapping(value="testuri", method= RequestMethod.GET)
+	@ResponseBody
+	public String testuri() {
+		List<Map<String,Object>> imsiList = new ArrayList<>();
+		Map<String,Object> imsiMap = new HashMap<>();
+		imsiMap.put("test1","테스트중");
+		imsiMap.put("test2","테스트중");
+		imsiMap.put("test3","테스트중");
+		imsiMap.put("test4","테스트중");
+		imsiList.add(imsiMap);
+		Gson g = new Gson();
+		String result = g.toJson(imsiList);
+		return result;
+	}
 
 	@RequestMapping(value = "selectContent", method = RequestMethod.POST)
 	@ResponseBody
