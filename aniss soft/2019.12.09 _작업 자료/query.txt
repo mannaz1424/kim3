@@ -1,0 +1,188 @@
+﻿create table stk040 (
+	pcode varchar(5),
+	prodcode varchar(16),
+	trndate timestamp,
+	trntype varchar(1),
+	hideseq decimal(15,0),
+	lineno decimal(15,0),
+	amount decimal(15,2) not null,
+	recmade timestamp,
+	recupdate timestamp,
+	primary key(pcode,prodcode,trndate,trntype,hideseq,lineno)
+);
+
+comment on column stk040.pcode is '店舗コード';
+comment on column stk040.prodcode is '商品コード';
+comment on column stk040.trndate is '入力日';
+comment on column stk040.trntype is '伝票区分';
+comment on column stk040.hideseq is '伝票連番';
+comment on column stk040.lineno is '行№';
+comment on column stk040.amount is '数量';
+comment on column stk040.recmade is 'ﾚｺｰﾄﾞ作成日';
+comment on column stk040.recupdate is 'ﾚｺｰﾄﾞ更新日';
+
+
+create table stk030 (
+	pcode varchar(5),
+	prodcode varchar(16),
+	trndt timestamp,
+	amount decimal(15,2) not null,
+	recmade timestamp,
+	recupdate timestamp,
+	primary key(pcode,prodcode,trndt)
+);
+
+
+comment on column stk030.pcode is '店舗コード';
+comment on column stk030.prodcode is '商品コード';
+comment on column stk030.trndt is '棚卸日';
+comment on column stk030.amount is '棚卸数量';
+comment on column stk030.recmade is 'ﾚｺｰﾄﾞ作成日';
+comment on column stk030.recupdate is 'ﾚｺｰﾄﾞ更新日';
+
+
+create table mtrn100 (
+	trntype varchar(1),
+	trnym decimal(15,0),
+	pcode varchar(5),
+	total decimal(15,0),
+	return decimal(15,0),
+	discount decimal(15,0),
+	fee decimal(15,0),
+	tax decimal(15,0),
+	control decimal(15,0),
+	intotal decimal(15,0),
+	zan decimal(15,0),
+	trnyear decimal(15,0),
+	trnmonth decimal(15,0),
+	recupdate timestamp,
+	recmade timestamp,
+	primary key(trntype,trnym,pcode)
+);
+
+
+comment on column mtrn100.trntype is '取引区分';
+comment on column mtrn100.trnym is '年月';
+comment on column mtrn100.pcode is '店舗コード';
+comment on column mtrn100.total is '総売上額';
+comment on column mtrn100.return is '返品額';
+comment on column mtrn100.discount is '値引額';
+comment on column mtrn100.fee is '送料	';
+comment on column mtrn100.tax is '消費税';
+comment on column mtrn100.control is '調整額';
+comment on column mtrn100.intotal is '入金額';
+comment on column mtrn100.zan is '残高';
+comment on column mtrn100.trnyear is '年';
+comment on column mtrn100.trnmonth is '月';
+comment on column mtrn100.recupdate is 'ﾚｺｰﾄﾞ更新日';
+comment on column mtrn100.recmade is 'ﾚｺｰﾄﾞ作成日';
+
+
+
+
+create table trn210 (
+	codetype varchar(1),
+	trndate timestamp,
+	code varchar(16),
+	subtotal decimal(15,0) not null,
+	discount decimal(15,0) not null,
+	fee decimal(15,0) not null,
+	subtax decimal(15,0) not null,
+	control decimal(15,0) not null,
+	intotal decimal(15,0) not null,
+	total decimal(15,0) not null,
+	recmade timestamp,
+	recupdate timestamp,
+	primary key(codetype,trndate,code)
+);
+
+
+
+comment on column trn210.codetype is '取引先区分';
+comment on column trn210.trndate is '〆年月日';
+comment on column trn210.code is '取引先コード';
+comment on column trn210.subtotal is '売上金額';
+comment on column trn210.discount is '値引額';
+comment on column trn210.fee is '送料';
+comment on column trn210.subtax is '消費税';
+comment on column trn210.control is '調整額';
+comment on column trn210.intotal is '入金額';
+comment on column trn210.total is '売掛金残高';
+comment on column trn210.recmade is 'ﾚｺｰﾄﾞ作成日';
+comment on column trn210.recupdate is 'ﾚｺｰﾄﾞ更新日';
+
+
+
+create table trn041 (
+	pcode varchar(5),
+	hideseq decimal(15,0),
+	lineno decimal(15,0),
+	linetype decimal(15,0) not null,
+	prodcode varchar(16) not null,
+	amount decimal(15,2) not null,
+	note varchar(30),
+	recmade timestamp,
+	recupdate timestamp,
+	primary key(pcode,hideseq,lineno)
+);
+
+
+comment on column trn041.pcode is '店舗コード';
+comment on column trn041.hideseq is '伝票連番';
+comment on column trn041.lineno is '行№';
+comment on column trn041.linetype is '入出庫区分';
+comment on column trn041.prodcode is '商品コード';
+comment on column trn041.amount is '数量';
+comment on column trn041.note is '摘要';
+comment on column trn041.recmade is 'ﾚｺｰﾄﾞ作成日';
+comment on column trn041.recupdate is 'ﾚｺｰﾄﾞ更新日';
+
+
+
+create table trn040 (
+	pcode varchar(5),
+	hideseq decimal(15,0),
+	trndate timestamp not null,
+	staffcode varchar(5),
+	note varchar(40),
+	recmade timestamp,
+	recupdate timestamp,
+	primary key(pcode,hideseq)
+);
+
+
+comment on column trn040.pcode is '店舗コード';
+comment on column trn040.hideseq is '伝票連番';
+comment on column trn040.trndate is '入出庫日';
+comment on column trn040.staffcode is '入力担当者コード';
+comment on column trn040.note is '摘要';
+comment on column trn040.recmade is 'ﾚｺｰﾄﾞ作成日';
+comment on column trn040.recupdate is 'ﾚｺｰﾄﾞ更新日';
+
+
+create table trn021 (
+	pcode varchar(5),
+	hideseq decimal(15,0),
+	lineno decimal(15,0),
+	linetype varchar(1) not null,
+	trndate timestamp not null,
+	inputdate timestamp not null,
+	subtotal decimal(15,2) not null,
+	note varchar(30),
+	recmade timestamp,
+	recupdate timestamp,
+	primary key(pcode,hideseq,lineno)
+);
+
+
+comment on column trn021.pcode is '店舗コード';
+comment on column trn021.hideseq is '伝票連番';
+comment on column trn021.lineno is '行№';
+comment on column trn021.linetype is '入金属性';
+comment on column trn021.trndate is '入金日';
+comment on column trn021.inputdate is '入力日';
+comment on column trn021.subtotal is '入金額';
+comment on column trn021.note is '備考';
+comment on column trn021.recmade is 'ﾚｺｰﾄﾞ作成日';
+comment on column trn021.recupdate is 'ﾚｺｰﾄﾞ更新日';
+

@@ -1,0 +1,1190 @@
+CREATE TABLE mst000(
+    code VARCHAR(3) NOT NULL,
+    NAME VARCHAR(36),
+    kana VARCHAR(36),
+    executive VARCHAR(16),
+	
+    account1 VARCHAR(5),
+    account2 VARCHAR(1),
+    account3 VARCHAR(7),
+    taxrate DECIMAL(15,2),
+    newtaxrate DECIMAL(15,2),
+    newtaxdate TIMESTAMP,
+    calcctrl VARCHAR(1),
+    termbegin TIMESTAMP,
+    closeday DECIMAL(15,0),
+    form VARCHAR(6),
+    fracunit VARCHAR(1),
+    fractype VARCHAR(1),
+    fracctrl VARCHAR(1),
+    taxtype VARCHAR(1),
+    accountname VARCHAR(40),
+    accounttel VARCHAR(20),
+    recmade TIMESTAMP,
+    RECUPDATE TIMESTAMP,
+    days DECIMAL(15,0),
+    bil_cust_cd VARCHAR(20),
+    bil_class_cd VARCHAR(20),
+    fare_no VARCHAR(20),
+    payday DECIMAL(15,0),
+    reg_discount_cnt DECIMAL(15,0),
+    reg_discountrate DECIMAL(15,0),
+    PASSWORD01 VARCHAR(20)
+);
+	
+comment on column mst000.code is '自社コード';
+comment on column mst000.NAME is '自社名';
+comment on column mst000.KANA is '自社名ｶﾅ';
+comment on column mst000.EXECUTIVE is '代表者名';
+
+comment on column mst000.ACCOUNT1 is '郵便局№';
+comment on column mst000.ACCOUNT2 is '郵便局口座種別';
+comment on column mst000.ACCOUNT3 is '郵便局口座№';
+comment on column mst000.TAXRATE is '現在消費税率';
+
+comment on column mst000.NEWTAXRATE is '変更後消費税率';
+comment on column mst000.NEWTAXDATE is '消費税変更年月日';
+comment on column mst000.CALCCTRL is '端数処理方法';
+comment on column mst000.TERMBEGIN is '期首日';
+comment on column mst000.CLOSEDAY is '自社締日';
+comment on column mst000.FORM is '敬称';
+
+comment on column mst000.FRACUNIT is '消費税設定単位';
+comment on column mst000.FRACTYPE is '消費税計算単位';
+comment on column mst000.FRACCTRL is '消費税端数処理';
+comment on column mst000.TAXTYPE is '課税区分';
+comment on column mst000.ACCOUNTNAME is '取扱郵便局名';
+comment on column mst000.ACCOUNTTEL is '取扱郵便局電話番号';
+comment on column mst000.RECMADE is 'ﾚｺｰﾄﾞ作成日';
+comment on column mst000.RECUPDATE is 'ﾚｺｰﾄﾞ更新日';
+comment on column mst000.DAYS is '配達日数';
+comment on column mst000.BIL_CUST_CD is '請求先顧客コード';
+comment on column mst000.BIL_CLASS_CD is '請求先分類コード';
+comment on column mst000.FARE_NO is '運賃管理番号';	
+comment on column mst000.PAYDAY is '支払期限期間';
+comment on column mst000.REG_DISCOUNT_CNT is '定期値引回数';
+comment on column mst000.REG_DISCOUNTRATE is '定期値引率';
+comment on column mst000.PASSWORD01 is 'パスワード01';
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+CREATE TABLE mst001(
+    code VARCHAR(5) NOT null,
+    NAME VARCHAR(20),
+    kana VARCHAR(20),
+    zip VARCHAR(8),
+    addr1 VARCHAR(50),
+    addr2 VARCHAR(50),
+    tel VARCHAR(20),
+    fax VARCHAR(20),
+    leader VARCHAR(16),
+    recmade TIMESTAMP,
+    recupdate TIMESTAMP     
+);
+    
+comment on column mst001.code is 'コード';	
+comment on column mst001.NAME is '店舗名';
+comment on column mst001.kana is '店舗ｶﾅ';
+comment on column mst001.zip is '郵便番号';
+comment on column mst001.addr1 is '住所１';
+comment on column mst001.addr2 is '住所２';
+comment on column mst001.tel is '電話番号';
+comment on column mst001.fax is 'ＦＡＸ番号';
+comment on column mst001.leader is '責任者名';
+comment on column mst001.recmade is 'ﾚｺｰﾄﾞ作成日';
+comment on column mst001.recupdate is 'ﾚｺｰﾄﾞ更新日';
+
+
+
+
+
+
+	
+	
+CREATE TABLE mst002(
+    code VARCHAR(5) NOT null,
+    NAME VARCHAR(20),
+    kana VARCHAR(20),
+	
+    note VARCHAR(255),
+    startdate TIMESTAMP,
+    disabled VARCHAR(1),    
+    recmade TIMESTAMP,
+    recupdate TIMESTAMP,
+	login_pw VARCHAR(50),
+	authority VARCHAR(1),
+	branchcode VARCHAR(4),
+	teamcode VARCHAR(4),
+	enddate TIMESTAMP     
+);
+    
+comment on column mst002.code is 'コード';    
+comment on column mst002.NAME is '担当者名';  
+comment on column mst002.kana is '担当者ｶﾅ';  
+comment on column mst002.note is 'メモ';  
+comment on column mst002.startdate is '入社年月日';  
+comment on column mst002.disabled is '使用停止フラグ';  
+comment on column mst002.recmade is 'ﾚｺｰﾄﾞ作成日';  
+comment on column mst002.recupdate is 'ﾚｺｰﾄﾞ更新日';  
+comment on column mst002.login_pw is 'パスワード';  
+comment on column mst002.authority is '権限';  
+comment on column mst002.branchcode is '部門コード';  
+comment on column mst002.teamcode is '支店コード';  
+comment on column mst002.enddate is '退社年月日';  
+
+
+
+
+
+	
+CREATE TABLE mst010(
+    code VARCHAR(16) NOT null,
+    NAME VARCHAR(40),
+    kana VARCHAR(40),
+    
+    publish TIMESTAMP,
+    SendADDR VARCHAR(1),
+    zip1 VARCHAR(8),
+    addr11 VARCHAR(60),
+    addr12 VARCHAR(40),
+    telno1 VARCHAR(20),
+    
+    zip2 VARCHAR(8),
+    addr21 VARCHAR(60),
+    addr22 VARCHAR(40),
+    telno2 VARCHAR(20),
+    
+	
+    telnum VARCHAR(20),
+    ShortTel VARCHAR(4),
+    birth TIMESTAMP,
+    sex VARCHAR(1),
+    areacode VARCHAR(4),
+    MediaLCode VARCHAR(3),
+    MediaCode VARCHAR(3),
+    Introduce VARCHAR(16),
+    dissenddm VARCHAR(1),
+    ProcType VARCHAR(1),
+    PrtType VARCHAR(1),
+    PrnFormat VARCHAR(1),
+	
+    staffcode VARCHAR(5),
+    note1 VARCHAR(40),
+    note2 VARCHAR(40),
+   
+    LastDate TIMESTAMP,
+    disabled VARCHAR(1),
+    recmade TIMESTAMP,
+    recupdate TIMESTAMP,
+    
+    frequency01 VARCHAR(10),
+    frequency02 VARCHAR(10),
+    frequencyafter VARCHAR(30),
+    presstop VARCHAR(10),
+    pressunder VARCHAR(10),
+    pressafter VARCHAR(30),
+    sugarlvl01 VARCHAR(10),
+    sugarlvl02 VARCHAR(10),
+    
+    cholesterol01 VARCHAR(10),
+    cholesterol02 VARCHAR(10),
+    
+    condition01 VARCHAR(1),
+    condition02 VARCHAR(1),
+    condition03 VARCHAR(1),
+    condition04 VARCHAR(1),
+    condition05 VARCHAR(1),
+    condition06 VARCHAR(1),
+    condition07 VARCHAR(1),
+    condition08 VARCHAR(1),
+    condition09 VARCHAR(1),
+    condition10 VARCHAR(1),
+    condition11 VARCHAR(1),
+    condition12 VARCHAR(1),
+    condition13 VARCHAR(1),
+    condition14 VARCHAR(1),
+    condition15 VARCHAR(1),
+    condition16 VARCHAR(1),
+    condition17 VARCHAR(1),
+    condition18 VARCHAR(1),
+    condition19 VARCHAR(1),
+    condition20 VARCHAR(1),
+    condition21 VARCHAR(1),
+    condition22 VARCHAR(1),
+    condition23 VARCHAR(1),
+    condition24 VARCHAR(1),
+    condition25 VARCHAR(1),
+    condition26 VARCHAR(1),
+	condition27 VARCHAR(1),
+	 
+    medicine VARCHAR(60),
+    USAGE VARCHAR(50),
+    healthfood VARCHAR(60),
+    attention VARCHAR(255),
+    inputdate TIMESTAMP,
+    
+    cust_status VARCHAR(1),
+    dist_date TIMESTAMP,
+    return_date TIMESTAMP,
+    dist_staff VARCHAR(5),
+    befdist_staff VARCHAR(5),
+    
+    parents_code VARCHAR(16),
+    email VARCHAR(100),
+    imode VARCHAR(100),
+    dissend_dm VARCHAR(1),
+    dissend_tel VARCHAR(1),
+    cust_memo VARCHAR(1000),
+    addr1_title VARCHAR(2),
+    addr2_title VARCHAR(2),
+    account_type VARCHAR(2),
+    bank_name VARCHAR(200),
+    bank_branname VARCHAR(200),
+    bank_namekana VARCHAR(200),
+    bank_type VARCHAR(2),
+    bank_no VARCHAR(10),
+    post_mk VARCHAR(10),
+    post_no VARCHAR(10),
+    post_namekana VARCHAR(200),
+    FREE01 VARCHAR(200),
+    FREE02 VARCHAR(200),
+    FREE03 VARCHAR(200),
+    FREE04 VARCHAR(200),
+    FREE05 VARCHAR(200),
+    ques01_chk01 VARCHAR(1),
+    ques01_chk02 VARCHAR(1),
+    ques01_chk03 VARCHAR(1),
+    ques01_com01 VARCHAR(200),
+    
+    ques02_chk01 VARCHAR(1),
+    ques02_chk02 VARCHAR(1),
+    ques02_chk03 VARCHAR(1),
+    ques02_com01 VARCHAR(200),
+    
+    ques03_chk01 VARCHAR(1),
+    ques03_chk02 VARCHAR(1),
+    ques03_chk03 VARCHAR(1),
+    ques03_chk04 VARCHAR(1),
+    ques03_chk05 VARCHAR(1),
+    ques03_com01 VARCHAR(200),
+    
+    ques04_com01 VARCHAR(200),
+    
+    ques05_chk01 VARCHAR(1),
+    ques05_chk02 VARCHAR(1),
+    ques05_chk03 VARCHAR(1),
+    
+    ques06_chk01 VARCHAR(1),
+    ques06_chk02 VARCHAR(1),
+    ques06_chk03 VARCHAR(1),
+    ques06_chk04 VARCHAR(1),
+    ques06_chk05 VARCHAR(1),
+    ques06_chk06 VARCHAR(1),
+    ques06_chk07 VARCHAR(1),
+    ques06_com01 DECIMAL(15,0),
+    
+    age_kbn VARCHAR(2),
+    telnum02 VARCHAR(20),
+    bank_code VARCHAR(4),
+    bankbran_code VARCHAR(3),
+    post_code VARCHAR(4),
+    postbran_code VARCHAR(3),
+    dist_code VARCHAR(10)
+      
+    );
+    
+comment on column mst010.code is 'コード';	
+comment on column mst010.NAME is '顧客名';	
+comment on column mst010.kana is '顧客ﾌﾘｶﾞﾅ';	
+
+comment on column mst010.publish is '登録年月日';	
+comment on column mst010.SendADDR is '郵送先指定フラグ';	
+comment on column mst010.zip1 is '自宅-郵便番号';	
+comment on column mst010.addr11 is '自宅-住所１';	
+comment on column mst010.addr12 is '自宅-住所２';	
+comment on column mst010.telno1 is '自宅-電話番号';	
+
+comment on column mst010.zip2 is '住所Ⅱ-郵便番号';	
+comment on column mst010.addr21 is '住所Ⅱ-住所１';	
+comment on column mst010.addr22 is '住所Ⅱ-住所２';	
+comment on column mst010.telno2 is '住所Ⅱ-電話番号';	
+
+comment on column mst010.telnum is '検索用TEL';	
+comment on column mst010.ShortTel is '電話番号下4桁';
+comment on column mst010.birth is '生年月日';	
+comment on column mst010.sex is '性別';	
+comment on column mst010.areacode is '地区コード';	
+comment on column mst010.MediaLCode is 'きっかけ分類コード';
+comment on column mst010.MediaCode is 'きっかけコード';	
+comment on column mst010.Introduce is '紹介者コード';	
+comment on column mst010.dissenddm is 'ＤＭ区分';	
+comment on column mst010.ProcType is '売掛処理方式';	
+comment on column mst010.PrtType is '請求書の発行';	
+comment on column mst010.PrnFormat is '印刷形式';
+	
+comment on column mst010.staffcode is '担当者コード';	
+comment on column mst010.note1 is 'メモ①';	
+comment on column mst010.note2 is 'メモ②';	
+
+comment on column mst010.LastDate is '最終発送日';	
+comment on column mst010.disabled is '使用停止フラグ';	
+comment on column mst010.recmade is 'ﾚｺｰﾄﾞ作成日';	
+comment on column mst010.recupdate is 'ﾚｺｰﾄﾞ更新日';
+	
+comment on column mst010.frequency01 is '便秘頻度01';	
+comment on column mst010.frequency02 is '便秘頻度02';	
+comment on column mst010.frequencyafter is '便秘その後';	
+comment on column mst010.presstop is '血圧上';	
+comment on column mst010.pressunder is '血圧下';	
+comment on column mst010.pressafter is '血圧その後';	
+comment on column mst010.sugarlvl01 is '血糖値01';	
+comment on column mst010.sugarlvl02 is '血糖値02';	
+
+comment on column mst010.cholesterol01 is 'コレステロール01';	
+comment on column mst010.cholesterol02 is 'コレステロール02';	
+
+comment on column mst010.condition01 is '虚弱体質';	
+comment on column mst010.condition02 is '疲れ';	
+comment on column mst010.condition03 is '肩こり';	
+comment on column mst010.condition04 is '腰痛';	
+comment on column mst010.condition05 is '神経痛';	
+comment on column mst010.condition06 is 'リウマチ';	
+comment on column mst010.condition07 is '冷え症';	
+comment on column mst010.condition08 is '便秘';	
+comment on column mst010.condition09 is '高脂血症';
+comment on column mst010.condition10 is 'カゼ';	
+comment on column mst010.condition11 is 'ぜんそく';
+comment on column mst010.condition12 is '花粉症';
+comment on column mst010.condition13 is '鼻炎';
+comment on column mst010.condition14 is 'アレルギー';
+comment on column mst010.condition15 is 'アトピー';
+comment on column mst010.condition16 is '湿疹';
+comment on column mst010.condition17 is 'かゆみ';
+comment on column mst010.condition18 is '肌荒れ';
+comment on column mst010.condition19 is '高血圧';
+comment on column mst010.condition20 is '胃腸';
+comment on column mst010.condition21 is '肝臓';
+comment on column mst010.condition22 is '糖尿病';
+comment on column mst010.condition23 is '肥満';
+comment on column mst010.condition24 is '腎臓';
+comment on column mst010.condition25 is '心臓';
+comment on column mst010.condition26 is 'コレステロール';
+comment on column mst010.condition27 is 'ガン';
+	
+
+comment on column mst010.medicine is '現在服用中の薬';	
+comment on column mst010.USAGE is '用法用量';	
+comment on column mst010.healthfood is '今まで試してみた健康食品';	
+comment on column mst010.attention is '備考';	
+comment on column mst010.inputdate is '入力日付';	
+
+comment on column mst010.cust_status is '状態';	
+comment on column mst010.dist_date is '配布日';	
+comment on column mst010.return_date is '返却日';	
+comment on column mst010.dist_staff is '配布担当者コード';	
+comment on column mst010.befdist_staff is '前配布担当者コード';	
+
+comment on column mst010.parents_code is '親コード';	
+comment on column mst010.email is 'E-Mail';	
+comment on column mst010.imode is '携帯メール';	
+comment on column mst010.dissend_dm is 'ＤＭ区分';	
+comment on column mst010.dissend_tel is 'TEL区分';	
+comment on column mst010.cust_memo is '顧客メモ';	
+comment on column mst010.addr1_title is '住所1名称';	
+comment on column mst010.addr2_title is '住所2名称';	
+comment on column mst010.account_type is '口座種別';	
+comment on column mst010.bank_name is '金融機関名';	
+comment on column mst010.bank_branname is '支店名';	
+comment on column mst010.bank_namekana is '銀行名前フリガナ';	
+comment on column mst010.bank_type is '預金種別';	
+comment on column mst010.bank_no is '口座番号';	
+comment on column mst010.post_mk is '記号';	
+comment on column mst010.post_no is '番号';	
+comment on column mst010.post_namekana is '郵便局名前フリガナ';	
+comment on column mst010.FREE01 is 'フリー項目1';	
+comment on column mst010.FREE02 is 'フリー項目2';
+comment on column mst010.FREE03 is 'フリー項目3';
+comment on column mst010.FREE04 is 'フリー項目4';
+comment on column mst010.FREE05 is 'フリー項目5';
+comment on column mst010.ques01_chk01 is '質問01チェック01';
+comment on column mst010.ques01_chk02 is '質問01チェック02';
+comment on column mst010.ques01_chk03 is '質問01チェック03';
+comment on column mst010.ques01_com01 is '質問01コメント01';	
+
+comment on column mst010.ques02_chk01 is '質問02チェック01';
+comment on column mst010.ques02_chk02 is '質問02チェック02';
+comment on column mst010.ques02_chk03 is '質問02チェック03';
+comment on column mst010.ques02_com01 is '質問02コメント01';
+
+comment on column mst010.ques03_chk01 is '質問03チェック01';
+comment on column mst010.ques03_chk02 is '質問03チェック02';
+comment on column mst010.ques03_chk03 is '質問03チェック03';
+comment on column mst010.ques03_chk04 is '質問03チェック04';
+comment on column mst010.ques03_chk05 is '質問03チェック05';
+comment on column mst010.ques03_com01 is '質問03コメント01';
+
+comment on column mst010.ques04_com01 is '質問04コメント01';	
+
+comment on column mst010.ques05_chk01 is '質問05チェック01';
+comment on column mst010.ques05_chk02 is '質問05チェック02';
+comment on column mst010.ques05_chk03 is '質問05チェック03';
+
+comment on column mst010.ques06_chk01 is '質問06チェック01';	
+comment on column mst010.ques06_chk02 is '質問06チェック02';
+comment on column mst010.ques06_chk03 is '質問06チェック03';
+comment on column mst010.ques06_chk04 is '質問06チェック04';
+comment on column mst010.ques06_chk05 is '質問06チェック05';
+comment on column mst010.ques06_chk06 is '質問06チェック06';
+comment on column mst010.ques06_chk07 is '質問06チェック07';
+comment on column mst010.ques06_com01 is '質問06コメント01';	
+
+comment on column mst010.age_kbn is '年代';	
+comment on column mst010.telnum02 is '住所Ⅱ-電話番号検索用TEL';
+comment on column mst010.bank_code is '銀行コード';	
+comment on column mst010.bankbran_code is '銀行支店コード';	
+comment on column mst010.post_code is '郵便局コード';	
+comment on column mst010.postbran_code is '郵便局支店コード';	
+comment on column mst010.dist_code is '管理ｶｰﾄﾞ配布担当者コード';		
+
+
+
+
+
+	
+	
+    
+CREATE TABLE mst011(
+    code VARCHAR(16) NOT null,
+    SEQUENCE DECIMAL(15,0) NOT null,
+    INTERVAL DECIMAL(15,0) NOT null,
+    nextdate TIMESTAMP NOT null,
+    true_nextdate TIMESTAMP NOT null,
+    orderdate TIMESTAMP NOT null,
+    
+    ProdCode1 VARCHAR(16) NOT null,
+    Amount1 DECIMAL(15,2) NOT null,    
+    unitprice1 DECIMAL(15,2) NOT null,
+    
+    ProdCode2 VARCHAR(16),
+    Amount2 DECIMAL(15,2),    
+    unitprice2 DECIMAL(15,2),
+    
+    ProdCode3 VARCHAR(16),
+    Amount3 DECIMAL(15,2),    
+    unitprice3 DECIMAL(15,2),
+    
+    ProdCode4 VARCHAR(16),
+    Amount4 DECIMAL(15,2),    
+    unitprice4 DECIMAL(15,2),
+    
+    ProdCode5 VARCHAR(16),
+    Amount5 DECIMAL(15,2),    
+    unitprice5 DECIMAL(15,2),
+    
+    ProdCode6 VARCHAR(16),
+    Amount6 DECIMAL(15,2),    
+    unitprice6 DECIMAL(15,2),
+    
+    subtotal DECIMAL(15,0),
+    discount DECIMAL(15,0),
+    fee DECIMAL(15,0),
+    subtax DECIMAL(15,0),
+    control DECIMAL(15,0),
+    total DECIMAL(15,0),
+    
+    invoicecode VARCHAR(2),
+    TimeCode VARCHAR(2),
+    recmade TIMESTAMP,
+    recupdate TIMESTAMP,
+    next_arr_dt TIMESTAMP,
+    stop_day TIMESTAMP,
+    NAME VARCHAR(40),
+    zip VARCHAR(8),
+    sendtype VARCHAR(1),
+    addr1 VARCHAR(60),
+    addr2 VARCHAR(40),
+    telno VARCHAR(20),
+    create_hideseq DECIMAL(15,0),
+    nake_flg DECIMAL(15,0),
+    payment VARCHAR(4),
+    
+    sendunit VARCHAR(2),
+    arrive_day DECIMAL(15,0),
+    buycount DECIMAL(15,0),
+    perdiscount DECIMAL(15,0),
+    
+    
+    first_discount DECIMAL(15,0),
+    maketype_flg VARCHAR(2),
+    salemake_day TIMESTAMP,
+    bef_next_arr_dt TIMESTAMP,
+    bef_nextdate TIMESTAMP
+    
+    );
+    
+	
+	
+comment on column mst011.CODE is 'コード';	
+comment on column mst011.SEQUENCE is '枝番';
+comment on column mst011.interval is '配達間隔';
+comment on column mst011.NEXTDATE is '次回発送日';
+comment on column mst011.TRUE_NEXTDATE is '実次回発送日';
+comment on column mst011.ORDERDATE is '受付日';
+
+comment on column mst011.ProdCode1 is '商品コード１';
+comment on column mst011.Amount1 is '数量１';
+comment on column mst011.UNITPRICE1 is '商品単価1';
+
+comment on column mst011.ProdCode2 is '商品コード２';
+comment on column mst011.Amount2 is '数量２';
+comment on column mst011.UNITPRICE2 is '商品単価２';
+
+comment on column mst011.ProdCode3 is '商品コード３';
+comment on column mst011.Amount3 is '数量３';
+comment on column mst011.UNITPRICE3 is '商品単価３';
+
+comment on column mst011.ProdCode4 is '商品コード４';
+comment on column mst011.Amount4 is '数量４';
+comment on column mst011.UNITPRICE4 is '商品単価４';
+
+comment on column mst011.ProdCode5 is '商品コード５';
+comment on column mst011.Amount5 is '数量５';
+comment on column mst011.UNITPRICE5 is '商品単価５';
+
+comment on column mst011.ProdCode6 is '商品コード６';
+comment on column mst011.Amount6 is '数量６';
+comment on column mst011.UNITPRICE6 is '商品単価６';
+
+comment on column mst011.SUBTOTAL is '売上金額';
+comment on column mst011.DISCOUNT is '値引額';
+comment on column mst011.FEE is '送料';
+comment on column mst011.SUBTAX is '消費税額';
+comment on column mst011.CONTROL is '調整額';
+comment on column mst011.TOTAL is '伝票合計';
+
+comment on column mst011.INVOICECODE is '送り状コード';
+comment on column mst011.TimeCode is '時間帯コード';	
+comment on column mst011.RECMADE is 'ﾚｺｰﾄﾞ作成日';
+comment on column mst011.RECUPDATE is 'ﾚｺｰﾄﾞ更新日';
+comment on column mst011.NEXT_ARR_DT is '次回着日';
+comment on column mst011.STOP_DAY is '停止日';
+comment on column mst011.NAME is '顧客名';
+comment on column mst011.ZIP is '郵便番号';
+comment on column mst011.SENDTYPE is '届け先ﾌﾗｸﾞ';
+comment on column mst011.ADDR1 is '住所１';
+comment on column mst011.ADDR2 is '住所２';
+comment on column mst011.TELNO is '電話番号';
+comment on column mst011.CREATE_HIDESEQ is '作成売上伝票番号';
+comment on column mst011.NAKE_FLG is '作成済フラグ';
+comment on column mst011.PAYMENT is '支払方法';
+
+comment on column mst011.SENDUNIT is '送付単位';
+comment on column mst011.ARRIVE_DAY is '着日';
+comment on column mst011.BUYCOUNT is '購入回数';
+comment on column mst011.PERDISCOUNT is 'パーセント引き';
+comment on column mst011.FIRST_DISCOUNT is '初回値引';
+comment on column mst011.MAKETYPE_FLG is '作成種別フラグ';
+comment on column mst011.SALEMAKE_DAY is '売上作成実行日';
+comment on column mst011.BEF_NEXT_ARR_DT is '前回着日';
+comment on column mst011.BEF_NEXTDATE is '前回発送日';	
+	
+	
+	
+	
+	
+	
+CREATE TABLE mst030(
+
+    code VARCHAR(16) NOT null,    
+    NAME VARCHAR(40) NOT null,
+    kana VARCHAR(40),
+    sizename VARCHAR(40),
+    unitunit VARCHAR(6),
+    
+    TYPE1 VARCHAR(4) NOT null,
+	
+    stockctrl VARCHAR(1) NOT null,
+    taxtype VARCHAR(1) NOT null,
+    unitprice DECIMAL(15,0),
+    unitcost DECIMAL(15,0),
+    cycle DECIMAL(15,0),
+    disabled VARCHAR(1),
+    recmade TIMESTAMP,
+    recupdate TIMESTAMP,
+    print_name VARCHAR(40),
+    correct_amount DECIMAL(15,0),
+    short_name VARCHAR(40)    
+    
+);
+	
+comment on column mst030.CODE is 'コード';
+comment on column mst030.NAME is '商品名';
+comment on column mst030.KANA is '商品名ｶﾅ';
+comment on column mst030.SIZENAME is '規格/寸法/型番';
+comment on column mst030.UNITUNIT is '単位';
+comment on column mst030.TYPE1 is '区分１';
+comment on column mst030.STOCKCTRL is '在庫管理';
+comment on column mst030.TAXTYPE is '課税区分';
+comment on column mst030.UNITPRICE is '標準売価';
+comment on column mst030.UNITCOST is '原価単価';
+comment on column mst030.CYCLE is '消費サイクル';
+comment on column mst030.DISABLED is '使用停止フラグ';
+comment on column mst030.RECMADE is 'ﾚｺｰﾄﾞ作成日';
+comment on column mst030.RECUPDATE is 'ﾚｺｰﾄﾞ更新日';
+comment on column mst030.PRINT_NAME is '印刷用名称';
+comment on column mst030.CORRECT_AMOUNT is '適正在庫数量';
+comment on column mst030.SHORT_NAME is '商品名略称';
+	
+	
+	
+	
+	
+	
+	
+CREATE TABLE mst040(
+    tbltype VARCHAR(3) NOT NULL,
+    typeno VARCHAR(1) NOT NULL,
+	code VARCHAR(4) NOT null,    
+    NAME VARCHAR(30),
+    
+    disabled VARCHAR(1),
+    recmade TIMESTAMP,
+    recupdate TIMESTAMP   
+);
+	
+	
+comment on column mst040.TBLTYPE is 'テーブルID';
+comment on column mst040.TYPENO is '区分№';
+comment on column mst040.CODE is 'コード';
+comment on column mst040.NAME is '区分名';
+comment on column mst040.DISABLED is '使用停止フラグ';
+comment on column mst040.RECMADE is 'ﾚｺｰﾄﾞ作成日';
+comment on column mst040.RECUPDATE is 'ﾚｺｰﾄﾞ更新日';
+
+
+
+
+	
+	
+CREATE TABLE mst054(
+	tabletype VARCHAR(1) NOT NULL,
+	lcode VARCHAR(3) NOT NULL,
+	code VARCHAR(3) NOT null,    
+	NAME VARCHAR(20),
+	recmade TIMESTAMP,
+	recupdate TIMESTAMP
+);
+	
+comment on column mst054.TABLETYPE is '分類種別';
+comment on column mst054.LCODE is '分類コード';
+comment on column mst054.CODE is 'コード';
+comment on column mst054.NAME is '名称';
+comment on column mst054.RECMADE is 'ﾚｺｰﾄﾞ作成日';
+comment on column mst054.RECUPDATE is 'ﾚｺｰﾄﾞ更新日';
+
+	
+
+
+	
+	
+CREATE TABLE mst055(
+	code VARCHAR(3) NOT null,    
+	NAME VARCHAR(20),
+	recmade TIMESTAMP,
+	recupdate TIMESTAMP
+);
+
+comment on column mst055.CODE is '運送会社コード';
+comment on column mst055.NAME is '運送会社名';
+comment on column mst055.RECMADE is 'ﾚｺｰﾄﾞ作成日';
+comment on column mst055.RECUPDATE is 'ﾚｺｰﾄﾞ更新日';
+
+
+
+	
+	
+CREATE TABLE mst060(
+	code VARCHAR(3) NOT null,    
+	NAME VARCHAR(30) NOT null,
+	note VARCHAR(40),
+	repeatflg VARCHAR(1),
+	recmade TIMESTAMP,
+	recupdate TIMESTAMP
+);
+	
+comment on column mst060.CODE is 'チラシコード';
+comment on column mst060.NAME is 'チラシ名';
+comment on column mst060.NOTE is '備考';
+comment on column mst060.REPEATFLG is '新規／リピートフラグ';
+comment on column mst060.RECMADE is 'ﾚｺｰﾄﾞ作成日';
+comment on column mst060.RECUPDATE is 'ﾚｺｰﾄﾞ更新日';
+
+
+
+	
+	
+	
+CREATE TABLE mst070(
+	hideseq DECIMAL(15,0) NOT NULL,    
+	NAME VARCHAR(40) NOT NULL,
+
+	ProdCode1 VARCHAR(16) NOT NULL,
+	Amount1 DECIMAL(15,2) NOT NULL,
+	ProdCode2 VARCHAR(16),
+	Amount2 DECIMAL(15,2),
+	ProdCode3 VARCHAR(16),
+	Amount3 DECIMAL(15,2),
+	ProdCode4 VARCHAR(16),
+	Amount4 DECIMAL(15,2),
+	ProdCode5 VARCHAR(16),
+	Amount5 DECIMAL(15,2),
+	ProdCode6 VARCHAR(16),
+	Amount6 DECIMAL(15,2),
+
+	subtotal DECIMAL(15,0),
+	discount DECIMAL(15,0),
+	fee DECIMAL(15,0),
+	subtax DECIMAL(15,0),
+	control DECIMAL(15,0),
+	total DECIMAL(15,0),    
+
+	recmade TIMESTAMP,
+	recupdate TIMESTAMP
+);
+
+
+
+
+comment on column mst070.HIDESEQ is '連番';
+comment on column mst070.NAME is 'セット名';
+
+comment on column mst070.ProdCode1 is '商品コード１';
+comment on column mst070.Amount1 is '数量１';
+
+comment on column mst070.ProdCode2 is '商品コード2';
+comment on column mst070.Amount2 is '数量2';
+
+comment on column mst070.ProdCode3 is '商品コード3';
+comment on column mst070.Amount3 is '数量3';
+
+comment on column mst070.ProdCode4 is '商品コード4';
+comment on column mst070.Amount4 is '数量4';
+
+comment on column mst070.ProdCode5 is '商品コード5';
+comment on column mst070.Amount5 is '数量5';
+
+comment on column mst070.ProdCode6 is '商品コード6';
+comment on column mst070.Amount6 is '数量6';
+
+comment on column mst070.SUBTOTAL is '売上金額';
+comment on column mst070.DISCOUNT is '値引額';
+comment on column mst070.FEE is '送料';
+comment on column mst070.SUBTAX is '消費税額';
+comment on column mst070.CONTROL is '調整額';
+comment on column mst070.TOTAL is '伝票合計';
+comment on column mst070.RECMADE is 'ﾚｺｰﾄﾞ作成日';
+comment on column mst070.RECUPDATE is 'ﾚｺｰﾄﾞ更新日';
+
+
+
+
+
+
+
+CREATE TABLE mst080(
+	code VARCHAR(3) NOT NULL,    
+	NAME VARCHAR(40) NOT NULL,
+	days DECIMAL(15,0),
+	recmade TIMESTAMP,
+	recupdate TIMESTAMP
+);
+
+comment on column mst080.CODE is 'コード';
+comment on column mst080.NAME is '発送エリア';
+comment on column mst080.DAYS is '配達日数';
+comment on column mst080.RECMADE is 'ﾚｺｰﾄﾞ作成日';
+comment on column mst080.RECUPDATE is 'ﾚｺｰﾄﾞ更新日';
+
+
+
+
+
+CREATE TABLE mst090(
+	tabletype VARCHAR(1) NOT NULL,
+	lcode VARCHAR(4) NOT NULL,
+	code VARCHAR(4) NOT NULL,    
+	NAME VARCHAR(30),
+	recmade TIMESTAMP,
+	recupdate TIMESTAMP
+);
+
+
+comment on column mst090.TABLETYPE is '分類種別';
+comment on column mst090.LCODE is '分類コード';
+comment on column mst090.CODE is 'コード';
+comment on column mst090.NAME is '名称';
+comment on column mst090.RECMADE is 'ﾚｺｰﾄﾞ作成日';
+comment on column mst090.RECUPDATE is 'ﾚｺｰﾄﾞ更新日';
+
+
+
+
+
+
+
+CREATE TABLE mst0021(
+	staffcode VARCHAR(5) NOT NULL,
+	autho_cd VARCHAR(2) NOT NULL,
+	disabled VARCHAR(1),
+	recmade TIMESTAMP,
+	recupdate TIMESTAMP
+);
+
+comment on column mst0021.STAFFCODE is '担当者コード';
+comment on column mst0021.AUTHO_CD is '権限グループコード';
+comment on column mst0021.DISABLED is '使用停止フラグ';
+comment on column mst0021.RECMADE is 'ﾚｺｰﾄﾞ作成日';
+comment on column mst0021.RECUPDATE is 'ﾚｺｰﾄﾞ更新日';
+
+
+
+	
+	
+	
+CREATE TABLE mst0022(
+	staffcode VARCHAR(5) NOT NULL,
+	sys_kbn VARCHAR(1) NOT NULL,
+	prog_id VARCHAR(30) NOT NULL,
+	disabled VARCHAR(1),
+	recmade TIMESTAMP,
+	recupdate TIMESTAMP
+);
+	
+comment on column mst0022.STAFFCODE is '担当者コード';	
+comment on column mst0022.SYS_KBN is 'システム区分';	
+comment on column mst0022.PROG_ID is 'プログラムID';	
+comment on column mst0022.DISABLED is '使用停止フラグ';	
+comment on column mst0022.RECMADE is 'ﾚｺｰﾄﾞ作成日';	
+comment on column mst0022.RECUPDATE is 'ﾚｺｰﾄﾞ更新日';
+
+
+
+
+
+
+
+CREATE TABLE mst0031(    
+    autho_cd VARCHAR(2) NOT NULL,
+    autho_nm VARCHAR(30),
+    disabled VARCHAR(1),    
+    recmade TIMESTAMP,
+    recupdate TIMESTAMP   
+);
+	
+comment on column mst0031.AUTHO_CD is '権限グループコード';
+comment on column mst0031.AUTHO_NM is '権限グループ名';
+comment on column mst0031.DISABLED is '使用停止フラグ';
+comment on column mst0031.RECMADE is 'ﾚｺｰﾄﾞ作成日';
+comment on column mst0031.RECUPDATE is 'ﾚｺｰﾄﾞ更新日';
+	
+	
+	
+
+
+
+CREATE TABLE mst0032(    
+    autho_cd VARCHAR(2) NOT NULL,
+    sys_kbn VARCHAR(1) NOT NULL,
+    prog_id VARCHAR(30) NOT NULL,
+    disabled VARCHAR(1),    
+    recmade TIMESTAMP,
+    recupdate TIMESTAMP   
+);
+    
+comment on column mst0032.AUTHO_CD is '権限グループコード';
+comment on column mst0032.SYS_KBN is 'システム区分';
+comment on column mst0032.PROG_ID is 'プログラムID';
+comment on column mst0032.DISABLED is '使用停止フラグ';
+comment on column mst0032.RECMADE is 'ﾚｺｰﾄﾞ作成日';
+comment on column mst0032.RECUPDATE is 'ﾚｺｰﾄﾞ更新日';
+
+
+
+
+
+
+CREATE TABLE mst0301(    
+    pcode VARCHAR(5) NOT NULL,
+    YEAR VARCHAR(4) NOT NULL,
+    day VARCHAR(5) NOT NULL,
+    fulldate TIMESTAMP,
+    NAME VARCHAR(50),
+    insuser_cd VARCHAR(5),
+    insdate TIMESTAMP,
+    upduser_cd  VARCHAR(5),
+    upddate timestamp   
+);	
+	
+comment on column mst0301.PCODE is '店舗コード';
+comment on column mst0301.YEAR is '年度';
+comment on column mst0301.DAY is '月日';
+comment on column mst0301.FULLDATE is '年月日';
+comment on column mst0301.NAME is '名称';
+comment on column mst0301.INSUSER_CD is '登録者コード';
+comment on column mst0301.INSDATE is '登録日';
+comment on column mst0301.UPDUSER_CD is '更新者コード';
+comment on column mst0301.UPDDATE is '更新日';
+
+
+
+
+	
+	
+	
+CREATE TABLE mst0002(    
+    code VARCHAR(3) NOT NULL,
+    free01_title VARCHAR(40),
+    free02_title VARCHAR(40),
+    free03_title VARCHAR(40),
+    free04_title VARCHAR(40),
+    free05_title VARCHAR(40),
+    
+    check01_title VARCHAR(40),
+    check02_title VARCHAR(40),
+    check03_title VARCHAR(40),
+    check04_title VARCHAR(40),
+    
+    yamato_url VARCHAR(300),
+    recmade TIMESTAMP,
+    recupdate TIMESTAMP    
+);
+    	
+comment on column mst0002.CODE is '自社コード';
+comment on column mst0002.FREE01_TITLE is '顧客ﾏｽﾀ_ﾌﾘｰ項目名01';
+comment on column mst0002.FREE02_TITLE is '顧客ﾏｽﾀ_ﾌﾘｰ項目名02';
+comment on column mst0002.FREE03_TITLE is '顧客ﾏｽﾀ_ﾌﾘｰ項目名03';
+comment on column mst0002.FREE04_TITLE is '顧客ﾏｽﾀ_ﾌﾘｰ項目名04';
+comment on column mst0002.FREE05_TITLE is '顧客ﾏｽﾀ_ﾌﾘｰ項目名05';
+
+comment on column mst0002.CHECK01_TITLE is '対応ﾒﾓ_ﾁｪｯｸ名01';
+comment on column mst0002.CHECK02_TITLE is '対応ﾒﾓ_ﾁｪｯｸ名02';
+comment on column mst0002.CHECK03_TITLE is '対応ﾒﾓ_ﾁｪｯｸ名03';
+comment on column mst0002.CHECK04_TITLE is '対応ﾒﾓ_ﾁｪｯｸ名04';
+
+comment on column mst0002.YAMATO_URL is 'ヤマトサイト';
+comment on column mst0002.RECMADE is 'ﾚｺｰﾄﾞ作成日';
+comment on column mst0002.RECUPDATE is 'ﾚｺｰﾄﾞ更新日';
+
+
+
+
+    
+ 
+
+
+CREATE TABLE mst0023(    
+    code VARCHAR(5) NOT NULL,    
+    lineno DECIMAL(15,0) NOT NULL,
+    branchcode VARCHAR(4),
+    teamcode VARCHAR(4),
+    limit_date TIMESTAMP,
+    
+    recmade TIMESTAMP,
+    recupdate TIMESTAMP
+    
+);
+
+comment on column mst000. is '';
+
+
+
+
+
+CREATE TABLE mst1011(
+    
+    hideseq DECIMAL(15,0) NOT NULL,
+    cust_sel_cd VARCHAR(20),
+    cust_smp_cd VARCHAR(20),
+    NAME VARCHAR(40),
+    kana VARCHAR(40),
+    
+    zip1 VARCHAR(8),
+    addr11 VARCHAR(60),
+    addr12 VARCHAR(40),
+    telno1 VARCHAR(20),
+    
+    zip2 VARCHAR(8),
+    addr21 VARCHAR(60),
+    addr22 VARCHAR(40),
+    telno2 VARCHAR(20),
+    
+    telnum VARCHAR(20),
+    ShortTel VARCHAR(4),
+    birth TIMESTAMP,
+    
+    sex VARCHAR(1),
+    staffcode VARCHAR(5),
+    disabled VARCHAR(1),
+    cust_status VARCHAR(1),
+	
+    dissend_tel VARCHAR(1),
+    addr1_title VARCHAR(2),
+    addr2_title VARCHAR(2),
+    age_kbn VARCHAR(2),
+    telnum02 VARCHAR(20),
+   
+    recmade TIMESTAMP,
+    recupdate TIMESTAMP,
+    
+    kubun1 VARCHAR(40),
+    kubun2 VARCHAR(40),
+    kubun3 VARCHAR(40),
+    kubun4 VARCHAR(40),
+    kubun5 VARCHAR(40)
+    
+);
+
+comment on column mst1011.HIDESEQ is 'シーケンス番号';
+comment on column mst1011.CUST_SEL_CD is '販売顧客コード';
+comment on column mst1011.CUST_SMP_CD is '見込客コード';
+comment on column mst1011.NAME is '顧客名';
+comment on column mst1011.KANA is '顧客ﾌﾘｶﾞﾅ';
+
+comment on column mst1011.ZIP1 is '自宅-郵便番号';
+comment on column mst1011.ADDR11 is '自宅-住所１';
+comment on column mst1011.ADDR12 is '自宅-住所２';
+comment on column mst1011.TELNO1 is '自宅-電話番号';
+
+comment on column mst1011.ZIP2 is '住所Ⅱ-郵便番号';
+comment on column mst1011.ADDR21 is '住所Ⅱ-住所１';
+comment on column mst1011.ADDR22 is '住所Ⅱ-住所２';
+comment on column mst1011.TELNO2 is '住所Ⅱ-電話番号';
+
+comment on column mst1011.TELNUM is '検索用TEL';
+comment on column mst1011.ShortTel is '電話番号下4桁';
+comment on column mst1011.BIRTH is '生年月日';
+
+comment on column mst1011.SEX is '性別';
+comment on column mst1011.STAFFCODE is '担当者コード';
+comment on column mst1011.DISABLED is '使用停止フラグ';
+comment on column mst1011.CUST_STATUS is '状態';
+comment on column mst1011.DISSEND_TEL is 'TEL区分';
+comment on column mst1011.ADDR1_TITLE is '住所1名称';
+comment on column mst1011.ADDR2_TITLE is '住所2名称';
+comment on column mst1011.AGE_KBN is '年代';
+comment on column mst1011.TELNUM02 is '住所Ⅱ-電話番号検索用TEL';
+
+comment on column mst1011.RECMADE is 'ﾚｺｰﾄﾞ作成日';
+comment on column mst1011.RECUPDATE is 'ﾚｺｰﾄﾞ更新日';
+
+comment on column mst1011.KUBUN1 is 'リスト区分1';
+comment on column mst1011.KUBUN2 is 'リスト区分2';
+comment on column mst1011.KUBUN3 is 'リスト区分3';
+comment on column mst1011.KUBUN4 is 'リスト区分4';
+comment on column mst1011.KUBUN5 is 'リスト区分5';
+
+
+
+
+
+
+
+
+
+CREATE TABLE mst1012(    
+    hideseq DECIMAL(15,0) NOT NULL,
+    lineno DECIMAL(15,0) NOT NULL,
+    trndate TIMESTAMP,
+    staffcode VARCHAR(5),
+    bound_kbn  VARCHAR(1),
+    
+    category01 VARCHAR(1),
+    category02 VARCHAR(1),
+    category03 VARCHAR(1),
+    category04 VARCHAR(1),
+    category05 VARCHAR(1),
+    category06 VARCHAR(1),
+    category07 VARCHAR(1),
+    category08 VARCHAR(1),
+    category09 VARCHAR(1),
+    category10 VARCHAR(1),
+	
+    note VARCHAR(1000),
+    procrec_kbn VARCHAR(1),
+    procset_kbn VARCHAR(1),
+    
+    recmade TIMESTAMP,
+    recupdate TIMESTAMP,
+    calltime_str TIMESTAMP,
+    calltime_end TIMESTAMP,
+	
+    ds_hideseq DECIMAL(15,0),    
+    ds_result VARCHAR(2),
+    ds_reason VARCHAR(4),
+    cs_result VARCHAR(1),
+    cs_hideseq DECIMAL(15,0),
+    calltime_between DECIMAL(15,0)    
+);
+
+
+comment on column mst1012.HIDESEQ is 'シーケンス番号';
+comment on column mst1012.LINENO is '行番号';
+comment on column mst1012.TRNDATE is '日付';
+comment on column mst1012.STAFFCODE is '担当者コード';
+comment on column mst1012.BOUND_KBN is 'バウンド区分';
+comment on column mst1012.CATEGORY01 is '通話カテゴリ01';
+comment on column mst1012.CATEGORY02 is '通話カテゴリ02';
+comment on column mst1012.CATEGORY03 is '通話カテゴリ03';
+comment on column mst1012.CATEGORY04 is '通話カテゴリ04';
+comment on column mst1012.CATEGORY05 is '通話カテゴリ05';
+comment on column mst1012.CATEGORY06 is '通話カテゴリ06';
+comment on column mst1012.CATEGORY07 is '通話カテゴリ07';
+comment on column mst1012.CATEGORY08 is '通話カテゴリ08';
+comment on column mst1012.CATEGORY09 is '通話カテゴリ09';
+comment on column mst1012.CATEGORY10 is '通話カテゴリ10';
+comment on column mst1012.NOTE is '通話内容';
+comment on column mst1012.PROCREC_KBN is '処理必要フラグ';
+comment on column mst1012.PROCSET_KBN is '処理済フラグ';
+comment on column mst1012.RECMADE is 'ﾚｺｰﾄﾞ作成日';
+comment on column mst1012.RECUPDATE is 'ﾚｺｰﾄﾞ更新日';
+comment on column mst1012.CALLTIME_STR is '通話開始日時';
+comment on column mst1012.CALLTIME_END is '通話終了日時';
+comment on column mst1012.DS_HIDESEQ is 'DSシーケンス';
+comment on column mst1012.DS_RESULT is 'DS結果';
+comment on column mst1012.DS_REASON is '失注理由コード';
+comment on column mst1012.CS_RESULT is 'CS結果';
+comment on column mst1012.CS_HIDESEQ is '伝票連番';
+comment on column mst1012.CALLTIME_BETWEEN is '通話時間';
+
+
+
+
+
+
+CREATE TABLE mst0041(
+    tabletype VARCHAR(1) NOT NULL,
+    lcode VARCHAR(4) NOT NULL,
+    code VARCHAR(4) NOT NULL,
+    NAME  VARCHAR(30),
+    recmade TIMESTAMP,
+    recupdate TIMESTAMP
+);
+
+comment on column mst0041.TABLETYPE is '分類種別';
+comment on column mst0041.LCODE is '分類コード';
+comment on column mst0041.CODE is 'コード';
+comment on column mst0041.NAME is '名称';
+comment on column mst0041.RECMADE is 'ﾚｺｰﾄﾞ作成日';
+comment on column mst0041.RECUPDATE is 'ﾚｺｰﾄﾞ更新日';
+
+
+
+
+

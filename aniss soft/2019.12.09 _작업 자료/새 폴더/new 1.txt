@@ -1,0 +1,40 @@
+
+
+comment on column mst1011.HIDESEQ is 'シーケンス番号';
+comment on column mst1011.CUST_SEL_CD is '販売顧客コード';
+comment on column mst1011.CUST_SMP_CD is '見込客コード';
+comment on column mst1011.NAME is '顧客名';
+comment on column mst1011.KANA is '顧客ﾌﾘｶﾞﾅ';
+
+comment on column mst1011.ZIP1 is '自宅-郵便番号';
+comment on column mst1011.ADDR11 is '自宅-住所１';
+comment on column mst1011.ADDR12 is '自宅-住所２';
+comment on column mst1011.TELNO1 is '自宅-電話番号';
+
+comment on column mst1011.ZIP2 is '住所Ⅱ-郵便番号';
+comment on column mst1011.ADDR21 is '住所Ⅱ-住所１';
+comment on column mst1011.ADDR22 is '住所Ⅱ-住所２';
+comment on column mst1011.TELNO2 is '住所Ⅱ-電話番号';
+
+comment on column mst1011.TELNUM is '検索用TEL';
+comment on column mst1011.ShortTel is '電話番号下4桁';
+comment on column mst1011.BIRTH is '生年月日';
+
+comment on column mst1011.SEX is '性別';
+comment on column mst1011.STAFFCODE is '担当者コード';
+comment on column mst1011.DISABLED is '使用停止フラグ';
+comment on column mst1011.CUST_STATUS is '状態';
+comment on column mst1011.DISSEND_TEL is 'TEL区分';
+comment on column mst1011.ADDR1_TITLE is '住所1名称';
+comment on column mst1011.ADDR2_TITLE is '住所2名称';
+comment on column mst1011.AGE_KBN is '年代';
+comment on column mst1011.TELNUM02 is '住所Ⅱ-電話番号検索用TEL';
+
+comment on column mst1011.RECMADE is 'ﾚｺｰﾄﾞ作成日';
+comment on column mst1011.RECUPDATE is 'ﾚｺｰﾄﾞ更新日';
+
+comment on column mst1011.KUBUN1 is 'リスト区分1';
+comment on column mst1011.KUBUN2 is 'リスト区分2';
+comment on column mst1011.KUBUN3 is 'リスト区分3';
+comment on column mst1011.KUBUN4 is 'リスト区分4';
+comment on column mst1011.KUBUN5 is 'リスト区分5';

@@ -1,0 +1,90 @@
+
+CREATE TABLE ini001(
+	code VARCHAR(2) PRIMARY KEY,
+	transcode VARCHAR(3),
+	NAME VARCHAR(10),
+	prntflg VARCHAR(1),
+	furiflg VARCHAR(1)
+);
+
+
+comment on column INI001.CODE is '送り状コード';
+comment on column INI001.TRANSCODE is '運送会社コード';
+comment on column INI001.NAME is '送り状名';
+comment on column INI001.PRNTFLG is '印刷フラグ';
+comment on column INI001.FURIFLG is '振込みフラグ';
+
+
+
+
+
+
+CREATE TABLE ini003(
+	code VARCHAR(2) PRIMARY KEY,
+	NAME VARCHAR(10)
+);
+
+comment on column INI003.CODE is '時間帯コード';
+comment on column INI003.NAME is '時間帯名';
+
+
+
+
+
+
+
+CREATE TABLE ini005(
+	code VARCHAR(3) PRIMARY KEY,
+	NAME VARCHAR(30)
+)
+
+comment on column INI005.CODE is 'コード';
+comment on column INI005.NAME is '入出庫区分名';
+
+
+
+
+
+CREATE TABLE ini011(
+	startno VARCHAR(20) PRIMARY KEY,
+	endno VARCHAR(20) NOT NULL,
+	nowno VARCHAR(20)
+);
+
+
+comment on column INI011.STARTNO is '開始No.';
+comment on column INI011.ENDNO is '終了No.';
+comment on column INI011.NOWNO is '現在No.';
+
+
+
+
+
+
+
+CREATE TABLE ini013(
+	eda DECIMAL(15,0) PRIMARY KEY,
+	note1 VARCHAR(70),
+	note2 VARCHAR(70)
+);
+
+
+comment on column INI013.EDA is 'コード';
+comment on column INI013.NOTE1 is '通信欄１';
+comment on column INI013.NOTE2 is '通信欄２';
+
+
+
+
+
+
+CREATE TABLE ini015(
+	startno VARCHAR(20) PRIMARY KEY,
+	endno VARCHAR(20) NOT NULL,
+	nowno VARCHAR(20)
+);
+
+comment on column INI015.STARTNO is '開始No.';
+comment on column INI015.ENDNO is '終了No.';
+comment on column INI015.NOWNO is '現在No.';
+

@@ -1,0 +1,51 @@
+CREATE TABLE SYS010(
+    SYS_KBN VARCHAR(1) NOT NULL,
+    PROG_NO VARCHAR(15) NOT NULL,
+    PROG_ID VARCHAR(30) NOT NULL,
+    PROG_NM VARCHAR(50),
+    AUTHO_CD VARCHAR(1),
+    DISABLED VARCHAR(1),
+    BTN_NM VARCHAR(30)
+);
+
+comment on column sys010.SYS_KBN is 'システム区分';
+comment on column sys010.PROG_NO is 'プログラムNo';
+comment on column sys010.PROG_ID is 'プログラムID';
+comment on column sys010.PROG_NM is 'プログラム名';
+comment on column sys010.AUTHO_CD is '権限対応区分';
+comment on column sys010.DISABLED is '使用停止フラグ';
+comment on column sys010.BTN_NM is 'ボタン名';
+
+
+
+
+	
+	
+CREATE TABLE sys020(
+    seq_id VARCHAR(20) NOT NULL,
+    seq_nm VARCHAR(40),
+    seq_no DECIMAL(15,0),
+    cycle_kbn DECIMAL(15,0),
+    seq_length DECIMAL(15,0),
+    insuser_cd VARCHAR(6),
+    insdate VARCHAR(8),
+    instime VARCHAR(6),
+    upduser_cd VARCHAR(6),
+    upddate VARCHAR(8),
+    updtime VARCHAR(6),
+    disabled VARCHAR(1)
+);
+
+
+comment on column sys020.seq_id is 'シーケンスID';
+comment on column sys020.seq_nm is 'シーケンス名';
+comment on column sys020.seq_no is 'シーケンス';
+comment on column sys020.cycle_kbn is 'サイクル区分';
+comment on column sys020.seq_length is 'シーケンス桁数';
+comment on column sys020.insuser_cd is '登録者コード';
+comment on column sys020.insdate is '登録日';
+comment on column sys020.instime is '登録時刻';
+comment on column sys020.upduser_cd is '更新者コード';
+comment on column sys020.upddate is '更新日';
+comment on column sys020.updtime is '更新時刻';
+comment on column sys020.disabled is 'データ区分';

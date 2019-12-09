@@ -1,0 +1,47 @@
+create table stk030 (
+	pcode varchar(5),
+	prodcode varchar(16),
+	trndt timestamp,
+	amount decimal(15,2) not null,
+	recmade timestamp,
+	recupdate timestamp,
+	primary key(pcode,prodcode,trndt)
+);
+
+
+comment on column stk030.pcode is '店舗コード';
+comment on column stk030.prodcode is '商品コード';
+comment on column stk030.trndt is '棚卸日';
+comment on column stk030.amount is '棚卸数量';
+comment on column stk030.recmade is 'ﾚｺｰﾄﾞ作成日';
+comment on column stk030.recupdate is 'ﾚｺｰﾄﾞ更新日';
+
+
+
+
+
+
+create table stk040 (
+	pcode varchar(5),
+	prodcode varchar(16),
+	trndate timestamp,
+	trntype varchar(1),
+	hideseq decimal(15,0),
+	lineno decimal(15,0),
+	amount decimal(15,2) not null,
+	recmade timestamp,
+	recupdate timestamp,
+	primary key(pcode,prodcode,trndate,trntype,hideseq,lineno)
+);
+
+comment on column stk040.pcode is '店舗コード';
+comment on column stk040.prodcode is '商品コード';
+comment on column stk040.trndate is '入力日';
+comment on column stk040.trntype is '伝票区分';
+comment on column stk040.hideseq is '伝票連番';
+comment on column stk040.lineno is '行№';
+comment on column stk040.amount is '数量';
+comment on column stk040.recmade is 'ﾚｺｰﾄﾞ作成日';
+comment on column stk040.recupdate is 'ﾚｺｰﾄﾞ更新日';
+
+

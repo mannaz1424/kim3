@@ -1,0 +1,363 @@
+
+CREATE TABLE mst2011(
+    pcode VARCHAR(5) PRIMARY KEY,
+    closetime VARCHAR(5),
+    
+    pausetime1_str VARCHAR(5),
+    pausetime1_end VARCHAR(5),
+    
+    pausetime2_str VARCHAR(5),
+    pausetime2_end VARCHAR(5),
+    
+    pausetime3_str VARCHAR(5),
+    pausetime3_end VARCHAR(5),
+    
+    pausetime4_str VARCHAR(5),
+    pausetime4_end VARCHAR(5),
+    
+    pausetime5_str VARCHAR(5),
+    pausetime5_end VARCHAR(5),
+    
+    pausetime6_str VARCHAR(5),
+    pausetime6_end VARCHAR(5),
+    
+    pausetime7_str VARCHAR(5),
+    pausetime7_end VARCHAR(5),
+    
+    pausetime8_str VARCHAR(5),
+    pausetime8_end VARCHAR(5),
+    
+    pausetime9_str VARCHAR(5),
+    pausetime9_end VARCHAR(5),
+    
+    pausetime10_str VARCHAR(5),
+    pausetime10_end VARCHAR(5),
+    
+    maxcallcnt DECIMAL(15,0),
+    msgkeeptime DECIMAL(15,0),
+    message VARCHAR(60),
+    msgexpire TIMESTAMP,
+    
+    stopflg VARCHAR(1),
+    recmade TIMESTAMP,
+    recupdate TIMESTAMP,
+    extdial_time DECIMAL(15,0),
+    pp_keepdays DECIMAL(15,0)
+);
+
+
+comment on column mst2011.PCODE is '店舗コード';
+comment on column mst2011.CLOSETIME is '自動終了時刻';
+
+comment on column mst2011.PAUSETIME1_STR is '自動中断開始時刻1';
+comment on column mst2011.PAUSETIME1_END is '自動中断終了時刻1';
+
+comment on column mst2011.PAUSETIME2_STR is '自動中断開始時刻2';
+comment on column mst2011.PAUSETIME2_END is '自動中断終了時刻2';
+
+comment on column mst2011.PAUSETIME3_STR is '自動中断開始時刻3';
+comment on column mst2011.PAUSETIME3_END is '自動中断終了時刻3';
+
+comment on column mst2011.PAUSETIME4_STR is '自動中断開始時刻4';
+comment on column mst2011.PAUSETIME4_END is '自動中断終了時刻4';
+
+comment on column mst2011.PAUSETIME5_STR is '自動中断開始時刻5';
+comment on column mst2011.PAUSETIME5_END is '自動中断終了時刻5';
+
+comment on column mst2011.PAUSETIME6_STR is '自動中断開始時刻6';
+comment on column mst2011.PAUSETIME6_END is '自動中断終了時刻6';
+
+comment on column mst2011.PAUSETIME7_STR is '自動中断開始時刻7';
+comment on column mst2011.PAUSETIME7_END is '自動中断終了時刻7';
+
+comment on column mst2011.PAUSETIME8_STR is '自動中断開始時刻8';
+comment on column mst2011.PAUSETIME8_END is '自動中断終了時刻8';
+
+comment on column mst2011.PAUSETIME9_STR is '自動中断開始時刻9';
+comment on column mst2011.PAUSETIME9_END is '自動中断終了時刻9';
+
+comment on column mst2011.PAUSETIME10_STR is '自動中断開始時刻10';
+comment on column mst2011.PAUSETIME10_END is '自動中断終了時刻10';
+
+comment on column mst2011.MAXCALLCNT is '最大呼出回数';
+comment on column mst2011.MSGKEEPTIME is 'ﾒｯｾｰｼﾞ保持時間';
+comment on column mst2011.MESSAGE is '全体ﾒｯｾｰｼﾞ';
+comment on column mst2011.MSGEXPIRE is '全体ﾒｯｾｰｼﾞ表示期限';
+comment on column mst2011.STOPFLG is '常駐ﾌﾟﾛｾｽ停止ﾌﾗｸﾞ';
+comment on column mst2011.RECMADE is 'ﾚｺｰﾄﾞ作成日';
+comment on column mst2011.RECUPDATE is 'ﾚｺｰﾄﾞ更新日';
+comment on column mst2011.EXTDIAL_TIME is '予備ダイヤル時間';
+comment on column mst2011.PP_KEEPDAYS is '見込保持日数';
+
+
+
+
+
+
+
+CREATE TABLE mst2012(
+    pcode VARCHAR(5) NOT NULL,
+    inline_no VARCHAR(5) NOT NULL,
+    pc_ipaddr VARCHAR(15),
+    staffcode VARCHAR(5),
+    status VARCHAR(1),
+    message VARCHAR(60),
+    msgexpire TIMESTAMP,
+    disabled  VARCHAR(1),
+    recmade TIMESTAMP,
+    recupdate TIMESTAMP,
+    computer_name VARCHAR(20),
+    calltranstime TIMESTAMP,
+    absence VARCHAR(1)
+);
+
+
+comment on column mst2012.PCODE is '店舗コード';
+comment on column mst2012.INLINE_NO is '内線番号';
+comment on column mst2012.PC_IPADDR is 'パソコンIPアドレス';
+comment on column mst2012.STAFFCODE is '担当者コード';
+comment on column mst2012.STATUS is '状態';
+comment on column mst2012.MESSAGE is '個別ﾒｯｾｰｼﾞ';
+comment on column mst2012.MSGEXPIRE is '個別ﾒｯｾｰｼﾞ表示期限';
+comment on column mst2012.DISABLED is '利用停止フラグ';
+comment on column mst2012.RECMADE is 'ﾚｺｰﾄﾞ作成日';
+comment on column mst2012.RECUPDATE is 'ﾚｺｰﾄﾞ更新日';
+comment on column mst2012.COMPUTER_NAME is 'コンピュータ名';
+comment on column mst2012.CALLTRANSTIME is '通話転送時刻';
+comment on column mst2012.ABSENCE is '欠勤フラグ';
+
+
+
+
+
+
+CREATE TABLE mst2013(
+	code VARCHAR(4) PRIMARY KEY,
+	NAME VARCHAR(30) NOT NULL,
+	dsp_order VARCHAR(1) NOT NULL,
+	disabled VARCHAR(1),
+	recmade TIMESTAMP,
+    recupdate TIMESTAMP
+);
+
+comment on column mst2013.CODE is '理由コード';
+comment on column mst2013.NAME is '失注理由';
+comment on column mst2013.DSP_ORDER is '表示位置';
+comment on column mst2013.DISABLED is '利用停止フラグ';
+comment on column mst2013.RECMADE is 'ﾚｺｰﾄﾞ作成日';
+comment on column mst2013.RECUPDATE is 'ﾚｺｰﾄﾞ更新日';
+
+
+
+
+
+
+CREATE TABLE mst2014(
+ 	staffcode VARCHAR(5) PRIMARY KEY,
+ 	group_id VARCHAR(4) NOT NULL,
+ 	disabled VARCHAR(1),
+	recmade TIMESTAMP,
+   recupdate TIMESTAMP
+);
+
+comment on column mst2014.STAFFCODE is '担当者コード';
+comment on column mst2014.GROUP_ID is 'グループID';
+comment on column mst2014.DISABLED is '利用停止フラグ';
+comment on column mst2014.RECMADE is 'ﾚｺｰﾄﾞ作成日';
+comment on column mst2014.RECUPDATE is 'ﾚｺｰﾄﾞ更新日';
+
+
+
+
+
+
+CREATE TABLE mst2015(
+	hideseq DECIMAL(15,0) PRIMARY KEY,
+	trndate TIMESTAMP NOT NULL,
+	pref_order DECIMAL(15,0),
+	sort_order DECIMAL(15,0),
+	group_id VARCHAR(4),
+	calltime_str VARCHAR(5),
+	calltime_end VARCHAR(5),
+	
+	cust_smp_cd VARCHAR(20),
+	telno VARCHAR(20),
+	callflg VARCHAR(1),
+	
+	inline_no VARCHAR(5),
+	staffcode VARCHAR(5),
+	proctime TIMESTAMP,
+	recmade TIMESTAMP,
+   recupdate TIMESTAMP,
+   listno DECIMAL(15,0),
+   answerflg VARCHAR(1),
+   
+   call_hideseq DECIMAL(15,0)
+);
+   
+
+comment on column MST2015.HIDESEQ is 'シーケンス番号';
+comment on column MST2015.TRNDATE is 'リスト作成日';
+comment on column MST2015.PREF_ORDER is '都道府県別優先順';
+comment on column MST2015.SORT_ORDER is 'ソート順';
+comment on column MST2015.GROUP_ID is 'グループID';
+comment on column MST2015.CALLTIME_STR is '架電開始時刻';
+comment on column MST2015.CALLTIME_END is '架電終了時刻';
+comment on column MST2015.CUST_SMP_CD is '見込客コード';
+comment on column MST2015.TELNO is '電話番号';
+comment on column MST2015.CALLFLG is '完了フラグ';
+comment on column MST2015.INLINE_NO is '転送内線番号';
+comment on column MST2015.STAFFCODE is '担当者コード';
+comment on column MST2015.PROCTIME is '処理時刻';
+comment on column MST2015.RECMADE is 'ﾚｺｰﾄﾞ作成日';
+comment on column MST2015.RECUPDATE is 'ﾚｺｰﾄﾞ更新日';
+comment on column MST2015.LISTNO is 'リスト番号';
+comment on column MST2015.ANSWERFLG is '端末応答フラグ';
+comment on column MST2015.CALL_HIDESEQ is 'オートコール予定管理番号';
+
+
+
+
+
+
+
+
+CREATE TABLE mst2016(
+	code VARCHAR(16) PRIMARY KEY,
+	dsp_order VARCHAR(1) NOT NULL,
+	recmade TIMESTAMP,
+   recupdate TIMESTAMP
+);
+
+
+comment on column MST2016.CODE is 'コード';
+comment on column MST2016.DSP_ORDER is '表示位置';
+comment on column MST2016.RECMADE is 'ﾚｺｰﾄﾞ作成日';
+comment on column MST2016.RECUPDATE is 'ﾚｺｰﾄﾞ更新日';
+
+
+
+
+
+
+
+CREATE TABLE mst2017(
+	hideseq DECIMAL(15,0) NOT NULL,
+	lineno DECIMAL(15,0) NOT NULL,
+	calldate TIMESTAMP,
+	calltimekbn VARCHAR(1),
+	callflg VARCHAR(1),
+	recmade TIMESTAMP,
+   recupdate TIMESTAMP
+);
+
+
+comment on column MST2017.HIDESEQ is 'シーケンス番号';
+comment on column MST2017.LINENO is '行番号';
+comment on column MST2017.CALLDATE is '再TEL予定日';
+comment on column MST2017.CALLTIMEKBN is '再TEL予定時間帯';
+comment on column MST2017.CALLFLG is '完了フラグ';
+comment on column MST2017.RECMADE is 'ﾚｺｰﾄﾞ作成日';
+comment on column MST2017.RECUPDATE is 'ﾚｺｰﾄﾞ更新日';
+
+
+
+
+
+CREATE TABLE mst2018(
+	telno2 VARCHAR(20) PRIMARY KEY,
+	telno VARCHAR(20) NOT NULL,
+	sortno DECIMAL(15,0) NOT NULL,
+	recmade TIMESTAMP,
+   recupdate TIMESTAMP
+);
+
+
+comment on column MST2018.TELNO2 is '電話番号2';
+comment on column MST2018.TELNO is '電話番号';
+comment on column MST2018.SORTNO is 'ソート番号';
+comment on column MST2018.RECMADE is 'ﾚｺｰﾄﾞ作成日';
+comment on column MST2018.RECUPDATE is 'ﾚｺｰﾄﾞ更新日';
+
+
+
+
+
+
+CREATE TABLE mst2019(
+	code VARCHAR(4) PRIMARY KEY,
+	NAME VARCHAR(30) NOT NULL,
+	recmade TIMESTAMP,
+   recupdate TIMESTAMP
+);
+
+
+comment on column MST2019.CODE is 'コード';
+comment on column MST2019.NAME is '名称';
+comment on column MST2019.RECMADE is 'ﾚｺｰﾄﾞ作成日';
+comment on column MST2019.RECUPDATE is 'ﾚｺｰﾄﾞ更新日';
+
+
+
+
+CREATE TABLE mst2020(
+	pcode VARCHAR(5) NOT NULL,
+	portno VARCHAR(3) NOT NULL,
+	status VARCHAR(1) NOT NULL,
+	group_id VARCHAR(4),
+	recmade TIMESTAMP,
+   recupdate TIMESTAMP
+);
+
+
+comment on column MST2020.PCODE is '店舗コード';
+comment on column MST2020.PORTNO is 'ポート番号';
+comment on column MST2020.STATUS is 'ステータス';
+comment on column MST2020.GROUP_ID is 'グループID';
+comment on column MST2020.RECMADE is 'ﾚｺｰﾄﾞ作成日';
+comment on column MST2020.RECUPDATE is 'ﾚｺｰﾄﾞ更新日';
+
+
+
+
+
+CREATE TABLE mst2021(
+	code VARCHAR(3) PRIMARY KEY,
+	termcnt_str NUMERIC(15,0),
+	termcnt_end NUMERIC(15,0),
+	extdial NUMERIC(15,0),
+	recmade TIMESTAMP,
+   recupdate TIMESTAMP
+);
+
+
+comment on column MST2021.CODE is 'コード';
+comment on column MST2021.TERMCNT_STR is '端末稼動台数範囲開始';
+comment on column MST2021.TERMCNT_END is '端末稼動台数範囲終了';
+comment on column MST2021.EXTDIAL is '予備ダイヤル数';
+comment on column MST2021.RECMADE is 'ﾚｺｰﾄﾞ作成日';
+comment on column MST2021.RECUPDATE is 'ﾚｺｰﾄﾞ更新日';
+
+
+
+
+
+
+CREATE TABLE mst20151(
+	call_hideseq DECIMAL(15,0) PRIMARY KEY,
+	NAME VARCHAR(200),
+	order_name VARCHAR(50),
+	out_cond VARCHAR(100),
+	list_kubun1 VARCHAR(4),
+	list_kubun2 VARCHAR(50),
+	ds_reason_nm VARCHAR(200)
+);
+
+comment on column MST20151.CALL_HIDESEQ is 'オートコール予定管理番号';
+comment on column MST20151.NAME is '設定名称';
+comment on column MST20151.ORDER_NAME is '出力順';
+comment on column MST20151.OUT_COND is '出力条件';
+comment on column MST20151.LIST_KUBUN1 is 'リスト区分1';
+comment on column MST20151.LIST_KUBUN2 is 'リスト区分2';
+comment on column MST20151.DS_REASON_NM is '失注理由';
+

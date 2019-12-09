@@ -1,0 +1,604 @@
+
+CREATE TABLE trn010(
+	pcode VARCHAR(5) NOT NULL,
+	hideseq DECIMAL(15,0) NOT NULL,
+	trndate TIMESTAMP NOT NULL,
+	sumdate TIMESTAMP NOT NULL,
+	orderdate TIMESTAMP NOT NULL,
+	custcode VARCHAR(16) NOT NULL,
+	
+	custname VARCHAR(40),
+	staffcode VARCHAR(5) NOT NULL,
+	trntype VARCHAR(1) NOT NULL,
+	repeat VARCHAR(1) NOT NULL,
+	taxrate DECIMAL(15,2) NOT NULL,
+	fractype VARCHAR(1) NOT NULL,
+	fracctrl VARCHAR(1) NOT NULL, 
+	
+	fee_free_kbn VARCHAR(1) NOT NULL,
+	subtotal DECIMAL(15,0) NOT NULL,
+	discount DECIMAL(15,0) NOT NULL,
+	fee DECIMAL(15,0) NOT NULL,
+	subtax DECIMAL(15,0) NOT NULL,
+	control DECIMAL(15,0) NOT NULL,
+	total DECIMAL(15,0) NOT NULL,
+	billflg VARCHAR(1) NOT NULL,
+	delivery VARCHAR(1) NOT NULL,
+	transferflg VARCHAR(1) NOT NULL,
+	
+	recmade TIMESTAMP,
+   recupdate TIMESTAMP,
+   
+   chk VARCHAR(1),
+   chkstaff VARCHAR(5),
+   chkdate TIMESTAMP,
+   payment  VARCHAR(4),
+   goods VARCHAR(1),
+	
+	credit VARCHAR(4),
+	frequency DECIMAL(15,0),
+	paytotal DECIMAL(15,0),
+	repaystt VARCHAR(7),
+	repayend VARCHAR(7),
+	kubun VARCHAR(1),
+	discount_dsp DECIMAL(15,0),
+	fee_dsp DECIMAL(15,0),
+	subtax_dsp DECIMAL(15,0),
+	downpayment VARCHAR(4),
+	downpayment_mny DECIMAL(15,0),
+	
+	black_hideseq DECIMAL(15,0),
+	connect_hideseq DECIMAL(15,0),
+	note1 VARCHAR(20),
+	note2 VARCHAR(20),
+	note3 VARCHAR(20),
+	staffname VARCHAR(20),
+	state_kbn VARCHAR(2),
+	state_staffcode VARCHAR(5),
+	state_day TIMESTAMP,
+	state_reason VARCHAR(60),
+	minus_den_kbn VARCHAR(2),
+	reg_custcode VARCHAR(16),
+	reg_eda DECIMAL(15,0),
+	reg_sales_up_day TIMESTAMP,
+	
+	credit_submit_date TIMESTAMP,
+	arrive_kbn VARCHAR(1),
+	branchcode VARCHAR(4),
+	teamcode VARCHAR(4),
+	payment_limit TIMESTAMP,
+	
+	money_sdate TIMESTAMP,
+	tel_kbn VARCHAR(1),
+	corr_staffcode VARCHAR(5),
+	cod_kbn VARCHAR(1),
+	sale_cnt DECIMAL(15,2),
+	transfer_str VARCHAR(7),
+	transfer_end VARCHAR(7),
+	
+	transmny_fst DECIMAL(15,2),	
+	transmny_two DECIMAL(15,2),
+	factputtype VARCHAR(1),
+	
+	payment_limit1 TIMESTAMP,
+	payment_limit2 TIMESTAMP,
+	payment_limit3 TIMESTAMP,
+	payment_limit4 TIMESTAMP,
+	payment_limit5 TIMESTAMP,
+	payment_limit6 TIMESTAMP,
+	
+	payment_money1 DECIMAL(15,0),
+	payment_money2 DECIMAL(15,0),
+	payment_money3 DECIMAL(15,0),
+	payment_money4 DECIMAL(15,0),
+	payment_money5 DECIMAL(15,0),
+	payment_money6 DECIMAL(15,0),
+	
+	state_kbn1 VARCHAR(2),
+	state_staffcode1 VARCHAR(5),
+	state_day1 TIMESTAMP,
+	money_sdate1 TIMESTAMP,
+	tel_kbn1 VARCHAR(1),
+	corr_staffcode1 VARCHAR(5),
+
+	state_kbn2 VARCHAR(2),
+	state_staffcode2 VARCHAR(5),
+	state_day2 TIMESTAMP,
+	money_sdate2 TIMESTAMP,
+	tel_kbn2 VARCHAR(1),
+	corr_staffcode2 VARCHAR(5),
+	
+	state_kbn3 VARCHAR(2),
+	state_staffcode3 VARCHAR(5),
+	state_day3 TIMESTAMP,
+	money_sdate3 TIMESTAMP,
+	tel_kbn3 VARCHAR(1),
+	corr_staffcode3 VARCHAR(5),
+	
+	state_kbn4 VARCHAR(2),
+	state_staffcode4 VARCHAR(5),
+	state_day4 TIMESTAMP,
+	money_sdate4 TIMESTAMP,
+	tel_kbn4 VARCHAR(1),
+	corr_staffcode4 VARCHAR(5),
+	
+	state_kbn5 VARCHAR(2),
+	state_staffcode5 VARCHAR(5),
+	state_day5 TIMESTAMP,
+	money_sdate5 TIMESTAMP,
+	tel_kbn5 VARCHAR(1),
+	corr_staffcode5 VARCHAR(5),
+	
+	state_kbn6 VARCHAR(2),
+	state_staffcode6 VARCHAR(5),
+	state_day6 TIMESTAMP,
+	money_sdate6 TIMESTAMP,
+	tel_kbn6 VARCHAR(1),
+	corr_staffcode6 VARCHAR(5),
+	
+	maketype_flg VARCHAR(2)
+);
+
+
+comment on column TRN010.PCODE is '店舗コード';
+comment on column TRN010.HIDESEQ is '伝票連番';
+comment on column TRN010.TRNDATE is '発送日';
+comment on column TRN010.SUMDATE is '売上基準日';
+comment on column TRN010.ORDERDATE is '受付日';
+comment on column TRN010.CUSTCODE is '顧客コード';
+
+comment on column TRN010.CUSTNAME is '顧客名';
+comment on column TRN010.STAFFCODE is '売上担当者コード';
+comment on column TRN010.TRNTYPE is '売上方法';
+comment on column TRN010.Repeat is '売上区分';
+comment on column TRN010.TAXRATE is '消費税率';
+comment on column TRN010.FRACTYPE is '消費税計算単位';
+comment on column TRN010.FRACCTRL is '消費税端数処理';
+
+comment on column TRN010.FEE_FREE_KBN is '送料無料フラグ';
+comment on column TRN010.SUBTOTAL is '売上金額';
+comment on column TRN010.DISCOUNT is '値引額';
+comment on column TRN010.FEE is '送料';
+comment on column TRN010.SUBTAX is '消費税額';
+comment on column TRN010.CONTROL is '調整額';
+comment on column TRN010.TOTAL is '伝票合計';
+comment on column TRN010.BILLFLG is '請求先フラグ';
+comment on column TRN010.DELIVERY is '請求先用納品書';
+comment on column TRN010.TRANSFERFLG is '振込用紙フラグ';
+
+comment on column TRN010.RECMADE is 'ﾚｺｰﾄﾞ作成日';
+comment on column TRN010.RECUPDATE is 'ﾚｺｰﾄﾞ更新日';
+
+comment on column TRN010.CHK is 'チェック';
+comment on column TRN010.CHKSTAFF is 'チェック担当者';
+comment on column TRN010.CHKDATE is 'チェック日';
+comment on column TRN010.PAYMENT is '支払方法';
+comment on column TRN010.GOODS is '納品方法';
+
+comment on column TRN010.CREDIT is '信販会社コード';
+comment on column TRN010.FREQUENCY is '支払回数';
+comment on column TRN010.PAYTOTAL is '支払総額';
+comment on column TRN010.REPAYSTT is '返済期間開始';
+comment on column TRN010.REPAYEND is '返済期間終了';
+comment on column TRN010.KUBUN is '売上区分';
+comment on column TRN010.DISCOUNT_DSP is '表示用値引額';
+comment on column TRN010.FEE_DSP is '表示用送料';
+comment on column TRN010.SUBTAX_DSP is '表示用消費税額';
+comment on column TRN010.DOWNPAYMENT is '頭金支払方法';
+comment on column TRN010.DOWNPAYMENT_MNY is '頭金金額';
+
+comment on column TRN010.BLACK_HIDESEQ is 'BLACK_HIDESEQ';
+comment on column TRN010.CONNECT_HIDESEQ is 'CONNECT_HIDESEQ';
+comment on column TRN010.NOTE1 is 'NOTE1';
+comment on column TRN010.NOTE2 is 'NOTE2';
+comment on column TRN010.NOTE3 is 'NOTE3';
+comment on column TRN010.STAFFNAME is '売上担当者名';
+comment on column TRN010.STATE_KBN is '伝票状態';
+comment on column TRN010.STATE_STAFFCODE is '伝票状態変更者';
+comment on column TRN010.STATE_DAY is '伝票状態変更日';
+comment on column TRN010.STATE_REASON is '伝票状態変更理由';
+comment on column TRN010.MINUS_DEN_KBN is '赤伝区分';
+comment on column TRN010.REG_CUSTCODE is '定期顧客コード';
+comment on column TRN010.REG_EDA is '定期枝番';
+comment on column TRN010.REG_SALES_UP_DAY is '定期売上計上日';
+
+comment on column TRN010.CREDIT_SUBMIT_DATE is '信販提出日';
+comment on column TRN010.ARRIVE_KBN is '着後フラグ';
+comment on column TRN010.BRANCHCODE is '部門コード';
+comment on column TRN010.TEAMCODE is '支店コード';
+comment on column TRN010.PAYMENT_LIMIT is '支払期限';
+
+comment on column TRN010.MONEY_SDATE is '入金予定日';
+comment on column TRN010.TEL_KBN is '電話有無';
+comment on column TRN010.CORR_STAFFCODE is '対応担当者';
+comment on column TRN010.COD_KBN is '代引区分';
+comment on column TRN010.SALE_CNT is '購入回数';
+comment on column TRN010.TRANSFER_STR is '振替期間開始';
+comment on column TRN010.TRANSFER_END is '振替期間終了';
+
+comment on column TRN010.TRANSMNY_FST is '定額_初回';
+comment on column TRN010.TRANSMNY_TWO is '定額_2回目';
+comment on column TRN010.FACTPUTTYPE is 'ファクタリング出力フラグ';
+comment on column TRN010.PAYMENT_LIMIT1 is '支払期限1';
+comment on column TRN010.PAYMENT_LIMIT2 is '支払期限2';
+comment on column TRN010.PAYMENT_LIMIT3 is '支払期限3';
+comment on column TRN010.PAYMENT_LIMIT4 is '支払期限4';
+comment on column TRN010.PAYMENT_LIMIT5 is '支払期限5';
+comment on column TRN010.PAYMENT_LIMIT6 is '支払期限6';
+
+comment on column TRN010.PAYMENT_MONEY1 is '支払金額1';
+comment on column TRN010.PAYMENT_MONEY2 is '支払金額2';
+comment on column TRN010.PAYMENT_MONEY3 is '支払金額3';
+comment on column TRN010.PAYMENT_MONEY4 is '支払金額4';
+comment on column TRN010.PAYMENT_MONEY5 is '支払金額5';
+comment on column TRN010.PAYMENT_MONEY6 is '支払金額6';
+
+comment on column TRN010.STATE_KBN1 is '伝票状態1';
+comment on column TRN010.STATE_STAFFCODE1 is '伝票状態変更者1';
+comment on column TRN010.STATE_DAY1 is '伝票状態変更日1';
+comment on column TRN010.MONEY_SDATE1 is '入金予定日1';
+comment on column TRN010.TEL_KBN1 is '電話有無1';
+comment on column TRN010.CORR_STAFFCODE1 is '対応担当者1';
+
+comment on column TRN010.STATE_KBN2 is '伝票状態2';
+comment on column TRN010.STATE_STAFFCODE2 is '伝票状態変更者2';
+comment on column TRN010.STATE_DAY2 is '伝票状態変更日2';
+comment on column TRN010.MONEY_SDATE2 is '入金予定日2';
+comment on column TRN010.TEL_KBN2 is '電話有無2';
+comment on column TRN010.CORR_STAFFCODE2 is '対応担当者2';
+
+comment on column TRN010.STATE_KBN3 is '伝票状態3';
+comment on column TRN010.STATE_STAFFCODE3 is '伝票状態変更者3';
+comment on column TRN010.STATE_DAY3 is '伝票状態変更日3';
+comment on column TRN010.MONEY_SDATE3 is '入金予定日3';
+comment on column TRN010.TEL_KBN3 is '電話有無3';
+comment on column TRN010.CORR_STAFFCODE3 is '対応担当者3';
+
+comment on column TRN010.STATE_KBN4 is '伝票状態4';
+comment on column TRN010.STATE_STAFFCODE4 is '伝票状態変更者4';
+comment on column TRN010.STATE_DAY4 is '伝票状態変更日4';
+comment on column TRN010.MONEY_SDATE4 is '入金予定日4';
+comment on column TRN010.TEL_KBN4 is '電話有無4';
+comment on column TRN010.CORR_STAFFCODE4 is '対応担当者4';
+
+comment on column TRN010.STATE_KBN5 is '伝票状態5';
+comment on column TRN010.STATE_STAFFCODE5 is '伝票状態変更者5';
+comment on column TRN010.STATE_DAY5 is '伝票状態変更日5';
+comment on column TRN010.MONEY_SDATE5 is '入金予定日5';
+comment on column TRN010.TEL_KBN5 is '電話有無5';
+comment on column TRN010.CORR_STAFFCODE5 is '対応担当者5';
+
+comment on column TRN010.STATE_KBN6 is '伝票状態6';
+comment on column TRN010.STATE_STAFFCODE6 is '伝票状態変更者6';
+comment on column TRN010.STATE_DAY6 is '伝票状態変更日6';
+comment on column TRN010.MONEY_SDATE6 is '入金予定日6';
+comment on column TRN010.TEL_KBN6 is '電話有無6';
+comment on column TRN010.CORR_STAFFCODE6 is '対応担当者6';
+
+comment on column TRN010.MAKETYPE_FLG is '作成種別フラグ';
+
+
+
+
+
+
+
+CREATE TABLE trn012(
+	pcode VARCHAR(5),
+	hideseq DECIMAL(15,0),
+	subseq DECIMAL(15,0),
+	note1 VARCHAR(70),
+	note2 VARCHAR(3),
+	
+	sendtype VARCHAR(1),
+	sendname VARCHAR(80),
+	sendkana VARCHAR(40),
+	sendzip VARCHAR(8),
+	sendaddr1 VARCHAR(60),
+	sendaddr2 VARCHAR(40),
+	sendtel VARCHAR(20),
+	senddate TIMESTAMP,
+	sendtime VARCHAR(2),
+	
+	invoicecode VARCHAR(2) NOT NULL,
+	referno VARCHAR(20),
+	invoice VARCHAR(1) NOT NULL,
+	delivery VARCHAR(1) NOT NULL,
+	shiptype VARCHAR(1) NOT NULL,
+	sendflg VARCHAR(1) NOT NULL,
+	recmade TIMESTAMP,
+	recupdate TIMESTAMP,
+	note2_content VARCHAR(30),
+	appno VARCHAR(20),
+	PRIMARY KEY(pcode, hideseq, subseq)
+);
+
+
+comment on column TRN012.PCODE is '店舗コード';
+comment on column TRN012.HIDESEQ is '伝票連番';
+comment on column TRN012.SUBSEQ is '届先№';
+comment on column TRN012.NOTE1 is '摘要１';
+comment on column TRN012.NOTE2 is '摘要２';
+
+comment on column TRN012.SENDTYPE is '届け先ﾌﾗｸﾞ';
+comment on column TRN012.SENDNAME is '届け先名';
+comment on column TRN012.SENDKANA is '届け先ｶﾅ';
+comment on column TRN012.SENDZIP is '届け先郵便番号';
+comment on column TRN012.SENDADDR1 is '届け先住所1';
+comment on column TRN012.SENDADDR2 is '届け先住所2';
+comment on column TRN012.SENDTEL is '届け先電話番号';
+comment on column TRN012.SENDDATE is '配達予定日';
+comment on column TRN012.SENDTIME is '配達時間帯コード';
+
+comment on column TRN012.INVOICECODE is '送り状コード';
+comment on column TRN012.REFERNO is '問合せ№';
+comment on column TRN012.INVOICE is '送り状';
+comment on column TRN012.DELIVERY is '納品書';
+comment on column TRN012.SHIPTYPE is '出荷方法';
+comment on column TRN012.SENDFLG is '送信フラグ';
+comment on column TRN012.RECMADE is 'ﾚｺｰﾄﾞ作成日';
+comment on column TRN012.RECUPDATE is 'ﾚｺｰﾄﾞ更新日';
+comment on column TRN012.NOTE2_CONTENT is '摘要２内容';
+comment on column TRN012.APPNO is '承認番号';
+
+
+
+
+
+
+
+
+CREATE TABLE trn011(
+	pcode VARCHAR(5),
+	hideseq DECIMAL(15,0),
+	subseq DECIMAL(15,0),
+	lineno DECIMAL(15,0), 
+	linetype VARCHAR(2) NOT NULL,
+	
+	prodcode VARCHAR(16) NOT NULL,
+	prodname VARCHAR(40),
+	amount DECIMAL(15,2) NOT NULL,
+	unitunit VARCHAR(6),
+	unitprice DECIMAL(15,0) NOT NULL ,
+	unitcost DECIMAL(15,0),
+	
+	subtotal DECIMAL(15,0) NOT NULL,
+	subctotal DECIMAL(15,0),
+	subbenef DECIMAL(15,0),
+	subtax DECIMAL(15,0),
+	recmade TIMESTAMP,
+	recupdate TIMESTAMP,
+	shipment_amount DECIMAL(15,2),
+	PRIMARY KEY(pcode, hideseq, subseq, lineno)
+);
+
+
+comment on column TRN011.PCODE is '店舗コード';
+comment on column TRN011.HIDESEQ is '伝票連番';
+comment on column TRN011.SUBSEQ is '届先№';
+comment on column TRN011.LINENO is '行№';
+comment on column TRN011.LINETYPE is '明細属性';
+
+comment on column TRN011.PRODCODE is '商品コード';
+comment on column TRN011.PRODNAME is '商品名';
+comment on column TRN011.AMOUNT is '数量';
+comment on column TRN011.UNITUNIT is '単位';
+comment on column TRN011.UNITPRICE is '単価';
+comment on column TRN011.UNITCOST is '仕入単価';
+
+comment on column TRN011.SUBTOTAL is '売上金額';
+comment on column TRN011.SUBCTOTAL is '原価金額';
+comment on column TRN011.SUBBENEF is '粗利額';
+comment on column TRN011.SUBTAX is '消費税額';
+comment on column TRN011.RECMADE is 'ﾚｺｰﾄﾞ作成日';
+comment on column TRN011.RECUPDATE is 'ﾚｺｰﾄﾞ更新日';
+comment on column TRN011.SHIPMENT_AMOUNT is '出荷数量';
+
+
+
+
+
+
+
+
+CREATE TABLE trn020(
+	pcode VARCHAR(5),
+	hideseq DECIMAL(15,0),
+	custcode VARCHAR(16) NOT NULL,
+	staffcode VARCHAR(5) NOT NULL,
+	total DECIMAL(15,0) NOT NULL,
+	note VARCHAR(40),
+	
+	recmade TIMESTAMP,
+	recupdate TIMESTAMP,
+	kbn01 VARCHAR(20),
+	kbn02 VARCHAR(20),
+	
+	PRIMARY KEY(pcode, hideseq)
+);
+
+
+comment on column TRN020.PCODE is '店舗コード';
+comment on column TRN020.HIDESEQ is '伝票連番';
+comment on column TRN020.CUSTCODE is '顧客コード';
+comment on column TRN020.STAFFCODE is '売上担当者コード';
+comment on column TRN020.TOTAL is '入金合計額';
+comment on column TRN020.NOTE is '摘要';
+
+comment on column TRN020.RECMADE is 'ﾚｺｰﾄﾞ作成日';
+comment on column TRN020.RECUPDATE is 'ﾚｺｰﾄﾞ更新日';
+comment on column TRN020.KBN01 is '区分1';
+comment on column TRN020.KBN02 is '区分2';
+
+
+
+
+
+
+
+
+create table trn021 (
+	pcode varchar(5),
+	hideseq decimal(15,0),
+	lineno decimal(15,0),
+	linetype varchar(1) not null,
+	trndate timestamp not null,
+	inputdate timestamp not null,
+	subtotal decimal(15,2) not null,
+	note varchar(30),
+	recmade timestamp,
+	recupdate timestamp,
+	primary key(pcode,hideseq,lineno)
+);
+
+
+comment on column trn021.pcode is '店舗コード';
+comment on column trn021.hideseq is '伝票連番';
+comment on column trn021.lineno is '行№';
+comment on column trn021.linetype is '入金属性';
+comment on column trn021.trndate is '入金日';
+comment on column trn021.inputdate is '入力日';
+comment on column trn021.subtotal is '入金額';
+comment on column trn021.note is '備考';
+comment on column trn021.recmade is 'ﾚｺｰﾄﾞ作成日';
+comment on column trn021.recupdate is 'ﾚｺｰﾄﾞ更新日';
+
+
+
+
+
+
+
+create table trn040 (
+	pcode varchar(5),
+	hideseq decimal(15,0),
+	trndate timestamp not null,
+	staffcode varchar(5),
+	note varchar(40),
+	recmade timestamp,
+	recupdate timestamp,
+	primary key(pcode,hideseq)
+);
+
+
+comment on column trn040.pcode is '店舗コード';
+comment on column trn040.hideseq is '伝票連番';
+comment on column trn040.trndate is '入出庫日';
+comment on column trn040.staffcode is '入力担当者コード';
+comment on column trn040.note is '摘要';
+comment on column trn040.recmade is 'ﾚｺｰﾄﾞ作成日';
+comment on column trn040.recupdate is 'ﾚｺｰﾄﾞ更新日';
+
+
+
+
+
+
+
+
+create table trn041 (
+	pcode varchar(5),
+	hideseq decimal(15,0),
+	lineno decimal(15,0),
+	linetype decimal(15,0) not null,
+	prodcode varchar(16) not null,
+	amount decimal(15,2) not null,
+	note varchar(30),
+	recmade timestamp,
+	recupdate timestamp,
+	primary key(pcode,hideseq,lineno)
+);
+
+
+comment on column trn041.pcode is '店舗コード';
+comment on column trn041.hideseq is '伝票連番';
+comment on column trn041.lineno is '行№';
+comment on column trn041.linetype is '入出庫区分';
+comment on column trn041.prodcode is '商品コード';
+comment on column trn041.amount is '数量';
+comment on column trn041.note is '摘要';
+comment on column trn041.recmade is 'ﾚｺｰﾄﾞ作成日';
+comment on column trn041.recupdate is 'ﾚｺｰﾄﾞ更新日';
+
+
+
+
+
+
+
+
+create table trn210 (
+	codetype varchar(1),
+	trndate timestamp,
+	code varchar(16),
+	subtotal decimal(15,0) not null,
+	discount decimal(15,0) not null,
+	fee decimal(15,0) not null,
+	subtax decimal(15,0) not null,
+	control decimal(15,0) not null,
+	intotal decimal(15,0) not null,
+	total decimal(15,0) not null,
+	recmade timestamp,
+	recupdate timestamp,
+	primary key(codetype,trndate,code)
+);
+
+
+
+comment on column trn210.codetype is '取引先区分';
+comment on column trn210.trndate is '〆年月日';
+comment on column trn210.code is '取引先コード';
+comment on column trn210.subtotal is '売上金額';
+comment on column trn210.discount is '値引額';
+comment on column trn210.fee is '送料';
+comment on column trn210.subtax is '消費税';
+comment on column trn210.control is '調整額';
+comment on column trn210.intotal is '入金額';
+comment on column trn210.total is '売掛金残高';
+comment on column trn210.recmade is 'ﾚｺｰﾄﾞ作成日';
+comment on column trn210.recupdate is 'ﾚｺｰﾄﾞ更新日';
+
+
+
+
+
+
+
+
+create table mtrn100 (
+	trntype varchar(1),
+	trnym decimal(15,0),
+	pcode varchar(5),
+	total decimal(15,0),
+	return decimal(15,0),
+	discount decimal(15,0),
+	fee decimal(15,0),
+	tax decimal(15,0),
+	control decimal(15,0),
+	intotal decimal(15,0),
+	zan decimal(15,0),
+	trnyear decimal(15,0),
+	trnmonth decimal(15,0),
+	recupdate timestamp,
+	recmade timestamp,
+	primary key(trntype,trnym,pcode)
+);
+
+
+comment on column mtrn100.trntype is '取引区分';
+comment on column mtrn100.trnym is '年月';
+comment on column mtrn100.pcode is '店舗コード';
+comment on column mtrn100.total is '総売上額';
+comment on column mtrn100.return is '返品額';
+comment on column mtrn100.discount is '値引額';
+comment on column mtrn100.fee is '送料	';
+comment on column mtrn100.tax is '消費税';
+comment on column mtrn100.control is '調整額';
+comment on column mtrn100.intotal is '入金額';
+comment on column mtrn100.zan is '残高';
+comment on column mtrn100.trnyear is '年';
+comment on column mtrn100.trnmonth is '月';
+comment on column mtrn100.recupdate is 'ﾚｺｰﾄﾞ更新日';
+comment on column mtrn100.recmade is 'ﾚｺｰﾄﾞ作成日';
+
+

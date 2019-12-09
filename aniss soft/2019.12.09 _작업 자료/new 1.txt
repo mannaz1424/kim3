@@ -1,0 +1,20 @@
+
+comment on column TRN011. is '';
+comment on column TRN011. is '';
+comment on column TRN011. is '';
+comment on column TRN011. is '';
+comment on column TRN011. is '';
+comment on column TRN011. is '';
+comment on column TRN011. is '';
+comment on column TRN011. is '';
+comment on column TRN011. is '';
+comment on column TRN011. is '';
+comment on column TRN011. is '';
+comment on column TRN011. is '';
+comment on column TRN011. is '';
+comment on column TRN011. is '';
+comment on column TRN011. is '';
+comment on column TRN011. is '';
+comment on column TRN011. is '';
+comment on column TRN011. is '';
+
