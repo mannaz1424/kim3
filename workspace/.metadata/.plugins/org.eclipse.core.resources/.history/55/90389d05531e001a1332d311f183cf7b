@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>04-04</title>
+  <style>
+   html, body { margin: 0;padding: 0; }
+   #example {
+    height: 98vh; min-height: 100%; padding:5px
+   }
+  </style>
+  <script src="https://unpkg.com/vue/dist/vue.min.js"></script>
+</head>
+<body>
+<!-- 
+v-on:contextmenu.prevent : 전체화면에서 오른쪽 마우스 클릭시, 호출할 이벤트 처리
+ - 오늘쪽 마우스 클릭 금지 처리시 활용..
+ -->
+<div id="example" v-on:contextmenu.prevent="ctxStop">
+    <a href="https://facebook.com" @click="confirmFB">페이스북</a>
+</div>
+<script type="text/javascript">
+var vm = new Vue({
+    el : "#example",
+    methods: {
+        ctxStop : function(e) {
+			alert("오른쪽 마우스 클릭!!");
+        },
+        confirmFB : function(e) {
+            if (!confirm("페이스북으로 이동할까요?")) {
+            	// tag 고유의 기능을 막는 처리를 해주는 것이
+            	// e.preventDefault();  <a 태그가..
+               e.preventDefault();
+            }
+        }
+    }
+})
+</script>
+</body>
+</html>

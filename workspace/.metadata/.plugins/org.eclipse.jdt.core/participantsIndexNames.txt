@@ -1,0 +1,17 @@
+INDEX VERSION 1.131
+C:\z01_weekend\workspace\.metadata\.plugins\org.eclipse.jst.jsp.core\jspsearch\1754140558.index
+\springweb\src
+C:\z01_weekend\workspace\.metadata\.plugins\org.eclipse.jst.jsp.core\jspsearch\3600328607.index
+\springweb\src
+C:\z01_weekend\workspace\.metadata\.plugins\org.eclipse.jst.jsp.core\jspsearch\2531907769.index
+\springweb\src
+C:\z01_weekend\workspace\.metadata\.plugins\org.eclipse.jst.jsp.core\jspsearch\390398889.index
+\vueexp\src
+C:\z01_weekend\workspace\.metadata\.plugins\org.eclipse.jst.jsp.core\jspsearch\3414658348.index
+\springweb\src
+C:\z01_weekend\workspace\.metadata\.plugins\org.eclipse.jst.jsp.core\jspsearch\1268126398.index
+\vueexp\src
+C:\z01_weekend\workspace\.metadata\.plugins\org.eclipse.jst.jsp.core\jspsearch\3024912651.index
+\vueexp\src
+C:\z01_weekend\workspace\.metadata\.plugins\org.eclipse.jst.jsp.core\jspsearch\624275125.index
+\springweb\src

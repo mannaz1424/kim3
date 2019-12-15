@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<style type="text/css">
+/*
+
+*/
+.dbl{ background:blue;color:yellow;}
+</style>
+<script type="text/javascript" 
+	src="../a00_com/jquery-3.4.1.js"></script>
+<script type="text/javascript">
+	$(document).ready(function(){
+		
+		$("h1").html("jquery event처리");
+/* 
+	$(객체).on('이벤트',function(){});
+	1. 이벤트를 통해서 만들어지는 요소객체에 대한 이벤트 처리..
+ */		
+ 		$("#create").on('click',function(){
+ 			$("div").html("<button id='newButton'>ok</button>");
+ 		});
+		/// 이벤트를 통해서 만들어진 객체는 상위 객체를 지정하고, 해당 하위 객체를 설정하여 처리하여야 한다.
+		// $("상위").on("이벤트",'만들어질객체',function(){ })
+		$("body").on('click','#newButton',function(){
+			$("div").append("<h2>OK 클릭되었습니다!!</h2>")
+		});
+		// 객체.one() : 한번만 이벤트를 발생하게 할때 처리한다.
+		$("#oneTime").one('click',function(){
+			$("div").append("<h3>좋아요!♥</h3>");
+		});
+		// .trigger("이벤트") : 상위에 정의된 이벤트가, 해당 이벤트를 발생하지 않더라도
+		// logic(조건, 반복(loop), 반복처리-setInterval)를 통해서 이벤트가 발생한 것과 동일하게 처리할 
+		// 때, 활용된다. : 강제이벤트발생처리..
+		$("#foo").on('click',function(){
+			$("div").append("★");
+		});
+		setInterval(function(){
+			$("#foo").trigger("click");
+		},1000);
+		// .change(function(){}); : 해당 객체 선택을 변경했을 때, checkbox
+		//  radio, select 객체에 주로 활용된다.
+		// .show().hide().toggle()
+		// .fadeIn(시간).fadeOut(시간) 
+		// .select() : 해당객체를 선택했을 때, 처리 내용..
+		// $(:type선택)
+		$(":input").select(function(){
+			// alert( $(this).val() );
+			// 선택된 내용을 일단을 보였다가. 2초에 걸쳐서 사라지게 처리..
+			$("p").text( $(this).val() ).show().fadeOut(2000);
+		});
+		// $(this) : 화면전체에서 key를 입력했을 때, 코드값을 가져오는 처리..
+		$(this).on('keyup',function(event){
+			$('h2').html(event.keyCode);
+		});
+		// .toggleClass(css정의된 클래스) : 이벤트마다 클래스적용/클래스미적용을 반복처리
+		$("#tglBtn").dblclick(function(){
+			$("div").toggleClass('dbl');
+		});
+/* 
+	.mouseenter() : 마우스 커서를 대상객체에 위치시켰을 때,
+	.mouseleave() : 마우스 커서를 대상객체에서 벗어났을 때.
+	.hover(function(){ mouseenter처리 }, function(){ mouseleave });
+	    mouseenter와 mouseleave를 하나의 객체에 동시에 선언할 때.
+
+ */		
+	});
+</script>
+</head>
+<body>
+<!--  -->
+<h1></h1>
+<h2></h2>
+<button id="create">new</button>
+<button id="oneTime">한번만 좋아요!!</button>
+<button id="foo">별점 표시</button>
+<button id="tglBtn">토글 클래스 처리..</button>
+<input type="text" value="아이템1 아이템2" />
+<input type="text" value="아이템3"/>
+<div></div>
+<p></p>
+</body>
+</html>
+

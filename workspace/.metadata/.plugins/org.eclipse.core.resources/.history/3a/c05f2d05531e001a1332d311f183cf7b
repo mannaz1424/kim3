@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>05-12</title>
+  <style>
+    * {  box-sizing: border-box;  }
+    ul {  margin: 0; padding: 0; }
+    ul li { 
+        cursor: pointer; position: relative; padding: 8px 8px 8px 40px;
+        background: #eee; font-size: 14px;  transition: 0.2s;
+        -webkit-user-select: none; -moz-user-select: none;
+        -ms-user-select: none; user-select: none;  
+    }
+    ul li:hover {  background: #ddd;  }
+    ul li.checked {
+        background: #BBB;  color: #fff;
+         text-decoration: line-through;
+    }
+    ul li.checked::before {
+        content: ''; position: absolute; border-color: #fff;
+        border-style: solid; border-width: 0px 1px 1px 0px; 
+        top: 10px; left: 16px;  transform: rotate(45deg);
+        height: 8px; width: 8px;
+    }
+    .close {
+        position: absolute; right: 0; top: 0;
+        padding: 12px 16px 12px 16px
+    }
+    /* close 클래스 hover기능으로 마우스 over/out을 처리 */
+    .close:hover {
+        background-color: #f44336;  color: white;
+    }
+    .header {
+        background-color: purple; padding: 30px 30px;
+        color: yellow; text-align: center;
+    }
+    .header:after {
+        content: ""; display: table; clear: both;
+    }
+    .input {
+        border: none; width: 75%; height:35px; padding: 10px;
+        float: left; font-size: 16px;
+    }
+    .addbutton {
+        padding: 10px; width: 25%; height:35px; background: #d9d9d9; 
+        color: #555; float: left; text-align: center;
+        font-size: 13px; cursor: pointer; transition: 0.3s;
+    }
+    .addbutton:hover { background-color: #bbb; }
+    .completed { text-decoration:none; }
+  </style>
+  <script src="https://unpkg.com/vue/dist/vue.min.js"></script>  
+</head>
+<body>
+<div id="todolistapp">
+    <div id="header" class="header">
+        <h2>Todo List App</h2>
+        <!-- 
+        v-model.trim="todo" 
+        	입력하는 데이터를 양쪽 옆 공백을 제거(trim)하고 todo라는 모델데이터
+        	에 연동 처리..
+        v-on:keyup.enter="addTodo"  v-on:click="addTodo"
+        	enter키를 입력했을 때, addTodo 함수를 호출 처리한다.	
+        	버튼을 클릭시, addTodo 함수를 호출 처리한다.
+         -->
+        <input class="input" type="text" id="task"
+        	v-model.trim="todo" 
+            placeholder="입력 후 엔터!"
+            v-on:keyup.enter="addTodo">
+        <span class="addbutton" v-on:click="addTodo">추 가</span>
+    </div>
+    <ul id="todolist">
+    	<!-- 
+    	v-for="(a, index) in todolist" 
+    	모델 데이터 todolist배열을 반복처리하면서 안에 있는 단위 객체 {}
+    	를 a라는 변수에 할당
+    	 var a = { todo : "영화보기", done:true }l
+    	v-bind:class="{checked:true}"
+    	 -->
+        <li v-for="(a, index) in todolist" 
+            v-bind:class="checked(a.done)"
+            v-on:click="doneToggle(index)">
+            <span>{{ a.todo }}</span>
+            <span v-if="a.done"> (완료)</span>
+            <span class="close"
+            	 v-on:click.stop="deleteTodo(index)">&#x00D7;</span>
+        </li>
+    </ul>
+</div>
+<script type="text/javascript">
+var vm = new Vue({
+    el : "#todolistapp",
+    data : {
+        todo : "",
+        todolist : [
+            { todo : "영화보기", done:true },
+            { todo : "주말 산책", done:true },
+            { todo : "ES6 학습", done:false },
+            { todo : "잠실 야구장", done:false },
+        ]
+    },
+    methods : {
+        checked : function(done) {
+        	// 매개변수를 받은 값을 기준으로 
+        	// true이면  클래스 checked를 true로 해서 return 처리..
+            if(done) return { checked:true };
+            else return { checked:false };
+        },
+        addTodo : function(e) {
+        	// 입력한 모델데이터 todo 공백아닐때,
+            if (this.todo !== "") {
+            	// this.todolist.push:
+                //  배열로 선언한 todolist모델에 
+                //   { todo : this.todo, done:false } 입력..
+                this.todolist.push({ todo : this.todo,
+                	done:false });
+                // 입력한 모델 데이터 초기화..
+                this.todo = "";
+            }
+        },
+        deleteTodo : function(index) {
+        	// 배열.splice("시작index",갯수)
+        	//     배열의 시작index로 시작해서 해당 갯수만큼 삭제 처리.
+             this.todolist.splice(index,1);
+        },
+        doneToggle : function(index) {
+        	// 배열의 고유 순서값을 index(0~~갯수)를 가지고 와서..
+        	// this.todolist[0].done 
+        	// true이면 !true ==> false
+        	//         !false ==> true
+            this.todolist[index].done 
+            	= !this.todolist[index].done;
+        }
+    }
+})
+</script>
+</body>
+</html>

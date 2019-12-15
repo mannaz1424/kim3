@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<style type="text/css">
+/*
+
+*/
+
+</style>
+<script type="text/javascript" 
+	src="../a00_com/jquery-3.4.1.js"></script>
+<script type="text/javascript">
+	$(document).ready(function(){
+		
+		$("h1").html("ajax 요청값 처리");
+		$("#logBtn").click(function(){
+			//alert($("form").serialize());
+			$.ajax({
+				type:"post",
+				url:"z03_data.jsp",
+				data:$("form").serialize(),
+				dataType:"html",
+				success:function(data){
+					$("div").html(data);
+				},
+				error:function(xhr,status,error){
+					console.log(xhr);
+					console.log(status);
+					console.log(error);
+				}
+			});
+		});
+	});
+	// ex) a04_reqAjax.html
+	//        keyup   8~14 이상일때, himan777, higirl888은 등록된 
+	//				회원입니다. 그외에 등록 가능합니다.
+	//     z04_data.jsp
+</script>
+</head>
+<body>
+<!--  -->
+<h1></h1>
+<form>
+	아이디:<input type="text" name="id"/><br>
+	패스워드:<input type="password" name="pass"/><br>
+	<input type="button" id="logBtn" value="로그인"/>
+
+</form>
+<div></div>
+</body>
+</html>

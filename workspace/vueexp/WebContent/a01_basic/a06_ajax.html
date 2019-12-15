@@ -1,70 +1,66 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <meta charset="UTF-8">
-    <title>Insert title here</title>
-    <script src="https://code.jquery.com/jquery-3.4.1.js" ></script>
-    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js" ></script>
-    <script type="text/javascript">
-    	$(document).ready(function(){
-	    	$("h1:eq(0)").text("ajax 연습");
-	    	$("h1:eq(0)").click(function(){
-	    		$(this).css("background-color", "yellow");
-	    		$(this).text('클릭 되었습니다.');
-	    		
-	    		/*
-	    		# jquery 에서 지원하는 ajax 처리 속성.
-	    		1. 기본 형식
-	    			$.ajax({
-	    				속성:"속성값",
-	    				속성:"속성값",
-	    				기능함수:function(매개변수){
-	    					
-	    				}
-	    			});
-	    		2. 속성 
-	    			1) type: 전송방식 get/post
-	    			2) url : 전송 요청하는 서버의 자원
-	    			3) data : 요청하는 데이터   
-	    				- query string : key=value&key2=value2&....
-	    				- $(form).serialize() : form하위의  요소객체를 name,value
-	    					속성의 위의 query string 형식으로 자동전환하여 처리한다.
-	    				- json  형식 : { 요청key:요청value,요청2key:요청2value,}
-	    			4) dataType : 요청된 결과 값(json데이터)을 받은 형식
-	    				- text, json, html
-	    			5) success:function(){}:성공시 받은 데이터 처리
-	    			6) error:function(){}:실패시 받은 데이터 처리.
-	    		*/
-	    		 
-	    		$.ajax({
-	    			type:"post",
-	    			url:"z01_data.txt",
-	    			dataType:"json",
-	    			success:function(d){
-	    				// $("#show").text(data);
-	    				var prod = d;
-	    				var add = "<h3>과일명 : " + d.name + "</h3>";
-	    				add += "<h3>가격 : " + prod.price + "</h3>";
-	    				add += "<h3>갯수 : " + prod.cnt + "</h3>";
-	    				
-	    				
-	    				$("#show").html(add);
-	    				
-	    				
-	    			},
-	    			error:function(err){
-	    				console.log("에러 메시지 : " + err);
-	    			}
-	    		});
-	    	});
-    	});
-    </script>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script src="https://code.jquery.com/jquery-3.4.1.js" type="text/javascript"></script>
+<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js" type="text/javascript"></script>
+<script type="text/javascript">
+	$(document).ready(function(){
+		$("h1:eq(0)").text("ajax 연습");
+		$("h1:eq(0)").click(function(){
+			// dom객체.이벤트처리함수..
+			$(this).css("background-color","yellow");
+			$(this).text("클릭되었습니다");
+/*
+# jquery 에서 지원하는 ajax 처리 속성.
+1. 기본 형식
+	$.ajax({
+		속성:"속성값",
+		속성:"속성값",
+		기능함수:function(매개변수){
+			
+		}
+	});
+2. 속성 
+	1) type: 전송방식 get/post
+	2) url : 전송 요청하는 서버의 자원
+	3) data : 요청하는 데이터   
+		- query string : key=value&key2=value2&....
+		- $(form).serialize() : form하위의  요소객체를 name,value
+			속성의 위의 query string 형식으로 자동전환하여 처리한다.
+		- json  형식 : { 요청key:요청value,요청2key:요청2value,}
+	4) dataType : 요청된 결과 값(json데이터)을 받은 형식
+		- text, json, html
+	5) success:function(){}:성공시 받은 데이터 처리
+	6) error:function(){}:실패시 받은 데이터 처리.
+ */
+ 			$.ajax({
+ 				type:"post",
+ 				url:"z01_data.txt",
+ 				dataType:"json",
+ 				success:function(data){
+ 					var prod = data;
+ 					var add = "<h3>과일명:"+prod.name+"</h3>";
+ 					add += "<h3>가격:"+prod.price+"</h3>";
+ 					add += "<h3>갯수:"+prod.cnt+"</h3>";
+ 					
+ 					$("#show").html(add);
+ 				},
+ 				error:function(err){
+ 					console.log(err);
+ 				}
+ 			});
+			
+			
+		});
+		
+	});
+</script>		
 </head>
-
 <body>
 	<div id="container">
 		<h1></h1> 
-		
 		<div id="show">받은 데이터 출력</div>
 	</div>
 </body>

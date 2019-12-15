@@ -1,0 +1,122 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- spring에서 쓰이는 객체들을 선언.. -->
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:task="http://www.springframework.org/schema/task" 
+    xmlns:aop="http://www.springframework.org/schema/aop" 
+	xmlns:context="http://www.springframework.org/schema/context"
+		xmlns:mvc="http://www.springframework.org/schema/mvc"
+	xmlns:p="http://www.springframework.org/schema/p"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	 xmlns:util="http://www.springframework.org/schema/util"
+	 xmlns:websocket="http://www.springframework.org/schema/websocket"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans
+       http://www.springframework.org/schema/beans/spring-beans-4.0.xsd
+        http://www.springframework.org/schema/aop
+       http://www.springframework.org/schema/aop/spring-aop-4.0.xsd
+       http://www.springframework.org/schema/context
+       http://www.springframework.org/schema/context/spring-context-4.0.xsd
+  		http://www.springframework.org/schema/mvc
+		http://www.springframework.org/schema/mvc/spring-mvc-4.0.xsd     
+        http://www.springframework.org/schema/util
+       http://www.springframework.org/schema/util/spring-util-4.0.xsd
+   		http://www.springframework.org/schema/websocket
+		http://www.springframework.org/schema/websocket/spring-websocket.xsd
+       http://www.springframework.org/schema/task
+       http://www.springframework.org/schema/task/spring-task.xsd" >
+      <bean id="p01" class="springweb.z01_vo.Product" >
+      	<constructor-arg value="사과"/>
+      	<constructor-arg value="3000"/>
+      	<constructor-arg value="2"/>
+      </bean>
+
+      <bean id="m01" class="springweb.z01_vo.Mart">
+      	<constructor-arg value="행복"/>
+      	<property name="product" ref="p01"/>
+      
+      </bean>
+      <bean id="p02" class="springweb.z01_vo.Product" >
+      	<constructor-arg value="바나나"/>
+      	<constructor-arg value="4000"/>
+      	<constructor-arg value="3"/>
+      </bean>  
+      <bean id="p03" class="springweb.z01_vo.Product" >
+      	<constructor-arg value="딸기"/>
+      	<constructor-arg value="12000"/>
+      	<constructor-arg value="4"/>
+      </bean>          
+  	  <bean id="m02" class="springweb.z01_vo.Mart">
+  	  	<constructor-arg value="즐거운"/>
+  	  	<property name="plist"> <!--  void setPlist( ArrayList<Product> list) -->
+  	  		<list>  <!-- ArrayList<Product> list = ...
+  	  					 list.add(p01);
+  	  					 list.add(p02);
+  	  					 list.add(p03);
+  	  				 -->
+  	  			<ref bean="p01"/>
+  	  			<ref bean="p02"/>
+  	  			<ref bean="p03"/>
+  	  		</list>
+  	  	</property>
+  	  
+  	  </bean> 
+  	  <bean id="bk1" class="springweb.z01_vo.Book">
+  	  	<constructor-arg value="java기초" />
+  	  	<constructor-arg value="30000" />
+  	  	<constructor-arg value="2" />
+  	  </bean>
+  	  <bean id="bk2" class="springweb.z01_vo.Book">
+  	  	<constructor-arg value="jsp 발걸음" />
+  	  	<constructor-arg value="28000" />
+  	  	<constructor-arg value="3" />
+  	  </bean>
+  	  <bean id="bk3" class="springweb.z01_vo.Book">
+  	  	<constructor-arg value="spring으로 웹프로그래밍" />
+  	  	<constructor-arg value="32000" />
+  	  	<constructor-arg value="2" />
+  	  </bean>
+  	  
+  	  <bean id="bs" class="springweb.z01_vo.BookStore">
+  	  	<constructor-arg value="지혜샘"/>
+  	  	<property name="blist">
+			<list>
+				<ref bean="bk1"/>
+				<ref bean="bk2"/>
+				<ref bean="bk3"/>
+			</list>  	  	
+  	  	</property>
+  	  </bean>  
+     <!-- ex) Bus와 Person을 1:다 관계에 의해서, bean 객체를 생성하고,
+     해당 리스트내용을 출력하세요..
+    
+     
+     
+     
+      -->  
+      <bean id="p1" class="springweb.z01_vo.Person">
+      	<constructor-arg value="홍길동"/>
+      	<constructor-arg value="25"/>
+      	<constructor-arg value="서울신림동"/>
+      </bean> 
+      <bean id="p2" class="springweb.z01_vo.Person">
+      	<constructor-arg value="신길동"/>
+      	<constructor-arg value="27"/>
+      	<constructor-arg value="경기인천계양구"/>
+      </bean> 
+      <bean id="p3" class="springweb.z01_vo.Person">
+      	<constructor-arg value="마길동"/>
+      	<constructor-arg value="30"/>
+      	<constructor-arg value="경기 수원"/>
+      </bean> 
+      <bean id="bus01" class="springweb.z01_vo.Bus">
+      	<constructor-arg value="9000"/>
+      	<property name="list">
+      		<list>
+  				<ref bean="p1"/>		
+  				<ref bean="p2"/>		
+  				<ref bean="p3"/>		
+      		</list>
+      	</property>
+      </bean>
+
+      
+</beans>       

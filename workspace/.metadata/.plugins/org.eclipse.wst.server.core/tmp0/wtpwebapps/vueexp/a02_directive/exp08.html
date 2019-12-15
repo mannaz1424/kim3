@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script src="https://code.jquery.com/jquery-3.4.1.js" type="text/javascript"></script>
+<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js" type="text/javascript"></script>
+<script type="text/javascript">
+	$(document).ready(function(){
+		
+		
+ 		var vm = new Vue({
+ 			el:"#container",
+ 			data:{
+ 				msg:"반복문 template 활용",
+ 				id:'',
+ 				check:'',
+ 				checks:["대학원", "대학", "고등학교","중학교","초등학교"]
+ 				}
+ 		});
+	});
+</script>		
+</head>
+<body>
+	<div id="container">
+		<h1>{{msg}}</h1> 
+		
+		<input type="radio" value="선택1" onclick="alert(this.type)"/>선택1<br>
+		<input type="radio" value="선택1" onclick="alert(this.value)"/>선택1<br><br>
+		<input type="text" v-model="id" placeholder="아이디를 입력하세요...">
+		학력선택 : 
+		<template v-for="school in checks">
+			<input type="radio" v-model="check"
+			       :value="school"/>{{school}}
+	    </template><br>
+	    
+	    <h1>등록한 화원 정보</h1>
+	    <h3>아이디 : {{id}}</h3>
+	    <h3>학력 : {{check}}</h3>
+	    
+	</div>
+</body>
+</html>

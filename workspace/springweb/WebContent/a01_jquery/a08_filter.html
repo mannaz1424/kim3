@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<style type="text/css">
+/*
+
+*/
+
+</style>
+<script type="text/javascript" 
+	src="../a00_com/jquery-3.4.1.js"></script>
+<script type="text/javascript">
+	$(document).ready(function(){
+		
+		$("h1").html("jquery html에서 시작");
+		$("[type=checkbox]").click(function(){
+			// $("객체:checked") : checkbox, radio 경우 체크가 된 것을 지정..
+			// $("객체:not(:checked)") : checkbox, radio 경우 체크가 되지 않을 것을 지정..
+			// $("객체1 + 객체2") : 객체1을 앞을 둔 객체2를 선택..
+			$("input:checked + span").css("background-color","yellow");
+			$("input:not(:checked) + span").css("background-color","pink");
+		});
+		// $(":type를 지정") : 해당 form객체의 요소객체의 type을 간단하게 지정할 때, 활용된다.
+		$(":button").css("border","3px red solid");
+		// $("객체").attr("html의 기본속성","속성값..")
+		// $("객체:disabled"): 객체의 속성에서 disabled 속성이 있는 것..
+		$("input[type=text]:disabled").css("background-color","blue");
+		$("input[type=text]:enabled").css("background-color","pink");
+		$("#enable").click(function(){
+			// attr("속성","속성값") :속성값설정
+			// removeAttr("속성") : 속성값 삭제..
+			$("input[type=text]:disabled").removeAttr("disabled");
+			$("input[type=text]:disabled").attr("enabled","enabled");
+			$("input[type=text]:disabled").css("background-color","yellow");
+			$("input[type=text]:enabled").css("background-color","pink");
+		});
+		$("#disable").click(function(){
+			$("input[type=text]:enabled").removeAttr("enabled");
+			$("input[type=text]:enabled").attr("disabled","disabled");
+			$("input[type=text]:disabled").css("background-color","yellow");
+			$("input[type=text]:enabled").css("background-color","pink");
+		});	
+		$(".cls01").click(function(){
+			$(".cls01:focus").css("background-color","yellow");
+			$(".cls01:not(:focus)").removeAttr("style");
+		});
+		
+		
+	});
+</script>
+</head>
+<body>
+<!--  -->
+<h1></h1>
+<input type="checkbox" ><span>사과</span><br> 
+<input type="checkbox" ><span>바나나</span><br> 
+<input type="checkbox" ><span>딸기</span><br> 
+<input type="checkbox" ><span>오렌지</span><br> 
+<input type="text" id="first"/>
+<input type="text" id="second" disabled="disabled"/>
+<input type="text" id="third" enabled="enabled"/>
+<input type="button" id="enable" value="enable"/>
+<button id="disable">disable</button>
+<input type="text" class="cls01"  value="one"/><br>
+<input type="text" class="cls01"  value="two"/><br>
+<input type="text" class="cls01"  value="three"/><br>
+<input type="text"  class="cls01" value="four"/><br>
+<!-- :focus -포커스될 때,
+     :not(:focus) - 포키스되지 않는 객체 -->
+
+
+
+
+
+
+
+</body>
+</html>

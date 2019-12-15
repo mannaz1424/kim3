@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- spring에서 쓰이는 객체들을 선언.. -->
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:task="http://www.springframework.org/schema/task" 
+    xmlns:aop="http://www.springframework.org/schema/aop" 
+	xmlns:context="http://www.springframework.org/schema/context"
+		xmlns:mvc="http://www.springframework.org/schema/mvc"
+	xmlns:p="http://www.springframework.org/schema/p"
+	xmlns:c="http://www.springframework.org/schema/c"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	 xmlns:util="http://www.springframework.org/schema/util"
+	 xmlns:websocket="http://www.springframework.org/schema/websocket"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans
+       http://www.springframework.org/schema/beans/spring-beans-4.0.xsd
+        http://www.springframework.org/schema/aop
+       http://www.springframework.org/schema/aop/spring-aop-4.0.xsd
+       http://www.springframework.org/schema/context
+       http://www.springframework.org/schema/context/spring-context-4.0.xsd
+  		http://www.springframework.org/schema/mvc
+		http://www.springframework.org/schema/mvc/spring-mvc-4.0.xsd     
+        http://www.springframework.org/schema/util
+       http://www.springframework.org/schema/util/spring-util-4.0.xsd
+   		http://www.springframework.org/schema/websocket
+		http://www.springframework.org/schema/websocket/spring-websocket.xsd
+       http://www.springframework.org/schema/task
+       http://www.springframework.org/schema/task/spring-task.xsd" >
+<!-- 특정 package 하위에 있는 모든 클래스를 객체로 로딩 처리,
+1. component-scan으로 
+	1) base-package:지정한 패키지의 하위에 있는 모든 클래스를 객체로 로딩처리..
+	2) include-filter type="regex" 정규형태로 해당 클래스 지정처리..
+ -->
+      <context:component-scan base-package="springweb.z01_vo">
+      	<context:include-filter type="regex" expression=".*"/>
+      </context:component-scan>
+</beans>    
+<!--ex)  springweb.z01_vo.scan를 기본패키지로 하되,
+	Controller annotation으로 설정된 클래스를 객체로 로딩되어
+	호출 처리하세요  diexp09.xml
+	A09_DIExp.java
+	
+ -->
+
+   

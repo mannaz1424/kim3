@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- spring에서 쓰이는 객체들을 선언.. -->
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:task="http://www.springframework.org/schema/task" 
+    xmlns:aop="http://www.springframework.org/schema/aop" 
+	xmlns:context="http://www.springframework.org/schema/context"
+		xmlns:mvc="http://www.springframework.org/schema/mvc"
+	xmlns:p="http://www.springframework.org/schema/p"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	 xmlns:util="http://www.springframework.org/schema/util"
+	 xmlns:websocket="http://www.springframework.org/schema/websocket"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans
+       http://www.springframework.org/schema/beans/spring-beans-4.0.xsd
+        http://www.springframework.org/schema/aop
+       http://www.springframework.org/schema/aop/spring-aop-4.0.xsd
+       http://www.springframework.org/schema/context
+       http://www.springframework.org/schema/context/spring-context-4.0.xsd
+  		http://www.springframework.org/schema/mvc
+		http://www.springframework.org/schema/mvc/spring-mvc-4.0.xsd     
+        http://www.springframework.org/schema/util
+       http://www.springframework.org/schema/util/spring-util-4.0.xsd
+   		http://www.springframework.org/schema/websocket
+		http://www.springframework.org/schema/websocket/spring-websocket.xsd
+       http://www.springframework.org/schema/task
+       http://www.springframework.org/schema/task/spring-task.xsd" >
+      <bean id="w01" class="springweb.z01_vo.Woman" >
+      	<constructor-arg value="홍지혜"/>
+      	<constructor-arg value="25"/>
+      </bean>
+      <!-- 
+      Woman w01 = new Woman("홍지혜",25);
+      
+      // 생성자를 통한객체를 생성..
+      Man m01 = new Man("김철수");
+      // 외부를 받는 메서드를 통해서 객체 할당..
+      m01.setWoman(w01);
+      m01.show();
+       -->
+      <bean id="m01" class="springweb.z01_vo.Man">
+      	<constructor-arg value="김철수"/>
+      	<!-- name이 메서드 setWoman 호출 생성된 객체를 할당할 때는,
+      	ref(reference참조변수)로  위에 선언된 객체의 id를 할당한다.-->
+      	<property name="woman" ref="w01"/>
+      
+      </bean>
+      <!-- 
+      ex) vo패키지 하위에 Book과 BookStore를 1:1 연관관계를
+      bean으로 선언하여, A03_DIExp.java에서 선언하여 출력하세요.
+       -->
+      <bean id="bk01" class="springweb.z01_vo.Book">
+      	<constructor-arg value="스프링중급"/>
+      	<constructor-arg value="32000"/>
+      	<constructor-arg value="2"/>
+      </bean>  
+      <bean id="bs" class="springweb.z01_vo.BookStore">
+      	<constructor-arg value="지혜서점"/>
+      	<property name="bk" ref="bk01"/>
+      
+      </bean> 
+       
+       
+</beans>       

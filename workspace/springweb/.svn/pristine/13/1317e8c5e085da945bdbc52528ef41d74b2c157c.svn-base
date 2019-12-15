@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script type="text/javascript" 
+	src="../a00_com/jquery-3.4.1.js"></script>
+<script type="text/javascript">
+/*
+# form 하위 요소 element 객체의 값의 지정..
+1. .val() 
+	기존 js의 .value 기능과 동일한 처리를 한다. 
+	1) .val("해당 데이터 저장")
+	2) .val() : 저장된 데이터 호출 처리..
+ */
+	$(document).ready(function(){
+//		
+		$("h1").html("form 하위 요소 객체의 값처리.");
+		// 1첫번째 text에 데이터 할당.
+		// 1) .val("해당 데이터 저장")
+		$("input").eq(0).val(25);
+		$("input").eq(1).val(30);
+// # 이벤트 처리..
+// $(객체).이벤트명(처리할함수);
+		$("#btn01").click(function(){
+			//alert("이벤트 호출");
+		// 2) .val() : 저장된 데이터 호출 처리.. 	
+			var num01 = Number($("input").eq(0).val());
+			var num02 = Number($("input").eq(1).val());
+			var sum = num01+num02;
+			$("div").eq(0).html("<h2>"+num01+" + "+num02+" = "+sum+"</h2>");
+
+		});
+		// ex) 구매할 물건 : [    ] 가격: [    ] 갯수:[   ]
+		//     [구매완료]
+		//     버튼 클릭시, 하단에 @@@물건을 @@개  @@@원에 구매하여 총비용이 @@@ 입니다.
+		//    출력처리하세요.
+		
+		$("#buyBtn").click(function(){
+			//alert("계산 이벤트");
+			// $("태그[속성=속성값]") : 해당 태그의 속성과 속성값으로
+			//   요소객체를 지정할 수 있다.
+			var pname= $("input[name=pname]").val();
+			var price= $("input[name=price]").val();
+			var cnt= $("input[name=cnt]").val();
+			var tot = price*cnt; // 자동형변환으로 연산이 가능하다.
+			//alert(pname);
+			var show= pname+"물건을 "+cnt+"개  "+price
+				+"원에 구매하여 총비용이 "+tot+"원 입니다.";
+			$("div").eq(1).html("<h2>"+show+"</h2>");
+		});
+	});
+</script>
+</head>
+<body>
+	<h1></h1>
+	<input type="text" name="num01" /> +
+	<input type="text" name="num02" /><br>
+	<input type="button" id="btn01" value="연산결과"/>
+	<div></div>
+	<h2>구매 물품</h2>
+	구매할 물건 : <input type="text" name="pname" size="5"/>
+	가격 : <input type="text" name="price" size="5" />
+	갯수 : <input type="text" name="cnt" size="5" /><br>
+	<input type="button" id="buyBtn" value="구매완료"/>
+	<div>
+	</div>
+	
+	
+	
+</body>
+</html>
+
+

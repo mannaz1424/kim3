@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- spring에서 쓰이는 객체들을 선언.. -->
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:task="http://www.springframework.org/schema/task" 
+    xmlns:aop="http://www.springframework.org/schema/aop" 
+	xmlns:context="http://www.springframework.org/schema/context"
+		xmlns:mvc="http://www.springframework.org/schema/mvc"
+	xmlns:p="http://www.springframework.org/schema/p"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	 xmlns:util="http://www.springframework.org/schema/util"
+	 xmlns:websocket="http://www.springframework.org/schema/websocket"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans
+       http://www.springframework.org/schema/beans/spring-beans-4.0.xsd
+        http://www.springframework.org/schema/aop
+       http://www.springframework.org/schema/aop/spring-aop-4.0.xsd
+       http://www.springframework.org/schema/context
+       http://www.springframework.org/schema/context/spring-context-4.0.xsd
+  		http://www.springframework.org/schema/mvc
+		http://www.springframework.org/schema/mvc/spring-mvc-4.0.xsd     
+        http://www.springframework.org/schema/util
+       http://www.springframework.org/schema/util/spring-util-4.0.xsd
+   		http://www.springframework.org/schema/websocket
+		http://www.springframework.org/schema/websocket/spring-websocket.xsd
+       http://www.springframework.org/schema/task
+       http://www.springframework.org/schema/task/spring-task.xsd" >
+       <!-- 
+       		main()
+            Person p01 = new Person(); 
+       		p01.setName("홍길동");
+       		p01.setAge(25);
+       		p01.setLoc("서울 방배동");
+       		
+       		Person p02 = new Person("신길동",27,"경기 수원");
+       -->
+      <bean id="p01" class="springweb.z01_vo.Person" >
+      	<property name="name" value="홍길동"/>
+      	<property name="age" value="25"/>
+      	<property name="loc" value="서울 방배동"/>
+      </bean>
+      <bean id="p02" class="springweb.z01_vo.Person" >
+      	<constructor-arg value="신길동"/>
+      	<constructor-arg value="27"/>
+      	<constructor-arg value="경기 수원"/>
+      </bean>  
+      <!-- 
+      ex) springweb.z01_vo에 있는 Member 클래스를 메서드에 의해서
+      데이터를 할당하고, 생성자에 의해서 데이터를 할당한 후에, 
+      A01_DIExp.java에서 id값을 호출해서 출력하세요
+      
+       -->
+      <bean id="m01" class="springweb.z01_vo.Member">
+      	<property name="id" value="himan"/>
+      	<property name="pass" value="7777"/>
+      	<property name="name" value="홍길동"/>
+      	<property name="auth" value="관리자"/>
+      	<property name="point" value="1000"/>
+      </bean>
+      <bean id="m02" class="springweb.z01_vo.Member">
+      	<constructor-arg value="higirl"/>
+      	<constructor-arg value="8888"/>
+      	<constructor-arg value="김빛나"/>
+      	<constructor-arg value="사용자1"/>
+      	<constructor-arg value="2000"/>
+      </bean>
+          
+       
+</beans>       

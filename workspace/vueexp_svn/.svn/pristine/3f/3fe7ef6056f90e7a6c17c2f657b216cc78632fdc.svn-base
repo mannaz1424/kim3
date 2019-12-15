@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>05-06</title>
+  <style>
+    .set1 { background-color: aqua; color:purple; }
+    .set2 { text-align:center; width:120px; }
+    .set3 { border:sandybrown dashed 1px; }
+  </style>
+  <script src="https://unpkg.com/vue/dist/vue.min.js"></script>
+</head>
+<body>
+<div id="example">
+	<!-- 
+	여러 클래스에 대한 적용여부를 mystle로 class명:적용여부를 객체로 mapping
+	하였을 때..
+	
+	 -->
+    <button id="btn1" v-bind:class="mystyle">버튼1</button>
+    <p>
+    <!-- 
+    구체적인  속성을 mapping하여 적용 처리를 객체단위로 할 수 있다..	
+     -->
+        <input type="checkbox" v-model="mystyle.set1" value="true" />set1 디자인<br/>
+        <input type="checkbox" v-model="mystyle.set2" value="true" />set2 디자인<br/>
+        <input type="checkbox" v-model="mystyle.set3" value="true" />set3 디자인<br/>
+    </P>
+</div>
+<script type="text/javascript">
+var vm = new Vue({
+  el : "#example",
+  data : { 
+     mystyle : { set1:false, set2:false, set3:false }
+  }
+})
+</script>
+</body>
+</html>

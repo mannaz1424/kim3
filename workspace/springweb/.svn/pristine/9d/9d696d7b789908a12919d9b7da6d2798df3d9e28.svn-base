@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<style type="text/css">
+/*
+
+*/
+
+</style>
+<script type="text/javascript" 
+	src="../a00_com/jquery-3.4.1.js"></script>
+<script type="text/javascript">
+	$(document).ready(function(){
+/* 
+# jquery에서의 ajax처리.
+1. 기본 형식.
+	$.ajax({속성:속성값,속성:속성값,메서드:function(){}});
+2. 속성:
+	1) type : get/post 요청 방식..
+	2) url : 호출할 서버단의 자원
+	3) data : 요청 처리할 데이터
+		- query string :?num01=25&num02=30
+		- json : {num01:25,num02:30}
+		- form의 .serialize() : $("form").serialize();
+		    폼하위에 있는 모든 요청값(key,value)을 넘겨주는 처리..
+	4) dataType : 받는 데이터 형식,
+		- html, text, json(객체로 받게 된다.)
+	5) success: 성공했을 때, 함수 처리 내용
+	6) error: 실퍠했을 떼, 함수 처리 내용
+ */		$("h1").html("jquery ajax 시작(click)");
+		$("h1").click(function(){
+			//alert("ajax 호출");
+			$.ajax({
+				type:"get",
+				url:"z01_data.txt",
+				dataType:"text",
+				success:function(data){
+					//alert("받은 데이터:"+data);
+					$('h2').html(data);
+					
+				},
+				error:function(error){
+					console.log(error);
+				}
+			});
+		});    
+// ex) a02_startExp.html, h1을 클릭시, z02_data.txt에 저장된
+//     문자열 호출.
+	});
+</script>
+</head>
+<body>
+<!--  -->
+<h1></h1>
+<h2></h2>
+</body>
+</html>

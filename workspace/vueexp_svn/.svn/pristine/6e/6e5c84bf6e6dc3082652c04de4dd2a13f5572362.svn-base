@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>05-04</title>
+  <script src="https://unpkg.com/vue/dist/vue.min.js"></script>
+</head>
+<body>
+<div id="example">
+	<!-- 
+	# Vue에서 배열 style의 적용 처리..
+	 :style="{속성:모델속성,}"
+	 :style="모델객체선언"
+	 :style="[{css 속성 선언},{css 속성 선언}]"
+	 :style="[모델객체1, 모델객체2]"
+	 :style="모델배열선언"
+	
+	 -->
+    <button id="btn1" 
+    	v-bind:style="[myColor,myLayout]">버튼1</button>
+    <h1 :style="obj1">객체 속성 할당.</h1>	
+    <h2 :style="[obj1,obj2]">배열 객체 속성 할당1.</h2>	
+    <h2 :style="array01">배열 객체 속성 할당1.</h2>	
+</div>
+<script type="text/javascript">
+var vm = new Vue({
+  el : "#example",
+  data : {
+    myColor : { backgroundColor:'purple', color:'yellow' },
+    myLayout : { width:'150px', height:'80px', textAlign:'center' },
+    obj1:{backgroudColor:"yellow"},
+    obj2:{color:"blue"},
+    array01:[{width:"100px"},
+    	{textAlign:"center",border:"1px solid green"}]
+  }
+})
+</script>
+</body>
+</html>

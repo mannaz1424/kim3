@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script type="text/javascript" 
+	src="../a00_com/jquery-3.4.1.js"></script>
+<script type="text/javascript">
+/*
+# a02_attr01.html  
+1. 화면 처리 메서드..
+	1) .html("저장할 문자열/화면에 표시할 html태그.")
+	2) .html() : 해당 객체 안에 있는  html태그 내용
+	3) .text("표현한 문자열")
+	4) .text() : 해당 객체 안에 tag제거한 내용..
+
+ */
+	$(document).ready(function(){
+//
+
+		$("h1").html("화면을 처리하는 메서드 html()");
+		// p태그 2번째..
+		// 1) .html("저장할 문자열/화면에 표시할 html태그.")
+		$("p").eq(1).html("<ol><li>추가할 내용 처리..</li></ol>");
+		// 2) .html() : 해당 객체 안에 있는  html태그 내용
+		//alert( $("h3").eq(0).html() );
+		// 3) .text("표현한 문자열")
+		$("p").eq(2).text("<ol><li>추가할 내용 처리..</li></ol>");
+		// 4) .text() : 해당 객체 안에 tag제거한 내용..
+		//  html태그를 제외한 순수 데이터만 가져온다. 
+		alert("div내용\n"+$("div").text());
+		
+		
+		
+	
+		
+	});
+</script>
+</head>
+<body>
+	<h1></h1>
+	<h3>hello</h3>
+	<div>
+		<h2>주말에 있었던 일과들!!</h2>
+		<p>
+			<h3>휴식</h3>
+			<h3>친구와 만남</h3>
+			<h3>취미 활동</h3>
+			<h3>여행</h3>
+		</p>
+		<p></p>
+		<p></p>
+	</div>
+	
+	
+	
+</body>
+</html>

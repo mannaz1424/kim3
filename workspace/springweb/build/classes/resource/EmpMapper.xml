@@ -1,0 +1,101 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+	PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+	"http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<!-- 
+1. dao interface 이름과 namespace와 연동: 
+2. dao의 기능 메서드명과  sql의 id명과 동일
+3. 메서드의 매개변수를 통해서 조건, 입력데이터, 수정 처리할 때,
+	parameterType이라는 속성을 지정하여야 한다.
+4. return type에 대한 선언.
+
+	1) public int count();
+		단일 데이터는 resultType="int" 
+	2) public Emp getEmp(int empno)
+		단일 객체일 경우 resultType="emp"
+	3) public ArrayList<Emp> empList(Emp sch);	
+         ArrayList<Emp>라는 2차원 데이터를 저장하는 객체를 선언하여야 한다.
+         resultMap의 속성 값으로 설정.
+       - resultMap을 선언하기 위해서  tag로
+       	 resultMap를 사용하는 여기에 속성값을 id와 type이 있다.
+       	 resultMap 이차원 즉 배열형식으로 설정할 때, 사용하는데,
+       	 단위객체에 대한 설정으로 type 속성값으로 설정하고, 
+       	   type="emp" : 이차원 배열객체는 emp라는 단위객체들이 모여서 된 것입니다.
+       	  id속성은 이 모듈 하위에 호출하여 쓸 수 있게끔 선언하는 부분.. 
+       - 각각의 SQL에 대한 설정의  id="메서드명", parameterType="메서드의 매개변수"
+       	 resultType/resultMap="return객체"를 설정하여 처리한다.	  
+ 	4) public Emp getEmp(int empno);
+		단일 데이터는 resultType="emp" parameterType="int"        	 
+ -->	
+<mapper namespace="springweb.a03_data.dao.A01_EmpDao">
+	<!-- public ArrayList<Emp> empList(Emp sch) -->
+	<resultMap type="emp" id="empMap"/>
+	   <!-- mybatis.Spring.xml에서 선언한 alias이름이나, vo객체 전체이름 
+	   SQL에서는 동적인 처리위해 ognl형식으로 처리한다.
+	   jstl에서 조건문 반복처리와 유사하다.
+	   
+	   select * from emp
+	   where 1=1
+	   and ename like '%'||'a'||'%'   'a'로 sch.getEname() {property명설정} {ename}
+	   and job like '%'||'b'||'%'
+	   
+	   -->
+	<select id="empList" 
+		parameterType="emp"  
+		resultMap="empMap">
+		SELECT * FROM emp10
+		where 1=1
+		<!-- 
+		{ename}은   emp vo의 getEname()이 호출되는 것을 의미한다.
+		조회 조건으로 들어 오지 않을 때는 처리하는 if 구문 처리..
+		 -->
+		<if test="ename!=null and ename !='' "> 
+		and ename like '%'||#{ename}||'%'
+		</if>
+		<if test="job !=null and job !='' ">
+		and job like '%'||#{job}||'%'
+		</if>
+		order by empno desc
+	</select>
+	<!-- void insertEmp(Emp insert) -->
+	<insert id="insertEmp" parameterType="emp" >
+		insert into emp10 values(emp01_seq.nextval,
+			#{ename},#{job},#{mgr},sysdate,#{sal},#{comm},#{deptno} )
+	</insert>
+	<!-- Emp getEmp(int empno) -->
+	<select id="getEmp" resultType="emp" parameterType="int">
+		SELECT * FROM emp10 
+		WHERE empno = #{empno}
+	</select>
+<!-- 
+	public void uptEmp(Emp upt);
+	public void delEmp(int empno);
+	
+	upt.getHiredate().toLocaleString().substring(0,12).trim()
+ -->
+ 	<update id="uptEmp" parameterType="emp">
+ 		UPDATE emp10
+ 			SET ename=#{ename},
+ 				job=#{job},
+ 				mgr=#{mgr},
+ 				deptno=#{deptno},
+ 				sal=#{sal},
+ 				comm=#{comm},
+ 				hiredate=to_date('${hiredate.toLocaleString().substring(0,hiredate.toLocaleString().length()-11)}','YYYY. MM. DD')
+ 		WHERE empno=#{empno}
+ 	</update>
+ 	<delete id="delEmp" parameterType="int">
+ 		DELETE FROM emp10
+ 		WHERE empno=#{empno}
+ 	</delete>
+ 	
+</mapper>	
+
+
+
+
+
+
+
+
+

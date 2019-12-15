@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script type="text/javascript" 
+	src="../a00_com/jquery-3.4.1.js"></script>
+<script type="text/javascript">
+/*
+# jquery 에서의 속성 설정..
+1. attr()
+	1) tag에서 지원하는 기본적인 속성을 설정할 때, 가져올 때
+		사용된다.
+	2) 속성에 속성값을 저장할 때..
+		attr("속성","속성값")
+2. css()
+	1) css에서 지원하는 속성을 설정/가져올 때, 활용된다.
+	2) 속성값 설정:css("속성","속성값")
+	3) 속성값 가져올 때. :css("속성")
+	
+
+ */
+	$(document).ready(function(){
+//		
+		$("h1").html("jquery 속성설정(attr,css)");
+		// $(요소1, 요소2) : 두개의 선택자을 지정할 때..
+		$("h1, h2").attr("align","center");
+		$("h1, h2").css("background-color","yellow");
+		var aligns = ["right","center","left"];
+		var colors = ["red","green","blue"];
+		var idx=0;
+		$("h2").click(function(){
+			// 3) 속성값 가져올 때. :attr("속성")
+			alert("현재 h1 정렬 속성:"+$("h1").attr("align")+
+					":"+$("h1").css("color"));
+			//     색상의 속성값은 rgb(0~255,0~255,0~255)
+			$("h1").attr("align",aligns[idx++%3]);
+			$("h1").css("color",colors[idx%3]);
+		});
+	// ex1) h2를 7개 만들고, 배경 색상을 rainbow 색상으로 설정.
+	//   1. $(".클래스명").length: 클래스의 길이.
+	//   2. $(".클래스명").eq(인덱스).css("속성","속성값")
+	//      속성값에 현재 .rainbow가 가지고 있는 html:
+	//       $(".rainbow").eq(idx).html()
+		for(var idx=0;idx<$(".rainbow").length;idx++){
+			$(".rainbow").eq(idx).css("background-color",
+					$(".rainbow").eq(idx).html());
+		}
+	// ex2) img를 setInterval을 이용해서 이미지3개가 
+	//      3초마다  변경 처리되게
+		var imgs=["img01.GIF","img02.GIF","img02.GIF"];
+		$("img").attr("src",imgs[2]);
+		
+		var idx=0;
+		setInterval(function(){
+			$("img").attr("src",imgs[idx++%3]);
+		},3000);
+	});
+</script>
+
+
+</head>
+<body>
+
+	<h1></h1>
+	<h2>정렬 속성의 변경</h2>
+	<h2 class="rainbow">red</h2>
+	<h2 class="rainbow">orange</h2>
+	<h2 class="rainbow">yellow</h2>
+	<h2 class="rainbow">green</h2>
+	<h2 class="rainbow">blue</h2>
+	<h2 class="rainbow">navy</h2>
+	<h2 class="rainbow">purple</h2>
+	<img width="300" height="300"/>
+</body>
+</html>

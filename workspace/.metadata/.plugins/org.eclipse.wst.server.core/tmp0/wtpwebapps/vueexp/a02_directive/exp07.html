@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script src="https://code.jquery.com/jquery-3.4.1.js" type="text/javascript"></script>
+<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js" type="text/javascript"></script>
+<script type="text/javascript">
+	$(document).ready(function(){
+		var pList = [
+			{"name":"사과","price":3000,"value":2,"tPrice":6000},
+			{"name":"바나나","price":4000,"value":3,"tPrice":12000},
+			{"name":"딸기","price":12000,"value":5,"tPrice":60000}			
+		];
+ 		var vm = new Vue({
+ 			el:"#container",
+ 			data:{
+ 				msg:"객체형 배열",
+ 				list: pList,
+ 				tot:0
+ 				}
+ 		});
+ 		
+ 		
+	});
+</script>		
+</head>
+<body>
+	<div id="container">
+		<h1>{{msg}}</h1> 
+		<script type="text/javascript">
+		    var ttPrice = 0;
+		    document.getElementById("result").innerHTML = ttPrice;
+		</script>
+		
+		
+		<!-- :id v-bind:id 의 약자 -->
+		<table border :id="tot=0">
+		    <tr><th>no</th><th>과일명</th><th>가격</th><th>구매 수량</th><th>계산 가격</th></tr>
+		    <tr v-for="(vlist, index) in list"
+		        :tot="tot +=parseInt(vlist.price * vlist.value)">
+		        <td>{{index +1}}</td>
+		        <td>{{vlist.name}}</td>
+		        <td>{{vlist.price}}</td>
+		        <td>{{vlist.value}}</td>
+		        <td>{{vlist.tPrice}}</td>		        
+		    </tr>
+		    
+		    <tr>
+		        <td>total price</td>
+		        <td colspan="4">{{tot}}</td>
+		    </tr>
+		</table>
+		
+		<div id="result"></div>
+	</div>
+</body>
+</html>

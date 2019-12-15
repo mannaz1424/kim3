@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<style type="text/css">
+/*
+
+*/
+
+</style>
+<script type="text/javascript" 
+	src="../a00_com/jquery-3.4.1.js"></script>
+<script type="text/javascript">
+	$(document).ready(function(){
+/* 		
+# 선택자의 여러 유형..
+1. 동일한 속성값 설정	
+	ex) $("선택자1, 선택자2").css("속성","속성값");
+2. 계층형 선택자 처리
+	1) $("상위 하위") : 계층형 구조의 요소객체가 있을 때,
+		상위 하위 같의 [레벨 상관 없이] 상위 하위계층에 하위요소가 있으면
+		하위 요소에 적용 처리할 한다.
+	2) $("상위>하위") : 계층형 구조의 요소 객체가 있을 때,
+		상위 바로 밑에 하위가 있을 때, 하위 계층에 대한 속성 적용..
+	3) $("형제1 + 형제2") : 같은 부모를 둔 형제1을 앞세운 형제2 요소
+		객체에 대한 선택자 처리.
+	4) $("형제1 ~ 형제2") : 같은 부모를 둔 형제1 뒤에 나타나는 형제2 모든
+	   요소
+	5) $("[속성]") : 해당 속성이 있을 때, 선택자로 지정..   
+	   $("[속성=속성값]"): 해당 속성에 속성값이 있을 때..
+	   $("[속성^=속성값]"): 해당 속성에 속성값으로 시작할 때.
+	   $("[속성$=속성값]"): 해당 속성에 속성값으로 끝날 때.
+	   $("[속성*=속성값]"): 해당 속성에 속성값이 포함되어 있으면 선택.
+	   
+	   
+	   
+	   
+	   
+ */		
+		$("h1").html("계층 구조간의 요소 선택자");
+		$("h2").click(function(){
+			// 바로 하위 li 선택
+			$("ul.topnav > li").css("border","3px double red");
+			console.log("ul.topnav > li:"+$("ul.topnav > li").length);
+		});
+		$("h3").click(function(){
+			// 계층 상관 없이  li 선택
+			$("ul.topnav  li").css("color","blue");
+			console.log("ul.topnav li:"+$("ul.topnav li").length);
+		});	
+		$("[id]").css("font-size","30px");
+	});
+</script>
+</head>
+<body>
+<!--  -->
+<h1></h1>
+<h2>.topnav의 바로 하위 li 선택(클릭!!)</h2>
+<h3>.topnav의 하위 li 선택(클릭!!)</h3>
+<ul class="topnav">
+	<li>아이템1</li>
+	<li>아이템2
+		<ul>
+			<li>아이템1</li>
+			<li>아이템2</li>
+			<li>아이템3</li>
+			<li>아이템4</li>
+		
+		</ul>
+	</li>
+	<li>아이템3</li>
+</ul>
+	<div id="g01">안녕하세요1</div>
+	<div>안녕하세요2</div>
+	<div>안녕하세요3</div>
+	<div id="g02">안녕하세요4</div>
+</body>
+</html>

@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<style>
+	.invalCls{background-color:red;}
+</style>
+<script src="https://code.jquery.com/jquery-3.4.1.js" type="text/javascript"></script>
+<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js" type="text/javascript"></script>
+<script type="text/javascript">
+	$(document).ready(function(){
+ 		var vm = new Vue({
+ 			el:"#container",
+ 			data:{msg:"학점입력",point:0},
+ 			computed:{
+ 				chPoint:function(){
+ 					var isInValid=true;
+ 					if(this.point>=0 && this.point<=100){
+ 						isInValid=false;
+ 					}
+ 					// 선언할 클래스 적용 여부를 return 처리..
+ 					return {invalCls:isInValid};
+ 				}
+ 			}
+ 		});
+	});
+/*
+ex) 학점을 입력[  ]
+    0~100 유효 - 흰색
+                 그외에는 -빨강색
+    message 로 유효하지 않을 때는 학점 입력은
+    	0~100점 사이입니다. 출력..
+ */	
+</script>		
+</head>
+<body>
+	<div id="container">
+		<h1>{{msg}}</h1>
+		학점 입력:<input type="text" v-model="point" :class="chPoint"/>
+		<h4 v-show="chPoint.invalCls">학점 입력 범위는 0~100 사이입니다!</h4> 
+	</div>
+</body>
+</html>

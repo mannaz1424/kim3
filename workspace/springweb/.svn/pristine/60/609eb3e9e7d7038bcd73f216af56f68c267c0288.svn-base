@@ -1,0 +1,135 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+	PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+	"http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+	
+<mapper namespace="springweb.a03_data.dao.A04_BoardDao">
+<!-- 
+DAO interface명:springweb.a03_data.dao.A04_BoardDao  
+기능 메서드명:public ArrayList<Board> boardList(BoardSch sch);
+1) return 데이터 타입 : ArrayList<Board>
+2) 메서드명: boardList
+3) 입력되는 입력 데이터 타입: BoardSch sch
+
+1. namespace명은 DAO interface명으로 설정..
+2. 기능 sql에서 사용되는 속성과 기능메서드와의 연관 관계..
+	1) id : 기능 메서드명
+	2) resultType : 리턴되는 단일 유형의 데이터 ex) int, Board
+			mybatis.Spring.xml에서 선언된  vo의 alias 명으로 단일 객체로 할당하거나.
+			int, String 형태의 type data 유형을 정의한다.
+			
+			ex) public int boardList(BoardSch sch);  : resultType="int"
+			ex) public String boardList(BoardSch sch); : resultType="String"
+			ex) public Board boardList(BoardSch sch); : resultType="boardsch" 
+	   resultMap : 리턴되는 배열 유형의 데이터 ex) ArrayList<Board>, String[]
+	   	     단위 데이터가 모여서 이루어진 resultMap이라는 객체를 선언해 주고, 해당 id를 호출한다.
+	   	     	resultMap type="board" id="boardMap"
+	   	     resultMap="boardMap" 
+	     	
+ -->
+	<resultMap type="board" id="boardMap"></resultMap>
+	<resultMap type="String" id="fileMap"/>
+	<!-- 총건수 가져오기.. int totCnt(BoardSch sch) -->
+	<select id = "totCnt" parameterType="boardsch" 
+		resultType="int">
+		SELECT COUNT(*)
+		FROM board a
+		WHERE 1=1
+		<if test="title !=null and title !='' ">
+			AND title LIKE '%'||#{title}||'%'
+		</if>
+		<if test="writer !=null and writer !='' ">
+			AND writer LIKE '%'||#{writer}||'%'
+		</if>				
+		
+	</select>
+	
+	
+	<select id="boardList" 
+		parameterType="boardsch"  
+		resultMap="boardMap">
+		SELECT * 
+		FROM (
+			SELECT ROWNUM rn, a.*, level FROM board a
+			WHERE 1=1
+			<if test="title !=null and title !='' ">
+				AND title LIKE '%'||#{title}||'%'
+			</if>
+			<if test="writer !=null and writer !='' ">
+				AND writer LIKE '%'||#{writer}||'%'
+			</if>	
+			START WITH refno=0
+			CONNECT BY PRIOR NO =refno	
+			ORDER SIBLINGS BY NO DESC )	
+	   WHERE rn BETWEEN #{start} AND #{end}		
+	</select>	
+<!-- 
+ refno 기준(start with refno=0 최상위 계층 설정)으로 해당
+ refno와 no를 연결과 처리.(connect by prior no = refno)
+ no와 refno가 연관관계가 있는 것을 먼저 list한다.
+ 글의 순서를 no기준으로 역순 정렬하되, 답글도 역순으로 정렬 처리..
+ order siblings by no desc
+ level : 계층의 레벨을 처리해준다.
+ 페이징 처리의 핵심 sql keyword는 rownum, 데이터가 로딩하는 순간,
+ 고유의 번호를 1~ 데이터 건수로 불러 처리 해준다.
+ -->	
+	
+	
+	<!-- boardInsert(Board ins) -->
+	<insert id="boardInsert" parameterType="board">
+		INSERT INTO board values(board_seq.nextval,#{refno},
+		#{title},#{content},#{writer},0,sysdate,sysdate,'')
+	</insert>  
+	<!-- 
+	insertBoardFile(String fname);
+	INSERT INTO BOARDFILE values(board_seq.curval,'파일명',sysdate,sysdate,'' )
+	 -->
+	<insert id="insertBoardFile" parameterType="String">
+		INSERT INTO BOARDFILE values(board_seq.currval,#{fname},sysdate,sysdate,'' )
+	</insert>
+	<!--  Board getBoard(int no) -->
+	<select id="getBoard" parameterType="int" resultType="board">
+		SELECT *
+		FROM board
+		WHERE no = #{no}
+	</select>
+	<!-- 
+	String[] getFiles(int no)
+	 -->
+	<select id="getFiles" resultMap="fileMap" parameterType="int">
+		SELECT fname FROM boardfile 
+		WHERE NO = #{no}
+	</select>
+	
+	
+	<!-- 조회시, 조회수 카운트 업.. -->
+	<update id="uptReadCnt" parameterType="int" >
+		UPDATE board
+		   SET readcnt=readcnt+1
+		 WHERE no = #{no} 
+	</update>	
+	<!-- 조회 처리. sql public void updateBoard(Board update) -->
+	<update id="updateBoard" parameterType="board" >
+		UPDATE board
+		   SET title = #{title},
+		       content = #{content},
+		       writer = #{writer},
+		       uptdte=sysdate
+		 WHERE no = #{no} 
+	</update>
+	<!-- 삭제 처리 void deleteBoard(int no) -->
+	<delete id="deleteBoard" parameterType="int">
+		DELETE FROM board 
+		WHERE no = #{no}
+	</delete>
+	
+</mapper>	
+
+
+
+
+
+
+
+
+

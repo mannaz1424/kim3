@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<style type="text/css">
+/*
+
+*/
+	.new{ border: 5px solid blue;}
+	.wrap2{ border: 1px solid orange;}
+</style>
+<script type="text/javascript" 
+	src="../a00_com/jquery-3.4.1.js"></script>
+<script type="text/javascript">
+	$(document).ready(function(){
+		
+		$("h1").html("jquery maniplulation에서 시작");
+/* 		
+# jquery에서 하위 html내용 다루기..
+1. html()은 기본 html화면 처리..append() : 추가적인 내용을 처리할 때 활용된다.
+	ex) $("h1").html("안녕하세요!!")
+	    $("h1").append("! 반갑습니다."); 안녕하세요!! 에서  반갑습니다.를 추가 처리\
+	    $(".inner").append($("h2")); 해당 객체를 내부에 포함 처리..
+   # 상위.append(하위) : 상위에서 하위를 포함 	    
+2. 하위.appendTo(상위)	, 뒤에객체.prepend(앞에 객체)     
+3. 하위.wrap(하위를 포함할 객체..), 대상객체.wrapAll(모두적용객체)
+   하위.unwrap() :기존 wrap처리를 삭제처리..	 
+4. .replaceWith() :특정한 객체나 tag로 변경처리.   
+   .replaceAll() : 특정한 객체나 tag로 모두다 변경처리..
+5. .empty() : 특정 객체를 공백처리.(해당 요소객체는 있음..)
+   .remove() : 특정 객체를 제거처리
+6. .clone() : 해당객체를 복사하여 다른 대상객체로  추가하거나 변경 처리하는 것을 의미한다.
+
+
+   
+ */		
+ 		$(".container").append($("h2"));
+   		$(".inner").wrap("<div class='new'>@@@</div>");
+   		// $(객체).on("이벤트이름",function(){ 이벤트가 있을 때, 처리할 내용 });
+   		// $(객체).on({"이벤트1":function(){ 이벤트1일 때, 처리할 내용},
+   		//	          "이벤트2":function(){ 이벤트2일 때, 처리할 내용}
+   		//            });
+   		$("#btn01").on("click",function(){
+   			// 객체.parent() : 객체의 상위 부모객체   <div><p><h2>에서 h2에서  p를 지정
+   			// 객체.parents() : 객체의 상위 조상객체를 모두 지정. <div><p><h2>에서 h2에서  div, p,를 지정
+   			// 객체.is("tag") : 해당 객체가 tag요소객체인지 여부를 boolean값을 return 처리
+   			// p요소의 객체의 상위 부모객체 div 요소객체라면..
+   			if( $("p").parent().is("div.wrap2") ){
+   				$("p").unwrap();
+   			}else{
+   				$("p").wrap("<div class='wrap2'></div>");
+   			}
+   		});
+   		$("#btn02").on("dblclick",function(){
+   			$(".container").empty();
+   		});
+   		$("#btn03").on("click",function(){
+   			$(".container").append("<h2>없어졌다가 생성되었습니다.</h2>");
+   		});  		
+   		$("#btn04").on("click",function(){
+   			$("h2").clone().appendTo(".container4");
+   		});  	   		
+	});
+</script>
+</head>
+<body>
+<!--  -->
+<h1></h1>
+<h2>영웅들</h2>
+<h3>사람들</h3>
+<div class="container">
+	<div>이순신</div>
+	<div class="inner">강감찬</div>
+</div>
+<button id="btn01">wrap/unwrap</button>
+<div class="container2">
+	<p>이순신</p>
+	<p>감강찬</p>
+</div>
+<button id="btn02">empty처리.</button>
+<button id="btn03">empty 내용 생성..</button>
+<button id="btn04">h2 clone처리 </button>
+<div class="container4">
+	<p>이순신</p>
+	<p>감강찬</p>
+</div>
+
+
+
+</body>
+</html>

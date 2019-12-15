@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<style type="text/css">
+/*
+
+*/
+
+</style>
+<script type="text/javascript" 
+	src="../a00_com/jquery-3.4.1.js"></script>
+<script type="text/javascript">
+	$(document).ready(function(){
+		
+		$("h1").html("jquery list");
+/*
+ $("리스트형:even") : 리스트형 데이터의 짝수 index 
+ $("리스트형:odd") : 리스트형 데이터의 홀수 index
+ $("리스트형:eq(index)") : 리스트의 index 데이터 선택
+ $("리스트형:first") : 리스트형에서 첫번째 데이터
+ $("리스트형:last") : 리스트형에서 마지막 데이터
+ $("리스트형:gt(index)") : 해당 index보다 큰 모든 데이터
+ */		
+		$("tr:even").css("background-color","yellow");	
+		$("tr:odd").css("background-color","pink");	
+		$("tr:last").css("color","blue").html("마지막 데이터");	
+		$("td:eq(5)").css("color","red"); //td기준으로 index가 5인 것을  글자색상을
+		// 빨강색으로 처리..
+/* 		
+	$("부모를가진객체:first-child") : 상위를 가진 객체로 상위객체에서 첫번째 데이터 	
+	$("부모를가진객체:last-child") : 상위를 가진 객체로 상위객체에서 첫번째 데이터 	
+	$("부모를가진객체:nth-child(index)") : 상위객체를 가진 객체로 하위에 index번째 데이터
+	$("부모를가진객체:nth-child(3n+1)") : 상위객체를 가진 객체로 하위에3n+1단위로 반복처리
+	*/		
+ 		$("td:first-child").html("첫번째 데이터!!!");
+ 		$("td:last-child").html("마지막 데이터!!!");
+ 		$("td:nth-child(2)").html("index 2번째 td들");
+ 		$("td:nth-child(3n+1)").css("background-color","tomato");
+	});
+</script>
+</head>
+<body>
+<!--  -->
+<h1></h1>
+<table border>
+	<tr><td>안녕하세요</td><td>안녕하세요</td><td>안녕하세요</td><td>안녕하세요</td><td>안녕하세요</td><td>안녕하세요</td></tr>
+	<tr><td>안녕하세요</td><td>안녕하세요</td><td>안녕하세요</td><td>안녕하세요</td><td>안녕하세요</td><td>안녕하세요</td></tr>
+	<tr><td>안녕하세요</td><td>안녕하세요</td><td>안녕하세요</td><td>안녕하세요</td><td>안녕하세요</td><td>안녕하세요</td></tr>
+	<tr><td>안녕하세요</td><td>안녕하세요</td><td>안녕하세요</td><td>안녕하세요</td><td>안녕하세요</td><td>안녕하세요</td></tr>
+	<tr><td>안녕하세요</td><td>안녕하세요</td><td>안녕하세요</td><td>안녕하세요</td><td>안녕하세요</td><td>안녕하세요</td></tr>
+	<tr><td>안녕하세요</td><td>안녕하세요</td><td>안녕하세요</td><td>안녕하세요</td><td>안녕하세요</td><td>안녕하세요</td></tr>
+	<tr><td>안녕하세요</td><td>안녕하세요</td><td>안녕하세요</td><td>안녕하세요</td><td>안녕하세요</td><td>안녕하세요</td></tr>
+
+
+
+</table>
+</body>
+</html>

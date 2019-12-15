@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<style type="text/css">
+/*
+
+*/
+
+</style>
+<script type="text/javascript" 
+	src="../a00_com/jquery-3.4.1.js"></script>
+<script type="text/javascript">
+	$(document).ready(function(){
+		
+		$("h1").html("jquery ajax 유효성 check");
+		$("#id").keyup(function(){
+			var idVal = $(this).val();
+			var msg ="<h3>입력할 아이디는 8~14사이입니다<h3>"
+			if(idVal.length>=8 && idVal.length<=14){
+				$.ajax({
+					type:"post",
+					url:"z04_data.jsp",
+					data:"id="+idVal,
+					dataType:"html",
+					success:function(data){
+						$("div").html(data);
+					},
+					error:function(xhr,status,error){
+						console.log(xhr);
+						console.log(status);
+						console.log(error);
+					}
+				});		
+			}
+			$("div").html(msg);
+		});
+	});
+</script>
+</head>
+<body>
+<!--  -->
+<h1></h1>
+가입할 회원 아이디:
+<input type="text" id="id"/>
+<div></div>
+</body>
+</html>

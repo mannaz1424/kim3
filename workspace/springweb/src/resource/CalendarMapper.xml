@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+	PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+	"http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+	
+<mapper namespace="springweb.a03_data.dao.A07_CalendarDao">
+	<!-- property getStart() 를 컬럼 begin과 mapping처리 -->
+	<resultMap type="calendar" id="calenMap">
+		<result property="start" column="begin" />
+	</resultMap>
+	<!-- 
+springweb.a03_data.dao.A07_CalendarDao 
+public ArrayList<Calendar> calList()	
+	 -->
+	<select id="calList" resultMap="calenMap">
+		select * from calendar
+	</select>
+	<!-- public void insert(Calendar ins); -->
+	<insert id="insert" parameterType="calendar">
+		INSERT INTO calendar values(
+			cal_seq.nextval,
+			#{title},
+			#{start},
+			#{end},
+			#{content},
+			#{color},
+			#{textColor},
+			#{allDay}
+			)	
+	</insert>
+	<update id="update"  parameterType="calendar">
+		UPDATE calendar 
+		   SET title = #{title},
+			begin = #{start},
+			end = #{end},
+			content = #{content},
+			color = #{color},
+			textcolor = #{textColor},
+			allday = #{allDay}
+	    WHERE id = #{id}
+	</update>
+	<delete id="delete"   parameterType="int">
+		DELETE FROM calendar
+		WHERE id = #{id}
+	</delete>
+</mapper>	
+
+
+
+
+
+
+
+
+

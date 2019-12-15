@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<style type="text/css">
+/*
+
+*/
+ .cls01{background-color:blue;color:yellow;}
+</style>
+<script type="text/javascript" 
+	src="../a00_com/jquery-3.4.1.js"></script>
+<script type="text/javascript">
+	$(document).ready(function(){
+/* 
+# css로 선언된 class에 대한 적용 처리.
+1. css로 .클래스명{} 로 선언 후,
+2. 적용 메서드..
+	1) .addClass("클래스명")  : 해당 클래스가 적용 처리
+	2) .removeClass("") : 클래스 적용 삭제 처리..
+	3) .toggleClass("클래스명") : 클래스 이벤트에 의해서 
+			addClass()/removeClass를 반복적으로 적용 처리..
+ */		
+		$("h1").html("class 적용 설정");
+		$("input[type=button]").eq(0).click(function(){
+			$("h1").addClass("cls01");
+		});
+		$("input[type=button]").eq(1).click(function(){
+			$("h1").removeClass("cls01");
+		});		
+		$("input[type=button]").eq(2).click(function(){
+			$("h1").toggleClass("cls01");
+		});	
+		//slide01();
+		
+		$("input[type=button]").eq(3).click(function(){
+			$("h1").slideToggle("slow");
+			$("h1").slideToggle("slow",slide01);
+		});
+		$("input[type=button]").eq(4).click(function(){
+			// jquery 기능함수를 통해서 보이지 않게 처리
+			$("h1").hide("slow");
+		});		
+		$("input[type=button]").eq(5).click(function(){
+			// 보이게 처리..
+			$("h1").show("slow");
+		});	
+	});
+	function slide01(){
+		$("h1").slideToggle("slow",slide01);
+	}
+</script>
+</head>
+<body>
+<!--  -->
+<h1></h1>
+<input type="button" value="addClass()"/>
+<input type="button" value="removeClass()"/>
+<input type="button" value="toggleClass()"/>
+<input type="button" value="slideToggle()"/>
+<input type="button" value="hide()"/>
+<input type="button" value="show()"/>
+
+
+</body>
+</html>

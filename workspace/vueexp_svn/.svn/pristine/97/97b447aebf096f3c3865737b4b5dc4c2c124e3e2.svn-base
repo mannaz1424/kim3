@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>05-03</title>
+  <script src="https://unpkg.com/vue/dist/vue.min.js"></script>
+</head>
+<body>
+<div id="example">
+	<!-- 
+	속성값을  모델의 데이터로 설정하여 처리...
+	:style="{css속성:모델값,....}"
+	 -->
+  <div 
+    :style="{ backgroundColor: a.bc, border:a.bd, width:a.w+'px', height:a.h+'px' }">
+  </div>
+  <h2 :style="{backgroundColor:bObj.bk, color:bObj.cl}">안녕하세요 css 속성</h2>
+</div>
+<script type="text/javascript">
+var vm = new Vue({
+  el : "#example",
+  data : {
+    a : { bc:"yellow", bd:'solid 1px gray', w:200, h:100 },
+    bObj : { bk:"blue", cl:"yellow"}
+  }
+})
+</script>
+</body>
+</html>

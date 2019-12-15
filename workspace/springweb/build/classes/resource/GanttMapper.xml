@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+	PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+	"http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+	
+<mapper namespace="springweb.a03_data.dao.A06_GanttDao">
+	<resultMap type="resource" id="resourceMap"/>
+	<!-- 
+// INSERT INTO resource01 values(1,'tmp_0','개발자0')
+	public void insertResource(Resource ins);	
+	 -->
+	<insert id="insertResource" parameterType="resource">
+		INSERT INTO resource01 values(1,#{id},#{name})
+	</insert>
+
+</mapper>	
+
+
+
+
+
+
+
+
+

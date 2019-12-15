@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+	PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+	"http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="springweb.a03_data.dao.A02_DeptDao">
+<!--  public ArrayList<Dept> deptList(Dept dsch); -->
+	<resultMap type="dept" id="deptMap"/>
+	<select id="deptList" 
+		parameterType="dept"  
+		resultMap="deptMap">
+		SELECT * FROM dept01
+		WHERE 1=1
+		<if test="dname!=null and dname !='' ">
+			AND dname like '%'||#{dname}||'%'
+		</if>
+		<if test="loc!=null and loc !='' ">
+			AND loc like '%'||#{loc}||'%'
+		</if>
+	</select>
+	<!--  public void insertDept(Dept ins) 
+		{deptno} == ins.getDeptno() 호출하는 property인 getXXX()가 있어야 한다.
+	-->
+	<insert id="insertDept" parameterType="dept">
+		INSERT INTO dept01 VALUES(#{deptno},#{dname},#{loc} )
+	</insert>
+</mapper>	
+
+
+
+
+
+
+
+
+

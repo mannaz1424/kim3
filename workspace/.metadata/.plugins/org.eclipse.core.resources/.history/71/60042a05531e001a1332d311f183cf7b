@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>05-05</title>
+  <style>
+ /*
+ # Vue에서의 class 적용 처리..
+ 1. css로 class를 선언..
+ 	.클래스명 {css  속성 선언과 할당..}
+ 2. inline으로 클래스 적용..
+ 	tag :class="{ 클래스1명:true, 클래스2명:false}"
+ 	선언된 클래스1은 적용이 되고, 선언된 클래스2는 적용을 하지 않음..
+ 3. 클래스 적용 여부를 동적으로 처리하기 위해서 적용 부분에 대한 model 변수 선언.
+ 	tag :class="{ 클래스1명:모델데이터1, 클래스2명:모델데이터2}"	
+ */ 
+    .set1 { background-color: aqua; color:purple; }
+    .set2 { text-align:center; width:120px; }
+    .set3 { border:sandybrown dashed 1px; }
+  </style>
+  <script src="https://unpkg.com/vue/dist/vue.min.js"></script>
+</head>
+<body>
+<div id="example">
+	<h2 :class="{set1:true}">클랙 set1 적용</h2>
+	<h2 :class="{set2:true}">클랙 set2 적용</h2>
+	<h2 :class="{set1:true,set2:false,set3:true}">
+		클랙 set1,set3 적용, set2적용되지 않음</h2>
+	<h2 :class="{set1:s1,set2:s2,set3:s3}">
+		모델명으로 클래스 적용..</h2>
+	<!-- 아래에 s1, s2, s3가  checkbox의 입력값에 따라서 변경되기 때문에,
+		화면에 css 적용 여부도 동적으로 변경이 된다..
+		cf) checkbox는 check가 되었을 때에만 value값이 적용 되기에, check여부에 따라서
+		동적으로 변경처리할 수 있다..
+		 -->			
+    <button id="btn1" v-bind:class="{ set1:s1, set2:s2, set3:s3 }">버튼1</button>
+    <p>
+        <input type="checkbox" v-model="s1" value="true" />set1 디자인<br/>
+        <input type="checkbox" v-model="s2" value="true" />set2 디자인<br/>
+        <input type="checkbox" v-model="s3" value="true" />set3 디자인<br/>
+    </P>
+</div>
+<script type="text/javascript">
+var vm = new Vue({
+  el : "#example",
+  data : { s1 : false, s2 : false, s3 : false }
+})
+</script>
+</body>
+</html>

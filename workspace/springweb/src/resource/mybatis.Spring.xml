@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE configuration PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-config.dtd">
+<!-- mybatis에서 사용하는 xml tag를 설정하는 부분 
+1. mybatis를 통해 처리되는 모든 모듈에서 사용되는 공통 VO 선언,
+   1) 간략한 VO setting 
+      alias="emp" type="springweb.z01_vo.Emp"
+      : Emp Vo객체를 간략화하여 emp라는 이름으로 지정하여 처리한다.
+   2) 각 모듈 즉 데이터처리 단위별로 xml파일을 설정.
+   	  ex) emp관련 내용 sql 처리, board관련 sql 처리
+   	  - 일반적으로는 dao(interface) 단위로 하나씩 mapper.xml를 설정한다.
+   	     
+
+-->
+<configuration>
+	<typeAliases>
+	<!-- XXXMapper.xml에서 사용하게 될 VO 객체의 alias 이름 설정,
+	     
+	 -->
+		<typeAlias alias="emp" type="springweb.z01_vo.Emp" />
+		<typeAlias alias="dept" type="springweb.z01_vo.Dept" />
+		<typeAlias alias="member" type="springweb.z01_vo.Member" />
+		<typeAlias alias="boardsch" type="springweb.a03_data.vo.BoardSch" />
+		<typeAlias alias="board" type="springweb.a03_data.vo.Board" />
+		<typeAlias alias="book" type="springweb.a03_data.vo.Book" />
+		<typeAlias alias="resource" type="springweb.a03_data.vo.Resource" />
+		<typeAlias alias="calendar" type="springweb.a03_data.vo.Calendar" />
+	</typeAliases>
+	<mappers>
+		<!-- dao단 모듈별로 사용하게될 sql이 있는 xml 파일.. -->
+		<mapper resource="resource/EmpMapper.xml"/>
+		<mapper resource="resource/DeptMapper.xml"/>
+		<mapper resource="resource/MemberMapper.xml"/>
+		<mapper resource="resource/BoardMapper.xml"/>
+		<mapper resource="resource/BookMapper.xml"/>
+		<mapper resource="resource/GanttMapper.xml"/>
+		<mapper resource="resource/CalendarMapper.xml"/>
+	</mappers>
+</configuration>

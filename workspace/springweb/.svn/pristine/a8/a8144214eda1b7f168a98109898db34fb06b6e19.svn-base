@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>Insert title here</title>
+<style type="text/css">
+	td{width:33%;text-align:center;}
+</style>
+<!-- html jquery 설정 
+1. 공통 jquery 경로에서 호출 처리..
+
+ -->
+<script type="text/javascript" 
+	src="../a00_com/jquery-3.4.1.js"></script>
+<script type="text/javascript">
+	$(document).ready(function(){
+		
+		$("h1").html("jquery html에서 시작");
+/* 		
+# jquery에서 DOM객체 접근 방식..
+1. $("요소객체selector형식") : 특정 DOM객체를 지정..
+2. selector형식
+	1) 기본   tag   $("h1"), $("input"), $("td")
+	2) id값 설정시 접근 : $("#아이디명")
+	3) class값 설정시 접근 : $(".클래스명")
+		jquery에서는 배열객체를 동일한 속성을 처리할 때도 반복문을 활용
+		하지 않아도 처리가 된다.
+3. jquery에서 배열 객체의 적용 처리..
+	1) $("selector:eq(index번호)")
+	1) $("selector").eq(index번호)
+ */		
+		$("#chH2").html("Hello!! Good day!!");	
+		$(".cls01").html("클래스 적용 한번에 끝!!!");
+		$(".cls01:eq(0)").html("첫번째 클래스 선택자!!");
+		$(".cls01").eq(1).html("cls01의 두번째 선택자!!!");
+// ex) table 3X3  생성하고, 중앙에 있는 cell id로 속성값을 지정하여, 중앙으로 표기
+		$("#tabCen").html("중앙")
+//      오른쪽에 있는 cell 3개를 클래스 선언  .clsChoice로 지정하여 선택class
+//      라고 표기.
+		$(".clsChoice").html("선택클래스")
+//      왼쪽에 있는 cell 3개도 같은 클래스 선언 num01, num02, num03 표기하세요.
+		$(".cls2").eq(0).html("num01");
+		$(".cls2").eq(1).html("num02");
+		$(".cls2").eq(2).html("num03");
+
+	});
+</script>	
+</head>
+<body>
+<h1></h1>
+<h2 class="cls01">반갑습니다!!</h2>
+<h2>반갑습니다!!</h2>
+<h2 id="chH2">반갑습니다!!</h2>
+<h2 class="cls01">반갑습니다!!</h2>
+<h2>반갑습니다!!</h2>
+<h2 class="cls01">반갑습니다!!</h2>
+<table width="300" height="300" border>
+	<tr><td class="cls2"></td><td></td><td class="clsChoice"></td></tr>
+	<tr><td class="cls2"></td><td id="tabCen"></td><td class="clsChoice"></td></tr>
+	<tr><td class="cls2"></td><td></td><td class="clsChoice"></td></tr>
+</table>
+
+
+
+
+
+</body>
+</html>

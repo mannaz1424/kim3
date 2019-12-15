@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>05-07</title>
+  <style>
+    .score { border:solid 1px black; }
+    .warning { background-color: orange; color:purple; }
+    .warnimage { width:18px; height:18px; top:5px; position:relative;   }
+    .cls01{ background-color:yellow;}
+    
+  </style>
+  <script src="https://unpkg.com/vue/dist/vue.min.js"></script>
+</head>
+<body>
+<!-- 
+# 입력값에 따른 클래스 적용 여부 처리..
+1. css 기본 클래스 선언..
+2. 기본 model 데이터 선언..
+	score에 따라서 변경되는 여부 처리..
+3. model 데이터 즉, score에 따라서 변경되는 함수를 computed으로
+	{클래스명:true}//{클래스명:false}가  리턴되게 선언한다.
+4. :class="함수"  함수의 return되는 객체에 따라서 class 적용 여부가
+	동적으로 변경..
+ -->
+<div id="example">
+    <div>
+        <p>1부터 100까지만 입력가능합니다.</p>
+        <div>
+            점수 : <input type="text" class="score" 
+                v-model.number="score" v-bind:class="info" />
+            <img src="images/error.png" class="warnimage" 
+            	v-show="info.warning" />
+        </div>
+        <h2>아이디를 입력하세요!</h2>
+        <input type="text" v-model="name" 
+        	:class="valid01"/>
+        <!-- 해당 클래스가 true일때, 나타나게 처리.. -->	
+        <h3 v-show="valid01.cls01">아이디는 8~16자 사이입니다!</h3>
+    </div>
+</div>
+<script type="text/javascript">
+var vm = new Vue({
+  el : "#example",
+  data : { 
+    score : 0,
+    name:""
+  },
+  computed : {
+	valid01:function(){
+		// 입력한 id가 8~16일때..클래스가 적용되지 않고,
+		// 그외는 클래스 적용
+		if(this.name.length>=8 && this.name.length<=16){
+			return {cls01:false};
+		}else{
+			return {cls01:true};
+		}
+	},
+	info : function() {
+    	// 함수를 통해서 return 객체가  {클래스명:true/false}
+        if (this.score >= 1 && this.score <= 100) 
+        	
+            return { warning:false };
+        else 
+            return { warning:true };
+    }
+  }
+})
+</script>
+</body>
+</html>

@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>02-04</title>
+  <script src="https://unpkg.com/vue/dist/vue.min.js"></script>
+</head>
+<body>
+  <div id="simple">
+  	<!-- 
+  	# v-model="모델데이터" 
+  	1. 모델데이터와 입력이 양방향으로 처리되어, mapping하고 있는 모든 출력 directive에
+  	영향을 미친다..
+  	 -->
+    <input type="text" v-model="name" placeholder="이름을 입력하세요" /><br>
+    <select v-model="loc">
+    	<option>서울/경기</option>
+    	<option>강원도</option>
+    	<option>충청도</option>
+    	<option>전라도</option>
+    	<option>경상도</option>
+    	<option>제주도</option>
+    </select>
+    <br />
+    입력된 이름 : <div v-html="name"></div>
+    사는 곳은 :<h3 v-text="loc"></h3>
+  </div>
+  <script type="text/javascript">
+    var twoway = new Vue({
+      el : '#simple',
+      data : {
+          name : '',
+          loc:"선택하세요"
+      }
+    })
+  </script>
+</body>
+</html>

@@ -1,0 +1,101 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://java.sun.com/xml/ns/javaee" xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-app_3_0.xsd" id="WebApp_ID" version="3.0">
+  <display-name>springweb</display-name>
+<!-- 
+
+http://localhost:7080/springweb/start.do
+1. http://localhost:7080/springweb
+	1) 웹서버가 구동되는 자원을 호출..
+	2) web.xml로 호출 되면서 처리된다.
+2. /start.do
+	1) 해당 url pattern에 연계되어 있는 servlet을 호출한다.
+	2) servlet-mapping	
+	   url-pattern : *.do 을 호출하면 dispatcher라는
+	   servlet을 연동합니다.
+	3) servlet-name:dispatcher은 스프링에서 지원하는
+		front 컨트롤러인 
+	   org.springframework.web.servlet.DispatcherServlet
+	   을 호출 처리..
+	4) DispatcherServlet에서 웹 프로그램에 필요로 하는 공통적인
+		부분을 선언하고, 이 서블릿을 기반으로..
+	5) 스프링은 이와같이 front 컨트롤러를 선언하여 서블릿의 기능을 함과
+		동시, 웹서버의 기동과 함께 객체를 메모리에 로딩을 통해 웹 프로그램
+		을 보다 효율적으로 처리를 한다.
+	6) 이를 위한 선언된 클래스를 메모리에 객체화하여 처리하는 설정 xml이 
+	필요로 하는데, 이것이  WebContent\WEB-INF하위 있는 
+	dispatcher-servlet.xml 이다.
+3. dispatcher-servlet.xml의 처리 방식
+	1) 필요로 하는 class를 bean이름으로 선언하여 메모리에 객체화 하여
+		처리한다.
+	2) bean class="springweb.a01_start.A01_BeginCtrl"
+	   	A01_BeginCtrl a01_BeginCtrl = new A01_BeginCtrl()
+	   	와 동일하여 참조변수는 id값/name값으로 설정한다.
+	3) 이렇게 xml에서 클래스를 객체화하여 사용하는 것을 DI(Dependency
+	  Injection)이라는 한다. 
+	   - 클래스 선언 후, 객체를 사용하는 방법, 다른 객체와 데이터를 할당
+	   하는 방식.
+	   - spring에서 사용되는 autowire 등의 개념으로 통해서, 자동으로
+	  다른 객체에 할당하는 개념을 처리하도록 한다.  	
+		 
+		
+		
+3. 만일 요청값이 한글이 입력되었을 때, 한글 encoding처리하는 
+   request.setCharacterEncoding("utf-8");대신에 filter 객체를
+   이용해서 자동 encoding을 처리한다.
+  CharacterEncodingFilter를 통해서 encoding 처리
+ 
+
+		
+	5) 스프링에서 개발자가 구현부분을 controller로 자바로
+		코드를 개발처리한다.
+	
+
+	1. 스프링에서 사용하는 font controller(공통 controller)
+		1) 스프링 환경 설정 파일을 dispatcher-servelet.xml로 설정
+			DispatcherServlet(스프링 지원 모듈)
+		2) url  mvc.do 이름으로 controller 객체를 호출하듯.
+			*.do를 호출하면 springframework의 font controller
+			를 호출하게 처리.
+	2. 한글 요청값에 대한 자동 encoding 처리. : filter 객체 활용..			
+   
+ -->  
+  <servlet>
+  	<servlet-name>dispatcher</servlet-name>
+  	<servlet-class>org.springframework.web.servlet.DispatcherServlet</servlet-class>  
+  </servlet>	
+  <servlet-mapping>
+  	<servlet-name>dispatcher</servlet-name>
+  	<!--  http://localhost:7080/springweb/start.do
+  	와 같이 마지막 끝나는 접미어가 *.do 이면 현재 스프링 프레임워크의
+  	공통 servlet를 처리하게 한다. 
+  	 -->
+  	<url-pattern>*.do</url-pattern>
+  </servlet-mapping>
+<!-- 2. 한글 요청값에 대한 자동 encoding 처리. : filter 객체 활용..			 -->
+  <filter>
+  	<filter-name>encodingFilter</filter-name>
+  	<filter-class>org.springframework.web.filter.CharacterEncodingFilter</filter-class>
+  	<init-param>
+  		<param-name>encoding</param-name>
+  		<param-value>utf-8</param-value>
+  	</init-param>
+  </filter>
+  <filter-mapping>
+  	<filter-name>encodingFilter</filter-name>
+  	<url-pattern>/*</url-pattern>
+  </filter-mapping>
+  <welcome-file-list>
+    <welcome-file>index.html</welcome-file>
+    <welcome-file>index.htm</welcome-file>
+    <welcome-file>index.jsp</welcome-file>
+    <welcome-file>default.html</welcome-file>
+    <welcome-file>default.htm</welcome-file>
+    <welcome-file>default.jsp</welcome-file>
+  </welcome-file-list>
+  
+   <error-page>
+    <error-code>404</error-code>
+    <location>/a04_errorPage/a03_404Error.jsp</location>
+  </error-page> 
+  
+</web-app>
