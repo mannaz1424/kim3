@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Insert title here</title>
+    <script src="https://code.jquery.com/jquery-3.4.1.js" ></script>
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js" ></script>
+    <script type="text/javascript">
+    	$(document).ready(function(){
+	    	$("h1:eq(0)").text("디렉티브");
+	    	
+	    	var vm = new Vue({
+	    		el: "#container",
+	    		data: {
+	    			name: "홍길동",
+	    			age: 25,
+	    			loc: "서울 신림동",
+	    			show: "<h2>반가워요...</h2>",
+	    			fruits: ["사과", "바나나", "딸기"]
+	    		}
+	    	});
+    	});
+    </script>
+</head>
+
+<body>
+	<div id="container">
+		<h1></h1> 
+		<h3>이름 : {{name}}</h3>
+		<h3>나이 : {{age}}</h3>
+		<h3>주소 : {{loc}}</h3>
+		<div>{{show}}</div>
+		<div v-html="show"></div>
+		입력한 v-model 데이터 : <input v-model="show" />
+		<h2>좋아 하는 과일명</h2>
+		<h3 v-for="(fru, idx) in fruits">
+		    {{idx +1}} - {{fru}}
+		</h3>
+		
+	</div>
+</body>
+</html>

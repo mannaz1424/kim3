@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script src="https://code.jquery.com/jquery-3.4.1.js" type="text/javascript"></script>
+<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js" type="text/javascript"></script>
+<script type="text/javascript">
+	$(document).ready(function(){
+		$("h1:eq(0)").text("성적 등급 처리(v-if 연습)");
+/*
+ex) 조건 처리  성적의 점수를 입력하고, A, B, C, D, F 등급을
+  출력 처리하세요..
+ */
+ 		var vm = new Vue({
+ 			el:"#container",
+ 			data:{point:0}
+ 		});
+	});
+</script>		
+</head>
+<body>
+	<div id="container">
+		<h1></h1> 
+		점수를 입력하세요:<input v-model="point"/><br>
+		<h3 v-if="point>=90">A등급</h3>
+		<h3 v-else-if="point>=80">B등급</h3>
+		<h3 v-else-if="point>=70">C등급</h3>
+		<h3 v-else-if="point>=60">D등급</h3>
+		<h3 v-else>F등급</h3>
+	</div>
+</body>
+</html>

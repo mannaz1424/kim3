@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<!-- 
+# 개발환경(1단계)
+1.jquery
+2.Vue
+# 개발환경(2단계)
+1.jquery/jquery ui
+2.vue/axios
+3.bootstrap
+#개발환경(3단계)
+ -->
+<script src = "https://code.jquery.com/jquery-3.4.1.js"></script>
+<script src = "https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+<script type="text/javascript">
+	$(document).ready(function() {
+		//model 데이터 선언
+		var model = {msg : "Vue 시작입니다."};
+		//Vue model 객체 선언
+		// 1) 어떤 View를 사용할 것인가, el 속성으로 선언
+		// 2) 어떤 model를 사용할 것인가, data 속성으로 선언
+		var vn = new Vue({
+			el : "#container",
+			data: model
+		});
+	});
+</script>
+</head>
+<body>
+	<!-- view화면 -->
+	<div id = "container">
+		<h1>{{msg}}</h1>
+	</div>
+</body>
+</html>

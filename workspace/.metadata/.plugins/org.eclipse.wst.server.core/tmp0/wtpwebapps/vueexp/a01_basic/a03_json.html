@@ -1,74 +1,71 @@
 <!DOCTYPE html>
 <html>
 <head>
-<meta charset="UTF-8">
-<title>Insert title here</title>
-<script src="https://code.jquery.com/jquery-3.4.1.js" type="text/javascript"></script>
-<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js" type="text/javascript"></script>
-<script type="text/javascript">
-	$(document).ready(function(){
-		$("h1:eq(0)").text("시작");
-/*
-1. json(javascript object notation) 형식 객체 생성
-	1) {"속성":"속성값","속성2":"속성2값"} : network이나 파일에서 
-		   전송시는 이 형식을 반드시 지켜 주어서 문자열로 전달한다.
-	   {속성:"속성값",속성2:"속성2값"}
- */
- 		var p1 = {name:"홍길동",age:25, loc:"서울 당산동"};
- 		// $("DOM선택자").eq(index번호)
- 		$("h2").eq(0).text(p1.name);
- 		$("h2").eq(1).text(p1.age);
- 		$("h2").eq(2).text(p1.loc);
- 		// 객체의 함수의 정의 = 메서드 선언
- 		p1.show=function(){
- 			var add="<h3>"+this.name+"</h3>";
- 			add+="<h3>"+this.age+"</h3>";
- 			add+="<h3>"+this.loc+"</h3>";
- 			$("#container").append(add);
- 		}
- 		// 객체의 함수 호출 처리.==> 참조변수.함수명()
- 		p1.show();
- 		// ex) 2019 프로야구시리즈 1~3위까지 team을 json 객체로
- 		//    선언하고(순위, 팀명, 승률)
- 		//     list()메서드로 테이블로 출력하세요..
- 		var t01 = {no:1, tname:"두산", vratio:0.615};
- 		t01.list=function(){
- 			var add="<tr><td>"+this.no+"</td>";
- 			add+="<td>"+this.tname+"</td>";
- 			add+="<td>"+this.vratio+"</td></tr>";
- 			$("#tab01").append(add);
- 		}
- 		var t02 = {no:2, tname:"SK", vratio:0.615};
- 		t02.list=function(){
- 			var add="<tr><td>"+this.no+"</td>";
- 			add+="<td>"+this.tname+"</td>";
- 			add+="<td>"+this.vratio+"</td></tr>";
- 			$("#tab01").append(add);
- 		}	
- 		var t03 = {no:3, tname:"히어로즈", vratio:0.601};
- 		t03.list=function(){
- 			var add="<tr><td>"+this.no+"</td>";
- 			add+="<td>"+this.tname+"</td>";
- 			add+="<td>"+this.vratio+"</td></tr>";
- 			$("#tab01").append(add);
- 		}	
- 		t01.list();
- 		t02.list();
- 		t03.list();
- 		
-		
-	});
-</script>	
+    <meta charset="UTF-8">
+    <title>Insert title here</title>
+    <script src="https://code.jquery.com/jquery-3.4.1.js" ></script>
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js" ></script>
+    <script type="text/javascript">
+    	$(document).ready(function(){
+	    	$("h1:eq(0)").text("시작");
+	    	var p1 = {name:"홍길동", age:25, loc:"서울 당산동"};
+	    	$("h2").eq(0).text(p1.name);
+	    	$("h2").eq(1).text(p1.age);
+	    	$("h2").eq(2).text(p1.loc);
+	    	
+	    	p1.show=function(){
+	    		var add="<h3>" + this.name + "</h3>";
+	    		add += "<h3>" + this.age + "</h3>";
+	    		add += "<h3>" + this.loc + "</h3>";
+	    		$("#container").append(add);
+	    	}
+	    	
+	    	p1.show();
+	    	
+	    	
+	    	
+	    	var pp1 = {ranking:1, team:"두산", victory:0.615};
+	    	var pp2 = {ranking:2, team:"키움", victory:0.601};
+	    	var pp3 = {ranking:3, team:"sk", victory:0.615};
+	    	
+	    	pp1.list = function(){
+	    		var add1 = "<tr><td>" + this.ranking + "</td>";
+	    		add1 += "<td>" + this.team + "</td>";
+	    		add1 += "<td>" + this.victory + "</td></tr>";
+	    		$("#add1").append(add1);
+	    	}
+	    	
+	    	
+	    	pp2.list = function(){
+	    		var add2 = "<tr><td>" + this.ranking + "</td>";
+	    		add2 += "<td>" + this.team + "</td>";
+	    		add2 += "<td>" + this.victory + "</td></tr>";
+	    		$("#add1").append(add2);
+	    	}
+	    	
+	    	pp3.list = function(){
+	    		var add3 = "<tr><td>" + this.ranking + "</td>";
+	    		add3 += "<td>" + this.team + "</td>";
+	    		add3 += "<td>" + this.victory + "</td></tr>";
+	    		$("#add1").append(add3);
+	    	}
+	    	pp1.list();
+	    	pp2.list();
+	    	pp3.list();
+    	});
+    </script>
 </head>
+
 <body>
 	<div id="container">
 		<h1></h1> 
 		<h2></h2>
 		<h2></h2>
 		<h2></h2>
-		<table id="tab01" border>
-			<tr><th>순위</th><th>팀명</th><th>승률</th></tr>
-		</table>
+	</div>
+	
+	<table border id="add1">
+	    <tr><th>순위</th><th>팀명</th><th>승률</th></tr>
 	</div>
 </body>
 </html>

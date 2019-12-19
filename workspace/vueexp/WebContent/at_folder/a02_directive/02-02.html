@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>02-02</title>
+  <script src="https://unpkg.com/vue/dist/vue.min.js"></script>
+</head>
+<body>
+<!-- 
+# 여러가지 directive
+1. 화면 처리에 따른 분류
+	1) 단방향 디렉티브
+		{{모델명}} : mustache expression,
+		v-text = "모델명" 
+		v-html = "모델명" : 모델데이터에서 tag를 포함하여,
+			tag코드가 화면에 적용되어 rendering이 필요할 때 활용된다.
+		v-bind:속성 = "모델명"	: tag가 가지고 있는 고유 속성에,
+			속성값으로 모델데이터를 mapping 할 때, 활용된다.
+	2) 양방향 디렉티브
+		v-model="모델명" : 모델데이터를 입력하거나 선택하는 form하위의 
+			tag에 속성으로 지정하여, 모델데이터를 변경을 수행할 수 있게 하는
+			디렉티브이다.		
+			
+ -->
+
+
+  <div id="simple">
+    <h2 v-html="message"></h2>
+    <h3 v-text="name"></h3>
+    <div>
+    	mustache expression {{show01}}<br>
+    	<div v-text="show01"></div>
+    	<div v-html="show01"></div>
+    </div>
+  </div>
+  <script type="text/javascript">
+    var model = {
+      message : '첫번째 Vue.js 앱 입니다!',
+      name:"홍길동",
+      show01:"<h3>안녕하세요</h3>"
+    };
+
+    var simple = new Vue({
+      el : '#simple',
+      data : model
+    })
+  </script>
+</body>
+</html>

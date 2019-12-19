@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Insert title here</title>
+    <script src="https://code.jquery.com/jquery-3.4.1.js" ></script>
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js" ></script>
+    <script type="text/javascript">
+    	$(document).ready(function(){
+	    	$("h1:eq(0)").text("시작");
+	    	
+	    	var fruits = ["사과", "바나나", "딸기"];
+	    	$(fruits).each(function(idx, fruit){
+	    		// alert(idx + " : " + fruit);
+	    		
+	    		$("h3").eq(idx).text((idx+1) + ") " + fruit);	    	
+	    	});
+    	    
+    	    var person = ["1111.", "2222.", "3333."];
+    	    $(person).each(function(i, p){
+    	    	// alert(i + " : " + p);
+    	    	
+    	    	$("h4").eq(i).text((i + 1) + ") " + p);
+    	    });
+    	    
+	    	var studs = [
+	    		{name:"홍길동", kor:70, eng:80},
+	    		{name:"신길동", kor:80, eng:90},
+	    		{name:"마길동", kor:90, eng:100},
+	    	];
+	    	
+	    	$(studs).each(function(idx, stu){
+	    		var add = "<tr><td>" + (idx + 1) + "</td>";
+	    		add += "<td>" + stu.name + "</td>";
+	    		add += "<td>" + stu.kor + "</td>";
+	    		add += "<td>" + stu.eng + "</td>";
+	    		
+	    		var avg = ((stu.kor + stu.eng) / 2.0).toFixed(1);
+	    		add += "<td>" + avg + "</td></tr>";
+	    		
+	    		$("#stTab").append(add);
+	    	});
+	    	
+    	
+    	
+	    	
+    	});
+    </script>
+</head>
+
+<body>
+	<div id="container">
+		<h1></h1> 
+		<h3></h3>
+		<h3></h3>
+		<h3></h3>
+		
+		<h4></h4>
+		<h4></h4>
+		<h4></h4>
+		
+		<table id="stTab">
+		    <tr>
+		        <th>번호</th><th>이름</th>
+		        <th>국어</th><th>영어</th><th>평균</th>
+		    </tr>
+		</table>
+	</div>
+</body>
+</html>

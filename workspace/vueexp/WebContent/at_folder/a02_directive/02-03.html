@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>02-03</title>
+  <script src="https://unpkg.com/vue/dist/vue.min.js"></script>
+</head>
+<body>
+
+   <div id="simple">
+   <!-- 
+# v-bind:속성 - form 객체 하위의 여러가지 속성값이나,
+  tag 에서 속성을 모델데이터와 mapping   
+   
+    -->
+     <input id="a" type="text" 
+     	v-bind:value="message"><br>
+     <!-- 
+     input의 속성 value를 모델데이터 message와 mapping 처리..
+     
+      -->	
+         이름:<input type="text" v-bind:value="name"> 
+     <br />
+     <img v-bind:src="imagePath" />
+     <br>
+     <h1 v-bind:align="align01">안녕하세요</h1>
+   </div>
+
+  <script type="text/javascript">
+    var model = {
+      name:"홍길동",
+      align01:"right",
+      message : 'v-bind 디렉티브',
+      imagePath : "http://sample.bmaster.kro.kr/photos/61.jpg"
+    };
+
+    var simple = new Vue({
+      el : '#simple',
+      data : model
+    })
+  </script>
+</body>
+</html>
