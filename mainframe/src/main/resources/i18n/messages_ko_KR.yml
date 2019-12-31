@@ -1,4 +1,0 @@
-alert:
- popupTitle: "안내"
- confirm: "확인"
- cancel: "취소"

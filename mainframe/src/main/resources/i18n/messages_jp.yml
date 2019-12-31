@@ -1,4 +1,0 @@
-alert:
- popupTitle: "案内"
- confirm: "確認"
- cancel: "取消"
