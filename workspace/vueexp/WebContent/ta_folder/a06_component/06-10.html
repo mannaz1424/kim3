@@ -15,7 +15,7 @@
 Vue.component('time-component', {
     template : '#timeTemplate',
     data : function() {
-    	// 컴포넌트에서의 model 데이터는 반드시 함수를 통해서 return  하여야
+    	// 컴포넌트에서의 model 데이터는 반드시 함수를 통해서 {}(객체) return  하여야
     	// 한다.
         return { nowTS : 0 };
     },
@@ -26,9 +26,11 @@ Vue.component('time-component', {
         }
     }
 })
+
 </script>
 <body>
     <div id="app">
+        <time-component></time-component>
         <time-component></time-component>
         <time-component></time-component>
     </div>

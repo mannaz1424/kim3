@@ -51,6 +51,7 @@ Vue.component('input-component', {
     },
     methods : {
         addTodo : function() {
+        	// add-todo라는 이름으로 현재 입력한 할을 eventbus에 할당처리.
             eventBus.$emit('add-todo', this.todo);
             this.todo = "";
         }
@@ -99,6 +100,7 @@ ul li.checked::before {
 Vue.component('list-component', {
     template : '#list-template',
     created : function() {
+    	// 이벤트 버스를 통해서 저장된 이벤트가 오면 해당 내용(메서드)을 처리..
          eventBus.$on('add-todo', this.addTodo);
     },
     data : function() {

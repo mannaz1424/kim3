@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script src="https://code.jquery.com/jquery-3.4.1.js" type="text/javascript"></script>
+<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js" type="text/javascript"></script>
+</head>
+<template id="trTmp">
+	<tr><td>{{name}}</td><td>{{price}}</td><td>{{cnt}}</td></tr>
+</template>
+<template id="listTemplate">
+	<li>{{'과일이름  : '+message}}, {{'가격  : '+price}}, {{'수량 : '+count}}</li>
+</template>
+
+<script type="text/javascript">
+
+
+
+</script>
+<script type="text/javascript">
+//ex ) 컴포넌트의 여러 속성 전달하기..
+//구매물건명 : @@@, 가격 : @@, 갯수: @@
+//구매물건명 : @@@, 가격 : @@, 갯수: @@
+//물건명, 수량, 갯수를 속성값으로 전달..
+	Vue.component('list-component',{
+		template: '#listTemplate',
+		data: function(){ return {
+				name : '사과',
+				price : 1000,
+				cnt : 1
+				};
+		},
+		props :{
+			message: { type:String, default: '과일'},
+			price: {type: Number, required: true, default: '미정'},
+			count: { 
+		        type:Array,
+		        default: function() {
+		            return ['0'];
+		        }
+			}
+		}
+	
+	})
+
+	Vue.component("tr-comp",{
+		template:"#trTmp",
+		// template에서 넘겨줄 속성을 설정..
+		// props:{속성:{...}}
+		props:{
+			name:{type:String},
+			price:{type:Number},
+			cnt:{type:Number}
+		}
+	})
+	$(document).ready(function(){
+ 		var vm = new Vue({
+ 			el:"#container",
+ 			data:{msg:"컴포넌트 속성", 
+ 				  prod:[{name:"사과",price:3000,cnt:5}]
+ 			}
+ 		});
+	});
+</script>
+
+<body>
+	<div id="container">
+		<table border>
+			<tr><th>물건명</th><th>가격</th><th>갯수</th></tr>
+			<!-- 
+			
+			1.구성요서의 포함된 컴포넌트를 만들 때는 태그 is="컴포넌트명"
+			2. 모델데이터 컴포넌트의 속성값으로 할당하여 전달하려면,
+				: 속성="모델데이터"
+			3. template에서 넘겨줄 속성을 설정.. props:{속성: {...}}
+			4. template에서 넘겨온 속성을 이용하여 directive형식으로 출력 처리..
+			 -->
+			 <tr is="tr-comp" :name="prod[0].name"
+			 				  :price="prod[0].price"
+			 				  :cnt="prod[0].cnt"></tr>
+		</table>
+		
+		<ul>
+			<list-component message="사과" v-bind:price="1000" v-bind:count="1"></list-component>
+			<list-component message="딸기" :price="10000" :count="10"></list-component>
+			<list-component v-bind:count="100"></list-component>
+			
+		</ul>
+	</div>
+	
+	
+
+</body>
+
+</html>

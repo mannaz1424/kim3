@@ -7,6 +7,28 @@
 </head>
 <!-- 이벤트 버스 객체 -->
 <script type="text/javascript">
+/*
+# 이벤트 버스를 통한 통신.
+1. 부모-자식 관계에서 벗어나, 형제 관계에서 이벤트나 정보의 효율적인
+	전달을 위해 버스 객체를 활용한다.
+2. 주요 이벤트 메서드.
+	$on(이벤트명) : 이벤트 감지.
+	$emit(이벤트명) : 이벤트 발산/트리거.
+3. 구현 순서..
+	1) 이벤트 버스를 선언 : Vue의 인스턴스 객체로 초기 생성..
+		ex) var 이벤트버스명 = new Vue();
+	2) 특정한 컴포넌트 객체에서 이벤트로 지정된 함수를 호출..
+		clickEvent : function() {
+	3) 함수 안에서 선언된 이벤트버스에  emit("저장이벤트명",매개값1, 매개값2...) 
+	 	eventBus.$emit('click1', t);
+	4) 위에 eventBus에서 지정한 저장이벤트에 따라서 처리할 내용이 컴포넌트에서..
+		- created:function(){} 컴포넌트가 초기 화면에서 생성될 때,
+		- eventBus.$on('click1', this.child1Click);
+			저장된 이벤트 $on를 통해서 가져오고, 이 저장된 이벤트가 호출될 때,
+			처리할 컴포넌트 소속 메서드(this.child1Click)를 mapping 시켜준다.
+	
+ 
+ */
 var eventBus = new Vue();
 </script>
 <!-- 첫번째 자식 컴포넌트 시작-->
@@ -52,6 +74,7 @@ Vue.component('child2-component', {
     },
     methods : {
         child1Click : function(time) {
+        	// 현재 배열형 모델 데이터 받은 날짜 정보를 추가 처리한다.
             this.timelist.push(time);
         }
     }

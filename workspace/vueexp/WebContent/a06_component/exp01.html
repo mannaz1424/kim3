@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script src="https://code.jquery.com/jquery-3.4.1.js" type="text/javascript"></script>
+<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js" type="text/javascript"></script>
+
+<template id="chiTemplate">
+	<h2>안녕하세요(최하위)</h2>
+</template>
+<script type="text/javascript">
+	Vue.component("chi-comp",{
+		template:"#chiTemplate"
+	})
+</script>
+<template id="parTemplate">
+	<div>
+		<h1>부모 컴포넌트</h1>
+		<chi-comp></chi-comp>
+		<chi-comp></chi-comp>
+	</div>
+</template>
+
+<script type="text/javascript">
+
+	Vue.component("par-comp",{
+		template:"#parTemplate"
+	})
+	$(document).ready(function(){
+ 		var vm = new Vue({
+ 			el:"#container",
+ 			data:{msg:"상/하위 계층 컴포넌트연습"}
+ 		});
+	});
+/*
+ex) 계층 구조의 컴포넌트를 작성 하기..
+	1) 상위는 div  par-comp
+	2) 하위 h2    chi-comp
+	정의해서 계층구조 형태로 선언하여 호출하세요.
+ 
+ */	
+	
+</script>		
+</head>
+<body>
+	<div id="container">
+		<h1>{{msg}}</h1> 
+		<par-comp></par-comp>
+	</div>
+</body>
+</html>

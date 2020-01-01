@@ -12,7 +12,8 @@
 <body>
     <div id="example">
         <p>
-        이름 : <input type="text" v-model="name" placeholder="두글자 이상을 입력하세요" />
+        이름 : <input type="text" v-model="name" 
+        	placeholder="두글자 이상을 입력하세요" />
         </p>
         <table id="list">
             <thead>
@@ -21,6 +22,10 @@
                 </tr>
             </thead>
             <tbody id="contacts" >
+            	<!-- 
+            	현재 할당된 모델 데이터 contactlist(객체형 배열)
+            	을 통해서 화면에 list 처리된다.
+            	 -->
                 <tr v-for="contact in contactlist">
                     <td>{{contact.no}}</td>
                     <td>{{contact.name}}</td>
@@ -41,8 +46,8 @@ var vm = new Vue({
     el : '#example',
     data : {
         name : "",
-        isProcessing : false,
-        contactlist : []
+        isProcessing : false, // 서버에 로딩 중, 다른 이미지나 text 호출할때.
+        contactlist : [] // 서버에 가져온 json 데이터
     },
     watch : {
     	// 모델 데이터가 입력이 되는 순간.. watch에 지정된 함수 호출..
@@ -86,6 +91,8 @@ var vm = new Vue({
                 }).then(function(json) {
                 	console.log("## 두번째 함수 ##");
                 	console.log(json);
+                	//  서버에서 가져온 json 데이터를 현재 vue 인스턴스 객체에
+                	//  모델 데이터인 contactlist에 할당 처리.
                     vm.contactlist = json;
                     vm.isProcessing = false;
                 }).catch(function(ex) {

@@ -16,9 +16,12 @@ var vm = new Vue({
     data : { amt : 1234567 },
     computed : {
     	// get : amount라는 함수를 호출해서 가져올 때, 활용
+    	//    - 해당 함수을 통해서 직접 호출..
     	// set : amount라는 함수에 데이터를 저장할 때, 활용된다.
+    	//    - v-model을 이용해서 입력 할때, 호출되어진다.
         amount : {
             get : function() {
+            	console.log("호출됨!!:"+this.amt);
             	// 문자열로 변환..
                 var s = new String(""+this.amt);
                 var result = "";
@@ -35,6 +38,7 @@ var vm = new Vue({
                 return result;
             },
             set : function(amt) {
+            	console.log("저장됨!!:"+this.amt);
             	// 입력되는 데이터가 문자열 데이터 인지 확인하여..
             	// 문자열이면
                 if (typeof(amt) === "string") {

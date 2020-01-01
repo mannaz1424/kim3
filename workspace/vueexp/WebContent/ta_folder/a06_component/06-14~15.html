@@ -20,6 +20,16 @@ Vue.component('list-component', {
 <body>
 <div id="app">
     <ul>
+    	<!-- 
+    	# 속성이 여러개일 때, 처리 
+    	1. 멀티 속성 선언. 속성1=속성값  속성2=속성값
+    	2. component 속성 중 props : {속성1:{type:데이터유형,default:초기값},
+    	                                                   속성2:{...}
+    	                           }
+    	3. template에서 해당 속성을 호출하여 처리..                           
+    	
+    	 -->
+    	
         <list-component message="Hello" v-bind:count="100"></list-component>
         <list-component message="씬짜오" :count="21"></list-component>
         <list-component message="니하오마"></list-component>

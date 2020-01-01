@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>06-18</title>
+  <script src="https://unpkg.com/vue/dist/vue.min.js"></script>
+</head>
+<!-- child Component 시작 -->
+<style>
+    .buttonstyle { width:120px; height:30px; text-align: center; }
+</style>
+<template id="childTemplate">
+    <div>
+        <button class="buttonstyle" v-on:click="clickEvent" 
+            v-bind:data-lang="buttonInfo.value">{{ buttonInfo.text }}</button>
+    </div>
+</template>
+<script type="text/javascript">
+/*
+# 자식컴포넌트에서 부모컴포넌트로 이벤트의 전달.
+1. 최하위 컴포넌트에 template에서 이벤트를 선언하고, 호출 함수를 정의 한다.
+	v-on:click="clickEvent" 
+2. 연동된 컴포넌트에서는 해당 함수  clickEvent처리 내용을 methods라는 속성에서
+	선언한다.
+	- 상위에 선언된 이벤트로 발산(emit), 해당 함수에 넘겨줄 데이터로 emit의 
+		매개변수값으로 전달한다.
+		this.$emit("상위함수명",전달데이터1, 전달데이터2,...)
+		e.target.innerText : 이벤트가 일어나고 있는 객체의 label(node node)
+		e.target.dataset.lang :이벤트 일어나고 있는  Dom객체의 속성 dataset.lang을 지정
+		레이블, 속성값을 상위 함수에 넘긴다.
+3. 상위에 $emit()로 선언한 함수를 methods에 지정된 것을 볼 수 있고,
+		함수명 : function(매개변수1, 매개변수2, ....) {
+	해당 함수를 통해서, 상위에 있는 컴포넌트나/Vue 인스턴스의 모델 데이터를 변경하거, 
+	처리할 수 있다.
+# 컴포넌트 이벤트를 통해서, 상위 컴포넌트의 구성 모델 데이터를 처리하거나 변경할 수 있다. 
+	
+ */
+Vue.component('child-component', {
+    template : '#childTemplate',
+    props : [ 'buttonInfo' ],
+    methods : {
+        clickEvent : function(e) {
+            this.$emit('timeclick', e.target.innerText, 
+            			e.target.dataset.lang);
+        }
+    }
+})
+</script>
+<!-- child Component 끝 -->
+<!-- parent Component 시작 -->
+<template id="parent-template">
+    <div>
+        <child-component 
+            v-for="s in buttons" 
+            v-bind:button-info="s" 
+            v-on:timeclick="timeclickEvent">
+        </child-component>
+        <hr />
+        <div>{{ msg }}</div>
+    </div>
+</template>
+<script type="text/javascript">
+Vue.component('parent-component', {
+    template : '#parent-template',
+    props : [ 'buttons' ],
+    data : function() {
+        return { msg:"" };
+    },
+    methods : {
+        timeclickEvent : function(k, v) {
+        	
+            this.msg = k + ", " +v;
+        },
+        tclick: function(e){ 
+        	this.msg = e.target.innerText + ", " + 
+					e.target.dataset.lang
+        }
+    }
+})
+</script>
+<!-- parent Component 끝 -->
+<body>
+    <div id="app">
+        <parent-component :buttons="buttons"></parent-component>
+    </div>
+</body>
+<script type="text/javascript">
+Vue.config.devtools = true;
+var vm = new Vue({
+    el : "#app",
+    data : {
+        buttons : [ 
+            { text : "Hello", value : "영어" }, 
+            { text : "씬짜오", value : "베트남어" },
+            { text : "니하오", value : "중국어" }
+        ]
+    }
+})
+</script>
+</html>
