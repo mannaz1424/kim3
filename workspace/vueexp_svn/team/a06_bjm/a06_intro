@@ -23,26 +23,9 @@ vue 경험은 없습니다.
  4.불편사항:없음
  5.미니 프로젝트 진행정도
   
+12/14
+1.수업진도 속도:빠른거같습니다.
+2.이해도:스프링 설치등은 이해가 잘 안갔습니다.
+3.불편사항
+4.게시판 수업 비중 :아예 비중있게 하던가 아니면 ,뷰 일반 수업이 좋을거같습니다.
 
-
-
-# 사전 평가 정답
-1~6.잘모르겠습니다.
-7.
-var h = document.QuerySelector('div h2');
-var color=["red","orange","yellow","green","navy","purple"]
-
-rainbow function(){
-for(var i=0;h<h.length-1;h++){
-h.style.color='color';
-}
-}
-8.잘모르겠습니다.
-9.var h=document.QuerySelector('h1');
-
-h.addEventListener('click',funciton(e){
-var thiscolor= e.target.style.color
- h.style.color= thiscolor;
-})
-
-10.잘모르겠습니다.

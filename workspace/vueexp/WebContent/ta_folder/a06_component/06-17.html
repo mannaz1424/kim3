@@ -40,6 +40,13 @@ Vue.component('contactlist-component', {
         <h1>예방 접종</h1>
         <hr />
         <h3>1차 대상자 : 5월 1~3일</h3>
+        <!-- 
+        # Vue()인스턴스를 통한 json 모델 데이터의 처리. 
+        1. list형 json 모델 데이터.
+        2. 컴포넌트명 :props로넘길속성="모델명"
+        3. Vue.component의 속성에 props속성으로  props로넘길속성명으로 전송
+        4. template에서 객체형 배열이므로 v-for를 이용하여   출력 처리한다.
+         -->
         <contactlist-component :contacts="list1"></contactlist-component>
         <h3>2차 대상자 : 5월 13~15일</h3>
         <contactlist-component :contacts="list2"></contactlist-component>

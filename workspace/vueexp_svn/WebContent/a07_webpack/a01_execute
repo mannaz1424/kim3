@@ -1,0 +1,9 @@
+node.js download 설치 후,
+현재 경로 C:\z01_weekend\workspace\vueexp\WebContent\a07_webpack\webpacktest2
+를 복사..
+cmd 창에서
+npm install
+기본적인 node 모듈 설치.
+npm run dev 
+로 서버 실행과 화면 확인..
+

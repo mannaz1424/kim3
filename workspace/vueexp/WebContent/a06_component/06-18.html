@@ -1,42 +1,52 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <meta charset="utf-8">
-  <title>06-18</title>
-  <script src="https://unpkg.com/vue/dist/vue.min.js"></script>
+<meta charset="utf-8">
+<title>06-18</title>
+<script src="https://unpkg.com/vue/dist/vue.min.js"></script>
 </head>
 <!-- child Component 시작 -->
 <style>
-    .buttonstyle { width:120px; height:30px; text-align: center; }
+.buttonstyle {
+	width: 120px;
+	height: 30px;
+	text-align: center;
+}
 </style>
+
+
+
 <template id="childTemplate">
-    <div>
-        <button class="buttonstyle" v-on:click="clickEvent" 
-            v-bind:data-lang="buttonInfo.value">{{ buttonInfo.text }}</button>
-    </div>
+<div>
+	<button class="buttonstyle" v-on:click="clickEvent"
+		v-bind:value="buttonInfo.value">{{ buttonInfo.text }}</button>
+</div>
 </template>
-<script type="text/javascript">
-Vue.component('child-component', {
-    template : '#childTemplate',
-    props : [ 'buttonInfo' ],
-    methods : {
-        clickEvent : function(e) {
-            this.$emit('timeclick', e.target.innerText, e.target.dataset.lang);
-        }
-    }
-})
-</script>
-<!-- child Component 끝 -->
+
+<!-- button-info == buttonInfo -->
+
+
+
 <!-- parent Component 시작 -->
 <template id="parent-template">
-    <div>
-        <child-component v-for="s in buttons" v-bind:button-info="s" 
-            v-on:timeclick="timeclickEvent">
-        </child-component>
-        <hr />
-        <div>{{ msg }}</div>
-    </div>
+<div>
+	<child-component v-for="s in buttons" v-bind:button-info="s"
+		v-on:timeclick="timeclickEvent"> </child-component>
+
+
+
+	<div v-for="s in buttons">
+		<button class="buttonstyle" @click="tclick" v-bind:value="s.value">{{
+			s.text }}</button>
+	</div>
+
+
+
+	<hr />
+	<div>{{ msg }}</div>
+</div>
 </template>
+
 <script type="text/javascript">
 Vue.component('parent-component', {
     template : '#parent-template',
@@ -47,16 +57,42 @@ Vue.component('parent-component', {
     methods : {
         timeclickEvent : function(k, v) {
             this.msg = k + ", " +v;
+        },
+	tclick: function(e){ 
+        	
+        	this.msg = e.target.innerText + ", " + e.target.value;
+        }
+    
+    }
+})
+
+
+<!-- button-info == buttonInfo -->
+
+Vue.component('child-component', {
+    template : '#childTemplate',
+    props : [ 'buttonInfo' ],
+    methods : {
+        clickEvent : function(e) {
+            this.$emit('timeclick', e.target.innerText, e.target.dataset.lang);
         }
     }
 })
+<!-- child Component 끝 -->
 </script>
 <!-- parent Component 끝 -->
+
+
+
 <body>
-    <div id="app">
-        <parent-component :buttons="buttons"></parent-component>
-    </div>
+	<div id="app">
+		<parent-component :buttons="buttons"></parent-component>
+	</div>
 </body>
+
+
+
+
 <script type="text/javascript">
 Vue.config.devtools = true;
 var vm = new Vue({

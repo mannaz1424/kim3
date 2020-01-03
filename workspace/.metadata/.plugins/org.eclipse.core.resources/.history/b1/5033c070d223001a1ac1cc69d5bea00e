@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script src="https://code.jquery.com/jquery-3.4.1.js" type="text/javascript"></script>
+<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js" type="text/javascript"></script>
+<template id="com-temp">
+	<div>
+		<h2 @click="call">클릭하세요!!</h2>
+		<h3>{{greet}}</h3>
+	</div>
+</template>
+<script type="text/javascript">
+	Vue.component("comp-ex",{
+		template:"#com-temp",
+		data:function(){
+			return {greet:""}
+		},
+		methods:{
+			call:function(){
+				this.greet += "안녕하세요!";
+			}
+		}
+	})
+	$(document).ready(function(){
+ 		var vm = new Vue({
+ 			el:"#container",
+ 			data:{msg:"컴포넌트의 모델/methods 활용"}
+ 		});
+	});
+/*
+ex) h2에서 클릭하면 바로 밑에 h3가 안녕하세요! 문자열이 추가 처리되게
+하세요. component의 모델 데이터와 methods 활용..
+ */	
+</script>		
+</head>
+<body>
+	<div id="container">
+		<h1>{{msg}}</h1> 
+		<comp-ex></comp-ex>
+	</div>
+</body>
+</html>

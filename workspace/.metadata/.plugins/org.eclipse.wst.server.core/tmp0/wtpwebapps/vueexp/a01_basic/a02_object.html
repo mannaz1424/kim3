@@ -3,54 +3,84 @@
 <head>
 <meta charset="UTF-8">
 <title>Insert title here</title>
-<script src="https://code.jquery.com/jquery-3.4.1.js" ></script>
-<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js" ></script>
+<script src="https://code.jquery.com/jquery-3.4.1.js" type="text/javascript"></script>
+<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js" type="text/javascript"></script>
 <script type="text/javascript">
 	$(document).ready(function(){
 		$("h1:eq(0)").text("시작");
 		
-		var p1 = new Person("홍길동", 25, "서울 신림동");
+		// 하단에 선언된 객체를 메모리에 올려서 사용하자.
+		
+		// var 참조변수 = new 객체명(데이터1, 데이터2, 데이터3)
+		// 1. 객체 생성하여 데이터를 할당..
+		var p1 = new Person("홍길동",25,"서울 신림동");
+		// 2. 객체 하위의 메서드 호출로 출력 처리..
+		// 		참조변수.메서드명()
 		p1.show();
-		
-		var p2 = new Person("마길동", 25, "서울 당산동");
+		var p2 = new Person("마길동",27,"서울 당산동");
 		p2.show();
-		
-		
-		var f01 = new Good("짜장면", 4000, "동네 반점");
-		var f02 = new Good("한정식", 10000, "수서역 한식점");
-		var f03 = new Good("닭갈비", 8000, "춘천 닭갈비집");
+		// ex) function 객체명() 형식으로  좋아하는 음식명,
+		//      가격, 판매하는곳 을 속성값으로 설정하여,
+		//     테이블의 tr td 값으로 설정하여 출력 하세요.
+		//     좋아하는 음식 3개 출력 처리..
+		var f01 = new Food("짜장면",4000,"동네 반점");
+		var f02 = new Food("한정식",10000,"수서역 한식점");
+		var f03 = new Food("닭갈비",8000,"춘천 닭갈비집");
 		f01.showTab();
 		f02.showTab();
 		f03.showTab();
-		
 	});
-	
-	// ex) function 객체명() 형식으로  좋아하는 음식명,
-	//      가격, 판매하는곳 을 속성값으로 설정하여,
-	//     테이블의 tr td 값으로 설정하여 출력 하세요.
-	//     좋아하는 음식 3개 출력 처리..
+/*
+# Vue에서 객체 활용 3가지 패턴..
+1. 선언한 객체 생성하기..
+2. json  객체 사용하기..
+3. DOM(화면에 랜더링할 tag를 객체화) 사용하기..
+ 
+ */	
 	function Person(name, age, loc){
+		// 객체의 생성자를 통해서 초기 데이터를 입력 받아, 속성값으로
+		// 할당 처리한다.
+		// 1. this.속성 : 객체의 기본 멤버를 선언..
+		// 2. this.속성=속성값 : 입력된 값 할당..
 		this.name = name;
 		this.age = age;
-		this.loc = loc;	
-		
+		this.loc = loc;
+		// 3. this.속성=function(){} :객체가 입출력을 하거나,
+		//     따로 특정한 처리를 할 때, 이러한 객체의 속성을 메서드라고
+		//     한다.
 		this.show = function(){
-			var show="<h2> 이름은 " + this.name + "</h2>";
-			show += "<h2> 나이는 " + this.age + "</h2>";
-			show += "<h2> 사는 곳  " + this.loc + " 입니다.</h2>";
-			
+			var show="<h2>이름은 "+this.name+" 이고,</h2>";
+			show+="<h2>나이는 "+this.age+"이면</h2>";
+			show+="<h2>사는 곳 "+this.loc+" 입니다.</h2><hr>";
+			// 표현할 곳. DOM 으로 정의된 곳에 할당.
+			// .append() :  추가 처리..
 			$("#show").append(show);
-			// $("#show").HTML(show);
-			// $("#show").innerHTML(show);
 		}
 	}
-</script>
+	function Food(name, price, selloc){
+		this.name = name;
+		this.price = price;
+		this.selloc = selloc;
+		this.showTab = function(){
+			var add="<tr>";
+			add+="<td>"+this.name+"</td>";
+			add+="<td>"+this.price+"</td>";
+			add+="<td>"+this.selloc+"</td></tr>";
+			$("#favFood").append(add);
+		}
+	}
+</script>	
 </head>
-
 <body>
 	<div id="container">
 		<h1></h1> 
-		<div id="show"></div>
+		<div id="show">
+		
+		</div>
+		<h2>좋아하는 음식</h2>
+		<table border id="favFood">
+			<tr><th>음식명</th><th>가격</th><th>구매위치</th></tr>
+		</table>
 	</div>
 </body>
 </html>

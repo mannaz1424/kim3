@@ -26,13 +26,24 @@
                 <td>{{contact.address}}</td>
             </tr>
         </tbody>
+        
+        
+        <tbody id="con" >
+            <tr v-for="contact in con">
+                <td>{{contact.no}}</td>
+                <td>{{contact.name}}</td>
+                <td>{{contact.tel}}</td>
+                <td>{{contact.address}}</td>
+            </tr>
+        </tbody>
     </table>
+   
     </div>
 </template>
 <script type="text/javascript">
 Vue.component('contactlist-component', {
     template : '#listTemplate',
-    props : [ 'contacts' ]    
+    props : [ 'contacts', 'con' ]    
 })
 </script>
 <body>
@@ -42,7 +53,7 @@ Vue.component('contactlist-component', {
         <h3>1차 대상자 : 5월 1~3일</h3>
         <contactlist-component :contacts="list1"></contactlist-component>
         <h3>2차 대상자 : 5월 13~15일</h3>
-        <contactlist-component :contacts="list2"></contactlist-component>
+        <contactlist-component :con="list2"></contactlist-component>
     </div>
 </body>
 <script type="text/javascript">

@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>06-08</title>
+  <script src="https://unpkg.com/vue/dist/vue.min.js"></script>
+</head>
+<script type="text/javascript">
+  Vue.component('option-component', {
+    template : '<option>hello</option>'
+  })
+</script>
+<!-- 하위 컴포넌트 선언.. -->
+<script type="text/x-template" id="selectTemplate">
+   <select>
+      <option-component></option-component>
+      <option-component></option-component>
+   </select>
+</script>
+<!-- 최상위 부모에서 사용하는 컴포넌트.. -->
+<script type="text/javascript">
+ 
+  Vue.component('select-component', {
+    template : '#selectTemplate'
+  })
+  
+  Vue.component('option-component', {
+    template : '<option>hello</option>'
+  })
+</script>
+<body>
+<div id="app">
+	<!-- 최상위 부모 -->
+    <select-component></select-component>
+</div>
+</body>
+<script type="text/javascript">
+// 
+Vue.config.devtools = true;
+var v = new Vue({
+  el : '#app'
+})
+</script>
+</html>

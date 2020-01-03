@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script src="https://code.jquery.com/jquery-3.4.1.js" type="text/javascript"></script>
+<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js" type="text/javascript"></script>
+<template id="trTmp">
+	<tr><td>{{name}}</td><td>{{price}}</td><td>{{cnt}}</td></tr>
+</template>
+<script type="text/javascript">
+	Vue.component("tr-comp",{
+		template:"#trTmp",
+		// template에서 넘겨줄 속성을 설정..
+		// props:{속성:{...}}
+		props:{
+			name:{type:String},
+			price:{type:Number},
+			cnt:{type:Number}
+		}
+	})
+	$(document).ready(function(){
+ 		var vm = new Vue({
+ 			el:"#container",
+ 			data:{msg:"컴포넌트 속성.", 
+ 				  prod:[{name:"사과",price:3000,cnt:5}]}
+ 		});
+	});
+// ex) 컴포넌트의 여러 속성 전달하기..
+//     구매물건명 : @@@, 가격 : @@, 갯수 : @@ 
+//     구매물건명 : @@@, 가격 : @@, 갯수 : @@
+//     물건명, 수량, 갯수를  속성값으로 전달..
+//          
+</script>		
+</head>
+<body>
+	<div id="container">
+		<h1>{{msg}}</h1> 
+		<table border>
+			<tr><th>물건명</th><th>가격</th><th>갯수</th></tr>
+			<!-- 
+			1. 구성요소의 포함된 컴포넌트를 만들 때는 태그 is="컴포넌트명"
+			2. 모델데이터 컴포넌트의 속성값으로 할당하여 전달하려면,
+				:속성="모델데이터"
+				컴포넌트 최상위에 있는 모델데이터를 전달..
+			3. template에서 넘겨줄 속성을 설정.. props:{속성:{...}}
+			4. template에서 넘겨온 속성을 이용해서 directive형식으로 출력 처리..
+				
+			 -->
+			<tr is="tr-comp" :name="prod[0].name" 
+							 :price="prod[0].price"
+							 :cnt="prod[0].cnt" ></tr>
+							 							 
+		</table>
+	</div>
+</body>
+</html>

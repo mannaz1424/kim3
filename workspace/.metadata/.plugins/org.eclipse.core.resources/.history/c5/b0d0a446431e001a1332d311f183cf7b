@@ -1,4 +1,0 @@
-.test {
-    background-color: 'yellow';
-    border: 'double 4px gray'
-}
